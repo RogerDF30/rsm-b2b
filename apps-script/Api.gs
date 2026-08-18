@@ -9,17 +9,22 @@
  * send application/json; every write will start failing.
  */
 
-var ROUTES = {
-  login: fnLogin,
-  resetRequest: fnResetRequest,
-  resetConfirm: fnResetConfirm,
-  submitOrder: fnSubmitOrder,
-  getOrder: fnGetOrder,
-  closeOrder: fnCloseOrder,
-  adminList: fnAdminList,
-  adminOrder: fnAdminOrder,
-  adminResend: fnAdminResend
-};
+/* Built lazily, not as a top-level var. Apps Script evaluates files in
+   alphabetical order, so Api.gs runs before Auth.gs and Orders.gs have
+   declared their handlers: a top-level map would capture undefined. */
+function routes() {
+  return {
+    login: fnLogin,
+    resetRequest: fnResetRequest,
+    resetConfirm: fnResetConfirm,
+    submitOrder: fnSubmitOrder,
+    getOrder: fnGetOrder,
+    closeOrder: fnCloseOrder,
+    adminList: fnAdminList,
+    adminOrder: fnAdminOrder,
+    adminResend: fnAdminResend
+  };
+}
 
 function json(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj))
@@ -38,7 +43,7 @@ function doPost(e) {
     if (!safeEqual(req.token || '', prop('API_TOKEN'))) {
       return json({ ok: false, error: 'Unauthorised.' });
     }
-    var handler = ROUTES[req.fn];
+    var handler = routes()[req.fn];
     if (!handler) return json({ ok: false, error: 'Unknown function: ' + req.fn });
     return json(handler(req));
   } catch (err) {

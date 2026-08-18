@@ -5,8 +5,8 @@
 const CONFIG = {
   // Paste the /exec URL after deploying apps-script/. Everything except
   // browsing is inert until this is set.
-  API_URL: '',   // e.g. https://script.google.com/macros/s/AKfy.../exec
-  API_TOKEN: 'rsm-demo-token',
+  API_URL: 'https://script.google.com/macros/s/AKfycbyy4GQmuJGFcqVMbeznFUjrbwIVj6vZdkJ13KrHVvXg1RUD0V7r2Y845ep_F1ASZrtP/exec',
+  API_TOKEN: 'rsm_XkCA0HS327rSxemHHRHIymHolJcf',
   CURRENCY: '₹',
 };
 
