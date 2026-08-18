@@ -1,0 +1,18 @@
+slug,parent_slug,label,sort_order,active
+Headwear,Apparel,Headwear,0,TRUE
+Hoodies,Apparel,Hoodies,0,TRUE
+Jackets,Apparel,Jackets,0,TRUE
+Shirts,Apparel,Shirts,0,TRUE
+T-Shirts,Apparel,T-Shirts,0,TRUE
+Bottles,Drinkware,Bottles,1,TRUE
+Frappe Mug,Drinkware,Frappe Mug,1,TRUE
+Mugs & tumblers,Drinkware,Mugs & tumblers,1,TRUE
+Bag pack,Travel,Bag pack,2,TRUE
+Duffle bag,Travel,Duffle bag,2,TRUE
+Laptop handbag,Travel,Laptop handbag,2,TRUE
+Tote bags,Travel,Tote bags,2,TRUE
+Trolley bags,Travel,Trolley bags,2,TRUE
+Accessories,Utilities,Accessories,3,TRUE
+Coasters,Utilities,Coasters,3,TRUE
+Notebook,Utilities,Notebook,3,TRUE
+Pens,Utilities,Pens,3,TRUE

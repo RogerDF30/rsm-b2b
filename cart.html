@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Cart | RSM Business Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="page-head"><h1>Your cart</h1></div>
+  <div id="body"></div>
+</main>
+
+<script src="assets/js/app.js"></script>
+<script>
+(async function () {
+  await Catalog.load();
+  mount();
+  paint();
+})();
+
+function paint() {
+  const host = document.getElementById('body');
+  host.textContent = '';
+
+  const items = Cart.read();
+  if (!items.length) {
+    host.append(el('div', { class: 'empty' },
+      el('h2', {}, 'Your cart is empty'),
+      el('p', {}, 'Browse the catalogue to add products.'),
+      el('a', { class: 'btn', href: 'index.html' }, 'Browse catalogue')));
+    return;
+  }
+
+  const r = priceCart(items, s => Catalog.bySku(s));
+
+  // One block per parent SKU, so the rollup rule is visible rather than implied.
+  const blocks = Object.entries(r.groups).map(([sku, g]) => {
+    const lines = r.lines.filter(l => l.sku === sku);
+    return el('div', { class: 'panel' },
+      el('div', { class: 'row-between', style: 'align-items:flex-start' },
+        el('div', { class: 'row', style: 'align-items:flex-start' },
+          el('img', { class: 'thumb', src: g.product.image, alt: '' }),
+          el('div', {},
+            el('div', { class: 'card-sku' }, sku),
+            el('a', { href: 'product.html?sku=' + encodeURIComponent(sku) },
+              el('strong', {}, g.product.name)),
+            el('div', { class: 'small muted' },
+              `${qty(g.groupQty)} units total · ${g.tier ? tierLabel(g.tier) + ' band' : 'below minimum'} · MOQ ${qty(g.product.moq)}`))),
+        el('div', { class: 'right' },
+          el('div', { class: 'mono', style: 'font-weight:800;font-size:1.1rem' }, money(g.unit)),
+          el('div', { class: 'small muted' }, 'per unit · GST ' + g.product.gst_rate + '%'))),
+
+      el('table', { class: 'tbl', style: 'margin-top:14px' },
+        el('thead', {}, el('tr', {},
+          el('th', {}, g.product.has_sizes ? 'Size' : 'Item'),
+          el('th', { class: 'num' }, 'Qty'),
+          el('th', { class: 'num' }, 'Unit'),
+          el('th', { class: 'num' }, 'Line total'),
+          el('th', {}, ''))),
+        el('tbody', {}, lines.map(l => el('tr', {},
+          el('td', {}, el('strong', {}, l.size || 'Standard')),
+          el('td', { class: 'num' },
+            el('input', {
+              type: 'number', min: '0', class: 'qty-in', value: l.qty,
+              onchange: e => { Cart.setQty(l.key, Math.floor(Number(e.target.value) || 0)); paint(); },
+            })),
+          el('td', { class: 'num mono' }, money(l.unit)),
+          el('td', { class: 'num mono' }, money(l.lineTotal)),
+          el('td', { class: 'right' },
+            el('button', {
+              class: 'btn btn-ghost btn-sm',
+              onclick: () => { Cart.remove(l.key); paint(); },
+            }, 'Remove')))))),
+
+      !g.meetsMoq
+        ? el('div', { class: 'note', style: 'margin-top:12px' },
+            el('strong', {}, `Add ${qty(g.shortBy)} more.`),
+            ` The minimum order quantity for this product is ${qty(g.product.moq)}` +
+            (g.product.has_sizes ? ', counted across all sizes.' : '.'))
+        : g.next
+          ? el('div', { class: 'note note-quiet', style: 'margin-top:12px' },
+              `Add ${qty(g.needForNext)} more to drop the unit price to ${money(g.next.unit_price)}.`)
+          : null);
+  });
+
+  host.append(
+    el('div', { class: 'stack' }, blocks),
+    el('div', { class: 'panel', style: 'margin-top:18px;max-width:420px;margin-left:auto' },
+      el('table', { class: 'totals' }, el('tbody', {},
+        el('tr', {}, el('td', {}, 'Subtotal'), el('td', {}, money(r.subtotal))),
+        el('tr', {}, el('td', {}, 'GST'), el('td', {}, money(r.taxTotal))),
+        el('tr', { class: 'grand' }, el('td', {}, 'Total'), el('td', {}, money(r.grandTotal))))),
+      el('div', { class: 'small muted', style: 'margin:10px 0 14px' },
+        'Shipping is quoted separately by CompanyStore.IO after approval.'),
+      r.valid
+        ? el('a', { class: 'btn btn-block', href: 'checkout.html' }, 'Proceed to checkout')
+        : el('button', { class: 'btn btn-block', disabled: 'disabled' }, 'Minimum quantities not met'),
+      el('a', { class: 'btn btn-ghost btn-block', href: 'index.html', style: 'margin-top:8px' }, 'Continue shopping')));
+}
+</script>
+</body>
+</html>

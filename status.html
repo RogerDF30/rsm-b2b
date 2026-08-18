@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Order status | RSM Business Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="mid">
+    <div class="page-head"><h1>Order status</h1></div>
+
+    <div class="panel" id="lookup">
+      <form id="findForm" class="form-grid">
+        <label class="field"><span>Order ID <b class="req">*</b></span>
+          <input type="text" id="oid" required placeholder="RSMB013682"></label>
+        <label class="field"><span>Your work email <b class="req">*</b></span>
+          <input type="email" id="oem" required placeholder="name@rsmus.com"></label>
+        <div class="full"><button class="btn" type="submit">Find order</button></div>
+      </form>
+    </div>
+
+    <div id="out"></div>
+  </div>
+</main>
+
+<script src="assets/js/app.js"></script>
+<script>
+(async function () {
+  await Catalog.load();
+  mount();
+
+  const u = Auth.user();
+  if (u) document.getElementById('oem').value = u.email;
+
+  const id = param('id');
+  if (id) {
+    document.getElementById('oid').value = id;
+    if (param('new')) {
+      document.getElementById('out').append(el('div', { class: 'note', style: 'margin-top:18px' },
+        el('strong', {}, 'Order ' + id + ' submitted. '),
+        'The approvers have been emailed. You will hear back by email once a decision is made.'));
+    }
+    if (u) load(id, u.email);
+  }
+
+  document.getElementById('findForm').onsubmit = e => {
+    e.preventDefault();
+    load(document.getElementById('oid').value.trim(), document.getElementById('oem').value.trim().toLowerCase());
+  };
+})();
+
+async function load(id, email) {
+  const out = document.getElementById('out');
+  out.textContent = '';
+  out.append(el('p', { class: 'muted' }, 'Loading…'));
+  try {
+    const r = await api('getOrder', { order_id: id, email });
+    render(r.order, r.lines, r.files);
+  } catch (err) {
+    out.textContent = '';
+    out.append(el('div', { class: 'note' }, err.message));
+  }
+}
+
+function render(o, lines, files) {
+  const out = document.getElementById('out');
+  out.textContent = '';
+
+  const steps = ['Pending Approval', 'Approved', 'Closed'];
+  const rejected = o.status === 'Rejected';
+  const at = steps.indexOf(o.status);
+
+  out.append(
+    el('div', { class: 'panel', style: 'margin-top:18px' },
+      el('div', { class: 'row-between' },
+        el('div', {},
+          el('h2', { style: 'border:0;margin:0;padding:0' }, o.order_id),
+          el('div', { class: 'small muted' }, 'Raised ' + o.created_at + ' by ' + o.requester_name)),
+        el('span', { class: 'status ' + o.status.split(' ')[0].toLowerCase() }, o.status)),
+
+      rejected
+        ? el('div', { class: 'note', style: 'margin-top:16px' },
+            el('strong', {}, 'Rejected. '),
+            (o.rejection_reason || 'No reason recorded.'),
+            el('div', { style: 'margin-top:10px' },
+              el('a', { class: 'btn btn-sm', href: 'index.html' }, 'Start a new order')))
+        : el('div', { class: 'row', style: 'margin-top:16px;gap:0' },
+            steps.map((s, i) => el('div', { style: 'flex:1;text-align:center' },
+              el('div', {
+                style: 'height:4px;background:' + (i <= at ? '#E01E23' : '#E6E6E6'),
+              }),
+              el('div', { class: 'small', style: 'margin-top:6px;font-weight:' + (i <= at ? '800' : '400') }, s)))),
+
+      o.status === 'Closed' && o.tracking_no
+        ? el('div', { class: 'note note-quiet', style: 'margin-top:16px' },
+            el('strong', {}, 'Dispatched. '),
+            `${o.courier || 'Courier'} · ${o.tracking_no}`,
+            o.tracking_url ? el('a', { href: o.tracking_url, target: '_blank', style: 'margin-left:8px' }, 'Track') : null)
+        : null),
+
+    el('div', { class: 'panel' },
+      el('h2', {}, 'Items'),
+      el('table', { class: 'tbl' },
+        el('thead', {}, el('tr', {},
+          el('th', {}, 'Product'), el('th', {}, 'Size'),
+          el('th', { class: 'num' }, 'Qty'), el('th', { class: 'num' }, 'Unit'),
+          el('th', { class: 'num' }, 'Total'))),
+        el('tbody', {}, lines.map(l => el('tr', {},
+          el('td', {}, l.product_name), el('td', {}, l.size || '—'),
+          el('td', { class: 'num' }, qty(l.qty)),
+          el('td', { class: 'num mono' }, money(l.unit_price)),
+          el('td', { class: 'num mono' }, money(l.line_total_with_tax)))))),
+      el('table', { class: 'totals', style: 'margin-top:12px;max-width:320px;margin-left:auto' },
+        el('tbody', {},
+          el('tr', {}, el('td', {}, 'Subtotal'), el('td', {}, money(o.subtotal))),
+          el('tr', {}, el('td', {}, 'GST'), el('td', {}, money(o.tax_total))),
+          el('tr', { class: 'grand' }, el('td', {}, 'Total'), el('td', {}, money(o.grand_total)))))),
+
+    el('div', { class: 'panel' },
+      el('h2', {}, 'Details'),
+      el('table', { class: 'spec-table' }, el('tbody', {},
+        [['Department', o.lob], ['Event date', o.event_date], ['Purpose', o.purpose],
+         ['Ship to', `${o.ship_name}, ${o.ship_street}, ${o.ship_city} ${o.ship_pincode}`],
+         ['Decided by', o.decided_by || '—'], ['Decided at', o.decided_at || '—']]
+          .map(([k, v]) => el('tr', {}, el('td', {}, k), el('td', {}, String(v || '—'))))))),
+
+    files && files.length
+      ? el('div', { class: 'panel' },
+          el('h2', {}, 'Evidence'),
+          files.map(f => el('div', { class: 'file-row' },
+            el('a', { class: 'grow', href: f.drive_url, target: '_blank' }, f.filename),
+            el('span', { class: 'muted small' }, (f.bytes / 1024).toFixed(0) + ' KB'))))
+      : null);
+}
+</script>
+</body>
+</html>

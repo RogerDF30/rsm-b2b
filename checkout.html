@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Checkout | RSM Business Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="page-head"><h1>Checkout</h1>
+    <div class="muted small">Your order goes to the RSM approvers. Nothing is produced until it is approved.</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:start" id="layout">
+    <form id="form">
+      <div class="panel">
+        <h2>Requester</h2>
+        <div class="form-grid">
+          <label class="field"><span>Full name <b class="req">*</b></span>
+            <input type="text" name="requester_name" required></label>
+          <label class="field"><span>Work email</span>
+            <input type="email" name="requester_email" readonly></label>
+          <label class="field"><span>Department / LOB <b class="req">*</b></span>
+            <input type="text" name="lob" required></label>
+          <label class="field"><span>Contact number <b class="req">*</b></span>
+            <input type="tel" name="requester_phone" required></label>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Order context</h2>
+        <div class="form-grid">
+          <label class="field"><span>Event / required-by date <b class="req">*</b></span>
+            <input type="date" name="event_date" required></label>
+          <label class="field"><span>Cost centre or reference</span>
+            <input type="text" name="cost_centre" placeholder="Optional"></label>
+          <label class="field full"><span>Purpose <b class="req">*</b></span>
+            <textarea name="purpose" required placeholder="Why this order is being raised. This is shown to the approver."></textarea></label>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Evidence</h2>
+        <p class="small muted" style="margin-top:-6px">
+          Upload a screenshot or PDF of the internal approval email from your LOB partner,
+          plus any budget or PO sanction. At least one file is required.
+        </p>
+        <div class="drop" id="drop">
+          <strong>Click to choose files</strong>
+          <div class="small muted">or drag them here. PNG, JPG or PDF, up to 8 MB each.</div>
+          <input type="file" id="files" multiple accept=".png,.jpg,.jpeg,.pdf" class="hidden">
+        </div>
+        <div id="fileList" style="margin-top:12px"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Shipping address</h2>
+        <div class="form-grid">
+          <label class="field"><span>Recipient name <b class="req">*</b></span>
+            <input type="text" name="ship_name" required></label>
+          <label class="field"><span>Phone <b class="req">*</b></span>
+            <input type="tel" name="ship_phone" required></label>
+          <label class="field full"><span>Street address <b class="req">*</b></span>
+            <textarea name="ship_street" required style="min-height:64px"></textarea></label>
+          <label class="field"><span>City <b class="req">*</b></span>
+            <input type="text" name="ship_city" required></label>
+          <label class="field"><span>State <b class="req">*</b></span>
+            <input type="text" name="ship_state" required></label>
+          <label class="field"><span>PIN code <b class="req">*</b></span>
+            <input type="text" name="ship_pincode" required pattern="[0-9]{6}" title="6 digits"></label>
+          <label class="field"><span>Country</span>
+            <input type="text" name="ship_country" value="India" readonly></label>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Billing address</h2>
+        <label class="row small" style="margin-bottom:14px;cursor:pointer">
+          <input type="checkbox" id="sameAs" checked style="width:auto"> Same as shipping address
+        </label>
+        <div class="form-grid hidden" id="billFields">
+          <label class="field"><span>Billing name</span><input type="text" name="bill_name"></label>
+          <label class="field"><span>Phone</span><input type="tel" name="bill_phone"></label>
+          <label class="field full"><span>Street address</span>
+            <textarea name="bill_street" style="min-height:64px"></textarea></label>
+          <label class="field"><span>City</span><input type="text" name="bill_city"></label>
+          <label class="field"><span>State</span><input type="text" name="bill_state"></label>
+          <label class="field"><span>PIN code</span><input type="text" name="bill_pincode"></label>
+          <label class="field"><span>Country</span><input type="text" name="bill_country" value="India"></label>
+        </div>
+      </div>
+    </form>
+
+    <div id="summary"></div>
+  </div>
+</main>
+
+<script src="assets/js/app.js"></script>
+<script>
+let R = null;
+const uploads = [];
+
+(async function () {
+  await Catalog.load();
+  mount();
+  if (!Auth.require('checkout.html')) return;
+
+  const items = Cart.read();
+  R = priceCart(items, s => Catalog.bySku(s));
+  if (!R.valid) { location.href = 'cart.html'; return; }
+
+  const u = Auth.user();
+  const f = document.getElementById('form');
+  f.requester_email.value = u.email;
+  f.requester_name.value = u.full_name || '';
+  f.lob.value = u.lob || '';
+  f.requester_phone.value = u.default_ship_phone || '';
+  f.ship_name.value = u.default_ship_name || u.full_name || '';
+  f.ship_phone.value = u.default_ship_phone || '';
+  f.ship_street.value = u.default_ship_street || '';
+  f.ship_city.value = u.default_ship_city || '';
+  f.ship_pincode.value = u.default_ship_pincode || '';
+
+  document.getElementById('sameAs').onchange = e =>
+    document.getElementById('billFields').classList.toggle('hidden', e.target.checked);
+
+  wireUploads();
+  paintSummary();
+})();
+
+/* ------------------------------------------------------------------ uploads */
+
+function wireUploads() {
+  const drop = document.getElementById('drop');
+  const input = document.getElementById('files');
+  drop.onclick = () => input.click();
+  drop.ondragover = e => { e.preventDefault(); drop.classList.add('over'); };
+  drop.ondragleave = () => drop.classList.remove('over');
+  drop.ondrop = e => {
+    e.preventDefault(); drop.classList.remove('over');
+    take(e.dataTransfer.files);
+  };
+  input.onchange = () => take(input.files);
+}
+
+function take(fileList) {
+  for (const file of fileList) {
+    if (file.size > 8 * 1024 * 1024) { toast(`${file.name} is over 8 MB`, 'error'); continue; }
+    const reader = new FileReader();
+    reader.onload = () => {
+      uploads.push({
+        name: file.name, mime: file.type || 'application/octet-stream',
+        bytes: file.size, data: reader.result.split(',')[1],
+      });
+      paintFiles();
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+function paintFiles() {
+  const host = document.getElementById('fileList');
+  host.textContent = '';
+  uploads.forEach((f, i) => host.append(
+    el('div', { class: 'file-row' },
+      el('span', { class: 'grow' }, f.name),
+      el('span', { class: 'muted small' }, (f.bytes / 1024).toFixed(0) + ' KB'),
+      el('button', {
+        type: 'button', class: 'btn btn-ghost btn-sm',
+        onclick: () => { uploads.splice(i, 1); paintFiles(); paintSummary(); },
+      }, 'Remove'))));
+  paintSummary();
+}
+
+/* ------------------------------------------------------------------ summary */
+
+function paintSummary() {
+  const host = document.getElementById('summary');
+  host.textContent = '';
+  host.append(el('div', { class: 'panel' },
+    el('h2', {}, 'Order summary'),
+    el('table', { class: 'tbl' }, el('tbody', {}, R.lines.map(l =>
+      el('tr', {},
+        el('td', {},
+          el('div', { style: 'font-weight:700;font-size:.85rem' }, l.product.name),
+          el('div', { class: 'small muted' },
+            (l.size ? l.size + ' · ' : '') + qty(l.qty) + ' × ' + money(l.unit))),
+        el('td', { class: 'num mono small' }, money(l.lineTotal)))))),
+    el('table', { class: 'totals', style: 'margin-top:14px' }, el('tbody', {},
+      el('tr', {}, el('td', {}, 'Subtotal'), el('td', {}, money(R.subtotal))),
+      el('tr', {}, el('td', {}, 'GST'), el('td', {}, money(R.taxTotal))),
+      el('tr', { class: 'grand' }, el('td', {}, 'Total'), el('td', {}, money(R.grandTotal))))),
+    el('div', { class: 'small muted', style: 'margin:12px 0' },
+      'Shipping is quoted separately after approval.'),
+    el('button', {
+      class: 'btn btn-block', id: 'submitBtn', type: 'button', onclick: submit,
+    }, 'Submit for approval'),
+    el('div', { class: 'small muted center', style: 'margin-top:10px' },
+      uploads.length
+        ? `${uploads.length} evidence file${uploads.length === 1 ? '' : 's'} attached`
+        : 'Attach evidence before submitting')));
+}
+
+/* ------------------------------------------------------------------- submit */
+
+async function submit() {
+  const f = document.getElementById('form');
+  if (!f.reportValidity()) return;
+  if (!uploads.length) { toast('Attach at least one evidence file.', 'error'); return; }
+
+  const data = Object.fromEntries(new FormData(f).entries());
+  if (document.getElementById('sameAs').checked) {
+    data.bill_name = data.ship_name; data.bill_phone = data.ship_phone;
+    data.bill_street = data.ship_street; data.bill_city = data.ship_city;
+    data.bill_state = data.ship_state; data.bill_pincode = data.ship_pincode;
+    data.bill_country = data.ship_country;
+  }
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = 'Submitting…';
+
+  try {
+    const r = await api('submitOrder', {
+      order: data,
+      files: uploads,
+      /* Prices are recomputed server-side from the Sheet. These are sent so the
+         script can reject a mismatch rather than trust the browser. */
+      lines: R.lines.map(l => ({
+        parent_sku: l.sku, variant_sku: l.key, size: l.size, qty: l.qty,
+        unit_price: l.unit, group_qty: l.groupQty, tier: l.tierLabel,
+      })),
+      client_total: R.grandTotal,
+    });
+    Cart.clear();
+    location.href = 'status.html?id=' + encodeURIComponent(r.order_id) + '&new=1';
+  } catch (err) {
+    toast(err.message, 'error');
+    btn.disabled = false; btn.textContent = 'Submit for approval';
+  }
+}
+</script>
+</body>
+</html>

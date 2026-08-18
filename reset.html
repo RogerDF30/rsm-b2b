@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Set a new password | RSM Business Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="narrow">
+    <div class="panel">
+      <h2>Set a new password</h2>
+      <div id="body"></div>
+    </div>
+  </div>
+</main>
+
+<script src="assets/js/app.js"></script>
+<script>
+mount();
+
+const token = param('token');
+const host = document.getElementById('body');
+
+if (!token) {
+  host.append(el('div', { class: 'note' },
+    'This link is incomplete. Request a new reset from the sign-in page.'),
+    el('a', { class: 'btn btn-block', href: 'login.html', style: 'margin-top:14px' }, 'Back to sign in'));
+} else {
+  host.append(form());
+}
+
+function form() {
+  return el('form', { onsubmit: submit },
+    el('label', { class: 'field' },
+      el('span', {}, 'New password'),
+      el('input', { type: 'password', id: 'p1', required: 'required', minlength: '10',
+                    autocomplete: 'new-password' })),
+    el('label', { class: 'field' },
+      el('span', {}, 'Confirm new password'),
+      el('input', { type: 'password', id: 'p2', required: 'required', minlength: '10',
+                    autocomplete: 'new-password' })),
+    el('div', { class: 'small muted', style: 'margin-bottom:14px' },
+      'At least 10 characters. Use something you do not use elsewhere.'),
+    el('button', { class: 'btn btn-block', id: 'go', type: 'submit' }, 'Save password'));
+}
+
+async function submit(e) {
+  e.preventDefault();
+  const p1 = document.getElementById('p1').value;
+  const p2 = document.getElementById('p2').value;
+  if (p1 !== p2) { toast('The two passwords do not match.', 'error'); return; }
+
+  const btn = document.getElementById('go');
+  btn.disabled = true; btn.textContent = 'Saving…';
+  try {
+    await api('resetConfirm', { token, password: p1 });
+    host.textContent = '';
+    host.append(
+      el('div', { class: 'note note-quiet' }, 'Password updated. You can sign in now.'),
+      el('a', { class: 'btn btn-block', href: 'login.html', style: 'margin-top:14px' }, 'Sign in'));
+  } catch (err) {
+    toast(err.message, 'error');
+    btn.disabled = false; btn.textContent = 'Save password';
+  }
+}
+</script>
+</body>
+</html>

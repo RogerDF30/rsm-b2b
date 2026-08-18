@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>RSM Business Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="bar"></div>
+      <h1>RSM branded merchandise</h1>
+      <p>Browse the approved catalogue. Sign in at checkout to raise an order for approval.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="cat-grid" id="cats"></div>
+
+    <div class="row-between" style="margin:36px 0 16px">
+      <h2>Featured</h2>
+      <a class="link-quiet" href="category.html?cat=Apparel">Browse all</a>
+    </div>
+    <div class="grid" id="featured"></div>
+  </div>
+</main>
+
+<script src="assets/js/app.js"></script>
+<script>
+(async function () {
+  await Catalog.load();
+  mount();
+
+  const counts = {};
+  for (const p of Catalog.products) counts[p.category] = (counts[p.category] || 0) + 1;
+
+  document.getElementById('cats').append(...Catalog.categories.map(c =>
+    el('a', { class: 'cat-card', href: 'category.html?cat=' + encodeURIComponent(c.slug) },
+      el('h3', {}, c.label),
+      el('div', { class: 'small' }, `${counts[c.slug] || 0} products`),
+      el('div', { class: 'small muted', style: 'margin-top:8px' }, c.subcategories.join(' · ')))));
+
+  // One representative product per subcategory, cheapest first, capped at 8.
+  const seen = new Set(), picks = [];
+  for (const p of [...Catalog.products].sort((a, b) => b.base_price - a.base_price)) {
+    if (seen.has(p.subcategory)) continue;
+    seen.add(p.subcategory);
+    picks.push(p);
+    if (picks.length === 8) break;
+  }
+  document.getElementById('featured').append(...picks.map(productCard));
+})();
+</script>
+</body>
+</html>

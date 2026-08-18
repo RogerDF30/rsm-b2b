@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Sign in | RSM Business Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="narrow">
+    <div class="panel">
+      <h2>Sign in</h2>
+
+      <div id="signin">
+        <div class="note note-quiet" style="margin-bottom:16px">
+          Credentials are issued by the CompanyStore.IO team. Contact
+          <a href="mailto:rsm@companystore.io">rsm@companystore.io</a> if you need access.
+        </div>
+        <form id="loginForm">
+          <label class="field">
+            <span>Work email <b class="req">*</b></span>
+            <input type="email" id="email" required autocomplete="username" placeholder="name@rsmus.com">
+          </label>
+          <label class="field">
+            <span>Password <b class="req">*</b></span>
+            <input type="password" id="pass" required autocomplete="current-password">
+          </label>
+          <button class="btn btn-block" id="go" type="submit">Sign in</button>
+        </form>
+        <p class="small center" style="margin-top:14px">
+          <a href="#" class="link-quiet" id="toReset">Forgot your password?</a>
+        </p>
+      </div>
+
+      <div id="resetBox" class="hidden">
+        <p class="small muted">Enter your work email. If an account exists we will send a reset link valid for 60 minutes.</p>
+        <form id="resetForm">
+          <label class="field">
+            <span>Work email <b class="req">*</b></span>
+            <input type="email" id="remail" required placeholder="name@rsmus.com">
+          </label>
+          <button class="btn btn-block" type="submit">Send reset link</button>
+        </form>
+        <p class="small center" style="margin-top:14px">
+          <a href="#" class="link-quiet" id="toSignin">Back to sign in</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="assets/js/app.js"></script>
+<script>
+mount();
+
+const next = param('next') || 'checkout.html';
+if (Auth.user()) location.href = next;
+
+const show = id => {
+  document.getElementById('signin').classList.toggle('hidden', id !== 'signin');
+  document.getElementById('resetBox').classList.toggle('hidden', id === 'signin');
+};
+document.getElementById('toReset').onclick = e => { e.preventDefault(); show('reset'); };
+document.getElementById('toSignin').onclick = e => { e.preventDefault(); show('signin'); };
+
+document.getElementById('loginForm').onsubmit = async e => {
+  e.preventDefault();
+  const btn = document.getElementById('go');
+  btn.disabled = true; btn.textContent = 'Signing in…';
+  try {
+    const r = await api('login', {
+      email: document.getElementById('email').value.trim().toLowerCase(),
+      password: document.getElementById('pass').value,
+    });
+    Auth.set(r.session, r.user);
+    location.href = next;
+  } catch (err) {
+    toast(err.message, 'error');
+    btn.disabled = false; btn.textContent = 'Sign in';
+  }
+};
+
+document.getElementById('resetForm').onsubmit = async e => {
+  e.preventDefault();
+  try {
+    await api('resetRequest', { email: document.getElementById('remail').value.trim().toLowerCase() });
+  } catch (err) {
+    // The endpoint answers identically for known and unknown addresses so it
+    // cannot be used to enumerate RSM staff. Surface the same message either way.
+  }
+  toast('If that account exists, a reset link is on its way.');
+  show('signin');
+};
+</script>
+</body>
+</html>

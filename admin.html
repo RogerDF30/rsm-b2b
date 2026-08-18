@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin | RSM Business Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/app.css">
+<style>
+  .drawer { position: fixed; inset: 0; background: rgba(18,18,18,.45); z-index: 60; display: flex; justify-content: flex-end; }
+  .drawer-inner { background: #fff; width: min(640px, 100%); height: 100%; overflow-y: auto; padding: 26px; }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="page-head">
+    <div class="row-between">
+      <div><h1>Orders</h1><div class="muted small">CompanyStore.IO console</div></div>
+      <div class="row">
+        <button class="btn btn-ghost btn-sm" onclick="exportCsv()">Export CSV</button>
+        <button class="btn btn-sm" onclick="refresh()">Refresh</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel hidden" id="gate">
+    <h2>Admin access</h2>
+    <form id="gateForm" style="max-width:360px">
+      <label class="field"><span>Admin password</span>
+        <input type="password" id="apass" required></label>
+      <button class="btn" type="submit">Unlock</button>
+    </form>
+  </div>
+
+  <div id="app" class="hidden">
+    <div class="filters" id="filters"></div>
+    <div class="panel" style="padding:0;overflow-x:auto">
+      <table class="tbl">
+        <thead><tr>
+          <th>Order</th><th>Requester</th><th>LOB</th><th>Event</th>
+          <th class="num">Items</th><th class="num">Total</th><th>Status</th><th></th>
+        </tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div class="empty hidden" id="empty"><h2>No orders</h2></div>
+  </div>
+</main>
+
+<script src="assets/js/app.js"></script>
+<script>
+let ORDERS = [], FILTER = 'All', PASS = '';
+
+(async function () {
+  await Catalog.load();
+  mount();
+  PASS = sessionStorage.getItem('rsm_admin') || '';
+  PASS ? refresh() : gate();
+})();
+
+function gate() {
+  document.getElementById('gate').classList.remove('hidden');
+  document.getElementById('app').classList.add('hidden');
+  document.getElementById('gateForm').onsubmit = e => {
+    e.preventDefault();
+    PASS = document.getElementById('apass').value;
+    sessionStorage.setItem('rsm_admin', PASS);
+    refresh();
+  };
+}
+
+async function refresh() {
+  try {
+    const r = await api('adminList', { admin_pass: PASS });
+    ORDERS = r.orders;
+    document.getElementById('gate').classList.add('hidden');
+    document.getElementById('app').classList.remove('hidden');
+    paint();
+  } catch (err) {
+    sessionStorage.removeItem('rsm_admin');
+    PASS = '';
+    toast(err.message, 'error');
+    gate();
+  }
+}
+
+function paint() {
+  const counts = { All: ORDERS.length };
+  for (const o of ORDERS) counts[o.status] = (counts[o.status] || 0) + 1;
+
+  const f = document.getElementById('filters');
+  f.textContent = '';
+  for (const k of ['All', 'Pending Approval', 'Approved', 'Rejected', 'Closed']) {
+    f.append(el('button', {
+      class: 'chip' + (FILTER === k ? ' on' : ''),
+      onclick: () => { FILTER = k; paint(); },
+    }, `${k} (${counts[k] || 0})`));
+  }
+
+  const list = FILTER === 'All' ? ORDERS : ORDERS.filter(o => o.status === FILTER);
+  const tb = document.getElementById('rows');
+  tb.textContent = '';
+  document.getElementById('empty').classList.toggle('hidden', list.length > 0);
+
+  tb.append(...list.map(o => el('tr', {},
+    el('td', {}, el('strong', {}, o.order_id),
+      el('div', { class: 'small muted' }, o.created_at)),
+    el('td', {}, o.requester_name, el('div', { class: 'small muted' }, o.requester_email)),
+    el('td', {}, o.lob),
+    el('td', {}, o.event_date),
+    el('td', { class: 'num' }, o.line_count),
+    el('td', { class: 'num mono' }, money(o.grand_total)),
+    el('td', {}, el('span', { class: 'status ' + o.status.split(' ')[0].toLowerCase() }, o.status)),
+    el('td', { class: 'right' },
+      el('button', { class: 'btn btn-ghost btn-sm', onclick: () => open_(o.order_id) }, 'Open')))));
+}
+
+async function open_(id) {
+  const r = await api('adminOrder', { admin_pass: PASS, order_id: id });
+  const o = r.order;
+
+  const body = el('div', { class: 'drawer-inner' },
+    el('div', { class: 'row-between' },
+      el('h2', { style: 'border:0;padding:0;margin:0' }, o.order_id),
+      el('button', { class: 'btn btn-ghost btn-sm', onclick: close_ }, 'Close')),
+    el('div', { style: 'margin:12px 0' },
+      el('span', { class: 'status ' + o.status.split(' ')[0].toLowerCase() }, o.status)),
+
+    el('table', { class: 'spec-table' }, el('tbody', {},
+      [['Requester', `${o.requester_name} (${o.requester_email})`],
+       ['LOB', o.lob], ['Event date', o.event_date], ['Purpose', o.purpose],
+       ['Ship to', `${o.ship_name}, ${o.ship_street}, ${o.ship_city} ${o.ship_pincode}`],
+       ['Decided by', o.decided_by || '—'], ['Decided at', o.decided_at || '—'],
+       ['Rejection reason', o.rejection_reason || '—']]
+        .map(([k, v]) => el('tr', {}, el('td', {}, k), el('td', {}, String(v || '—')))))),
+
+    el('h3', { style: 'margin-top:20px' }, 'Items'),
+    el('table', { class: 'tbl' }, el('tbody', {}, r.lines.map(l => el('tr', {},
+      el('td', {}, l.product_name, el('div', { class: 'small muted' }, l.variant_sku)),
+      el('td', {}, l.size || '—'),
+      el('td', { class: 'num' }, qty(l.qty)),
+      el('td', { class: 'num mono' }, money(l.line_total_with_tax)))))),
+
+    r.files.length ? el('div', {},
+      el('h3', { style: 'margin-top:20px' }, 'Evidence'),
+      r.files.map(f => el('div', { class: 'file-row' },
+        el('a', { class: 'grow', href: f.drive_url, target: '_blank' }, f.filename)))) : null,
+
+    el('h3', { style: 'margin-top:20px' }, 'Actions'),
+    el('div', { class: 'row', style: 'flex-wrap:wrap' },
+      o.status === 'Pending Approval'
+        ? el('button', { class: 'btn btn-ghost btn-sm', onclick: () => act('resend', o.order_id) }, 'Resend approval email')
+        : null,
+      o.status === 'Approved'
+        ? el('button', { class: 'btn btn-sm', onclick: () => closeOrder(o.order_id) }, 'Close with tracking')
+        : null),
+
+    o.status === 'Approved' ? el('div', { id: 'closeBox', class: 'hidden', style: 'margin-top:14px' },
+      el('div', { class: 'form-grid' },
+        el('label', { class: 'field' }, el('span', {}, 'Courier'), el('input', { type: 'text', id: 'courier' })),
+        el('label', { class: 'field' }, el('span', {}, 'Tracking number'), el('input', { type: 'text', id: 'trackno' })),
+        el('label', { class: 'field full' }, el('span', {}, 'Tracking URL'), el('input', { type: 'text', id: 'trackurl' }))),
+      el('button', { class: 'btn', onclick: () => act('close', o.order_id) }, 'Mark closed and notify')) : null);
+
+  const d = el('div', { class: 'drawer', id: 'drawer', onclick: e => { if (e.target.id === 'drawer') close_(); } }, body);
+  document.body.append(d);
+}
+
+function close_() { document.getElementById('drawer')?.remove(); }
+
+function closeOrder() { document.getElementById('closeBox').classList.remove('hidden'); }
+
+async function act(what, id) {
+  try {
+    if (what === 'resend') {
+      await api('adminResend', { admin_pass: PASS, order_id: id });
+      toast('Approval email resent.');
+    } else {
+      await api('closeOrder', {
+        admin_pass: PASS, order_id: id,
+        courier: document.getElementById('courier').value.trim(),
+        tracking_no: document.getElementById('trackno').value.trim(),
+        tracking_url: document.getElementById('trackurl').value.trim(),
+      });
+      toast('Order closed. Requester notified.');
+      close_();
+      refresh();
+    }
+  } catch (err) { toast(err.message, 'error'); }
+}
+
+function exportCsv() {
+  const cols = ['order_id', 'created_at', 'requester_name', 'requester_email', 'lob',
+    'event_date', 'status', 'subtotal', 'tax_total', 'grand_total',
+    'decided_by', 'decided_at', 'rejection_reason', 'courier', 'tracking_no'];
+  const esc = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
+  const csv = [cols.join(','), ...ORDERS.map(o => cols.map(c => esc(o[c])).join(','))].join('\n');
+  const a = el('a', {
+    href: URL.createObjectURL(new Blob([csv], { type: 'text/csv' })),
+    download: 'rsm-orders.csv',
+  });
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+</script>
+</body>
+</html>
