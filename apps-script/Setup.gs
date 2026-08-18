@@ -61,7 +61,7 @@ function setupBackend() {
     var head = TAB_HEADERS[name];
     sh.getRange(1, 1, 1, head.length).setValues([head]);
     sh.getRange(1, 1, 1, head.length)
-      .setFontWeight('bold').setBackground('#FAFAFA');
+      .setFontWeight('bold').setBackground('#F4F8FB');
     sh.setFrozenRows(1);
   });
 

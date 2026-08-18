@@ -54,12 +54,12 @@ function html(inner, title) {
     '<!doctype html><html><head><base target="_top"><meta charset="utf-8">' +
     '<meta name="viewport" content="width=device-width,initial-scale=1">' +
     '<style>' + CSS +
-    'input,textarea{width:100%;padding:10px 12px;border:1px solid #E6E6E6;' +
+    'input,textarea{width:100%;padding:10px 12px;border:1px solid #DCE5EE;' +
     'border-radius:8px;font-family:inherit;font-size:15px;box-sizing:border-box}' +
     'textarea{min-height:110px}' +
     'button{border:0;padding:13px 30px;border-radius:8px;color:#fff;font-weight:700;' +
     'font-size:15px;cursor:pointer;font-family:inherit}' +
-    'button:disabled{background:#AFAFAF}' +
+    'button:disabled{background:#9AA6B8}' +
     '</style></head><body><div class="wrap"><div class="bar"></div>' +
     inner + '</div></body></html>')
     .setTitle(title || 'Order approval')
@@ -109,7 +109,7 @@ function doGet(e) {
         '<textarea id="reason" placeholder="Why this order is being rejected"></textarea></p>'
       : '') +
     '<p><button id="go" class="' + (act === 'approve' ? 'ok' : 'no') + '" ' +
-    'style="background:' + (act === 'approve' ? '#121212' : '#E01E23') + '">' +
+    'style="background:' + (act === 'approve' ? '#009CDE' : '#00153D') + '">' +
     (act === 'approve' ? 'Confirm approval' : 'Confirm rejection') + '</button></p>' +
     '<div class="quiet">No approval code is required. This link identifies you.</div>' +
     '<script>' +

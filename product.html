@@ -145,7 +145,7 @@ function paint() {
     hint.classList.add('muted');
     btn.disabled = true;
   } else if (total < P.moq) {
-    hint.innerHTML = `<strong style="color:#E01E23">Add ${qty(P.moq - total)} more.</strong> The minimum order quantity is ${qty(P.moq)}.`;
+    hint.innerHTML = `<strong style="color:#00153D">Add ${qty(P.moq - total)} more.</strong> The minimum order quantity is ${qty(P.moq)}.`;
     btn.disabled = true;
   } else if (next) {
     hint.innerHTML = `Add <strong>${qty(next.min_qty - total)}</strong> more to reach ${money(next.unit_price)} each.`;

@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = "/home/claude/rsm-b2b"
 OUT = f"{ROOT}/assets/products"
-RED, BLACK, GREY, OFFWHITE = "#E01E23", "#121212", "#AFAFAF", "#FAFAFA"
+CERULEAN, MIDNIGHT, GREY, OFFWHITE = "#009CDE", "#00153D", "#9AA6B8", "#F4F8FB"
 
 cat = json.load(open(f"{ROOT}/assets/products.json"))
 before = sum(os.path.getsize(f) for f in glob.glob(f"{OUT}/*"))
@@ -46,16 +46,16 @@ for p in cat["products"]:
         # branded placeholder, Core 5 palette
         im = Image.new("RGB", (700, 700), OFFWHITE)
         d = ImageDraw.Draw(im)
-        d.rectangle([0, 0, 700, 8], fill=RED)
+        d.rectangle([0, 0, 700, 8], fill=CERULEAN)
         f1, f2 = font(30), font(20)
         lines = wrap(d, p["name"], f1, 560)
         y = 300 - (len(lines) * 20)
         for ln in lines:
-            d.text((350 - d.textlength(ln, font=f1) / 2, y), ln, font=f1, fill=BLACK)
+            d.text((350 - d.textlength(ln, font=f1) / 2, y), ln, font=f1, fill=MIDNIGHT)
             y += 42
         d.text((350 - d.textlength(sku, font=f2) / 2, y + 14), sku, font=f2, fill=GREY)
         note = "Image pending"
-        d.text((350 - d.textlength(note, font=f2) / 2, y + 46), note, font=f2, fill=RED)
+        d.text((350 - d.textlength(note, font=f2) / 2, y + 46), note, font=f2, fill=CERULEAN)
         im.save(dest, "WEBP", quality=82, method=6)
         made += 1
     p["image"] = f"assets/products/{sku}.webp"

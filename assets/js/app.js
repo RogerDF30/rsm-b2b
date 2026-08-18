@@ -227,7 +227,7 @@ function header(active) {
   return el('header', { class: 'site-head' },
     el('div', { class: 'wrap head-inner' },
       el('a', { class: 'brand', href: 'index.html' },
-        el('span', { class: 'brand-mark' }, 'RSM'),
+        el('img', { class: 'brand-logo', src: 'assets/brand/rsm-logo.png', alt: 'RSM' }),
         el('span', { class: 'brand-sub' }, 'Business Store')),
       el('nav', { class: 'nav' },
         ['Apparel', 'Drinkware', 'Travel', 'Utilities'].map(c =>

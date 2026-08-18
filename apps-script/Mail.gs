@@ -5,24 +5,24 @@
  */
 
 var CSS = [
-  'body{font-family:Manrope,Arial,Helvetica,sans-serif;color:#121212;margin:0;background:#FAFAFA}',
+  'body{font-family:Manrope,Arial,Helvetica,sans-serif;color:#00153D;margin:0;background:#F4F8FB}',
   '.wrap{max-width:720px;margin:0 auto;background:#fff;padding:28px}',
-  '.bar{height:4px;background:#E01E23;width:56px;margin-bottom:18px}',
+  '.bar{height:4px;background:#009CDE;width:56px;margin-bottom:18px}',
   'h2{margin:0 0 4px;font-size:20px}',
-  'h3{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:#6B6B6B;',
-  '   border-bottom:1px solid #E6E6E6;padding-bottom:6px;margin:26px 0 10px}',
+  'h3{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:#5B6A80;',
+  '   border-bottom:1px solid #DCE5EE;padding-bottom:6px;margin:26px 0 10px}',
   'table{width:100%;border-collapse:collapse;font-size:14px}',
   'th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;',
-  '   color:#6B6B6B;padding:8px;border-bottom:1px solid #E6E6E6}',
-  'td{padding:9px 8px;border-bottom:1px solid #E6E6E6}',
+  '   color:#5B6A80;padding:8px;border-bottom:1px solid #DCE5EE}',
+  'td{padding:9px 8px;border-bottom:1px solid #DCE5EE}',
   '.num{text-align:right}',
   '.btn{display:inline-block;padding:13px 30px;border-radius:8px;color:#fff;',
   '     text-decoration:none;font-weight:700;font-size:15px}',
-  '.ok{background:#121212}.no{background:#E01E23}',
-  '.note{background:#FDF2F2;border-left:3px solid #E01E23;padding:12px 14px;font-size:14px}',
-  '.quiet{background:#FAFAFA;border-left:3px solid #AFAFAF;padding:12px 14px;font-size:14px}',
-  '.muted{color:#6B6B6B;font-size:13px}',
-  '.kv td:first-child{color:#6B6B6B;width:34%}'
+  '.ok{background:#009CDE}.no{background:#00153D}',
+  '.note{background:#E4F3FC;border-left:3px solid #009CDE;padding:12px 14px;font-size:14px}',
+  '.quiet{background:#F4F8FB;border-left:3px solid #9AA6B8;padding:12px 14px;font-size:14px}',
+  '.muted{color:#5B6A80;font-size:13px}',
+  '.kv td:first-child{color:#5B6A80;width:34%}'
 ].join('');
 
 function inr(n) {

@@ -20,9 +20,10 @@ checkout.html   gated: requester, context, evidence upload, addresses
 status.html     requester order lookup and tracking
 admin.html      CompanyStore.IO console: list, drawer, close with tracking
 
+assets/brand/            the RSM mark, extracted from RSM merchandise
 assets/products.json     the entire catalogue, 134 products (build artifact)
 assets/products/*.webp   134 images, 0.6 MB total
-assets/css/app.css       Core 5 palette only
+assets/css/app.css       RSM palette, all tokens in :root
 assets/js/app.js         cart, pricing engine, API client, page chrome
 
 apps-script/    the backend. Config, Auth, Orders, Mail, Api, Setup
@@ -73,6 +74,38 @@ To load the real numbers, replace `sheet-seed/PriceTiers.csv` and the `moq` and
 ```
 python3 tools/build_catalog.py
 ```
+
+---
+
+## Brand
+
+RSM US palette, not CompanyStore.IO Core 5.
+
+| Token | Value | Use |
+|---|---|---|
+| Cerulean | `#009CDE` | primary actions, accents, active states |
+| Midnight | `#00153D` | body text, hero, dark surfaces |
+| White | `#FFFFFF` | surfaces |
+| Tint | `#E4F3FC` | callouts, active tier row |
+| Off | `#F4F8FB` | page and image backgrounds |
+| Line | `#DCE5EE` | borders |
+| Grey / Muted | `#9AA6B8` / `#5B6A80` | secondary text |
+
+Cerulean and Midnight are RSM US's own brand values. Cerulean was independently
+confirmed against the logo printed on RSM merchandise: sampled at `#0A94D5`,
+hue 199-202 degrees, across four product photos. There is no green in the RSM
+mark; an apparent green pixel on a low-resolution shirt photo turned out to be a
+JPEG artifact, checked and discarded.
+
+`assets/brand/rsm-logo.png` (Cerulean) and `rsm-logo-white.png` were lifted from
+the mark printed on `B2BRSMON-0162`, matted on the red channel and cropped inside
+the disc. They are the real trademark, not a redrawing, but they came off a
+photograph, so **replace them with the official vector artwork before go-live.**
+The original sits at `/media/logo/stores/12/logo_2x.png` on the Magento server,
+which was offline when this was built.
+
+Colours live in one place, `:root` in `assets/css/app.css`. The approval and
+decision emails carry their own copy in `apps-script/Mail.gs`; change both.
 
 ---
 
