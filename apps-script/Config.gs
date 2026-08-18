@@ -18,6 +18,8 @@ var SHEETS = {
   USERS: 'Users',
   APPROVERS: 'Approvers',
   DEPARTMENTS: 'Departments',
+  BANNERS: 'Banners',
+  SETTINGS: 'Settings',
   PRODUCTS: 'Products',
   VARIANTS: 'Variants',
   TIERS: 'PriceTiers',

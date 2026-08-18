@@ -29,7 +29,16 @@ var TAB_HEADERS = {
 
   Products: ['sku', 'name', 'category', 'subcategory', 'description', 'moq',
     'gst_rate', 'base_price', 'has_sizes', 'image', 'lead_time_days',
-    'active', 'sort_order'],
+    'active', 'sort_order', 'related_skus'],
+
+  /* Homepage banners. image_url points at a Drive file shared
+     anyone-with-link, uploaded through the admin console. */
+  Banners: ['slug', 'title', 'subtitle', 'image_url', 'link_url',
+    'sort_order', 'active'],
+
+  /* Free-form site settings: logo urls, hero copy. key/value so new ones
+     need no schema change. */
+  Settings: ['key', 'value', 'note'],
 
   Variants: ['variant_sku', 'parent_sku', 'size', 'stock_qty', 'active'],
 
@@ -178,7 +187,31 @@ function upgradeSchema() {
     done.push('seeded ' + readTab(SHEETS.DEPARTMENTS).length + ' departments');
   }
 
-  // 2. Orders.lob_approver, inserted right after lob
+  // 2. Banners and Settings tabs
+  [SHEETS.BANNERS, SHEETS.SETTINGS].forEach(function (name) {
+    if (ss.getSheetByName(name)) return;
+    var sh2 = ss.insertSheet(name);
+    var h = TAB_HEADERS[name];
+    sh2.getRange(1, 1, 1, h.length).setValues([h])
+      .setFontWeight('bold').setBackground('#F4F8FB');
+    sh2.setFrozenRows(1);
+    done.push('created the ' + name + ' tab');
+  });
+  if (!readTab(SHEETS.SETTINGS).length || !readTab(SHEETS.BANNERS).length) {
+    seedSiteContent();
+    done.push('seeded site settings and a starter banner');
+  }
+
+  // 3. Products.related_skus
+  var pIdx = headerIndex(SHEETS.PRODUCTS);
+  if (!pIdx.related_skus) {
+    var ps = sheet(SHEETS.PRODUCTS);
+    ps.getRange(1, ps.getLastColumn() + 1).setValue('related_skus')
+      .setFontWeight('bold').setBackground('#F4F8FB');
+    done.push('added Products.related_skus');
+  }
+
+  // 4. Orders.lob_approver, inserted right after lob
   var idx = headerIndex(SHEETS.ORDERS);
   if (!idx.lob_approver) {
     var orders = sheet(SHEETS.ORDERS);

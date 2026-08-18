@@ -300,3 +300,14 @@ input[type=file] { font-size: .85rem; }
   .nav { display: none; }
   .head-inner { gap: 14px; }
 }
+
+/* Homepage promo banners, everything after the hero. */
+.promo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 28px 0 0; }
+.promo {
+  min-height: 150px; border-radius: var(--radius); padding: 22px;
+  display: flex; align-items: flex-end; color: #fff; background: var(--ink);
+  background-size: cover; background-position: center;
+}
+.promo h3 { color: #fff; margin: 0 0 2px; }
+.promo p { margin: 0; color: rgba(255, 255, 255, .82); }
+.promo:hover { color: #fff; opacity: .93; }

@@ -12,15 +12,10 @@
 </head>
 <body>
 <main>
-  <section class="hero">
-    <div class="wrap">
-      <img class="hero-logo" src="assets/brand/rsm-logo-white.png" alt="RSM">
-      <h1>RSM branded merchandise</h1>
-      <p>Browse the approved catalogue. Sign in at checkout to raise an order for approval.</p>
-    </div>
-  </section>
+  <section id="hero"></section>
 
   <div class="wrap">
+    <div id="banners"></div>
     <div class="cat-grid" id="cats"></div>
 
     <div class="row-between" style="margin:36px 0 16px">
@@ -36,6 +31,8 @@
 (async function () {
   await Catalog.load();
   mount();
+  paintHero();
+  paintBanners();
 
   const counts = {};
   for (const p of Catalog.products) counts[p.category] = (counts[p.category] || 0) + 1;
@@ -56,6 +53,41 @@
   }
   document.getElementById('featured').append(...picks.map(productCard));
 })();
+
+/* First active banner is the hero. Falls back to the settings copy, then to
+   hard-coded text, so the page never renders empty. */
+function paintHero() {
+  const b = Site.banners[0];
+  const host = document.getElementById('hero');
+  host.className = 'hero';
+  if (b && b.image_url) {
+    host.style.backgroundImage =
+      `linear-gradient(rgba(0,21,61,.72), rgba(0,21,61,.72)), url(${b.image_url})`;
+    host.style.backgroundSize = 'cover';
+    host.style.backgroundPosition = 'center';
+  }
+  host.append(el('div', { class: 'wrap' },
+    el('img', { class: 'hero-logo', alt: 'RSM',
+      src: Site.get('logo_white_url', 'assets/brand/rsm-logo-white.png') }),
+    el('h1', {}, (b && b.title) || Site.get('hero_title', 'RSM branded merchandise')),
+    el('p', {}, (b && b.subtitle) || Site.get('hero_subtitle',
+      'Browse the approved catalogue. Sign in at checkout to raise an order for approval.')),
+    b && b.link_url
+      ? el('a', { class: 'btn', href: b.link_url, style: 'margin-top:18px' }, 'Browse')
+      : null));
+}
+
+/* Any banners after the first render as a promo row. */
+function paintBanners() {
+  const rest = Site.banners.slice(1);
+  const host = document.getElementById('banners');
+  if (!rest.length) return;
+  host.className = 'promo-grid';
+  host.append(...rest.map(b => el('a', {
+    class: 'promo', href: b.link_url || '#',
+    style: b.image_url ? `background-image:linear-gradient(rgba(0,21,61,.55),rgba(0,21,61,.55)),url(${b.image_url})` : '',
+  }, el('div', {}, el('h3', {}, b.title || ''), el('p', { class: 'small' }, b.subtitle || '')))));
+}
 </script>
 </body>
 </html>

@@ -23,7 +23,16 @@ function routes() {
     adminList: fnAdminList,
     adminOrder: fnAdminOrder,
     adminResend: fnAdminResend,
-    adminUpgrade: fnAdminUpgrade
+    adminUpgrade: fnAdminUpgrade,
+    adminCatalog: fnAdminCatalog,
+    adminSaveProduct: fnAdminSaveProduct,
+    adminDeleteProduct: fnAdminDeleteProduct,
+    adminToggle: fnAdminToggle,
+    adminUploadImage: fnAdminUploadImage,
+    adminSaveBanner: fnAdminSaveBanner,
+    adminDeleteBanner: fnAdminDeleteBanner,
+    adminSaveSettings: fnAdminSaveSettings,
+    adminPublish: fnAdminPublish
   };
 }
 

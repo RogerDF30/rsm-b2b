@@ -64,6 +64,27 @@ function priceOrder(raw) {
 const r2 = n => Math.round(n * 100) / 100;
 const stamp = () => new Date().toISOString().slice(0, 19).replace('T', ' ');
 
+const ADMIN_STATE = {
+  hidden: new Set(),
+  related: {},
+  banners: [
+    { slug: 'welcome', title: 'RSM branded merchandise',
+      subtitle: 'Browse the approved catalogue.', image_url: '',
+      link_url: 'category.html?cat=Apparel', sort_order: 0, active: true },
+  ],
+  settings: {
+    logo_url: 'assets/brand/rsm-logo.png',
+    logo_white_url: 'assets/brand/rsm-logo-white.png',
+    hero_title: 'RSM branded merchandise',
+    hero_subtitle: 'Browse the approved catalogue.',
+    footer_note: 'RSM Business Store, operated by CompanyStore.IO',
+  },
+  published_at: '',
+};
+const admin = req => {
+  if (req.admin_pass !== ADMIN_PASS) throw new Error('Admin password is incorrect.');
+};
+
 const ROUTES = {
   login(req) {
     const u = USERS[String(req.email || '').toLowerCase()];
@@ -72,6 +93,18 @@ const ROUTES = {
     return { ok: true, session: 'mock-session', user: pub };
   },
   resetRequest() { return { ok: true }; },
+  meta() {
+    return { ok: true, departments: [
+      { lob: 'Assurance', approver: 'Kawalpreet Kaur' },
+      { lob: 'CMG', approver: '' },
+      { lob: 'Consulting', approver: 'Balasundaram Nagarajan' },
+      { lob: 'Enterprises', approver: 'Gowri Srinivas' },
+      { lob: 'ESS', approver: '' },
+      { lob: 'IT', approver: 'Malleswara Reddy' },
+      { lob: 'Talent', approver: '' },
+      { lob: 'Tax', approver: '' },
+    ]};
+  },
 
   submitOrder(req) {
     if (!req.files || !req.files.length) throw new Error('At least one evidence file is required.');
@@ -133,6 +166,98 @@ const ROUTES = {
     return { ok: true };
   },
 
+  /* --- admin catalogue, mirroring apps-script/Admin.gs shapes ------------- */
+  adminCatalog(req) {
+    admin(req);
+    return {
+      ok: true,
+      products: catalog.products.map(p => ({
+        sku: p.sku, name: p.name, category: p.category, subcategory: p.subcategory,
+        description: p.description, moq: p.moq, gst_rate: p.gst_rate,
+        base_price: p.base_price, has_sizes: p.has_sizes, image: p.image,
+        lead_time_days: 14, active: ADMIN_STATE.hidden.has(p.sku) ? false : true,
+        sort_order: 0, related_skus: ADMIN_STATE.related[p.sku] || [],
+        sizes: p.sizes, tiers: p.tiers,
+      })),
+      categories: catalog.categories.flatMap(c => c.subcategories.map((s, i) => ({
+        slug: s, parent_slug: c.slug, label: s, sort_order: i, active: true }))),
+      banners: ADMIN_STATE.banners,
+      settings: ADMIN_STATE.settings,
+      published_at: ADMIN_STATE.published_at,
+    };
+  },
+  adminSaveProduct(req) {
+    admin(req);
+    const p = req.product;
+    if (!p.sku) throw new Error('SKU is required.');
+    if (!p.name) throw new Error('Product name is required.');
+    if (!(Number(p.moq) > 0)) throw new Error('MOQ must be greater than zero.');
+    const tiers = (p.tiers || []).filter(t => t.min_qty > 0 && t.unit_price > 0)
+      .sort((a, b) => a.min_qty - b.min_qty);
+    if (!tiers.length) throw new Error('At least one price tier is required.');
+    if (tiers[0].min_qty !== Math.floor(Number(p.moq))) {
+      throw new Error(`The first price tier must start at the MOQ (${p.moq}).`);
+    }
+    const hit = catalog.products.find(x => x.sku === p.sku);
+    const row = { ...p, tiers, base_price: tiers[0].unit_price,
+                  has_sizes: (p.sizes || []).length > 0 };
+    if (hit) Object.assign(hit, row); else catalog.products.push(row);
+    BY_SKU[p.sku] = hit || row;
+    ADMIN_STATE.related[p.sku] = p.related_skus || [];
+    return { ok: true, sku: p.sku, created: !hit };
+  },
+  adminDeleteProduct(req) {
+    admin(req);
+    if (String(req.confirm || '').toUpperCase() !== String(req.sku).toUpperCase()) {
+      throw new Error('Type the SKU exactly to confirm.');
+    }
+    ADMIN_STATE.hidden.add(req.sku);
+    return { ok: true };
+  },
+  adminToggle(req) {
+    admin(req);
+    if (req.kind === 'product') {
+      req.active ? ADMIN_STATE.hidden.delete(req.key) : ADMIN_STATE.hidden.add(req.key);
+    }
+    if (req.kind === 'banner') {
+      const b = ADMIN_STATE.banners.find(x => x.slug === req.key);
+      if (b) b.active = req.active;
+    }
+    return { ok: true };
+  },
+  adminUploadImage(req) {
+    admin(req);
+    if (!req.file || !req.file.data) throw new Error('Empty file.');
+    return { ok: true, url: 'assets/products/B2BRSMON-0013.webp', file_id: 'mock' };
+  },
+  adminSaveBanner(req) {
+    admin(req);
+    const b = req.banner;
+    if (!b.slug) throw new Error('Banner slug is required.');
+    const hit = ADMIN_STATE.banners.find(x => x.slug === b.slug);
+    if (hit) Object.assign(hit, b); else ADMIN_STATE.banners.push({ ...b });
+    ADMIN_STATE.banners.sort((x, y) => x.sort_order - y.sort_order);
+    return { ok: true };
+  },
+  adminDeleteBanner(req) {
+    admin(req);
+    ADMIN_STATE.banners = ADMIN_STATE.banners.filter(b => b.slug !== req.slug);
+    return { ok: true };
+  },
+  adminSaveSettings(req) {
+    admin(req);
+    Object.assign(ADMIN_STATE.settings, req.settings);
+    return { ok: true, settings: ADMIN_STATE.settings };
+  },
+  adminPublish(req) {
+    admin(req);
+    ADMIN_STATE.published_at = stamp();
+    const live = catalog.products.filter(p => !ADMIN_STATE.hidden.has(p.sku));
+    return { ok: true, published_at: ADMIN_STATE.published_at,
+             products: live.length, banners: ADMIN_STATE.banners.filter(b => b.active).length,
+             note: 'GitHub Pages takes a minute or two to rebuild.' };
+  },
+
   /* Test-only: stands in for the approver clicking the emailed link. */
   _decide(req) {
     const o = orders[req.order_id];
@@ -170,6 +295,12 @@ http.createServer((req, res) => {
       res.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
       res.end(JSON.stringify(out));
     });
+    return;
+  }
+
+  if (req.url.startsWith('/?fn=meta')) {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(ROUTES.meta()));
     return;
   }
 

@@ -1,0 +1,635 @@
+/* Admin console. Loaded only by admin.html; app.js provides el/money/api. */
+
+let PASS = '';
+let ORDERS = [], ORDER_FILTER = 'All';
+let CAT = null;            // { products, categories, banners, settings, published_at }
+let TAB = 'orders';
+let PROD_FILTER = { q: '', cat: 'All', hidden: 'all' };
+
+/* ------------------------------------------------------------------ boot */
+
+async function bootAdmin() {
+  await Catalog.load();
+  mount();
+  PASS = sessionStorage.getItem('rsm_admin') || '';
+  PASS ? loadAll() : gate();
+}
+
+function gate(msg) {
+  document.getElementById('gate').classList.remove('hidden');
+  document.getElementById('app').classList.add('hidden');
+  if (msg) toast(msg, 'error');
+  document.getElementById('gateForm').onsubmit = e => {
+    e.preventDefault();
+    PASS = document.getElementById('apass').value;
+    sessionStorage.setItem('rsm_admin', PASS);
+    loadAll();
+  };
+}
+
+async function loadAll() {
+  try {
+    const [o, c] = await Promise.all([
+      api('adminList', { admin_pass: PASS }),
+      api('adminCatalog', { admin_pass: PASS }),
+    ]);
+    ORDERS = o.orders;
+    CAT = c;
+    document.getElementById('gate').classList.add('hidden');
+    document.getElementById('app').classList.remove('hidden');
+    paint();
+  } catch (err) {
+    sessionStorage.removeItem('rsm_admin');
+    PASS = '';
+    gate(err.message);
+  }
+}
+
+/* ----------------------------------------------------------------- chrome */
+
+function paint() {
+  const nav = document.getElementById('adminTabs');
+  nav.textContent = '';
+  [['orders', `Orders (${ORDERS.length})`],
+   ['catalogue', `Catalogue (${CAT.products.length})`],
+   ['banners', `Banners (${CAT.banners.length})`],
+   ['appearance', 'Appearance']].forEach(([k, label]) =>
+    nav.append(el('button', {
+      class: 'chip' + (TAB === k ? ' on' : ''),
+      onclick: () => { TAB = k; paint(); },
+    }, label)));
+
+  const host = document.getElementById('panel');
+  host.textContent = '';
+  ({ orders: paintOrders, catalogue: paintCatalogue,
+     banners: paintBanners, appearance: paintAppearance })[TAB](host);
+
+  const pub = document.getElementById('publishBar');
+  pub.textContent = '';
+  pub.append(
+    el('span', { class: 'small muted' },
+      CAT.published_at ? 'Last published ' + CAT.published_at : 'Never published'),
+    el('button', { class: 'btn btn-sm', onclick: publish }, 'Publish to site'));
+}
+
+/* ----------------------------------------------------------------- orders */
+
+function paintOrders(host) {
+  const counts = { All: ORDERS.length };
+  for (const o of ORDERS) counts[o.status] = (counts[o.status] || 0) + 1;
+
+  const filters = el('div', { class: 'filters' });
+  for (const k of ['All', 'Pending Approval', 'Approved', 'Rejected', 'Closed']) {
+    filters.append(el('button', {
+      class: 'chip' + (ORDER_FILTER === k ? ' on' : ''),
+      onclick: () => { ORDER_FILTER = k; paint(); },
+    }, `${k} (${counts[k] || 0})`));
+  }
+
+  const list = ORDER_FILTER === 'All' ? ORDERS : ORDERS.filter(o => o.status === ORDER_FILTER);
+  host.append(filters,
+    el('div', { class: 'row-between', style: 'margin-bottom:12px' },
+      el('span', { class: 'small muted' }, `${list.length} shown`),
+      el('button', { class: 'btn btn-ghost btn-sm', onclick: exportCsv }, 'Export CSV')),
+    el('div', { class: 'panel', style: 'padding:0;overflow-x:auto' },
+      el('table', { class: 'tbl' },
+        el('thead', {}, el('tr', {},
+          el('th', {}, 'Order'), el('th', {}, 'Requester'), el('th', {}, 'LOB'),
+          el('th', {}, 'Event'), el('th', { class: 'num' }, 'Items'),
+          el('th', { class: 'num' }, 'Total'), el('th', {}, 'Status'), el('th', {}, ''))),
+        el('tbody', {}, list.map(o => el('tr', {},
+          el('td', {}, el('strong', {}, o.order_id),
+            el('div', { class: 'small muted' }, o.created_at)),
+          el('td', {}, o.requester_name,
+            el('div', { class: 'small muted' }, o.requester_email)),
+          el('td', {}, o.lob),
+          el('td', {}, o.event_date),
+          el('td', { class: 'num' }, o.line_count),
+          el('td', { class: 'num mono' }, money(o.grand_total)),
+          el('td', {}, el('span', { class: 'status ' + o.status.split(' ')[0].toLowerCase() }, o.status)),
+          el('td', { class: 'right' },
+            el('button', { class: 'btn btn-ghost btn-sm', onclick: () => openOrder(o.order_id) }, 'Open'))))))),
+    list.length ? null : el('div', { class: 'empty' }, el('h2', {}, 'No orders')));
+}
+
+async function openOrder(id) {
+  const r = await api('adminOrder', { admin_pass: PASS, order_id: id });
+  const o = r.order;
+  drawer(el('div', {},
+    drawerHead(o.order_id, el('span', { class: 'status ' + o.status.split(' ')[0].toLowerCase() }, o.status)),
+    kvTable([
+      ['Requester', `${o.requester_name} (${o.requester_email})`],
+      ['LOB', o.lob], ['Approver', o.lob_approver || '—'],
+      ['Event date', o.event_date], ['Purpose', o.purpose],
+      ['Ship to', `${o.ship_name}, ${o.ship_street}, ${o.ship_city} ${o.ship_state || ''} ${o.ship_pincode}`],
+      ['Bill to', `${o.bill_name || o.ship_name}, ${o.bill_street || o.ship_street}, ${o.bill_city || o.ship_city} ${o.bill_pincode || o.ship_pincode}`],
+      ['Decided by', o.decided_by || '—'], ['Decided at', o.decided_at || '—'],
+      ['Rejection reason', o.rejection_reason || '—'],
+    ]),
+    el('h3', { style: 'margin-top:20px' }, 'Items'),
+    el('table', { class: 'tbl' }, el('tbody', {}, r.lines.map(l => el('tr', {},
+      el('td', {}, l.product_name, el('div', { class: 'small muted' }, l.variant_sku)),
+      el('td', {}, l.size || '—'),
+      el('td', { class: 'num' }, qty(l.qty)),
+      el('td', { class: 'num mono' }, money(l.line_total_with_tax)))))),
+    r.files.length ? el('div', {},
+      el('h3', { style: 'margin-top:20px' }, 'Evidence'),
+      r.files.map(f => el('div', { class: 'file-row' },
+        el('a', { class: 'grow', href: f.drive_url, target: '_blank' }, f.filename)))) : null,
+    el('h3', { style: 'margin-top:20px' }, 'Actions'),
+    el('div', { class: 'row', style: 'flex-wrap:wrap' },
+      o.status === 'Pending Approval'
+        ? el('button', { class: 'btn btn-ghost btn-sm', onclick: async () => {
+            await api('adminResend', { admin_pass: PASS, order_id: o.order_id });
+            toast('Approval email resent.');
+          } }, 'Resend approval email') : null,
+      o.status === 'Approved'
+        ? el('button', { class: 'btn btn-sm', onclick: () =>
+            document.getElementById('closeBox').classList.remove('hidden') }, 'Close with tracking')
+        : null),
+    o.status === 'Approved' ? el('div', { id: 'closeBox', class: 'hidden', style: 'margin-top:14px' },
+      el('div', { class: 'form-grid' },
+        field('Courier', el('input', { type: 'text', id: 'courier' })),
+        field('Tracking number', el('input', { type: 'text', id: 'trackno' })),
+        field('Tracking URL', el('input', { type: 'text', id: 'trackurl' }), true)),
+      el('button', { class: 'btn', onclick: async () => {
+        await api('closeOrder', {
+          admin_pass: PASS, order_id: o.order_id,
+          courier: val('courier'), tracking_no: val('trackno'), tracking_url: val('trackurl'),
+        });
+        toast('Order closed. Requester notified.');
+        closeDrawer(); loadAll();
+      } }, 'Mark closed and notify')) : null));
+}
+
+/* -------------------------------------------------------------- catalogue */
+
+function paintCatalogue(host) {
+  const cats = ['All', ...new Set(CAT.products.map(p => p.category))];
+  const f = el('div', { class: 'filters' },
+    el('input', {
+      type: 'text', placeholder: 'Search name or SKU', value: PROD_FILTER.q,
+      style: 'max-width:240px',
+      oninput: e => { PROD_FILTER.q = e.target.value; repaintProducts(); },
+    }),
+    ...cats.map(c => el('button', {
+      class: 'chip' + (PROD_FILTER.cat === c ? ' on' : ''),
+      onclick: () => { PROD_FILTER.cat = c; paint(); },
+    }, c)),
+    el('button', {
+      class: 'chip' + (PROD_FILTER.hidden === 'hidden' ? ' on' : ''),
+      onclick: () => {
+        PROD_FILTER.hidden = PROD_FILTER.hidden === 'hidden' ? 'all' : 'hidden';
+        paint();
+      },
+    }, 'Hidden only'));
+
+  host.append(f,
+    el('div', { class: 'row-between', style: 'margin-bottom:12px' },
+      el('span', { class: 'small muted', id: 'prodCount' }, ''),
+      el('button', { class: 'btn btn-sm', onclick: () => editProduct(null) }, 'Add product')),
+    el('div', { class: 'panel', style: 'padding:0;overflow-x:auto' },
+      el('table', { class: 'tbl' },
+        el('thead', {}, el('tr', {},
+          el('th', {}, ''), el('th', {}, 'Product'), el('th', {}, 'Category'),
+          el('th', { class: 'num' }, 'MOQ'), el('th', { class: 'num' }, 'From'),
+          el('th', {}, 'Sizes'), el('th', {}, 'Related'), el('th', {}, 'Visible'), el('th', {}, ''))),
+        el('tbody', { id: 'prodRows' }))));
+  repaintProducts();
+}
+
+function visibleProducts() {
+  const q = PROD_FILTER.q.trim().toLowerCase();
+  return CAT.products.filter(p => {
+    if (PROD_FILTER.cat !== 'All' && p.category !== PROD_FILTER.cat) return false;
+    if (PROD_FILTER.hidden === 'hidden' && p.active) return false;
+    if (q && !(`${p.name} ${p.sku}`.toLowerCase().includes(q))) return false;
+    return true;
+  });
+}
+
+function repaintProducts() {
+  const rows = document.getElementById('prodRows');
+  if (!rows) return;
+  const list = visibleProducts();
+  document.getElementById('prodCount').textContent =
+    `${list.length} of ${CAT.products.length} products`;
+  rows.textContent = '';
+  rows.append(...list.map(p => el('tr', { style: p.active ? '' : 'opacity:.5' },
+    el('td', {}, p.image
+      ? el('img', { class: 'thumb', src: p.image, alt: '' })
+      : el('div', { class: 'thumb' })),
+    el('td', {}, el('strong', {}, p.name),
+      el('div', { class: 'small muted' }, p.sku)),
+    el('td', {}, p.category, el('div', { class: 'small muted' }, p.subcategory)),
+    el('td', { class: 'num' }, qty(p.moq)),
+    el('td', { class: 'num mono' }, p.tiers.length ? money(p.tiers[0].unit_price) : '—'),
+    el('td', { class: 'small' }, p.sizes.length ? p.sizes.join(' ') : '—'),
+    el('td', { class: 'num small' }, p.related_skus.length || '—'),
+    el('td', {}, toggle(p.active, async on => {
+      await api('adminToggle', { admin_pass: PASS, kind: 'product', key: p.sku, active: on });
+      p.active = on; repaintProducts();
+    })),
+    el('td', { class: 'right' },
+      el('button', { class: 'btn btn-ghost btn-sm', onclick: () => editProduct(p) }, 'Edit')))));
+}
+
+function editProduct(p) {
+  const isNew = !p;
+  p = p || {
+    sku: '', name: '', category: 'Apparel', subcategory: '', description: '',
+    moq: 25, gst_rate: 18, image: '', sizes: [], related_skus: [], active: true,
+    tiers: [{ min_qty: 25, max_qty: 49, unit_price: 0 }],
+  };
+  const draft = JSON.parse(JSON.stringify(p));
+
+  const tierBox = el('div', { id: 'tierBox' });
+  const paintTiers = () => {
+    tierBox.textContent = '';
+    draft.tiers.forEach((t, i) => tierBox.append(
+      el('div', { class: 'row', style: 'margin-bottom:6px' },
+        el('input', { type: 'number', min: '1', value: t.min_qty, style: 'width:90px',
+          oninput: e => { t.min_qty = Number(e.target.value); } }),
+        el('span', { class: 'small muted' }, 'to'),
+        el('input', { type: 'number', value: t.max_qty ?? '', placeholder: 'open',
+          style: 'width:90px',
+          oninput: e => { t.max_qty = e.target.value === '' ? '' : Number(e.target.value); } }),
+        el('span', { class: 'small muted' }, '@ ₹'),
+        el('input', { type: 'number', min: '0', step: '0.01', value: t.unit_price,
+          style: 'width:110px',
+          oninput: e => { t.unit_price = Number(e.target.value); } }),
+        el('button', { type: 'button', class: 'btn btn-ghost btn-sm',
+          onclick: () => { draft.tiers.splice(i, 1); paintTiers(); } }, 'Remove'))));
+    tierBox.append(el('button', {
+      type: 'button', class: 'btn btn-ghost btn-sm',
+      onclick: () => {
+        const last = draft.tiers[draft.tiers.length - 1];
+        draft.tiers.push({ min_qty: last ? (last.max_qty || last.min_qty) + 1 : draft.moq,
+                           max_qty: '', unit_price: last ? last.unit_price : 0 });
+        paintTiers();
+      },
+    }, 'Add tier'));
+  };
+  paintTiers();
+
+  const imgPreview = el('img', {
+    src: draft.image || '', alt: '',
+    style: 'max-width:120px;max-height:120px;object-fit:contain;background:var(--off);border-radius:8px',
+  });
+
+  drawer(el('div', {},
+    drawerHead(isNew ? 'Add product' : draft.sku),
+    el('div', { class: 'form-grid' },
+      field('SKU', el('input', { type: 'text', id: 'f_sku', value: draft.sku,
+        readonly: isNew ? null : 'readonly',
+        oninput: e => { draft.sku = e.target.value.toUpperCase(); } })),
+      field('Name', el('input', { type: 'text', id: 'f_name', value: draft.name,
+        oninput: e => { draft.name = e.target.value; } })),
+      field('Category', selectOf(
+        [...new Set(CAT.categories.map(c => c.parent_slug))], draft.category,
+        v => { draft.category = v; })),
+      field('Subcategory', el('input', { type: 'text', value: draft.subcategory,
+        list: 'subcats', oninput: e => { draft.subcategory = e.target.value; } })),
+      field('MOQ', el('input', { type: 'number', min: '1', value: draft.moq,
+        oninput: e => { draft.moq = Number(e.target.value); } })),
+      field('GST %', el('input', { type: 'number', min: '0', step: '0.01', value: draft.gst_rate,
+        oninput: e => { draft.gst_rate = Number(e.target.value); } })),
+      field('Description', el('textarea', {
+        oninput: e => { draft.description = e.target.value; },
+      }, draft.description || ''), true),
+      field('Sizes, space separated. Leave blank for a product with no sizes',
+        el('input', { type: 'text', value: draft.sizes.join(' '),
+          placeholder: 'XS S M L XL 2XL',
+          oninput: e => { draft.sizes = e.target.value.split(/\s+/).filter(Boolean); } }), true)),
+
+    el('datalist', { id: 'subcats' },
+      [...new Set(CAT.categories.map(c => c.slug))].map(s => el('option', { value: s }))),
+
+    el('h3', { style: 'margin-top:18px' }, 'Image'),
+    el('div', { class: 'row' }, imgPreview,
+      el('div', { class: 'grow' },
+        el('input', { type: 'file', accept: 'image/*', onchange: async e => {
+          const file = e.target.files[0];
+          if (!file) return;
+          toast('Uploading…');
+          const data = await toBase64(file);
+          try {
+            const r = await api('adminUploadImage', {
+              admin_pass: PASS,
+              file: { name: file.name, mime: file.type, data },
+            });
+            draft.image = r.url;
+            imgPreview.src = r.url;
+            toast('Image uploaded.');
+          } catch (err) { toast(err.message, 'error'); }
+        } }),
+        el('input', { type: 'text', value: draft.image, placeholder: 'or paste an image URL',
+          style: 'margin-top:8px',
+          oninput: e => { draft.image = e.target.value; imgPreview.src = e.target.value; } }))),
+
+    el('h3', { style: 'margin-top:18px' }, 'Price tiers'),
+    el('div', { class: 'small muted', style: 'margin-bottom:8px' },
+      'The first tier must start at the MOQ. Leave the upper bound blank on the last one.'),
+    tierBox,
+
+    el('h3', { style: 'margin-top:18px' }, 'Related products'),
+    el('div', { class: 'small muted', style: 'margin-bottom:8px' },
+      'Shown together on the product page. Useful for kits.'),
+    relatedPicker(draft),
+
+    el('div', { class: 'row', style: 'margin-top:22px;flex-wrap:wrap' },
+      el('button', { class: 'btn', onclick: async () => {
+        try {
+          await api('adminSaveProduct', { admin_pass: PASS, product: draft });
+          toast(isNew ? 'Product added.' : 'Product saved.');
+          closeDrawer(); await loadAll();
+        } catch (err) { toast(err.message, 'error'); }
+      } }, isNew ? 'Add product' : 'Save changes'),
+      el('button', { class: 'btn btn-ghost', onclick: closeDrawer }, 'Cancel'),
+      isNew ? null : el('button', {
+        class: 'btn btn-ghost', style: 'margin-left:auto;color:#D93025;border-color:#F0B6B1',
+        onclick: () => confirmDelete(draft.sku),
+      }, 'Delete'))));
+}
+
+function relatedPicker(draft) {
+  const box = el('div');
+  const chips = el('div', { class: 'filters', style: 'margin-bottom:8px' });
+  const repaint = () => {
+    chips.textContent = '';
+    if (!draft.related_skus.length) {
+      chips.append(el('span', { class: 'small muted' }, 'None selected'));
+    }
+    draft.related_skus.forEach((s, i) => {
+      const hit = CAT.products.find(p => p.sku === s);
+      chips.append(el('button', {
+        type: 'button', class: 'chip on',
+        onclick: () => { draft.related_skus.splice(i, 1); repaint(); },
+      }, `${hit ? hit.name : s} ✕`));
+    });
+  };
+  repaint();
+
+  const picker = el('select', {
+    onchange: e => {
+      const v = e.target.value;
+      if (v && !draft.related_skus.includes(v) && v !== draft.sku) {
+        draft.related_skus.push(v);
+        repaint();
+      }
+      e.target.value = '';
+    },
+  }, el('option', { value: '' }, 'Add a related product…'),
+     ...CAT.products.filter(p => p.active)
+       .map(p => el('option', { value: p.sku }, `${p.name} (${p.sku})`)));
+
+  box.append(chips, picker);
+  return box;
+}
+
+function confirmDelete(sku) {
+  drawer(el('div', {},
+    drawerHead('Delete ' + sku),
+    el('div', { class: 'note' },
+      el('strong', {}, 'This hides the product, it does not erase it. '),
+      'The row stays in the Sheet so past orders still resolve, and you can ' +
+      'switch it back on from the Hidden filter at any time.'),
+    el('label', { class: 'field', style: 'margin-top:16px' },
+      el('span', {}, 'Type ' + sku + ' to confirm'),
+      el('input', { type: 'text', id: 'delConfirm' })),
+    el('div', { class: 'row' },
+      el('button', { class: 'btn', style: 'background:#D93025', onclick: async () => {
+        try {
+          await api('adminDeleteProduct', {
+            admin_pass: PASS, sku, confirm: val('delConfirm'),
+          });
+          toast(sku + ' hidden.');
+          closeDrawer(); await loadAll();
+        } catch (err) { toast(err.message, 'error'); }
+      } }, 'Delete product'),
+      el('button', { class: 'btn btn-ghost', onclick: closeDrawer }, 'Cancel'))));
+}
+
+/* ---------------------------------------------------------------- banners */
+
+function paintBanners(host) {
+  host.append(
+    el('div', { class: 'row-between', style: 'margin-bottom:12px' },
+      el('span', { class: 'small muted' },
+        'Shown on the homepage, in sort order. The first one is the large hero.'),
+      el('button', { class: 'btn btn-sm', onclick: () => editBanner(null) }, 'Add banner')),
+    el('div', { class: 'stack' }, CAT.banners.map(b => el('div', { class: 'panel' },
+      el('div', { class: 'row-between', style: 'align-items:flex-start' },
+        el('div', { class: 'row', style: 'align-items:flex-start' },
+          b.image_url
+            ? el('img', { src: b.image_url, alt: '',
+                style: 'width:150px;height:70px;object-fit:cover;border-radius:8px;background:var(--off)' })
+            : el('div', { style: 'width:150px;height:70px;border-radius:8px;background:var(--off)' }),
+          el('div', {},
+            el('strong', {}, b.title || b.slug),
+            el('div', { class: 'small muted' }, b.subtitle || ''),
+            el('div', { class: 'small muted' }, b.slug + ' · order ' + b.sort_order))),
+        el('div', { class: 'row' },
+          toggle(b.active, async on => {
+            await api('adminToggle', { admin_pass: PASS, kind: 'banner', key: b.slug, active: on });
+            b.active = on;
+          }),
+          el('button', { class: 'btn btn-ghost btn-sm', onclick: () => editBanner(b) }, 'Edit')))))),
+    CAT.banners.length ? null : el('div', { class: 'empty' }, el('h2', {}, 'No banners yet')));
+}
+
+function editBanner(b) {
+  const isNew = !b;
+  const draft = Object.assign(
+    { slug: '', title: '', subtitle: '', image_url: '', link_url: '', sort_order: 0, active: true },
+    b || {});
+  const prev = el('img', { src: draft.image_url || '', alt: '',
+    style: 'max-width:100%;max-height:150px;object-fit:cover;border-radius:8px;background:var(--off)' });
+
+  drawer(el('div', {},
+    drawerHead(isNew ? 'Add banner' : draft.slug),
+    el('div', { class: 'form-grid' },
+      field('Slug, a short id', el('input', { type: 'text', value: draft.slug,
+        readonly: isNew ? null : 'readonly',
+        oninput: e => { draft.slug = e.target.value.trim(); } })),
+      field('Sort order', el('input', { type: 'number', value: draft.sort_order,
+        oninput: e => { draft.sort_order = Number(e.target.value); } })),
+      field('Title', el('input', { type: 'text', value: draft.title,
+        oninput: e => { draft.title = e.target.value; } }), true),
+      field('Subtitle', el('input', { type: 'text', value: draft.subtitle,
+        oninput: e => { draft.subtitle = e.target.value; } }), true),
+      field('Link, e.g. category.html?cat=Apparel', el('input', { type: 'text', value: draft.link_url,
+        oninput: e => { draft.link_url = e.target.value; } }), true)),
+    el('h3', { style: 'margin-top:14px' }, 'Image'),
+    prev,
+    el('input', { type: 'file', accept: 'image/*', style: 'margin-top:10px', onchange: async e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      toast('Uploading…');
+      try {
+        const r = await api('adminUploadImage', {
+          admin_pass: PASS,
+          file: { name: file.name, mime: file.type, data: await toBase64(file) },
+        });
+        draft.image_url = r.url; prev.src = r.url; toast('Image uploaded.');
+      } catch (err) { toast(err.message, 'error'); }
+    } }),
+    el('input', { type: 'text', value: draft.image_url, placeholder: 'or paste an image URL',
+      style: 'margin-top:8px',
+      oninput: e => { draft.image_url = e.target.value; prev.src = e.target.value; } }),
+    el('div', { class: 'row', style: 'margin-top:20px' },
+      el('button', { class: 'btn', onclick: async () => {
+        try {
+          await api('adminSaveBanner', { admin_pass: PASS, banner: draft });
+          toast('Banner saved.'); closeDrawer(); await loadAll();
+        } catch (err) { toast(err.message, 'error'); }
+      } }, 'Save banner'),
+      el('button', { class: 'btn btn-ghost', onclick: closeDrawer }, 'Cancel'),
+      isNew ? null : el('button', {
+        class: 'btn btn-ghost', style: 'margin-left:auto;color:#D93025;border-color:#F0B6B1',
+        onclick: async () => {
+          await api('adminDeleteBanner', { admin_pass: PASS, slug: draft.slug });
+          toast('Banner removed.'); closeDrawer(); await loadAll();
+        },
+      }, 'Remove'))));
+}
+
+/* ------------------------------------------------------------- appearance */
+
+function paintAppearance(host) {
+  const s = Object.assign({}, CAT.settings);
+  const rows = [
+    ['logo_url', 'Header logo URL', 'Cerulean mark, shown on light backgrounds'],
+    ['logo_white_url', 'Hero logo URL', 'White mark, shown on the dark hero'],
+    ['hero_title', 'Hero title', ''],
+    ['hero_subtitle', 'Hero subtitle', ''],
+    ['footer_note', 'Footer note', ''],
+  ];
+
+  host.append(el('div', { class: 'panel', style: 'max-width:700px' },
+    el('h2', {}, 'Site appearance'),
+    ...rows.map(([k, label, note]) => {
+      const input = el('input', { type: 'text', value: s[k] || '',
+        oninput: e => { s[k] = e.target.value; } });
+      const isLogo = k.indexOf('logo') === 0;
+      const prev = isLogo ? el('img', { src: s[k] || '', alt: '',
+        style: 'height:30px;margin-top:8px;' + (k === 'logo_white_url'
+          ? 'background:var(--ink);padding:6px 10px;border-radius:6px' : '') }) : null;
+      return el('label', { class: 'field' },
+        el('span', {}, label),
+        input,
+        note ? el('span', { class: 'small muted' }, note) : null,
+        isLogo ? el('input', { type: 'file', accept: 'image/*', style: 'margin-top:8px',
+          onchange: async e => {
+            const file = e.target.files[0];
+            if (!file) return;
+            toast('Uploading…');
+            try {
+              const r = await api('adminUploadImage', {
+                admin_pass: PASS,
+                file: { name: file.name, mime: file.type, data: await toBase64(file) },
+              });
+              s[k] = r.url; input.value = r.url; if (prev) prev.src = r.url;
+              toast('Uploaded.');
+            } catch (err) { toast(err.message, 'error'); }
+          } }) : null,
+        prev);
+    }),
+    el('button', { class: 'btn', onclick: async () => {
+      try {
+        const r = await api('adminSaveSettings', { admin_pass: PASS, settings: s });
+        CAT.settings = r.settings;
+        toast('Saved. Publish to push it live.');
+      } catch (err) { toast(err.message, 'error'); }
+    } }, 'Save appearance')));
+}
+
+/* ---------------------------------------------------------------- publish */
+
+async function publish() {
+  if (!confirm('Publish the catalogue and site settings to the live store?')) return;
+  toast('Publishing…');
+  try {
+    const r = await api('adminPublish', { admin_pass: PASS });
+    CAT.published_at = r.published_at;
+    toast(`Published ${r.products} products and ${r.banners} banners. ${r.note}`);
+    paint();
+  } catch (err) {
+    toast(err.message, 'error');
+  }
+}
+
+/* ----------------------------------------------------------------- shared */
+
+function drawer(inner) {
+  closeDrawer();
+  document.body.append(el('div', {
+    class: 'drawer', id: 'drawer',
+    onclick: e => { if (e.target.id === 'drawer') closeDrawer(); },
+  }, el('div', { class: 'drawer-inner' }, inner)));
+}
+function closeDrawer() { document.getElementById('drawer')?.remove(); }
+
+function drawerHead(title, extra) {
+  return el('div', { class: 'row-between', style: 'margin-bottom:14px' },
+    el('div', { class: 'row' },
+      el('h2', { style: 'border:0;padding:0;margin:0' }, title), extra || null),
+    el('button', { class: 'btn btn-ghost btn-sm', onclick: closeDrawer }, 'Close'));
+}
+
+function kvTable(pairs) {
+  return el('table', { class: 'spec-table' }, el('tbody', {},
+    pairs.map(([k, v]) => el('tr', {}, el('td', {}, k), el('td', {}, String(v || '—'))))));
+}
+
+function field(label, input, full) {
+  return el('label', { class: 'field' + (full ? ' full' : '') },
+    el('span', {}, label), input);
+}
+
+function selectOf(values, current, onchange) {
+  return el('select', { onchange: e => onchange(e.target.value) },
+    ...values.map(v => el('option', { value: v, selected: v === current ? 'selected' : null }, v)));
+}
+
+/* A checkbox reads as a form field; this reads as a visibility switch. */
+function toggle(on, fn) {
+  const b = el('button', {
+    type: 'button', class: 'chip' + (on ? ' on' : ''),
+    onclick: async () => {
+      try {
+        await fn(!b.classList.contains('on'));
+        b.classList.toggle('on');
+        b.textContent = b.classList.contains('on') ? 'Visible' : 'Hidden';
+      } catch (err) { toast(err.message, 'error'); }
+    },
+  }, on ? 'Visible' : 'Hidden');
+  return b;
+}
+
+const val = id => document.getElementById(id).value.trim();
+
+function toBase64(file) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result.split(',')[1]);
+    r.onerror = rej;
+    r.readAsDataURL(file);
+  });
+}
+
+function exportCsv() {
+  const cols = ['order_id', 'created_at', 'requester_name', 'requester_email', 'lob',
+    'lob_approver', 'event_date', 'status', 'subtotal', 'tax_total', 'grand_total',
+    'decided_by', 'decided_at', 'rejection_reason', 'courier', 'tracking_no'];
+  const esc = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
+  const csv = [cols.join(','), ...ORDERS.map(o => cols.map(c => esc(o[c])).join(','))].join('\n');
+  const a = el('a', {
+    href: URL.createObjectURL(new Blob([csv], { type: 'text/csv' })),
+    download: 'rsm-orders.csv',
+  });
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+bootAdmin();

@@ -3,8 +3,8 @@
    only touched for login, reset, upload, submit, decide and close. */
 
 const CONFIG = {
-  // Paste the /exec URL after deploying apps-script/. Everything except
-  // browsing is inert until this is set.
+  // Live Apps Script deployment. Re-deploy to the SAME deployment id
+  // (clasp deploy --deploymentId ...) so this URL never has to change.
   API_URL: 'https://script.google.com/macros/s/AKfycbyDezChvk8YkvxbdaPMB0W5sKK1znGFH7F6B9T0ficleUdVTPGk22tPD-MI_hZeelaf/exec',
   API_TOKEN: 'rsm_XkCA0HS327rSxemHHRHIymHolJcf',
   CURRENCY: '₹',
@@ -68,7 +68,7 @@ const Catalog = {
   _data: null,
   async load() {
     if (this._data) return this._data;
-    const res = await fetch('assets/products.json');
+    const [res] = await Promise.all([fetch('assets/products.json'), Site.load()]);
     this._data = await res.json();
     this._bySku = Object.fromEntries(this._data.products.map(p => [p.sku, p]));
     return this._data;
@@ -76,6 +76,27 @@ const Catalog = {
   get products() { return this._data.products; },
   get categories() { return this._data.categories; },
   bySku(sku) { return this._bySku[sku]; },
+};
+
+/* Banners and site settings, published alongside products.json. Absent on a
+   store that has never published, so every read is defensive. */
+const Site = {
+  settings: {}, banners: [],
+  async load() {
+    try {
+      const res = await fetch('assets/site.json');
+      if (!res.ok) return;
+      const d = await res.json();
+      this.settings = d.settings || {};
+      this.banners = d.banners || [];
+    } catch (err) {
+      // a missing site.json is not an error, the defaults below cover it
+    }
+  },
+  get(key, fallback) {
+    const v = this.settings[key];
+    return v === undefined || v === '' ? fallback : v;
+  },
 };
 
 /* --------------------------------------------------------------------- auth */
@@ -227,7 +248,8 @@ function header(active) {
   return el('header', { class: 'site-head' },
     el('div', { class: 'wrap head-inner' },
       el('a', { class: 'brand', href: 'index.html' },
-        el('img', { class: 'brand-logo', src: 'assets/brand/rsm-logo.png', alt: 'RSM' }),
+        el('img', { class: 'brand-logo', alt: 'RSM',
+          src: Site.get('logo_url', 'assets/brand/rsm-logo.png') }),
         el('span', { class: 'brand-sub' }, 'Business Store')),
       el('nav', { class: 'nav' },
         ['Apparel', 'Drinkware', 'Travel', 'Utilities'].map(c =>
@@ -248,7 +270,7 @@ function header(active) {
 function footer() {
   return el('footer', { class: 'site-foot' },
     el('div', { class: 'wrap foot-inner' },
-      el('span', {}, 'RSM Business Store, operated by CompanyStore.IO'),
+      el('span', {}, Site.get('footer_note', 'RSM Business Store, operated by CompanyStore.IO')),
       el('a', { href: 'status.html', class: 'link-quiet' }, 'Track an order')));
 }
 
