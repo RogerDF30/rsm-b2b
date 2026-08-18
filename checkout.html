@@ -26,9 +26,19 @@
           <label class="field"><span>Work email</span>
             <input type="email" name="requester_email" readonly></label>
           <label class="field"><span>Department / LOB <b class="req">*</b></span>
-            <input type="text" name="lob" required></label>
+            <select name="lob" id="lob" required>
+              <option value="">Select a department</option>
+            </select></label>
           <label class="field"><span>Contact number <b class="req">*</b></span>
             <input type="tel" name="requester_phone" required></label>
+          <label class="field full"><span>Approver <b class="req">*</b></span>
+            <select name="lob_approver" id="lobApprover" required>
+              <option value="">Select a department first</option>
+            </select>
+            <span class="small muted" style="display:block;margin-top:5px">
+              The RSM partner who sanctioned this spend. Their approval email is
+              what you attach as evidence below.
+            </span></label>
         </div>
       </div>
 
@@ -118,7 +128,6 @@ const uploads = [];
   const f = document.getElementById('form');
   f.requester_email.value = u.email;
   f.requester_name.value = u.full_name || '';
-  f.lob.value = u.lob || '';
   f.requester_phone.value = u.default_ship_phone || '';
   f.ship_name.value = u.default_ship_name || u.full_name || '';
   f.ship_phone.value = u.default_ship_phone || '';
@@ -129,9 +138,47 @@ const uploads = [];
   document.getElementById('sameAs').onchange = e =>
     document.getElementById('billFields').classList.toggle('hidden', e.target.checked);
 
+  await loadDepartments(u.lob);
   wireUploads();
   paintSummary();
 })();
+
+/* Departments and their sanctioning partners come from the Sheet, so the list
+   can be edited without a redeploy. */
+async function loadDepartments(preset) {
+  const lob = document.getElementById('lob');
+  const ap = document.getElementById('lobApprover');
+  let deps = [];
+  try {
+    const res = await fetch(CONFIG.API_URL + '?fn=meta');
+    const data = await res.json();
+    deps = data.ok ? data.departments : [];
+  } catch (err) {
+    toast('Could not load the department list.', 'error');
+  }
+
+  lob.append(...deps.map(d => el('option', { value: d.lob }, d.lob)));
+  if (preset && deps.some(d => d.lob === preset)) lob.value = preset;
+
+  const fill = () => {
+    const hit = deps.find(d => d.lob === lob.value);
+    ap.textContent = '';
+    if (!lob.value) {
+      ap.append(el('option', { value: '' }, 'Select a department first'));
+      return;
+    }
+    ap.append(el('option', { value: '' }, 'Select an approver'));
+    if (hit && hit.approver) {
+      ap.append(el('option', { value: hit.approver }, hit.approver));
+    }
+    // Every other partner stays selectable: cross-LOB sanctioning happens.
+    deps.filter(d => d.approver && (!hit || d.approver !== hit.approver))
+        .forEach(d => ap.append(el('option', { value: d.approver }, `${d.approver} (${d.lob})`)));
+    if (hit && hit.approver) ap.value = hit.approver;
+  };
+  lob.onchange = fill;
+  fill();
+}
 
 /* ------------------------------------------------------------------ uploads */
 

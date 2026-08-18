@@ -3,8 +3,8 @@
    only touched for login, reset, upload, submit, decide and close. */
 
 const CONFIG = {
-  // Live Apps Script deployment. Re-deploy to the SAME deployment id
-  // (clasp deploy --deploymentId ...) so this URL never has to change.
+  // Paste the /exec URL after deploying apps-script/. Everything except
+  // browsing is inert until this is set.
   API_URL: 'https://script.google.com/macros/s/AKfycbyDezChvk8YkvxbdaPMB0W5sKK1znGFH7F6B9T0ficleUdVTPGk22tPD-MI_hZeelaf/exec',
   API_TOKEN: 'rsm_XkCA0HS327rSxemHHRHIymHolJcf',
   CURRENCY: '₹',

@@ -17,6 +17,7 @@ var SHEETS = {
   CONFIG: 'Config',
   USERS: 'Users',
   APPROVERS: 'Approvers',
+  DEPARTMENTS: 'Departments',
   PRODUCTS: 'Products',
   VARIANTS: 'Variants',
   TIERS: 'PriceTiers',

@@ -131,8 +131,10 @@ async function open_(id) {
 
     el('table', { class: 'spec-table' }, el('tbody', {},
       [['Requester', `${o.requester_name} (${o.requester_email})`],
-       ['LOB', o.lob], ['Event date', o.event_date], ['Purpose', o.purpose],
-       ['Ship to', `${o.ship_name}, ${o.ship_street}, ${o.ship_city} ${o.ship_pincode}`],
+       ['LOB', o.lob], ['Approver', o.lob_approver || '—'],
+       ['Event date', o.event_date], ['Purpose', o.purpose],
+       ['Ship to', `${o.ship_name}, ${o.ship_street}, ${o.ship_city} ${o.ship_state || ''} ${o.ship_pincode}`],
+       ['Bill to', `${o.bill_name || o.ship_name}, ${o.bill_street || o.ship_street}, ${o.bill_city || o.ship_city} ${o.bill_pincode || o.ship_pincode}`],
        ['Decided by', o.decided_by || '—'], ['Decided at', o.decided_at || '—'],
        ['Rejection reason', o.rejection_reason || '—']]
         .map(([k, v]) => el('tr', {}, el('td', {}, k), el('td', {}, String(v || '—')))))),

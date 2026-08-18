@@ -67,7 +67,11 @@ function bootstrap() {
     counts.variants + ' variants, ' + counts.tiers + ' tier rows, ' +
     counts.categories + ' categories');
 
-  // 6. one approver and one demo user
+  // 6. departments and their sanctioning partners
+  seedDepartments();
+  log.push('Departments: ' + readTab(SHEETS.DEPARTMENTS).length + ' seeded');
+
+  // 7. one approver and one demo user
   appendRow(SHEETS.APPROVERS, {
     approver_name: 'Roger Daniel', approver_email: 'roger@companystore.io',
     receives_all: 'TRUE', active: 'TRUE'
@@ -109,6 +113,27 @@ function bootstrap() {
 
   console.log(out);
   return out;
+}
+
+/**
+ * Line of business -> the RSM partner who sanctions its spend.
+ *
+ * The four filled rows are the real pairs used in the old Magento approval
+ * sheet. The rest are the LOBs seen in the order history with no partner on
+ * record: fill them in the Departments tab, no redeploy needed.
+ */
+function seedDepartments() {
+  if (readTab(SHEETS.DEPARTMENTS).length) return;
+  [['Assurance', 'Kawalpreet Kaur'],
+   ['CMG', ''],
+   ['Consulting', 'Balasundaram Nagarajan'],
+   ['Enterprises', 'Gowri Srinivas'],
+   ['ESS', ''],
+   ['IT', 'Malleswara Reddy'],
+   ['Talent', ''],
+   ['Tax', '']].forEach(function (d) {
+    appendRow(SHEETS.DEPARTMENTS, { lob: d[0], approver_name: d[1], active: 'TRUE' });
+  });
 }
 
 /**

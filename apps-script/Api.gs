@@ -22,8 +22,18 @@ function routes() {
     closeOrder: fnCloseOrder,
     adminList: fnAdminList,
     adminOrder: fnAdminOrder,
-    adminResend: fnAdminResend
+    adminResend: fnAdminResend,
+    adminUpgrade: fnAdminUpgrade
   };
+}
+
+/* Admin-gated schema migration, so a column or tab can be added without an
+   editor visit. Creates structure only; it never touches order data. */
+function fnAdminUpgrade(req) {
+  requireAdmin(req);
+  var done = upgradeSchema();
+  audit('admin', 'schema_upgrade', 'sheet', prop('SHEET_ID'), null, { steps: done });
+  return { ok: true, steps: done };
 }
 
 function json(obj) {
@@ -90,6 +100,20 @@ function doGet(e) {
     }
   }
 
+  /* Feeds the Department and Approver dropdowns on checkout. */
+  if (p.fn === 'meta') {
+    try {
+      var deps = readTab(SHEETS.DEPARTMENTS)
+        .filter(function (d) { return String(d.active).toUpperCase() !== 'FALSE'; })
+        .map(function (d) {
+          return { lob: String(d.lob).trim(), approver: String(d.approver_name || '').trim() };
+        });
+      return json({ ok: true, departments: deps });
+    } catch (err) {
+      return json({ ok: false, error: err.message });
+    }
+  }
+
   /* One packed parameter, see packApproval() for why. Falls back to the old
      four-parameter form so links already in someone's inbox keep working. */
   var d = unpackApproval(p.t);
@@ -126,6 +150,7 @@ function doGet(e) {
     kv([
       ['Requested by', o.requester_name],
       ['Department', o.lob],
+      ['Approver', o.lob_approver || 'Not stated'],
       ['Event date', fmtDate(o.event_date)],
       ['Order value', inr(o.grand_total)]
     ]) +
@@ -136,7 +161,7 @@ function doGet(e) {
         '<textarea id="reason" placeholder="Why this order is being rejected"></textarea></p>'
       : '') +
     '<p><button id="go" class="' + (act === 'approve' ? 'ok' : 'no') + '" ' +
-    'style="background:' + (act === 'approve' ? '#009CDE' : '#00153D') + '">' +
+    'style="background:' + (act === 'approve' ? '#2E9E4F' : '#D93025') + '">' +
     (act === 'approve' ? 'Confirm approval' : 'Confirm rejection') + '</button></p>' +
     '<div class="quiet">No approval code is required. This link identifies you.</div>' +
     '<script>' +

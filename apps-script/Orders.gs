@@ -106,7 +106,7 @@ function fnSubmitOrder(req) {
   var files = req.files || [];
 
   if (!files.length) throw new Error('At least one evidence file is required.');
-  ['requester_name', 'lob', 'event_date', 'purpose', 'ship_name',
+  ['requester_name', 'lob', 'lob_approver', 'event_date', 'purpose', 'ship_name',
    'ship_phone', 'ship_street', 'ship_city', 'ship_pincode'].forEach(function (k) {
     if (!String(o[k] || '').trim()) throw new Error('Missing required field: ' + k);
   });
@@ -132,6 +132,7 @@ function fnSubmitOrder(req) {
       order_id: orderId, created_at: now(),
       requester_email: user.email, requester_name: o.requester_name,
       requester_phone: o.requester_phone || '', lob: o.lob,
+      lob_approver: o.lob_approver || '',
       event_date: o.event_date, purpose: o.purpose,
       cost_centre: o.cost_centre || '',
       ship_name: o.ship_name, ship_phone: o.ship_phone, ship_email: user.email,

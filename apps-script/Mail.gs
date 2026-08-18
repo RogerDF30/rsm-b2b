@@ -18,7 +18,9 @@ var CSS = [
   '.num{text-align:right}',
   '.btn{display:inline-block;padding:13px 30px;border-radius:8px;color:#fff;',
   '     text-decoration:none;font-weight:700;font-size:15px}',
-  '.ok{background:#009CDE}.no{background:#00153D}',
+  '.ok{background:#2E9E4F}.no{background:#D93025}',
+  '.addr{width:48%;display:inline-block;vertical-align:top}',
+  '.addr h4{margin:0 0 4px;font-size:13px}',
   '.note{background:#E4F3FC;border-left:3px solid #009CDE;padding:12px 14px;font-size:14px}',
   '.quiet{background:#F4F8FB;border-left:3px solid #9AA6B8;padding:12px 14px;font-size:14px}',
   '.muted{color:#5B6A80;font-size:13px}',
@@ -79,6 +81,24 @@ function lineTable(lines) {
     '<tbody>' + rows + '</tbody></table>';
 }
 
+/* Shipping and billing side by side. The old Magento mail showed both and the
+   approvers read them; showing only the delivery address lost information. */
+function addressBlocks(o) {
+  function block(title, name, street, city, state, pin, phone) {
+    return '<div class="addr"><h4>' + esc(title) + '</h4>' +
+      '<b>' + esc(name || '-') + '</b><br>' +
+      esc(street || '-') + '<br>' +
+      esc([city, state].filter(String).join(', ')) + ' ' + esc(pin || '') + '<br>' +
+      'Phone: ' + esc(phone || '-') + '</div>';
+  }
+  return '<div>' +
+    block('Shipping address', o.ship_name, o.ship_street, o.ship_city,
+          o.ship_state, o.ship_pincode, o.ship_phone) +
+    block('Billing address', o.bill_name, o.bill_street, o.bill_city,
+          o.bill_state, o.bill_pincode, o.bill_phone) +
+    '</div>';
+}
+
 function kv(pairs) {
   return '<table class="kv"><tbody>' + pairs.map(function (p) {
     return '<tr><td>' + esc(p[0]) + '</td><td>' + esc(p[1]) + '</td></tr>';
@@ -111,6 +131,7 @@ function sendApprovalEmails(orderId, exp) {
         ['Order ID', orderId],
         ['Requested by', o.requester_name + ' (' + o.requester_email + ')'],
         ['Department (LOB)', o.lob],
+        ['Approver', o.lob_approver || 'Not stated'],
         ['Event date', fmtDate(o.event_date)],
         ['Purpose', o.purpose],
         ['Order value', inr(o.grand_total) + ' including GST']
@@ -120,10 +141,13 @@ function sendApprovalEmails(orderId, exp) {
       '<table style="margin-top:10px"><tbody>' +
       '<tr><td class="num">Subtotal</td><td class="num" style="width:140px">' + inr(o.subtotal) + '</td></tr>' +
       '<tr><td class="num">GST</td><td class="num">' + inr(o.tax_total) + '</td></tr>' +
+      '<tr><td class="num">Shipping &amp; handling</td><td class="num">' +
+        (Number(o.shipping_total) > 0 ? inr(o.shipping_total) : 'Quoted after approval') +
+        '</td></tr>' +
       '<tr><td class="num"><b>Total</b></td><td class="num"><b>' + inr(o.grand_total) + '</b></td></tr>' +
       '</tbody></table>' +
 
-      '<h3>Evidence supplied</h3>' +
+      '<h3>Approval evidence</h3>' +
       (files.length
         ? files.map(function (f) {
             return '<div style="padding:6px 0"><a href="' + esc(f.drive_url) + '">' +
@@ -131,12 +155,7 @@ function sendApprovalEmails(orderId, exp) {
           }).join('')
         : '<p class="muted">None attached.</p>') +
 
-      '<h3>Delivery</h3>' +
-      kv([
-        ['Ship to', o.ship_name],
-        ['Address', o.ship_street + ', ' + o.ship_city + ' ' + o.ship_pincode],
-        ['Phone', o.ship_phone]
-      ]) +
+      '<h3>Addresses</h3>' + addressBlocks(o) +
 
       '<h3>Your decision</h3>' +
       '<p><a class="btn ok" href="' + approveUrl + '">Approve order</a>' +
@@ -166,6 +185,7 @@ function sendDecisionEmail(o, status, reason) {
     '<h3>Order details</h3>' +
     kv([
       ['Order ID', o.order_id], ['Department', o.lob],
+      ['Approver', o.lob_approver || 'Not stated'],
       ['Event date', fmtDate(o.event_date)],
       ['Decided by', o.decided_by], ['Decided at', fmtDate(o.decided_at) || now()],
       ['Order value', inr(o.grand_total)]

@@ -22,6 +22,11 @@ var TAB_HEADERS = {
 
   Approvers: ['approver_name', 'approver_email', 'receives_all', 'active'],
 
+  /* The RSM-side line of business and the partner who sanctions its spend.
+     This is what feeds the two checkout dropdowns. It is NOT the same as
+     Approvers, which is who receives the approval email. */
+  Departments: ['lob', 'approver_name', 'active'],
+
   Products: ['sku', 'name', 'category', 'subcategory', 'description', 'moq',
     'gst_rate', 'base_price', 'has_sizes', 'image', 'lead_time_days',
     'active', 'sort_order'],
@@ -33,7 +38,7 @@ var TAB_HEADERS = {
   Categories: ['slug', 'parent_slug', 'label', 'sort_order', 'active'],
 
   Orders: ['order_id', 'created_at', 'requester_email', 'requester_name',
-    'requester_phone', 'lob', 'event_date', 'purpose', 'cost_centre',
+    'requester_phone', 'lob', 'lob_approver', 'event_date', 'purpose', 'cost_centre',
     'ship_name', 'ship_phone', 'ship_email', 'ship_street', 'ship_city',
     'ship_state', 'ship_pincode', 'ship_country',
     'bill_name', 'bill_phone', 'bill_street', 'bill_city', 'bill_state',
@@ -146,4 +151,43 @@ function healthCheck() {
 
   console.log(problems.length ? 'PROBLEMS:\n- ' + problems.join('\n- ') : 'All checks passed.');
   return problems;
+}
+
+
+/**
+ * Bring an already-bootstrapped Sheet up to the current schema. Idempotent.
+ *
+ * Inserts the Orders.lob_approver column IN PLACE rather than rewriting the
+ * header row, so existing order rows stay aligned with their data.
+ */
+function upgradeSchema() {
+  var ss = book();
+  var done = [];
+
+  // 1. Departments tab
+  if (!ss.getSheetByName(SHEETS.DEPARTMENTS)) {
+    var sh = ss.insertSheet(SHEETS.DEPARTMENTS);
+    var head = TAB_HEADERS.Departments;
+    sh.getRange(1, 1, 1, head.length).setValues([head])
+      .setFontWeight('bold').setBackground('#F4F8FB');
+    sh.setFrozenRows(1);
+    done.push('created the Departments tab');
+  }
+  if (!readTab(SHEETS.DEPARTMENTS).length) {
+    seedDepartments();
+    done.push('seeded ' + readTab(SHEETS.DEPARTMENTS).length + ' departments');
+  }
+
+  // 2. Orders.lob_approver, inserted right after lob
+  var idx = headerIndex(SHEETS.ORDERS);
+  if (!idx.lob_approver) {
+    var orders = sheet(SHEETS.ORDERS);
+    orders.insertColumnAfter(idx.lob);
+    orders.getRange(1, idx.lob + 1).setValue('lob_approver')
+      .setFontWeight('bold').setBackground('#F4F8FB');
+    done.push('inserted Orders.lob_approver after column ' + idx.lob);
+  }
+
+  console.log(done.length ? 'Upgraded:\n- ' + done.join('\n- ') : 'Already up to date.');
+  return done;
 }

@@ -125,8 +125,10 @@ function render(o, lines, files) {
     el('div', { class: 'panel' },
       el('h2', {}, 'Details'),
       el('table', { class: 'spec-table' }, el('tbody', {},
-        [['Department', o.lob], ['Event date', o.event_date], ['Purpose', o.purpose],
-         ['Ship to', `${o.ship_name}, ${o.ship_street}, ${o.ship_city} ${o.ship_pincode}`],
+        [['Department', o.lob], ['Approver', o.lob_approver || '—'],
+         ['Event date', o.event_date], ['Purpose', o.purpose],
+         ['Ship to', `${o.ship_name}, ${o.ship_street}, ${o.ship_city} ${o.ship_state || ''} ${o.ship_pincode}`],
+         ['Bill to', `${o.bill_name || o.ship_name}, ${o.bill_street || o.ship_street}, ${o.bill_city || o.ship_city} ${o.bill_pincode || o.ship_pincode}`],
          ['Decided by', o.decided_by || '—'], ['Decided at', o.decided_at || '—']]
           .map(([k, v]) => el('tr', {}, el('td', {}, k), el('td', {}, String(v || '—'))))))),
 
