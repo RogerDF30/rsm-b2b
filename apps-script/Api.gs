@@ -73,11 +73,33 @@ function html(inner, title) {
 
 function doGet(e) {
   var p = e.parameter || {};
-  var orderId = p.orderId || '';
-  var who = p.who || '';
-  var act = p.act === 'reject' ? 'reject' : 'approve';
 
-  if (!verifyApprovalToken(orderId, who, p.exp, p.sig || '')) {
+  /* Health check. Also the quickest way to prove the deployment is serving
+     JSON, since everything else on this path returns HTML. */
+  if (p.fn === 'ping') {
+    try {
+      return json({
+        ok: true, ts: now(),
+        products: readTab(SHEETS.PRODUCTS).length,
+        tiers: readTab(SHEETS.TIERS).length,
+        approvers: activeApprovers().length,
+        orders: readTab(SHEETS.ORDERS).length
+      });
+    } catch (err) {
+      return json({ ok: false, error: err.message });
+    }
+  }
+
+  /* One packed parameter, see packApproval() for why. Falls back to the old
+     four-parameter form so links already in someone's inbox keep working. */
+  var d = unpackApproval(p.t);
+  var orderId = d ? d.orderId : (p.orderId || '');
+  var who = d ? d.who : (p.who || '');
+  var act = d ? d.act : (p.act === 'reject' ? 'reject' : 'approve');
+  var exp = d ? d.exp : p.exp;
+  var sig = d ? approvalToken(orderId, who, exp) : (p.sig || '');
+
+  if (!verifyApprovalToken(orderId, who, exp, sig)) {
     return html('<h2>This link is not valid</h2>' +
       '<div class="note">It may have expired, or it may have been altered. ' +
       'Ask CompanyStore.IO to resend the approval email for ' + esc(orderId) + '.</div>',
@@ -96,7 +118,7 @@ function doGet(e) {
   }
 
   var lines = orderLines(orderId);
-  var args = "'" + act + "','" + orderId + "','" + who + "','" + p.exp + "','" + p.sig + "'";
+  var args = "'" + act + "','" + orderId + "','" + who + "','" + exp + "','" + sig + "'";
 
   return html(
     '<h2>' + (act === 'approve' ? 'Approve' : 'Reject') + ' order ' + esc(orderId) + '</h2>' +
@@ -104,7 +126,7 @@ function doGet(e) {
     kv([
       ['Requested by', o.requester_name],
       ['Department', o.lob],
-      ['Event date', o.event_date],
+      ['Event date', fmtDate(o.event_date)],
       ['Order value', inr(o.grand_total)]
     ]) +
     '<h3>Items</h3>' + lineTable(lines) +

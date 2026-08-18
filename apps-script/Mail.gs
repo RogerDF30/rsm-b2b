@@ -25,6 +25,20 @@ var CSS = [
   '.kv td:first-child{color:#5B6A80;width:34%}'
 ].join('');
 
+/* Sheets hands back real Date objects. Printed raw they render as
+   "Wed Sep 30 2026 00:00:00 GMT+0530 (India Standard Time)", which is not
+   something to put in front of a client. */
+function fmtDate(v) {
+  if (v instanceof Date) return Utilities.formatDate(v, 'Asia/Kolkata', 'd MMM yyyy');
+  return v === null || v === undefined ? '' : String(v);
+}
+
+/* ScriptApp returns the domain-scoped /a/<domain>/macros/ URL. Approvers are
+   on @rsmus.com, so send them the plain form. */
+function execUrl() {
+  return ScriptApp.getService().getUrl().replace(/\/a\/[^\/]+\/macros\//, '/macros/');
+}
+
 function inr(n) {
   return '₹' + Number(n || 0).toLocaleString('en-IN',
     { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -81,14 +95,12 @@ function sendApprovalEmails(orderId, exp) {
   var o = findOrderRow(orderId);
   var lines = orderLines(orderId);
   var files = orderFiles(orderId);
-  var base = ScriptApp.getService().getUrl();
+  var base = execUrl();
 
   activeApprovers().forEach(function (a) {
     var email = String(a.approver_email).trim();
-    var sig = approvalToken(orderId, email, exp);
-    var q = '?orderId=' + encodeURIComponent(orderId) +
-      '&who=' + encodeURIComponent(email) + '&exp=' + exp +
-      '&sig=' + encodeURIComponent(sig) + '&act=';
+    var approveUrl = base + '?t=' + packApproval(orderId, email, exp, 'approve');
+    var rejectUrl = base + '?t=' + packApproval(orderId, email, exp, 'reject');
 
     var html = page(
       '<h2>Order approval request</h2>' +
@@ -99,7 +111,7 @@ function sendApprovalEmails(orderId, exp) {
         ['Order ID', orderId],
         ['Requested by', o.requester_name + ' (' + o.requester_email + ')'],
         ['Department (LOB)', o.lob],
-        ['Event date', o.event_date],
+        ['Event date', fmtDate(o.event_date)],
         ['Purpose', o.purpose],
         ['Order value', inr(o.grand_total) + ' including GST']
       ]) +
@@ -127,8 +139,8 @@ function sendApprovalEmails(orderId, exp) {
       ]) +
 
       '<h3>Your decision</h3>' +
-      '<p><a class="btn ok" href="' + base + q + 'approve">Approve order</a>' +
-      '&nbsp;&nbsp;<a class="btn no" href="' + base + q + 'reject">Reject order</a></p>' +
+      '<p><a class="btn ok" href="' + approveUrl + '">Approve order</a>' +
+      '&nbsp;&nbsp;<a class="btn no" href="' + rejectUrl + '">Reject order</a></p>' +
       '<div class="quiet">These links are unique to you and to this order. ' +
       'They expire in ' + APPROVAL_DAYS + ' days and stop working once a decision is recorded. ' +
       'No approval code is needed.</div>'
@@ -154,8 +166,8 @@ function sendDecisionEmail(o, status, reason) {
     '<h3>Order details</h3>' +
     kv([
       ['Order ID', o.order_id], ['Department', o.lob],
-      ['Event date', o.event_date],
-      ['Decided by', o.decided_by], ['Decided at', o.decided_at || now()],
+      ['Event date', fmtDate(o.event_date)],
+      ['Decided by', o.decided_by], ['Decided at', fmtDate(o.decided_at) || now()],
       ['Order value', inr(o.grand_total)]
     ]) +
     '<h3>Items</h3>' + lineTable(lines) +

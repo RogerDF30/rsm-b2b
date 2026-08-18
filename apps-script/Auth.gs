@@ -89,12 +89,23 @@ function findUser(email) {
   return null;
 }
 
+/* Sheets coerces numeric-looking cells to numbers, so phone and PIN come back
+   as 9812345678 rather than "9812345678". Cast them, or a leading zero is
+   silently dropped on the way to the checkout form. */
+function str(v) {
+  if (v === null || v === undefined) return '';
+  if (typeof v === 'number') return String(Math.round(v));
+  return String(v);
+}
+
 function publicUser(u) {
   return {
-    email: u.email, full_name: u.full_name, lob: u.lob,
-    default_ship_name: u.default_ship_name, default_ship_phone: u.default_ship_phone,
-    default_ship_street: u.default_ship_street, default_ship_city: u.default_ship_city,
-    default_ship_pincode: u.default_ship_pincode,
+    email: str(u.email), full_name: str(u.full_name), lob: str(u.lob),
+    default_ship_name: str(u.default_ship_name),
+    default_ship_phone: str(u.default_ship_phone),
+    default_ship_street: str(u.default_ship_street),
+    default_ship_city: str(u.default_ship_city),
+    default_ship_pincode: str(u.default_ship_pincode),
     must_reset: String(u.must_reset).toUpperCase() === 'TRUE'
   };
 }
@@ -198,6 +209,41 @@ function approvalToken(orderId, approverEmail, exp) {
 function verifyApprovalToken(orderId, approverEmail, exp, sig) {
   if (Number(exp) < Date.now()) return false;
   return safeEqual(sig, approvalToken(orderId, approverEmail, exp));
+}
+
+/**
+ * Pack the whole approval link payload into ONE opaque query parameter.
+ *
+ * This is not cosmetic. MailApp sends the body quoted-printable and does not
+ * escape "=" as "=3D", so any "=" followed by two hex digits is swallowed by
+ * the recipient's mail client. "&exp=1788264540427" arrived as "&exp" + 0x17,
+ * which broke every approve and reject link. One parameter, prefixed "v1."
+ * so the two characters after "=" are never both hex, avoids the whole class
+ * of problem.
+ */
+function packApproval(orderId, approverEmail, exp, act) {
+  var payload = [orderId, approverEmail, exp, act,
+    approvalToken(orderId, approverEmail, exp)].join('|');
+  return 'v1.' + Utilities.base64EncodeWebSafe(payload).replace(/=+$/, '');
+}
+
+/** Returns {orderId, who, exp, act} if the token is intact, else null. */
+function unpackApproval(t) {
+  t = String(t || '');
+  if (t.indexOf('v1.') !== 0) return null;
+  var body = t.slice(3);
+  var pad = body.length % 4;
+  if (pad) body += new Array(5 - pad).join('=');
+  var raw;
+  try {
+    raw = Utilities.newBlob(Utilities.base64DecodeWebSafe(body)).getDataAsString();
+  } catch (err) { return null; }
+
+  var bits = raw.split('|');
+  if (bits.length !== 5) return null;
+  var orderId = bits[0], who = bits[1], exp = bits[2], act = bits[3], sig = bits[4];
+  if (!verifyApprovalToken(orderId, who, exp, sig)) return null;
+  return { orderId: orderId, who: who, exp: exp, act: act === 'reject' ? 'reject' : 'approve' };
 }
 
 /* ------------------------------------------------------------------ admin */
