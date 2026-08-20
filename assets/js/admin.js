@@ -187,7 +187,10 @@ function paintCatalogue(host) {
   host.append(f,
     el('div', { class: 'row-between', style: 'margin-bottom:12px' },
       el('span', { class: 'small muted', id: 'prodCount' }, ''),
-      el('button', { class: 'btn btn-sm', onclick: () => editProduct(null) }, 'Add product')),
+      el('div', { class: 'row' },
+        el('button', { class: 'btn btn-ghost btn-sm', id: 'autoRelate',
+          onclick: autoRelate }, 'Auto-map related'),
+        el('button', { class: 'btn btn-sm', onclick: () => editProduct(null) }, 'Add product'))),
     el('div', { class: 'panel', style: 'padding:0;overflow-x:auto' },
       el('table', { class: 'tbl' },
         el('thead', {}, el('tr', {},
@@ -225,7 +228,7 @@ function repaintProducts() {
     el('td', { class: 'num' }, qty(p.moq)),
     el('td', { class: 'num mono' }, p.tiers.length ? money(p.tiers[0].unit_price) : '—'),
     el('td', { class: 'small' }, p.sizes.length ? p.sizes.join(' ') : '—'),
-    el('td', { class: 'num small' }, p.related_skus.length || '—'),
+    el('td', { class: 'num small' }, p.related_all.length || '—'),
     el('td', {}, toggle(p.active, async on => {
       await api('adminToggle', { admin_pass: PASS, kind: 'product', key: p.sku, active: on });
       p.active = on; repaintProducts();
@@ -350,6 +353,28 @@ function editProduct(p) {
         class: 'btn btn-ghost', style: 'margin-left:auto;color:#D93025;border-color:#F0B6B1',
         onclick: () => confirmDelete(draft.sku),
       }, 'Delete'))));
+}
+
+/**
+ * Fill in related products across the whole catalogue: colour variants first,
+ * then a top-up from the same subcategory. Anything picked by hand is kept, so
+ * this is safe to re-run after adding products.
+ */
+async function autoRelate() {
+  const btn = document.getElementById('autoRelate');
+  btn.disabled = true;
+  const was = btn.textContent;
+  btn.textContent = 'Mapping…';
+  try {
+    const r = await api('adminAutoRelate', { admin_pass: PASS });
+    toast(`${r.variant_links} variant links, ${r.topped_up} suggested. ` +
+          `${r.with_related} of ${r.products} products now show related items.`);
+    await loadAll();
+  } catch (err) {
+    toast(err.message, 'error');
+    btn.disabled = false;
+    btn.textContent = was;
+  }
 }
 
 /**

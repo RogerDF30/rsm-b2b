@@ -28,6 +28,7 @@ function routes() {
     adminSaveProduct: fnAdminSaveProduct,
     adminDeleteProduct: fnAdminDeleteProduct,
     adminToggle: fnAdminToggle,
+    adminAutoRelate: fnAdminAutoRelate,
     adminUploadImage: fnAdminUploadImage,
     adminSaveBanner: fnAdminSaveBanner,
     adminDeleteBanner: fnAdminDeleteBanner,

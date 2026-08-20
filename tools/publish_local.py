@@ -70,7 +70,9 @@ def main():
             'moq': p['moq'], 'gst_rate': p['gst_rate'], 'base_price': p['base_price'],
             'tiers': p['tiers'], 'sizes': p['sizes'], 'has_sizes': p['has_sizes'],
             'image': p['image'], 'weight': was.get('weight', ''), 'active': True,
-            'related': [s for s in p['related_skus'] if s in live_skus],
+            # union of the hand-picked and auto-mapped lists, manual first
+            'related': [s for s in p.get('related_all', p['related_skus'])
+                        if s in live_skus],
         })
 
     with open(CAT, 'w') as f:

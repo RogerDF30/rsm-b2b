@@ -170,7 +170,12 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096"
+        "B2BRSMON-0096",
+        "B2BRSMON-0097",
+        "B2BRSMON-0092",
+        "B2BRSMON-0093",
+        "B2BRSMON-0094",
+        "B2BRSMON-0091"
       ]
     },
     {
@@ -230,7 +235,12 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096"
+        "B2BRSMON-0096",
+        "B2BRSMON-0095",
+        "B2BRSMON-0092",
+        "B2BRSMON-0093",
+        "B2BRSMON-0094",
+        "B2BRSMON-0091"
       ]
     },
     {
@@ -294,7 +304,13 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096"
+        "B2BRSMON-0096",
+        "B2BRSMON-0098",
+        "B2BRSMON-0198",
+        "B2BRSMON-0191",
+        "B2BRSMON-0195",
+        "B2BRSMON-0192",
+        "B2BRSMON-0196"
       ]
     },
     {
@@ -358,7 +374,13 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096"
+        "B2BRSMON-0096",
+        "B2BRSMON-0099",
+        "B2BRSMON-0198",
+        "B2BRSMON-0191",
+        "B2BRSMON-0195",
+        "B2BRSMON-0192",
+        "B2BRSMON-0196"
       ]
     },
     {
@@ -414,7 +436,12 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096"
+        "B2BRSMON-0096",
+        "B2BRSMON-0093",
+        "B2BRSMON-0094",
+        "B2BRSMON-0091",
+        "B2BRSMON-0095",
+        "B2BRSMON-0097"
       ]
     },
     {
@@ -470,7 +497,12 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096"
+        "B2BRSMON-0096",
+        "B2BRSMON-0092",
+        "B2BRSMON-0094",
+        "B2BRSMON-0091",
+        "B2BRSMON-0095",
+        "B2BRSMON-0097"
       ]
     },
     {
@@ -526,7 +558,12 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096"
+        "B2BRSMON-0096",
+        "B2BRSMON-0092",
+        "B2BRSMON-0093",
+        "B2BRSMON-0091",
+        "B2BRSMON-0095",
+        "B2BRSMON-0097"
       ]
     },
     {
@@ -582,7 +619,12 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096"
+        "B2BRSMON-0096",
+        "B2BRSMON-0092",
+        "B2BRSMON-0093",
+        "B2BRSMON-0094",
+        "B2BRSMON-0095",
+        "B2BRSMON-0097"
       ]
     },
     {
@@ -644,7 +686,14 @@
       "image": "assets/products/B2BRSMON-0081.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0080",
+        "B2BRSMON-0190",
+        "B2BRSMON-0184",
+        "B2BRSMON-0189",
+        "B2BRSMON-0187",
+        "B2BRSMON-0186"
+      ]
     },
     {
       "sku": "B2BRSMON-0080",
@@ -713,7 +762,14 @@
       "image": "assets/products/B2BRSMON-0080.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0081",
+        "B2BRSMON-0190",
+        "B2BRSMON-0184",
+        "B2BRSMON-0189",
+        "B2BRSMON-0187",
+        "B2BRSMON-0186"
+      ]
     },
     {
       "sku": "B2BRSMON-0087",
@@ -766,7 +822,14 @@
       "image": "assets/products/B2BRSMON-0087.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0084",
+        "B2BRSMON-0086",
+        "B2BRSMON-0088",
+        "B2BRSMON-0089",
+        "B2BRSMON-0090",
+        "B2BRSMON-0085"
+      ]
     },
     {
       "sku": "B2BRSMON-0082",
@@ -836,7 +899,14 @@
       "image": "assets/products/B2BRSMON-0082.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0083",
+        "B2BRSMON-0085",
+        "B2BRSMON-0088",
+        "B2BRSMON-0089",
+        "B2BRSMON-0090",
+        "B2BRSMON-0084"
+      ]
     },
     {
       "sku": "B2BRSMON-0086",
@@ -889,7 +959,14 @@
       "image": "assets/products/B2BRSMON-0086.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0087",
+        "B2BRSMON-0084",
+        "B2BRSMON-0088",
+        "B2BRSMON-0089",
+        "B2BRSMON-0090",
+        "B2BRSMON-0085"
+      ]
     },
     {
       "sku": "B2BRSMON-0088",
@@ -970,7 +1047,14 @@
       "image": "assets/products/B2BRSMON-0088.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0087",
+        "B2BRSMON-0082",
+        "B2BRSMON-0086",
+        "B2BRSMON-0089",
+        "B2BRSMON-0090",
+        "B2BRSMON-0085"
+      ]
     },
     {
       "sku": "B2BRSMON-0089",
@@ -1051,7 +1135,14 @@
       "image": "assets/products/B2BRSMON-0089.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0090",
+        "B2BRSMON-0087",
+        "B2BRSMON-0082",
+        "B2BRSMON-0086",
+        "B2BRSMON-0088",
+        "B2BRSMON-0085"
+      ]
     },
     {
       "sku": "B2BRSMON-0090",
@@ -1132,7 +1223,14 @@
       "image": "assets/products/B2BRSMON-0090.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0089",
+        "B2BRSMON-0087",
+        "B2BRSMON-0082",
+        "B2BRSMON-0086",
+        "B2BRSMON-0088",
+        "B2BRSMON-0085"
+      ]
     },
     {
       "sku": "B2BRSMON-0083",
@@ -1189,7 +1287,11 @@
       "image": "assets/products/B2BRSMON-0083.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0082",
+        "B2BRSMON-0084",
+        "B2BRSMON-0188"
+      ]
     },
     {
       "sku": "B2BRSMON-0084",
@@ -1242,7 +1344,13 @@
       "image": "assets/products/B2BRSMON-0084.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0087",
+        "B2BRSMON-0082",
+        "B2BRSMON-0086",
+        "B2BRSMON-0083",
+        "B2BRSMON-0188"
+      ]
     },
     {
       "sku": "B2BRSMON-0085",
@@ -1295,7 +1403,14 @@
       "image": "assets/products/B2BRSMON-0085.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0087",
+        "B2BRSMON-0082",
+        "B2BRSMON-0086",
+        "B2BRSMON-0088",
+        "B2BRSMON-0089",
+        "B2BRSMON-0090"
+      ]
     },
     {
       "sku": "B2BRSMON-0071",
@@ -1348,7 +1463,14 @@
       "image": "assets/products/B2BRSMON-0071.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0013",
+        "B2BRSMON-0073",
+        "B2BRSMON-0072",
+        "B2BRSMON-0185",
+        "B2BRSMON-0069",
+        "B2BRSMON-0068"
+      ]
     },
     {
       "sku": "B2BRSMON-0013",
@@ -1401,7 +1523,14 @@
       "image": "assets/products/B2BRSMON-0013.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0071",
+        "B2BRSMON-0073",
+        "B2BRSMON-0072",
+        "B2BRSMON-0185",
+        "B2BRSMON-0069",
+        "B2BRSMON-0068"
+      ]
     },
     {
       "sku": "B2BRSMON-0073",
@@ -1459,7 +1588,14 @@
       "image": "assets/products/B2BRSMON-0073.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0072",
+        "B2BRSMON-0071",
+        "B2BRSMON-0013",
+        "B2BRSMON-0185",
+        "B2BRSMON-0069",
+        "B2BRSMON-0068"
+      ]
     },
     {
       "sku": "B2BRSMON-0072",
@@ -1517,7 +1653,14 @@
       "image": "assets/products/B2BRSMON-0072.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0073",
+        "B2BRSMON-0071",
+        "B2BRSMON-0013",
+        "B2BRSMON-0185",
+        "B2BRSMON-0069",
+        "B2BRSMON-0068"
+      ]
     },
     {
       "sku": "B2BRSMON-0075",
@@ -1570,7 +1713,14 @@
       "image": "assets/products/B2BRSMON-0075.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0076",
+        "B2BRSMON-0078",
+        "B2BRSMON-0079",
+        "B2BRSMON-0077",
+        "B2BRSMON-0185",
+        "B2BRSMON-0069"
+      ]
     },
     {
       "sku": "B2BRSMON-0076",
@@ -1623,7 +1773,14 @@
       "image": "assets/products/B2BRSMON-0076.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0078",
+        "B2BRSMON-0075",
+        "B2BRSMON-0079",
+        "B2BRSMON-0077",
+        "B2BRSMON-0185",
+        "B2BRSMON-0068"
+      ]
     },
     {
       "sku": "B2BRSMON-0078",
@@ -1676,7 +1833,13 @@
       "image": "assets/products/B2BRSMON-0078.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0076",
+        "B2BRSMON-0075",
+        "B2BRSMON-0079",
+        "B2BRSMON-0077",
+        "B2BRSMON-0183"
+      ]
     },
     {
       "sku": "B2BRSMON-0079",
@@ -1729,7 +1892,13 @@
       "image": "assets/products/B2BRSMON-0079.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0077",
+        "B2BRSMON-0075",
+        "B2BRSMON-0076",
+        "B2BRSMON-0078",
+        "B2BRSMON-0183"
+      ]
     },
     {
       "sku": "B2BRSMON-0077",
@@ -1782,7 +1951,13 @@
       "image": "assets/products/B2BRSMON-0077.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0079",
+        "B2BRSMON-0075",
+        "B2BRSMON-0076",
+        "B2BRSMON-0078",
+        "B2BRSMON-0183"
+      ]
     },
     {
       "sku": "B2BRSMON-0069",
@@ -1840,7 +2015,14 @@
       "image": "assets/products/B2BRSMON-0069.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0068",
+        "B2BRSMON-0071",
+        "B2BRSMON-0013",
+        "B2BRSMON-0073",
+        "B2BRSMON-0072",
+        "B2BRSMON-0075"
+      ]
     },
     {
       "sku": "B2BRSMON-0068",
@@ -1898,7 +2080,14 @@
       "image": "assets/products/B2BRSMON-0068.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0069",
+        "B2BRSMON-0071",
+        "B2BRSMON-0013",
+        "B2BRSMON-0073",
+        "B2BRSMON-0072",
+        "B2BRSMON-0076"
+      ]
     },
     {
       "sku": "B2BRSMON-0065",
@@ -1956,7 +2145,14 @@
       "image": "assets/products/B2BRSMON-0065.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0066",
+        "B2BRSMON-0067",
+        "B2BRSMON-0010",
+        "B2BRSMON-0053",
+        "B2BRSMON-0054",
+        "B2BRSMON-0059"
+      ]
     },
     {
       "sku": "B2BRSMON-0067",
@@ -2014,7 +2210,14 @@
       "image": "assets/products/B2BRSMON-0067.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0065",
+        "B2BRSMON-0066",
+        "B2BRSMON-0010",
+        "B2BRSMON-0053",
+        "B2BRSMON-0054",
+        "B2BRSMON-0059"
+      ]
     },
     {
       "sku": "B2BRSMON-0066",
@@ -2072,7 +2275,14 @@
       "image": "assets/products/B2BRSMON-0066.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0065",
+        "B2BRSMON-0067",
+        "B2BRSMON-0010",
+        "B2BRSMON-0053",
+        "B2BRSMON-0054",
+        "B2BRSMON-0059"
+      ]
     },
     {
       "sku": "B2BRSMON-0010",
@@ -2120,7 +2330,14 @@
       "image": "assets/products/B2BRSMON-0010.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0054",
+        "B2BRSMON-0065",
+        "B2BRSMON-0067",
+        "B2BRSMON-0066",
+        "B2BRSMON-0053",
+        "B2BRSMON-0061"
+      ]
     },
     {
       "sku": "B2BRSMON-0053",
@@ -2177,7 +2394,14 @@
       "image": "assets/products/B2BRSMON-0053.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0065",
+        "B2BRSMON-0067",
+        "B2BRSMON-0066",
+        "B2BRSMON-0010",
+        "B2BRSMON-0054",
+        "B2BRSMON-0061"
+      ]
     },
     {
       "sku": "B2BRSMON-0054",
@@ -2234,7 +2458,14 @@
       "image": "assets/products/B2BRSMON-0054.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0010",
+        "B2BRSMON-0065",
+        "B2BRSMON-0067",
+        "B2BRSMON-0066",
+        "B2BRSMON-0053",
+        "B2BRSMON-0061"
+      ]
     },
     {
       "sku": "B2BRSMON-0052",
@@ -2291,7 +2522,14 @@
       "image": "assets/products/B2BRSMON-0052.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0007",
+        "B2BRSMON-0051",
+        "B2BRSMON-0063",
+        "B2BRSMON-0062",
+        "B2BRSMON-0064",
+        "B2BRSMON-0058"
+      ]
     },
     {
       "sku": "B2BRSMON-0007",
@@ -2348,7 +2586,14 @@
       "image": "assets/products/B2BRSMON-0007.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0052",
+        "B2BRSMON-0051",
+        "B2BRSMON-0063",
+        "B2BRSMON-0062",
+        "B2BRSMON-0064",
+        "B2BRSMON-0058"
+      ]
     },
     {
       "sku": "B2BRSMON-0051",
@@ -2405,7 +2650,14 @@
       "image": "assets/products/B2BRSMON-0051.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0052",
+        "B2BRSMON-0007",
+        "B2BRSMON-0063",
+        "B2BRSMON-0062",
+        "B2BRSMON-0064",
+        "B2BRSMON-0058"
+      ]
     },
     {
       "sku": "B2BRSMON-0004",
@@ -2462,7 +2714,14 @@
       "image": "assets/products/B2BRSMON-0004.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0005",
+        "B2BRSMON-0056",
+        "B2BRSMON-0055",
+        "B2BRSMON-0003",
+        "B2BRSMON-0181",
+        "B2BRSMON-0182"
+      ]
     },
     {
       "sku": "B2BRSMON-0005",
@@ -2519,7 +2778,14 @@
       "image": "assets/products/B2BRSMON-0005.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0004",
+        "B2BRSMON-0056",
+        "B2BRSMON-0055",
+        "B2BRSMON-0003",
+        "B2BRSMON-0181",
+        "B2BRSMON-0182"
+      ]
     },
     {
       "sku": "B2BRSMON-0056",
@@ -2580,7 +2846,14 @@
       "image": "assets/products/B2BRSMON-0056.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0004",
+        "B2BRSMON-0005",
+        "B2BRSMON-0055",
+        "B2BRSMON-0003",
+        "B2BRSMON-0181",
+        "B2BRSMON-0182"
+      ]
     },
     {
       "sku": "B2BRSMON-0055",
@@ -2641,7 +2914,14 @@
       "image": "assets/products/B2BRSMON-0055.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0004",
+        "B2BRSMON-0005",
+        "B2BRSMON-0056",
+        "B2BRSMON-0003",
+        "B2BRSMON-0181",
+        "B2BRSMON-0182"
+      ]
     },
     {
       "sku": "B2BRSMON-0003",
@@ -2698,7 +2978,14 @@
       "image": "assets/products/B2BRSMON-0003.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0004",
+        "B2BRSMON-0005",
+        "B2BRSMON-0056",
+        "B2BRSMON-0055",
+        "B2BRSMON-0181",
+        "B2BRSMON-0182"
+      ]
     },
     {
       "sku": "B2BRSMON-0061",
@@ -2755,7 +3042,14 @@
       "image": "assets/products/B2BRSMON-0061.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0063",
+        "B2BRSMON-0062",
+        "B2BRSMON-0064",
+        "B2BRSMON-0010",
+        "B2BRSMON-0053",
+        "B2BRSMON-0054"
+      ]
     },
     {
       "sku": "B2BRSMON-0063",
@@ -2812,7 +3106,14 @@
       "image": "assets/products/B2BRSMON-0063.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0061",
+        "B2BRSMON-0062",
+        "B2BRSMON-0064",
+        "B2BRSMON-0052",
+        "B2BRSMON-0007",
+        "B2BRSMON-0051"
+      ]
     },
     {
       "sku": "B2BRSMON-0062",
@@ -2869,7 +3170,14 @@
       "image": "assets/products/B2BRSMON-0062.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0061",
+        "B2BRSMON-0063",
+        "B2BRSMON-0064",
+        "B2BRSMON-0052",
+        "B2BRSMON-0007",
+        "B2BRSMON-0051"
+      ]
     },
     {
       "sku": "B2BRSMON-0064",
@@ -2926,7 +3234,14 @@
       "image": "assets/products/B2BRSMON-0064.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0061",
+        "B2BRSMON-0063",
+        "B2BRSMON-0062",
+        "B2BRSMON-0052",
+        "B2BRSMON-0007",
+        "B2BRSMON-0051"
+      ]
     },
     {
       "sku": "B2BRSMON-0058",
@@ -2984,7 +3299,14 @@
       "image": "assets/products/B2BRSMON-0058.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0057",
+        "B2BRSMON-0052",
+        "B2BRSMON-0007",
+        "B2BRSMON-0051",
+        "B2BRSMON-0182",
+        "B2BRSMON-0059"
+      ]
     },
     {
       "sku": "B2BRSMON-0057",
@@ -3042,7 +3364,13 @@
       "image": "assets/products/B2BRSMON-0057.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0058",
+        "B2BRSMON-0059",
+        "B2BRSMON-0060",
+        "B2BRSMON-0006",
+        "B2BRSMON-0181"
+      ]
     },
     {
       "sku": "B2BRSMON-0059",
@@ -3103,7 +3431,14 @@
       "image": "assets/products/B2BRSMON-0059.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0065",
+        "B2BRSMON-0067",
+        "B2BRSMON-0066",
+        "B2BRSMON-0058",
+        "B2BRSMON-0057",
+        "B2BRSMON-0060"
+      ]
     },
     {
       "sku": "B2BRSMON-0060",
@@ -3164,7 +3499,11 @@
       "image": "assets/products/B2BRSMON-0060.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0006",
+        "B2BRSMON-0057",
+        "B2BRSMON-0059"
+      ]
     },
     {
       "sku": "B2BRSMON-0006",
@@ -3225,7 +3564,10 @@
       "image": "assets/products/B2BRSMON-0006.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0060",
+        "B2BRSMON-0057"
+      ]
     },
     {
       "sku": "B2BRSMON-0118",
@@ -3291,7 +3633,14 @@
       "image": "assets/products/B2BRSMON-0118.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0179",
+        "B2BRSMON-0116",
+        "B2BRSMON-0115",
+        "B2BRSMON-0178",
+        "B2BRSMON-0119",
+        "B2BRSMON-0120"
+      ]
     },
     {
       "sku": "B2BRSMON-0119",
@@ -3337,7 +3686,14 @@
       "image": "assets/products/B2BRSMON-0119.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0118",
+        "B2BRSMON-0179",
+        "B2BRSMON-0116",
+        "B2BRSMON-0115",
+        "B2BRSMON-0178",
+        "B2BRSMON-0120"
+      ]
     },
     {
       "sku": "B2BRSMON-0120",
@@ -3391,7 +3747,14 @@
       "image": "assets/products/B2BRSMON-0120.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0118",
+        "B2BRSMON-0119",
+        "B2BRSMON-0217",
+        "B2BRSMON-0179",
+        "B2BRSMON-0116",
+        "B2BRSMON-0115"
+      ]
     },
     {
       "sku": "B2BRSMON-0113",
@@ -3457,7 +3820,15 @@
       "image": "assets/products/B2BRSMON-0113.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0114",
+        "B2BRSMON-0032",
+        "B2BRSMON-0220",
+        "B2BRSMON-0221",
+        "B2BRSMON-0218",
+        "B2BRSMON-0217",
+        "B2BRSMON-0034"
+      ]
     },
     {
       "sku": "B2BRSMON-0114",
@@ -3523,7 +3894,15 @@
       "image": "assets/products/B2BRSMON-0114.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0113",
+        "B2BRSMON-0032",
+        "B2BRSMON-0220",
+        "B2BRSMON-0221",
+        "B2BRSMON-0218",
+        "B2BRSMON-0217",
+        "B2BRSMON-0034"
+      ]
     },
     {
       "sku": "B2BRSMON-0117",
@@ -3597,7 +3976,14 @@
       "image": "assets/products/B2BRSMON-0117.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0216",
+        "B2BRSMON-0032",
+        "B2BRSMON-0220",
+        "B2BRSMON-0221",
+        "B2BRSMON-0218",
+        "B2BRSMON-0217"
+      ]
     },
     {
       "sku": "B2BRSMON-0032",
@@ -3647,7 +4033,14 @@
       "image": "assets/products/B2BRSMON-0032.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0113",
+        "B2BRSMON-0114",
+        "B2BRSMON-0117",
+        "B2BRSMON-0220",
+        "B2BRSMON-0221",
+        "B2BRSMON-0218"
+      ]
     },
     {
       "sku": "B2BRSMON-0179",
@@ -3709,7 +4102,14 @@
       "image": "assets/products/B2BRSMON-0179.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0178",
+        "B2BRSMON-0118",
+        "B2BRSMON-0119",
+        "B2BRSMON-0120",
+        "B2BRSMON-0116",
+        "B2BRSMON-0115"
+      ]
     },
     {
       "sku": "B2BRSMON-0116",
@@ -3771,7 +4171,14 @@
       "image": "assets/products/B2BRSMON-0116.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0115",
+        "B2BRSMON-0118",
+        "B2BRSMON-0119",
+        "B2BRSMON-0120",
+        "B2BRSMON-0179",
+        "B2BRSMON-0178"
+      ]
     },
     {
       "sku": "B2BRSMON-0115",
@@ -3833,7 +4240,14 @@
       "image": "assets/products/B2BRSMON-0115.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0116",
+        "B2BRSMON-0118",
+        "B2BRSMON-0119",
+        "B2BRSMON-0120",
+        "B2BRSMON-0179",
+        "B2BRSMON-0178"
+      ]
     },
     {
       "sku": "B2BRSMON-0178",
@@ -3895,7 +4309,14 @@
       "image": "assets/products/B2BRSMON-0178.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0179",
+        "B2BRSMON-0118",
+        "B2BRSMON-0119",
+        "B2BRSMON-0116",
+        "B2BRSMON-0115",
+        "B2BRSMON-0217"
+      ]
     },
     {
       "sku": "B2BRSMON-0034",
@@ -3957,7 +4378,10 @@
       "image": "assets/products/B2BRSMON-0034.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0113",
+        "B2BRSMON-0114"
+      ]
     },
     {
       "sku": "B2BRSMON-0101",
@@ -4015,7 +4439,14 @@
       "image": "assets/products/B2BRSMON-0101.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0100",
+        "B2BRSMON-0104",
+        "B2BRSMON-0103",
+        "B2BRSMON-0102",
+        "B2BRSMON-0112",
+        "B2BRSMON-0105"
+      ]
     },
     {
       "sku": "B2BRSMON-0100",
@@ -4069,7 +4500,14 @@
       "image": "assets/products/B2BRSMON-0100.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0101",
+        "B2BRSMON-0104",
+        "B2BRSMON-0103",
+        "B2BRSMON-0102",
+        "B2BRSMON-0112",
+        "B2BRSMON-0105"
+      ]
     },
     {
       "sku": "B2BRSMON-0107",
@@ -4110,7 +4548,14 @@
       "image": "assets/products/B2BRSMON-0107.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0215",
+        "B2BRSMON-0106",
+        "B2BRSMON-0109",
+        "B2BRSMON-0110",
+        "B2BRSMON-0108",
+        "B2BRSMON-0219"
+      ]
     },
     {
       "sku": "B2BRSMON-0104",
@@ -4172,7 +4617,14 @@
       "image": "assets/products/B2BRSMON-0104.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0101",
+        "B2BRSMON-0100",
+        "B2BRSMON-0103",
+        "B2BRSMON-0102",
+        "B2BRSMON-0112",
+        "B2BRSMON-0105"
+      ]
     },
     {
       "sku": "B2BRSMON-0109",
@@ -4230,7 +4682,14 @@
       "image": "assets/products/B2BRSMON-0109.webp",
       "weight": "1.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0110",
+        "B2BRSMON-0108",
+        "B2BRSMON-0107",
+        "B2BRSMON-0106",
+        "B2BRSMON-0215",
+        "B2BRSMON-0219"
+      ]
     },
     {
       "sku": "B2BRSMON-0110",
@@ -4288,7 +4747,14 @@
       "image": "assets/products/B2BRSMON-0110.webp",
       "weight": "1.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0109",
+        "B2BRSMON-0108",
+        "B2BRSMON-0107",
+        "B2BRSMON-0106",
+        "B2BRSMON-0215",
+        "B2BRSMON-0219"
+      ]
     },
     {
       "sku": "B2BRSMON-0108",
@@ -4346,7 +4812,14 @@
       "image": "assets/products/B2BRSMON-0108.webp",
       "weight": "1.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0109",
+        "B2BRSMON-0110",
+        "B2BRSMON-0107",
+        "B2BRSMON-0106",
+        "B2BRSMON-0215",
+        "B2BRSMON-0219"
+      ]
     },
     {
       "sku": "B2BRSMON-0106",
@@ -4400,7 +4873,14 @@
       "image": "assets/products/B2BRSMON-0106.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0107",
+        "B2BRSMON-0109",
+        "B2BRSMON-0110",
+        "B2BRSMON-0108",
+        "B2BRSMON-0215",
+        "B2BRSMON-0219"
+      ]
     },
     {
       "sku": "B2BRSMON-0103",
@@ -4462,7 +4942,14 @@
       "image": "assets/products/B2BRSMON-0103.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0102",
+        "B2BRSMON-0101",
+        "B2BRSMON-0100",
+        "B2BRSMON-0104",
+        "B2BRSMON-0112",
+        "B2BRSMON-0105"
+      ]
     },
     {
       "sku": "B2BRSMON-0102",
@@ -4524,7 +5011,14 @@
       "image": "assets/products/B2BRSMON-0102.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0103",
+        "B2BRSMON-0101",
+        "B2BRSMON-0100",
+        "B2BRSMON-0104",
+        "B2BRSMON-0112",
+        "B2BRSMON-0105"
+      ]
     },
     {
       "sku": "B2BRSMON-0105",
@@ -4586,7 +5080,14 @@
       "image": "assets/products/B2BRSMON-0105.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0031",
+        "B2BRSMON-0101",
+        "B2BRSMON-0100",
+        "B2BRSMON-0104",
+        "B2BRSMON-0103",
+        "B2BRSMON-0102"
+      ]
     },
     {
       "sku": "B2BRSMON-0031",
@@ -4648,7 +5149,12 @@
       "image": "assets/products/B2BRSMON-0031.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0105",
+        "B2BRSMON-0219",
+        "B2BRSMON-0112",
+        "B2BRSMON-0215"
+      ]
     },
     {
       "sku": "B2BRSMON-0112",
@@ -4710,7 +5216,14 @@
       "image": "assets/products/B2BRSMON-0112.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0101",
+        "B2BRSMON-0100",
+        "B2BRSMON-0104",
+        "B2BRSMON-0103",
+        "B2BRSMON-0102",
+        "B2BRSMON-0031"
+      ]
     },
     {
       "sku": "B2BRSMON-0123",
@@ -4776,7 +5289,14 @@
       "image": "assets/products/B2BRSMON-0123.webp",
       "weight": "5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0127",
+        "B2BRSMON-0128",
+        "B2BRSMON-0204",
+        "B2BRSMON-0122",
+        "B2BRSMON-0205",
+        "B2BRSMON-0201"
+      ]
     },
     {
       "sku": "B2BRSMON-0128",
@@ -4834,7 +5354,16 @@
       "image": "assets/products/B2BRSMON-0128.webp",
       "weight": "5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0123",
+        "B2BRSMON-0127",
+        "B2BRSMON-0204",
+        "B2BRSMON-0122",
+        "B2BRSMON-0205",
+        "B2BRSMON-0201",
+        "B2BRSMON-0136",
+        "B2BRSMON-0137"
+      ]
     },
     {
       "sku": "B2BRSMON-0127",
@@ -4884,7 +5413,14 @@
       "image": "assets/products/B2BRSMON-0127.webp",
       "weight": "5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0122",
+        "B2BRSMON-0123",
+        "B2BRSMON-0128",
+        "B2BRSMON-0204",
+        "B2BRSMON-0205",
+        "B2BRSMON-0201"
+      ]
     },
     {
       "sku": "B2BRSMON-0122",
@@ -4934,7 +5470,14 @@
       "image": "assets/products/B2BRSMON-0122.webp",
       "weight": "4",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0127",
+        "B2BRSMON-0123",
+        "B2BRSMON-0128",
+        "B2BRSMON-0205",
+        "B2BRSMON-0201",
+        "B2BRSMON-0204"
+      ]
     },
     {
       "sku": "B2BRSMON-0130",
@@ -4996,7 +5539,12 @@
       "image": "assets/products/B2BRSMON-0130.webp",
       "weight": "4",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0131",
+        "B2BRSMON-0211",
+        "B2BRSMON-0210",
+        "B2BRSMON-0129"
+      ]
     },
     {
       "sku": "B2BRSMON-0129",
@@ -5050,7 +5598,12 @@
       "image": "assets/products/B2BRSMON-0129.webp",
       "weight": "4",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0130",
+        "B2BRSMON-0210",
+        "B2BRSMON-0211",
+        "B2BRSMON-0131"
+      ]
     },
     {
       "sku": "B2BRSMON-0131",
@@ -5091,7 +5644,12 @@
       "image": "assets/products/B2BRSMON-0131.webp",
       "weight": "4",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0130",
+        "B2BRSMON-0129",
+        "B2BRSMON-0211",
+        "B2BRSMON-0210"
+      ]
     },
     {
       "sku": "B2BRSMON-0133",
@@ -5161,7 +5719,14 @@
       "image": "assets/products/B2BRSMON-0133.webp",
       "weight": "2",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0134",
+        "B2BRSMON-0132",
+        "B2BRSMON-0212",
+        "B2BRSMON-0213",
+        "B2BRSMON-0208",
+        "B2BRSMON-0207"
+      ]
     },
     {
       "sku": "B2BRSMON-0134",
@@ -5227,7 +5792,14 @@
       "image": "assets/products/B2BRSMON-0134.webp",
       "weight": "2",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0133",
+        "B2BRSMON-0132",
+        "B2BRSMON-0212",
+        "B2BRSMON-0213",
+        "B2BRSMON-0208",
+        "B2BRSMON-0207"
+      ]
     },
     {
       "sku": "B2BRSMON-0132",
@@ -5297,7 +5869,14 @@
       "image": "assets/products/B2BRSMON-0132.webp",
       "weight": "3",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0133",
+        "B2BRSMON-0134",
+        "B2BRSMON-0212",
+        "B2BRSMON-0213",
+        "B2BRSMON-0208",
+        "B2BRSMON-0207"
+      ]
     },
     {
       "sku": "B2BRSMON-0144",
@@ -5343,7 +5922,15 @@
       "image": "assets/products/B2BRSMON-0144.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0138",
+        "B2BRSMON-0143",
+        "B2BRSMON-0142",
+        "B2BRSMON-0139",
+        "B2BRSMON-0140",
+        "B2BRSMON-0206",
+        "B2BRSMON-0200"
+      ]
     },
     {
       "sku": "B2BRSMON-0138",
@@ -5389,7 +5976,14 @@
       "image": "assets/products/B2BRSMON-0138.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0144",
+        "B2BRSMON-0143",
+        "B2BRSMON-0142",
+        "B2BRSMON-0139",
+        "B2BRSMON-0140",
+        "B2BRSMON-0206"
+      ]
     },
     {
       "sku": "B2BRSMON-0143",
@@ -5447,7 +6041,14 @@
       "image": "assets/products/B2BRSMON-0143.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0140",
+        "B2BRSMON-0144",
+        "B2BRSMON-0138",
+        "B2BRSMON-0142",
+        "B2BRSMON-0139",
+        "B2BRSMON-0206"
+      ]
     },
     {
       "sku": "B2BRSMON-0142",
@@ -5505,7 +6106,14 @@
       "image": "assets/products/B2BRSMON-0142.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0144",
+        "B2BRSMON-0138",
+        "B2BRSMON-0143",
+        "B2BRSMON-0139",
+        "B2BRSMON-0140",
+        "B2BRSMON-0206"
+      ]
     },
     {
       "sku": "B2BRSMON-0139",
@@ -5563,7 +6171,14 @@
       "image": "assets/products/B2BRSMON-0139.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0144",
+        "B2BRSMON-0138",
+        "B2BRSMON-0143",
+        "B2BRSMON-0142",
+        "B2BRSMON-0140",
+        "B2BRSMON-0206"
+      ]
     },
     {
       "sku": "B2BRSMON-0140",
@@ -5621,7 +6236,14 @@
       "image": "assets/products/B2BRSMON-0140.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0143",
+        "B2BRSMON-0144",
+        "B2BRSMON-0138",
+        "B2BRSMON-0142",
+        "B2BRSMON-0139",
+        "B2BRSMON-0206"
+      ]
     },
     {
       "sku": "B2BRSMON-0136",
@@ -5691,7 +6313,10 @@
       "image": "assets/products/B2BRSMON-0136.webp",
       "weight": "6",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0137",
+        "B2BRSMON-0128"
+      ]
     },
     {
       "sku": "B2BRSMON-0137",
@@ -5745,7 +6370,10 @@
       "image": "assets/products/B2BRSMON-0137.webp",
       "weight": "6",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0136",
+        "B2BRSMON-0128"
+      ]
     },
     {
       "sku": "B2BRSMON-0173",
@@ -5799,7 +6427,14 @@
       "image": "assets/products/B2BRSMON-0173.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0174",
+        "B2BRSMON-0172",
+        "B2BRSMON-0170",
+        "B2BRSMON-0171",
+        "B2BRSMON-0050",
+        "B2BRSMON-0176"
+      ]
     },
     {
       "sku": "B2BRSMON-0174",
@@ -5853,7 +6488,14 @@
       "image": "assets/products/B2BRSMON-0174.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0173",
+        "B2BRSMON-0172",
+        "B2BRSMON-0170",
+        "B2BRSMON-0171",
+        "B2BRSMON-0050",
+        "B2BRSMON-0176"
+      ]
     },
     {
       "sku": "B2BRSMON-0172",
@@ -5907,7 +6549,14 @@
       "image": "assets/products/B2BRSMON-0172.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0173",
+        "B2BRSMON-0174",
+        "B2BRSMON-0170",
+        "B2BRSMON-0171",
+        "B2BRSMON-0050",
+        "B2BRSMON-0176"
+      ]
     },
     {
       "sku": "B2BRSMON-0176",
@@ -5953,7 +6602,14 @@
       "image": "assets/products/B2BRSMON-0176.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0177",
+        "B2BRSMON-0175",
+        "B2BRSMON-0173",
+        "B2BRSMON-0174",
+        "B2BRSMON-0172",
+        "B2BRSMON-0214"
+      ]
     },
     {
       "sku": "B2BRSMON-0177",
@@ -5999,7 +6655,14 @@
       "image": "assets/products/B2BRSMON-0177.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0176",
+        "B2BRSMON-0175",
+        "B2BRSMON-0214",
+        "B2BRSMON-0170",
+        "B2BRSMON-0171",
+        "B2BRSMON-0050"
+      ]
     },
     {
       "sku": "B2BRSMON-0175",
@@ -6045,7 +6708,14 @@
       "image": "assets/products/B2BRSMON-0175.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0176",
+        "B2BRSMON-0177",
+        "B2BRSMON-0214",
+        "B2BRSMON-0228",
+        "B2BRSMON-0231",
+        "B2BRSMON-0234"
+      ]
     },
     {
       "sku": "B2BRSMON-0169",
@@ -6095,7 +6765,14 @@
       "image": "assets/products/B2BRSMON-0169.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0225",
+        "B2BRSMON-0223",
+        "B2BRSMON-0230",
+        "B2BRSMON-0226",
+        "B2BRSMON-0047",
+        "B2BRSMON-0227"
+      ]
     },
     {
       "sku": "B2BRSMON-0048",
@@ -6136,7 +6813,14 @@
       "image": "assets/products/B2BRSMON-0048.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0166",
+        "B2BRSMON-0168",
+        "B2BRSMON-0167",
+        "B2BRSMON-0226",
+        "B2BRSMON-0223",
+        "B2BRSMON-0225"
+      ]
     },
     {
       "sku": "B2BRSMON-0047",
@@ -6177,7 +6861,14 @@
       "image": "assets/products/B2BRSMON-0047.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0169",
+        "B2BRSMON-0230",
+        "B2BRSMON-0223",
+        "B2BRSMON-0227",
+        "B2BRSMON-0222",
+        "B2BRSMON-0225"
+      ]
     },
     {
       "sku": "B2BRSMON-0170",
@@ -6235,7 +6926,14 @@
       "image": "assets/products/B2BRSMON-0170.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0171",
+        "B2BRSMON-0050",
+        "B2BRSMON-0173",
+        "B2BRSMON-0174",
+        "B2BRSMON-0172",
+        "B2BRSMON-0177"
+      ]
     },
     {
       "sku": "B2BRSMON-0171",
@@ -6293,7 +6991,14 @@
       "image": "assets/products/B2BRSMON-0171.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0170",
+        "B2BRSMON-0050",
+        "B2BRSMON-0173",
+        "B2BRSMON-0174",
+        "B2BRSMON-0172",
+        "B2BRSMON-0177"
+      ]
     },
     {
       "sku": "B2BRSMON-0050",
@@ -6351,7 +7056,14 @@
       "image": "assets/products/B2BRSMON-0050.webp",
       "weight": "1",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0170",
+        "B2BRSMON-0171",
+        "B2BRSMON-0173",
+        "B2BRSMON-0174",
+        "B2BRSMON-0172",
+        "B2BRSMON-0177"
+      ]
     },
     {
       "sku": "B2BRSMON-0166",
@@ -6397,7 +7109,14 @@
       "image": "assets/products/B2BRSMON-0166.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0048",
+        "B2BRSMON-0168",
+        "B2BRSMON-0167",
+        "B2BRSMON-0226",
+        "B2BRSMON-0223",
+        "B2BRSMON-0225"
+      ]
     },
     {
       "sku": "B2BRSMON-0168",
@@ -6443,7 +7162,14 @@
       "image": "assets/products/B2BRSMON-0168.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0167",
+        "B2BRSMON-0048",
+        "B2BRSMON-0166",
+        "B2BRSMON-0226",
+        "B2BRSMON-0223",
+        "B2BRSMON-0225"
+      ]
     },
     {
       "sku": "B2BRSMON-0167",
@@ -6489,7 +7215,14 @@
       "image": "assets/products/B2BRSMON-0167.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0168",
+        "B2BRSMON-0048",
+        "B2BRSMON-0166",
+        "B2BRSMON-0226",
+        "B2BRSMON-0223",
+        "B2BRSMON-0225"
+      ]
     },
     {
       "sku": "B2BRSMON-0162",
@@ -6535,7 +7268,14 @@
       "image": "assets/products/B2BRSMON-0162.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0161",
+        "B2BRSMON-0163",
+        "B2BRSMON-0164",
+        "B2BRSMON-0160",
+        "B2BRSMON-0165",
+        "B2BRSMON-0157"
+      ]
     },
     {
       "sku": "B2BRSMON-0161",
@@ -6581,7 +7321,14 @@
       "image": "assets/products/B2BRSMON-0161.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0162",
+        "B2BRSMON-0163",
+        "B2BRSMON-0164",
+        "B2BRSMON-0160",
+        "B2BRSMON-0165",
+        "B2BRSMON-0157"
+      ]
     },
     {
       "sku": "B2BRSMON-0163",
@@ -6627,7 +7374,14 @@
       "image": "assets/products/B2BRSMON-0163.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0162",
+        "B2BRSMON-0161",
+        "B2BRSMON-0164",
+        "B2BRSMON-0160",
+        "B2BRSMON-0165",
+        "B2BRSMON-0156"
+      ]
     },
     {
       "sku": "B2BRSMON-0164",
@@ -6673,7 +7427,14 @@
       "image": "assets/products/B2BRSMON-0164.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0162",
+        "B2BRSMON-0161",
+        "B2BRSMON-0163",
+        "B2BRSMON-0160",
+        "B2BRSMON-0165",
+        "B2BRSMON-0156"
+      ]
     },
     {
       "sku": "B2BRSMON-0160",
@@ -6719,7 +7480,14 @@
       "image": "assets/products/B2BRSMON-0160.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0162",
+        "B2BRSMON-0161",
+        "B2BRSMON-0163",
+        "B2BRSMON-0164",
+        "B2BRSMON-0165",
+        "B2BRSMON-0158"
+      ]
     },
     {
       "sku": "B2BRSMON-0165",
@@ -6760,7 +7528,14 @@
       "image": "assets/products/B2BRSMON-0165.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0162",
+        "B2BRSMON-0161",
+        "B2BRSMON-0163",
+        "B2BRSMON-0164",
+        "B2BRSMON-0160",
+        "B2BRSMON-0158"
+      ]
     },
     {
       "sku": "B2BRSMON-0157",
@@ -6806,7 +7581,14 @@
       "image": "assets/products/B2BRSMON-0157.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0156",
+        "B2BRSMON-0158",
+        "B2BRSMON-0159",
+        "B2BRSMON-0155",
+        "B2BRSMON-0162",
+        "B2BRSMON-0161"
+      ]
     },
     {
       "sku": "B2BRSMON-0156",
@@ -6852,7 +7634,14 @@
       "image": "assets/products/B2BRSMON-0156.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0157",
+        "B2BRSMON-0158",
+        "B2BRSMON-0159",
+        "B2BRSMON-0155",
+        "B2BRSMON-0163",
+        "B2BRSMON-0164"
+      ]
     },
     {
       "sku": "B2BRSMON-0158",
@@ -6898,7 +7687,14 @@
       "image": "assets/products/B2BRSMON-0158.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0157",
+        "B2BRSMON-0156",
+        "B2BRSMON-0159",
+        "B2BRSMON-0155",
+        "B2BRSMON-0160",
+        "B2BRSMON-0165"
+      ]
     },
     {
       "sku": "B2BRSMON-0159",
@@ -6944,7 +7740,12 @@
       "image": "assets/products/B2BRSMON-0159.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0157",
+        "B2BRSMON-0156",
+        "B2BRSMON-0158",
+        "B2BRSMON-0155"
+      ]
     },
     {
       "sku": "B2BRSMON-0155",
@@ -6990,7 +7791,12 @@
       "image": "assets/products/B2BRSMON-0155.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0157",
+        "B2BRSMON-0156",
+        "B2BRSMON-0158",
+        "B2BRSMON-0159"
+      ]
     },
     {
       "sku": "B2BRSMON-0150",
@@ -7040,7 +7846,14 @@
       "image": "assets/products/B2BRSMON-0150.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0145",
+        "B2BRSMON-0151",
+        "B2BRSMON-0148",
+        "B2BRSMON-0149",
+        "B2BRSMON-0147",
+        "B2BRSMON-0146"
+      ]
     },
     {
       "sku": "B2BRSMON-0151",
@@ -7094,7 +7907,14 @@
       "image": "assets/products/B2BRSMON-0151.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0150",
+        "B2BRSMON-0145",
+        "B2BRSMON-0148",
+        "B2BRSMON-0149",
+        "B2BRSMON-0147",
+        "B2BRSMON-0146"
+      ]
     },
     {
       "sku": "B2BRSMON-0145",
@@ -7135,7 +7955,14 @@
       "image": "assets/products/B2BRSMON-0145.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0150",
+        "B2BRSMON-0151",
+        "B2BRSMON-0148",
+        "B2BRSMON-0149",
+        "B2BRSMON-0147",
+        "B2BRSMON-0146"
+      ]
     },
     {
       "sku": "B2BRSMON-0148",
@@ -7189,7 +8016,14 @@
       "image": "assets/products/B2BRSMON-0148.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0147",
+        "B2BRSMON-0146",
+        "B2BRSMON-0150",
+        "B2BRSMON-0151",
+        "B2BRSMON-0145",
+        "B2BRSMON-0149"
+      ]
     },
     {
       "sku": "B2BRSMON-0149",
@@ -7243,7 +8077,14 @@
       "image": "assets/products/B2BRSMON-0149.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0150",
+        "B2BRSMON-0151",
+        "B2BRSMON-0145",
+        "B2BRSMON-0148",
+        "B2BRSMON-0147",
+        "B2BRSMON-0146"
+      ]
     },
     {
       "sku": "B2BRSMON-0147",
@@ -7297,7 +8138,14 @@
       "image": "assets/products/B2BRSMON-0147.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0148",
+        "B2BRSMON-0146",
+        "B2BRSMON-0150",
+        "B2BRSMON-0151",
+        "B2BRSMON-0145",
+        "B2BRSMON-0149"
+      ]
     },
     {
       "sku": "B2BRSMON-0146",
@@ -7351,7 +8199,14 @@
       "image": "assets/products/B2BRSMON-0146.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0148",
+        "B2BRSMON-0147",
+        "B2BRSMON-0150",
+        "B2BRSMON-0151",
+        "B2BRSMON-0145",
+        "B2BRSMON-0149"
+      ]
     },
     {
       "sku": "B2BRSMON-0154",
@@ -7397,7 +8252,11 @@
       "image": "assets/products/B2BRSMON-0154.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0153",
+        "B2BRSMON-0038",
+        "B2BRSMON-0152"
+      ]
     },
     {
       "sku": "B2BRSMON-0152",
@@ -7443,7 +8302,11 @@
       "image": "assets/products/B2BRSMON-0152.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0154",
+        "B2BRSMON-0153",
+        "B2BRSMON-0038"
+      ]
     },
     {
       "sku": "B2BRSMON-0153",
@@ -7493,7 +8356,11 @@
       "image": "assets/products/B2BRSMON-0153.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0038",
+        "B2BRSMON-0154",
+        "B2BRSMON-0152"
+      ]
     },
     {
       "sku": "B2BRSMON-0038",
@@ -7543,7 +8410,11 @@
       "image": "assets/products/B2BRSMON-0038.webp",
       "weight": "0.5",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0153",
+        "B2BRSMON-0154",
+        "B2BRSMON-0152"
+      ]
     },
     {
       "sku": "B2BRSMON-0181",
@@ -7592,7 +8463,14 @@
       "image": "assets/products/B2BRSMON-0181.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0004",
+        "B2BRSMON-0005",
+        "B2BRSMON-0056",
+        "B2BRSMON-0055",
+        "B2BRSMON-0003",
+        "B2BRSMON-0057"
+      ]
     },
     {
       "sku": "B2BRSMON-0182",
@@ -7646,7 +8524,14 @@
       "image": "assets/products/B2BRSMON-0182.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0004",
+        "B2BRSMON-0005",
+        "B2BRSMON-0056",
+        "B2BRSMON-0055",
+        "B2BRSMON-0003",
+        "B2BRSMON-0058"
+      ]
     },
     {
       "sku": "B2BRSMON-0183",
@@ -7700,7 +8585,11 @@
       "image": "assets/products/B2BRSMON-0183.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0078",
+        "B2BRSMON-0079",
+        "B2BRSMON-0077"
+      ]
     },
     {
       "sku": "B2BRSMON-0184",
@@ -7749,7 +8638,14 @@
       "image": "assets/products/B2BRSMON-0184.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0081",
+        "B2BRSMON-0080",
+        "B2BRSMON-0189",
+        "B2BRSMON-0190",
+        "B2BRSMON-0187",
+        "B2BRSMON-0186"
+      ]
     },
     {
       "sku": "B2BRSMON-0185",
@@ -7798,7 +8694,14 @@
       "image": "assets/products/B2BRSMON-0185.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0071",
+        "B2BRSMON-0013",
+        "B2BRSMON-0073",
+        "B2BRSMON-0072",
+        "B2BRSMON-0075",
+        "B2BRSMON-0076"
+      ]
     },
     {
       "sku": "B2BRSMON-0186",
@@ -7852,7 +8755,14 @@
       "image": "assets/products/B2BRSMON-0186.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0081",
+        "B2BRSMON-0080",
+        "B2BRSMON-0184",
+        "B2BRSMON-0187",
+        "B2BRSMON-0189",
+        "B2BRSMON-0190"
+      ]
     },
     {
       "sku": "B2BRSMON-0187",
@@ -7906,7 +8816,14 @@
       "image": "assets/products/B2BRSMON-0187.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0081",
+        "B2BRSMON-0080",
+        "B2BRSMON-0184",
+        "B2BRSMON-0186",
+        "B2BRSMON-0189",
+        "B2BRSMON-0190"
+      ]
     },
     {
       "sku": "B2BRSMON-0188",
@@ -7960,7 +8877,10 @@
       "image": "assets/products/B2BRSMON-0188.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0083",
+        "B2BRSMON-0084"
+      ]
     },
     {
       "sku": "B2BRSMON-0189",
@@ -8009,7 +8929,14 @@
       "image": "assets/products/B2BRSMON-0189.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0081",
+        "B2BRSMON-0080",
+        "B2BRSMON-0184",
+        "B2BRSMON-0186",
+        "B2BRSMON-0187",
+        "B2BRSMON-0190"
+      ]
     },
     {
       "sku": "B2BRSMON-0190",
@@ -8058,7 +8985,14 @@
       "image": "assets/products/B2BRSMON-0190.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0081",
+        "B2BRSMON-0080",
+        "B2BRSMON-0184",
+        "B2BRSMON-0186",
+        "B2BRSMON-0187",
+        "B2BRSMON-0189"
+      ]
     },
     {
       "sku": "B2BRSMON-0191",
@@ -8104,7 +9038,14 @@
       "image": "assets/products/B2BRSMON-0191.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0099",
+        "B2BRSMON-0098",
+        "B2BRSMON-0195",
+        "B2BRSMON-0198",
+        "B2BRSMON-0196",
+        "B2BRSMON-0192"
+      ]
     },
     {
       "sku": "B2BRSMON-0194",
@@ -8150,7 +9091,14 @@
       "image": "assets/products/B2BRSMON-0194.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0197",
+        "B2BRSMON-0193",
+        "B2BRSMON-0192",
+        "B2BRSMON-0198",
+        "B2BRSMON-0195",
+        "B2BRSMON-0196"
+      ]
     },
     {
       "sku": "B2BRSMON-0192",
@@ -8196,7 +9144,14 @@
       "image": "assets/products/B2BRSMON-0192.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0099",
+        "B2BRSMON-0098",
+        "B2BRSMON-0191",
+        "B2BRSMON-0194",
+        "B2BRSMON-0198",
+        "B2BRSMON-0193"
+      ]
     },
     {
       "sku": "B2BRSMON-0193",
@@ -8242,7 +9197,14 @@
       "image": "assets/products/B2BRSMON-0193.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0194",
+        "B2BRSMON-0192",
+        "B2BRSMON-0197",
+        "B2BRSMON-0198",
+        "B2BRSMON-0195",
+        "B2BRSMON-0196"
+      ]
     },
     {
       "sku": "B2BRSMON-0195",
@@ -8288,7 +9250,14 @@
       "image": "assets/products/B2BRSMON-0195.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0099",
+        "B2BRSMON-0098",
+        "B2BRSMON-0191",
+        "B2BRSMON-0194",
+        "B2BRSMON-0193",
+        "B2BRSMON-0196"
+      ]
     },
     {
       "sku": "B2BRSMON-0196",
@@ -8334,7 +9303,15 @@
       "image": "assets/products/B2BRSMON-0196.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0099",
+        "B2BRSMON-0098",
+        "B2BRSMON-0191",
+        "B2BRSMON-0194",
+        "B2BRSMON-0193",
+        "B2BRSMON-0195",
+        "B2BRSMON-0199"
+      ]
     },
     {
       "sku": "B2BRSMON-0197",
@@ -8380,7 +9357,11 @@
       "image": "assets/products/B2BRSMON-0197.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0194",
+        "B2BRSMON-0193",
+        "B2BRSMON-0199"
+      ]
     },
     {
       "sku": "B2BRSMON-0198",
@@ -8426,7 +9407,14 @@
       "image": "assets/products/B2BRSMON-0198.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0099",
+        "B2BRSMON-0098",
+        "B2BRSMON-0191",
+        "B2BRSMON-0194",
+        "B2BRSMON-0192",
+        "B2BRSMON-0193"
+      ]
     },
     {
       "sku": "B2BRSMON-0199",
@@ -8472,7 +9460,10 @@
       "image": "assets/products/B2BRSMON-0199.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0197",
+        "B2BRSMON-0196"
+      ]
     },
     {
       "sku": "B2BRSMON-0200",
@@ -8518,7 +9509,10 @@
       "image": "assets/products/B2BRSMON-0200.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0206",
+        "B2BRSMON-0144"
+      ]
     },
     {
       "sku": "B2BRSMON-0201",
@@ -8564,7 +9558,14 @@
       "image": "assets/products/B2BRSMON-0201.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0123",
+        "B2BRSMON-0128",
+        "B2BRSMON-0127",
+        "B2BRSMON-0122",
+        "B2BRSMON-0202",
+        "B2BRSMON-0205"
+      ]
     },
     {
       "sku": "B2BRSMON-0202",
@@ -8610,7 +9611,13 @@
       "image": "assets/products/B2BRSMON-0202.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0201",
+        "B2BRSMON-0204",
+        "B2BRSMON-0209",
+        "B2BRSMON-0205",
+        "B2BRSMON-0203"
+      ]
     },
     {
       "sku": "B2BRSMON-0203",
@@ -8656,7 +9663,11 @@
       "image": "assets/products/B2BRSMON-0203.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0202",
+        "B2BRSMON-0204",
+        "B2BRSMON-0209"
+      ]
     },
     {
       "sku": "B2BRSMON-0204",
@@ -8702,7 +9713,14 @@
       "image": "assets/products/B2BRSMON-0204.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0123",
+        "B2BRSMON-0128",
+        "B2BRSMON-0127",
+        "B2BRSMON-0122",
+        "B2BRSMON-0202",
+        "B2BRSMON-0203"
+      ]
     },
     {
       "sku": "B2BRSMON-0205",
@@ -8748,7 +9766,14 @@
       "image": "assets/products/B2BRSMON-0205.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0123",
+        "B2BRSMON-0128",
+        "B2BRSMON-0127",
+        "B2BRSMON-0122",
+        "B2BRSMON-0201",
+        "B2BRSMON-0202"
+      ]
     },
     {
       "sku": "B2BRSMON-0207",
@@ -8794,7 +9819,15 @@
       "image": "assets/products/B2BRSMON-0207.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0133",
+        "B2BRSMON-0134",
+        "B2BRSMON-0132",
+        "B2BRSMON-0208",
+        "B2BRSMON-0213",
+        "B2BRSMON-0212",
+        "B2BRSMON-0224"
+      ]
     },
     {
       "sku": "B2BRSMON-0208",
@@ -8840,7 +9873,15 @@
       "image": "assets/products/B2BRSMON-0208.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0133",
+        "B2BRSMON-0134",
+        "B2BRSMON-0132",
+        "B2BRSMON-0207",
+        "B2BRSMON-0213",
+        "B2BRSMON-0212",
+        "B2BRSMON-0224"
+      ]
     },
     {
       "sku": "B2BRSMON-0209",
@@ -8886,7 +9927,10 @@
       "image": "assets/products/B2BRSMON-0209.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0202",
+        "B2BRSMON-0203"
+      ]
     },
     {
       "sku": "B2BRSMON-0210",
@@ -8932,14 +9976,19 @@
       "image": "assets/products/B2BRSMON-0210.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0130",
+        "B2BRSMON-0129",
+        "B2BRSMON-0131",
+        "B2BRSMON-0211"
+      ]
     },
     {
       "sku": "B2BRSMON-0211",
       "name": "Oblique spaded bag",
       "url_key": "",
-      "category": "Utilities",
-      "subcategory": "Accessories",
+      "category": "Travel",
+      "subcategory": "Duffle bag",
       "attribute_set": "",
       "description": "Lightweight super smart duffle for travel or gym \nQuilt look material enhances the bag appeal. \nDetachable and adjustable handles for personal comfort. \nQuick access back zipper pocket.\nLaptop compartment inside that fits in 15.6  Inch  laptop.",
       "specs": [],
@@ -8978,7 +10027,12 @@
       "image": "assets/products/B2BRSMON-0211.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0130",
+        "B2BRSMON-0129",
+        "B2BRSMON-0131",
+        "B2BRSMON-0210"
+      ]
     },
     {
       "sku": "B2BRSMON-0212",
@@ -9024,7 +10078,14 @@
       "image": "assets/products/B2BRSMON-0212.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0133",
+        "B2BRSMON-0134",
+        "B2BRSMON-0132",
+        "B2BRSMON-0207",
+        "B2BRSMON-0208",
+        "B2BRSMON-0213"
+      ]
     },
     {
       "sku": "B2BRSMON-0213",
@@ -9070,7 +10131,14 @@
       "image": "assets/products/B2BRSMON-0213.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0133",
+        "B2BRSMON-0134",
+        "B2BRSMON-0132",
+        "B2BRSMON-0207",
+        "B2BRSMON-0208",
+        "B2BRSMON-0212"
+      ]
     },
     {
       "sku": "B2BRSMON-0206",
@@ -9111,7 +10179,15 @@
       "image": "assets/products/B2BRSMON-0206.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0144",
+        "B2BRSMON-0138",
+        "B2BRSMON-0143",
+        "B2BRSMON-0142",
+        "B2BRSMON-0139",
+        "B2BRSMON-0140",
+        "B2BRSMON-0200"
+      ]
     },
     {
       "sku": "B2BRSMON-0214",
@@ -9157,14 +10233,21 @@
       "image": "assets/products/B2BRSMON-0214.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0176",
+        "B2BRSMON-0177",
+        "B2BRSMON-0175",
+        "B2BRSMON-0228",
+        "B2BRSMON-0231",
+        "B2BRSMON-0222"
+      ]
     },
     {
       "sku": "B2BRSMON-0215",
-      "name": "Behome zebra travel bag",
+      "name": "BeHome Zebra Travel Mug",
       "url_key": "",
-      "category": "Utilities",
-      "subcategory": "Accessories",
+      "category": "Drinkware",
+      "subcategory": "Mugs & tumblers",
       "attribute_set": "",
       "description": "BeHome introduces the Zebra Travel Mug, a design-forward beverage solution engineered to permanently eliminate the anxiety of workplace spills and damaged electronics. Fusing minimalist aesthetic appeal with cutting-edge physics, the Zebra Travel Mug is built specifically for modern professionals, commuters, and dynamic creators.",
       "specs": [],
@@ -9203,7 +10286,14 @@
       "image": "assets/products/B2BRSMON-0215.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0107",
+        "B2BRSMON-0109",
+        "B2BRSMON-0110",
+        "B2BRSMON-0108",
+        "B2BRSMON-0106",
+        "B2BRSMON-0031"
+      ]
     },
     {
       "sku": "B2BRSMON-0216",
@@ -9249,7 +10339,13 @@
       "image": "assets/products/B2BRSMON-0216.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0117",
+        "B2BRSMON-0220",
+        "B2BRSMON-0221",
+        "B2BRSMON-0218",
+        "B2BRSMON-0217"
+      ]
     },
     {
       "sku": "B2BRSMON-0217",
@@ -9295,7 +10391,14 @@
       "image": "assets/products/B2BRSMON-0217.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0120",
+        "B2BRSMON-0113",
+        "B2BRSMON-0114",
+        "B2BRSMON-0117",
+        "B2BRSMON-0178",
+        "B2BRSMON-0216"
+      ]
     },
     {
       "sku": "B2BRSMON-0218",
@@ -9341,7 +10444,14 @@
       "image": "assets/products/B2BRSMON-0218.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0113",
+        "B2BRSMON-0114",
+        "B2BRSMON-0117",
+        "B2BRSMON-0032",
+        "B2BRSMON-0216",
+        "B2BRSMON-0220"
+      ]
     },
     {
       "sku": "B2BRSMON-0219",
@@ -9387,7 +10497,14 @@
       "image": "assets/products/B2BRSMON-0219.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0107",
+        "B2BRSMON-0109",
+        "B2BRSMON-0110",
+        "B2BRSMON-0108",
+        "B2BRSMON-0106",
+        "B2BRSMON-0031"
+      ]
     },
     {
       "sku": "B2BRSMON-0220",
@@ -9433,7 +10550,14 @@
       "image": "assets/products/B2BRSMON-0220.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0113",
+        "B2BRSMON-0114",
+        "B2BRSMON-0117",
+        "B2BRSMON-0032",
+        "B2BRSMON-0216",
+        "B2BRSMON-0218"
+      ]
     },
     {
       "sku": "B2BRSMON-0221",
@@ -9479,7 +10603,13 @@
       "image": "assets/products/B2BRSMON-0221.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0113",
+        "B2BRSMON-0114",
+        "B2BRSMON-0117",
+        "B2BRSMON-0032",
+        "B2BRSMON-0216"
+      ]
     },
     {
       "sku": "B2BRSMON-0222",
@@ -9510,7 +10640,14 @@
       "image": "assets/products/B2BRSMON-0222.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0047",
+        "B2BRSMON-0214",
+        "B2BRSMON-0227",
+        "B2BRSMON-0228",
+        "B2BRSMON-0230",
+        "B2BRSMON-0231"
+      ]
     },
     {
       "sku": "B2BRSMON-0223",
@@ -9541,7 +10678,14 @@
       "image": "assets/products/B2BRSMON-0223.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0169",
+        "B2BRSMON-0048",
+        "B2BRSMON-0047",
+        "B2BRSMON-0166",
+        "B2BRSMON-0168",
+        "B2BRSMON-0167"
+      ]
     },
     {
       "sku": "B2BRSMON-0224",
@@ -9587,7 +10731,10 @@
       "image": "assets/products/B2BRSMON-0224.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0207",
+        "B2BRSMON-0208"
+      ]
     },
     {
       "sku": "B2BRSMON-0230",
@@ -9633,7 +10780,14 @@
       "image": "assets/products/B2BRSMON-0230.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0169",
+        "B2BRSMON-0047",
+        "B2BRSMON-0222",
+        "B2BRSMON-0227",
+        "B2BRSMON-0226",
+        "B2BRSMON-0228"
+      ]
     },
     {
       "sku": "B2BRSMON-0227",
@@ -9679,7 +10833,14 @@
       "image": "assets/products/B2BRSMON-0227.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0169",
+        "B2BRSMON-0047",
+        "B2BRSMON-0222",
+        "B2BRSMON-0230",
+        "B2BRSMON-0228",
+        "B2BRSMON-0231"
+      ]
     },
     {
       "sku": "B2BRSMON-0229",
@@ -9725,7 +10886,13 @@
       "image": "assets/products/B2BRSMON-0229.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0234",
+        "B2BRSMON-0232",
+        "B2BRSMON-0231",
+        "B2BRSMON-0233",
+        "B2BRSMON-0228"
+      ]
     },
     {
       "sku": "B2BRSMON-0225",
@@ -9766,7 +10933,14 @@
       "image": "assets/products/B2BRSMON-0225.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0169",
+        "B2BRSMON-0048",
+        "B2BRSMON-0047",
+        "B2BRSMON-0166",
+        "B2BRSMON-0168",
+        "B2BRSMON-0167"
+      ]
     },
     {
       "sku": "B2BRSMON-0226",
@@ -9807,7 +10981,14 @@
       "image": "assets/products/B2BRSMON-0226.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0169",
+        "B2BRSMON-0048",
+        "B2BRSMON-0166",
+        "B2BRSMON-0168",
+        "B2BRSMON-0167",
+        "B2BRSMON-0230"
+      ]
     },
     {
       "sku": "B2BRSMON-0228",
@@ -9848,11 +11029,18 @@
       "image": "assets/products/B2BRSMON-0228.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0175",
+        "B2BRSMON-0214",
+        "B2BRSMON-0222",
+        "B2BRSMON-0230",
+        "B2BRSMON-0227",
+        "B2BRSMON-0229"
+      ]
     },
     {
       "sku": "B2BRSMON-0231",
-      "name": "Portronics power bank luxcell c mrp discounted - 1199",
+      "name": "Portronics Luxcell C Power Bank",
       "url_key": "",
       "category": "Utilities",
       "subcategory": "Accessories",
@@ -9899,11 +11087,18 @@
       "image": "assets/products/B2BRSMON-0231.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0175",
+        "B2BRSMON-0214",
+        "B2BRSMON-0222",
+        "B2BRSMON-0227",
+        "B2BRSMON-0229",
+        "B2BRSMON-0234"
+      ]
     },
     {
       "sku": "B2BRSMON-0232",
-      "name": "Portronics luxcell B 20K mrp discounted - 1219",
+      "name": "Portronics Luxcell B 20K Power Bank",
       "url_key": "",
       "category": "Utilities",
       "subcategory": "Accessories",
@@ -9950,11 +11145,15 @@
       "image": "assets/products/B2BRSMON-0232.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0229",
+        "B2BRSMON-0233",
+        "B2BRSMON-0234"
+      ]
     },
     {
       "sku": "B2BRSMON-0233",
-      "name": "Portronics luxcell bind mini 20k mrp discounted - 1592",
+      "name": "Portronics Luxcell Bind Mini 20K Power Bank",
       "url_key": "",
       "category": "Utilities",
       "subcategory": "Accessories",
@@ -10001,11 +11200,15 @@
       "image": "assets/products/B2BRSMON-0233.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0229",
+        "B2BRSMON-0232",
+        "B2BRSMON-0234"
+      ]
     },
     {
       "sku": "B2BRSMON-0234",
-      "name": "Portronics luxcell stride 10 mrp - 899",
+      "name": "Portronics Luxcell Stride 10 Power Bank",
       "url_key": "",
       "category": "Utilities",
       "subcategory": "Accessories",
@@ -10052,7 +11255,13 @@
       "image": "assets/products/B2BRSMON-0234.webp",
       "weight": "",
       "active": true,
-      "related": []
+      "related": [
+        "B2BRSMON-0175",
+        "B2BRSMON-0229",
+        "B2BRSMON-0231",
+        "B2BRSMON-0232",
+        "B2BRSMON-0233"
+      ]
     }
   ]
 }

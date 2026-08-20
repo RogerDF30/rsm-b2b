@@ -29,7 +29,7 @@ var TAB_HEADERS = {
 
   Products: ['sku', 'name', 'category', 'subcategory', 'description', 'moq',
     'gst_rate', 'base_price', 'has_sizes', 'image', 'lead_time_days',
-    'active', 'sort_order', 'related_skus'],
+    'active', 'sort_order', 'related_skus', 'auto_related_skus'],
 
   /* Homepage banners. image_url points at a Drive file shared
      anyone-with-link, uploaded through the admin console. */
@@ -202,14 +202,15 @@ function upgradeSchema() {
     done.push('seeded site settings and a starter banner');
   }
 
-  // 3. Products.related_skus
+  // 3. Products.related_skus, and the column the auto-mapper owns
   var pIdx = headerIndex(SHEETS.PRODUCTS);
-  if (!pIdx.related_skus) {
+  ['related_skus', 'auto_related_skus'].forEach(function (col) {
+    if (headerIndex(SHEETS.PRODUCTS)[col]) return;
     var ps = sheet(SHEETS.PRODUCTS);
-    ps.getRange(1, ps.getLastColumn() + 1).setValue('related_skus')
+    ps.getRange(1, ps.getLastColumn() + 1).setValue(col)
       .setFontWeight('bold').setBackground('#F4F8FB');
-    done.push('added Products.related_skus');
-  }
+    done.push('added Products.' + col);
+  });
 
   // 4. Orders.lob_approver, inserted right after lob
   var idx = headerIndex(SHEETS.ORDERS);

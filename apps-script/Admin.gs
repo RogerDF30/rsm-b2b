@@ -49,8 +49,13 @@ function fnAdminCatalog(req) {
       image: p.image, lead_time_days: Number(p.lead_time_days || 14),
       active: String(p.active).toUpperCase() !== 'FALSE',
       sort_order: Number(p.sort_order || 0),
-      related_skus: String(p.related_skus || '').split(',')
-        .map(function (x) { return x.trim(); }).filter(String),
+      /* Two sources, deliberately kept apart. related_skus is what a human
+         picked in the console and is never touched by the auto-mapper;
+         auto_related_skus is generated and is rewritten on every run. The
+         storefront shows the union, manual first. */
+      related_skus: splitSkus(p.related_skus),
+      auto_related_skus: splitSkus(p.auto_related_skus),
+      related_all: mergeSkus(splitSkus(p.related_skus), splitSkus(p.auto_related_skus)),
       sizes: (sizes[sku] || []).sort(sizeOrder),
       tiers: (tiers[sku] || []).sort(function (a, b) { return a.min_qty - b.min_qty; })
     };
@@ -72,6 +77,21 @@ function fnAdminCatalog(req) {
   };
 }
 
+function splitSkus(cell) {
+  return String(cell || '').split(',')
+    .map(function (x) { return x.trim().toUpperCase(); })
+    .filter(String);
+}
+
+/** Manual list first, then anything the auto-mapper added that is not already in it. */
+function mergeSkus(manual, auto) {
+  var seen = {}, out = [];
+  manual.concat(auto).forEach(function (s) {
+    if (!seen[s]) { seen[s] = 1; out.push(s); }
+  });
+  return out;
+}
+
 /**
  * Related products are a mutual relationship, not a one-way pointer: if the
  * grey cap lists the navy cap, the navy cap lists the grey cap. Saving a
@@ -86,7 +106,7 @@ function symmetriseRelated(products) {
   products.forEach(function (p) { known[p.sku] = 1; link[p.sku] = {}; });
 
   products.forEach(function (p) {
-    p.related_skus.forEach(function (s) {
+    p.related_all.forEach(function (s) {
       if (s === p.sku || !known[s]) return;
       link[p.sku][s] = 1;
       link[s][p.sku] = 1;
@@ -95,13 +115,13 @@ function symmetriseRelated(products) {
 
   products.forEach(function (p) {
     var seen = {}, out = [];
-    p.related_skus.forEach(function (s) {
+    p.related_all.forEach(function (s) {
       if (link[p.sku][s] && !seen[s]) { seen[s] = 1; out.push(s); }
     });
     Object.keys(link[p.sku]).forEach(function (s) {
       if (!seen[s]) { seen[s] = 1; out.push(s); }
     });
-    p.related_skus = out;
+    p.related_all = out;
   });
   return products;
 }
@@ -207,6 +227,219 @@ function fnAdminSaveProduct(req) {
       existing ? { name: existing.name } : null, { name: row.name, active: row.active });
     return { ok: true, sku: sku, created: !existing };
   });
+}
+
+/* ------------------------------------------------- automatic related links */
+
+var RELATED_MAX = 6;
+var RELATED_MIN = 2;
+
+/* Words that describe a colourway or an audience rather than the product, so
+   the grey cap and the navy cap collapse to the same family. */
+var RELATED_NOISE = new RegExp(
+  '\\b(black|white|navy|blue|grey|gray|green|red|beige|cream|pink|sky|maroon|' +
+  'yellow|orange|brown|silver|gold|teal|purple|olive|charcoal|ivory|tan|' +
+  'burgundy|standard|standar|unisex|female|male|mens|womens|colour|color|' +
+  'mrp|discount|discounted)\\b', 'g');
+
+/** "OMG Twill Cotton Cap- Standard Sky Blue" -> "omg twill cotton cap" */
+function familyKey(name) {
+  return String(name || '').toLowerCase()
+    .replace(RELATED_NOISE, ' ')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/** Leading word of the name, which is how this catalogue carries brand. */
+function brandOf(name) {
+  var w = String(name || '').toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').trim().split(' ');
+  return w[0] || '';
+}
+
+/**
+ * Fill in related products across the whole catalogue.
+ *
+ * Two passes. First every colour variant of the same item is linked to its
+ * siblings, which is the pairing a buyer actually expects. Then each product is
+ * topped up from its own subcategory, nearest brand and price first, until it
+ * has RELATED_MAX links.
+ *
+ * Links already on a product are kept: a hand-picked set is never discarded,
+ * only extended. Every link is written both ways, and hidden products are
+ * neither linked to nor given links. Writing is one bulk setValues, not a
+ * save-per-product, so the whole catalogue costs a single round trip.
+ */
+function fnAdminAutoRelate(req) {
+  requireAdmin(req);
+  var dryRun = req.dry_run === true;
+
+  /* Escape hatch: wipe the hand-picked column as well and rebuild everything
+     from scratch. Needed once, because an earlier version of this function
+     wrote its output into related_skus before the two columns were separated.
+     The literal is required so this can never fire by accident, and no button
+     in the console offers it. */
+  var resetManual = req.reset_manual === 'CLEAR';
+
+  return withLock(function () {
+    if (resetManual && !dryRun) {
+      var psh = sheet(SHEETS.PRODUCTS);
+      var mcol = headerIndex(SHEETS.PRODUCTS).related_skus;
+      if (psh.getLastRow() > 1) {
+        psh.getRange(2, mcol, psh.getLastRow() - 1, 1).clearContent();
+      }
+      audit('admin', 'related_manual_cleared', 'catalogue', '', null, null);
+    }
+
+    var rows = readTab(SHEETS.PRODUCTS);
+    var live = rows.filter(function (r) {
+      return String(r.active).toUpperCase() !== 'FALSE' && String(r.sku).trim();
+    });
+
+    var info = {}, order = [];
+    live.forEach(function (r) {
+      var sku = String(r.sku).trim().toUpperCase();
+      info[sku] = {
+        sku: sku, row: r._row, name: String(r.name || ''),
+        family: familyKey(r.name), brand: brandOf(r.name),
+        category: String(r.category || ''), subcategory: String(r.subcategory || ''),
+        price: Number(r.base_price || 0),
+        links: {}, manual: {}
+      };
+      order.push(sku);
+    });
+
+    /* Seed from the MANUAL column only. Last run's own output is deliberately
+       discarded: it is recomputed from scratch below, so a product that has
+       since changed category does not keep the neighbours it had under the old
+       one. Hand-picked links survive because they live in a different column. */
+    live.forEach(function (r) {
+      var sku = String(r.sku).trim().toUpperCase();
+      splitSkus(r.related_skus).forEach(function (other) {
+        if (other !== sku && info[other]) {
+          info[sku].links[other] = 1;
+          info[other].links[sku] = 1;
+          // both ends count as manual, so the pair is never also written as auto
+          info[sku].manual[other] = 1;
+          info[other].manual[sku] = 1;
+        }
+      });
+    });
+
+    function degree(sku) { return Object.keys(info[sku].links).length; }
+    function join(a, b, force) {
+      if (a === b || !info[a] || !info[b] || info[a].links[b]) return false;
+      if (!force && (degree(a) >= RELATED_MAX || degree(b) >= RELATED_MAX)) return false;
+      info[a].links[b] = 1;
+      info[b].links[a] = 1;
+      return true;
+    }
+
+    // pass 1: colour variants of the same product, always linked
+    var families = {}, variantLinks = 0;
+    order.forEach(function (sku) {
+      var k = info[sku].family;
+      if (k) (families[k] = families[k] || []).push(sku);
+    });
+    Object.keys(families).forEach(function (k) {
+      var group = families[k];
+      if (group.length < 2) return;
+      for (var i = 0; i < group.length; i++) {
+        for (var j = i + 1; j < group.length; j++) {
+          if (join(group[i], group[j], true)) variantLinks++;
+        }
+      }
+    });
+
+    // pass 2: top up from the same subcategory, nearest brand and price first
+    var topUps = 0;
+    order.forEach(function (sku) {
+      var me = info[sku];
+      if (degree(sku) >= RELATED_MAX) return;
+
+      var pool = order.filter(function (other) {
+        return other !== sku && !me.links[other] &&
+               info[other].subcategory === me.subcategory &&
+               info[other].family !== me.family;
+      });
+      pool.sort(function (a, b) {
+        var sameBrand = (info[b].brand === me.brand) - (info[a].brand === me.brand);
+        if (sameBrand) return sameBrand;
+        return priceGap(me.price, info[a].price) - priceGap(me.price, info[b].price);
+      });
+      for (var i = 0; i < pool.length && degree(sku) < RELATED_MAX; i++) {
+        if (join(sku, pool[i], false)) topUps++;
+      }
+    });
+
+    // pass 3: nobody is left with an empty row. Filling in subcategory order
+    // is greedy, so whoever is considered last can find every neighbour already
+    // at the cap; those products are given a partner anyway, widening to the
+    // category when the subcategory holds nothing else.
+    var rescued = 0;
+    order.forEach(function (sku) {
+      if (degree(sku) >= RELATED_MIN) return;
+      var me = info[sku];
+
+      var pool = order.filter(function (other) {
+        return other !== sku && !me.links[other] && info[other].family !== me.family &&
+               info[other].subcategory === me.subcategory;
+      });
+      if (!pool.length) {
+        pool = order.filter(function (other) {
+          return other !== sku && !me.links[other] && info[other].family !== me.family &&
+                 info[other].category === me.category;
+        });
+      }
+      pool.sort(function (a, b) {
+        return priceGap(me.price, info[a].price) - priceGap(me.price, info[b].price);
+      });
+      for (var i = 0; i < pool.length && degree(sku) < RELATED_MIN; i++) {
+        if (join(sku, pool[i], true)) rescued++;
+      }
+    });
+
+    var result = {
+      ok: true, products: order.length,
+      variant_links: variantLinks, topped_up: topUps, rescued: rescued,
+      reset_manual: resetManual,
+      with_related: 0, still_empty: [], dry_run: dryRun
+    };
+    order.forEach(function (sku) {
+      if (degree(sku)) result.with_related++;
+      else result.still_empty.push(sku);
+    });
+
+    if (!dryRun) {
+      var sh = sheet(SHEETS.PRODUCTS);
+      var col = headerIndex(SHEETS.PRODUCTS).auto_related_skus;
+      if (!col) throw new Error('Products has no auto_related_skus column. Run Upgrade first.');
+
+      var last = sh.getLastRow();
+      var values = sh.getRange(2, col, last - 1, 1).getValues();
+      var skuValues = sh.getRange(2, headerIndex(SHEETS.PRODUCTS).sku, last - 1, 1).getValues();
+      for (var i = 0; i < skuValues.length; i++) {
+        var s = String(skuValues[i][0]).trim().toUpperCase();
+        if (!info[s]) continue;
+        // only what this run added; the manual column keeps the rest
+        values[i][0] = Object.keys(info[s].links).filter(function (o) {
+          return !info[s].manual[o];
+        }).join(',');
+      }
+      sh.getRange(2, col, last - 1, 1).setValues(values);
+      audit('admin', 'auto_related', 'catalogue', '', null,
+        { variant_links: variantLinks, topped_up: topUps });
+    }
+    return result;
+  });
+}
+
+/** Distance between two prices, symmetric in ratio so 100 vs 200 ranks like 200 vs 100. */
+function priceGap(a, b) {
+  a = Number(a) || 0;
+  b = Number(b) || 0;
+  if (a <= 0 || b <= 0) return 999;
+  return a > b ? a / b : b / a;
 }
 
 /**
@@ -465,7 +698,7 @@ function buildCatalogueJson() {
         tiers: p.tiers, sizes: p.sizes, has_sizes: p.has_sizes,
         image: p.image, weight: was.weight || '', active: true,
         // only point at products that are still live
-        related: p.related_skus.filter(function (s) { return liveSkus[s]; })
+        related: p.related_all.filter(function (s) { return liveSkus[s]; })
       };
     })
   };
