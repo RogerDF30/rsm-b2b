@@ -45,14 +45,15 @@ let P = null;
   paintRelated();
 })();
 
-/* Curated in the admin console, per product. Skips anything that has since
-   been hidden, because related lists go stale otherwise. */
+/* Curated in the admin console, per product, and mutual: if this product
+   points at another, that one points back. Skips anything that has since been
+   hidden, because related lists go stale otherwise. */
 function paintRelated() {
   const skus = (P.related || []).filter(s => Catalog.bySku(s));
   if (!skus.length) return;
   document.querySelector('main').append(
     el('div', { style: 'margin:44px 0 0' },
-      el('h2', {}, 'Often ordered together'),
+      el('h2', {}, 'You may also be interested in this'),
       el('div', { class: 'grid', style: 'margin-top:16px' },
         skus.map(s => productCard(Catalog.bySku(s))))));
 }
@@ -69,7 +70,7 @@ function buyPanel() {
 
     P.description ? el('p', { class: 'muted', style: 'white-space:pre-line' }, P.description) : null,
 
-    P.specs.length ? el('table', { class: 'spec-table' },
+    (P.specs || []).length ? el('table', { class: 'spec-table' },
       el('tbody', {}, P.specs.map(([k, v]) => el('tr', {}, el('td', {}, k), el('td', {}, v))))) : null,
 
     el('div', {},

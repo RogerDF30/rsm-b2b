@@ -58,7 +58,7 @@ function fnAdminCatalog(req) {
 
   return {
     ok: true,
-    products: products,
+    products: symmetriseRelated(products),
     categories: readTab(SHEETS.CATEGORIES).map(function (c) {
       return {
         slug: String(c.slug), parent_slug: String(c.parent_slug),
@@ -70,6 +70,40 @@ function fnAdminCatalog(req) {
     settings: readSettings(),
     published_at: PropertiesService.getScriptProperties().getProperty('PUBLISHED_AT') || ''
   };
+}
+
+/**
+ * Related products are a mutual relationship, not a one-way pointer: if the
+ * grey cap lists the navy cap, the navy cap lists the grey cap. Saving a
+ * product writes that back into its partners (see syncReciprocal), and this
+ * closes the loop for pairs authored before that rule existed, so the console
+ * and the storefront always agree.
+ *
+ * Order is preserved: what the admin picked comes first, inherited links after.
+ */
+function symmetriseRelated(products) {
+  var known = {}, link = {};
+  products.forEach(function (p) { known[p.sku] = 1; link[p.sku] = {}; });
+
+  products.forEach(function (p) {
+    p.related_skus.forEach(function (s) {
+      if (s === p.sku || !known[s]) return;
+      link[p.sku][s] = 1;
+      link[s][p.sku] = 1;
+    });
+  });
+
+  products.forEach(function (p) {
+    var seen = {}, out = [];
+    p.related_skus.forEach(function (s) {
+      if (link[p.sku][s] && !seen[s]) { seen[s] = 1; out.push(s); }
+    });
+    Object.keys(link[p.sku]).forEach(function (s) {
+      if (!seen[s]) { seen[s] = 1; out.push(s); }
+    });
+    p.related_skus = out;
+  });
+  return products;
 }
 
 /* XS S M L XL 2XL 3XL, not alphabetical. */
@@ -137,6 +171,12 @@ function fnAdminSaveProduct(req) {
       if (String(r.sku).trim().toUpperCase() === sku) existing = r;
     });
 
+    var related = [];
+    (p.related_skus || []).forEach(function (s) {
+      var v = String(s).trim().toUpperCase();
+      if (v && v !== sku && related.indexOf(v) < 0) related.push(v);
+    });
+
     var row = {
       sku: sku, name: p.name, category: p.category, subcategory: p.subcategory,
       description: p.description || '', moq: Math.floor(Number(p.moq)),
@@ -145,7 +185,7 @@ function fnAdminSaveProduct(req) {
       image: p.image || '', lead_time_days: Number(p.lead_time_days) || 14,
       active: p.active === false ? 'FALSE' : 'TRUE',
       sort_order: Number(p.sort_order) || 0,
-      related_skus: (p.related_skus || []).join(',')
+      related_skus: related.join(',')
     };
 
     if (existing) {
@@ -153,6 +193,7 @@ function fnAdminSaveProduct(req) {
     } else {
       appendRow(SHEETS.PRODUCTS, row);
     }
+    syncReciprocal(sku, related);
 
     replaceRowsFor(SHEETS.TIERS, 'parent_sku', sku, tiers.map(function (t) {
       return { parent_sku: sku, min_qty: t.min_qty, max_qty: t.max_qty, unit_price: t.unit_price };
@@ -165,6 +206,37 @@ function fnAdminSaveProduct(req) {
     audit('admin', existing ? 'product_updated' : 'product_created', 'product', sku,
       existing ? { name: existing.name } : null, { name: row.name, active: row.active });
     return { ok: true, sku: sku, created: !existing };
+  });
+}
+
+/**
+ * Make every other product agree about `sku`.
+ *
+ * Anything named in `related` gains sku; anything that still names sku but was
+ * dropped from the list loses it. Only rows that actually change are written.
+ * Called inside the save lock, after the product's own row is in place.
+ */
+function syncReciprocal(sku, related) {
+  var wanted = {};
+  related.forEach(function (s) { wanted[s] = 1; });
+
+  readTab(SHEETS.PRODUCTS).forEach(function (r) {
+    var other = String(r.sku).trim().toUpperCase();
+    if (!other || other === sku) return;
+
+    var list = String(r.related_skus || '').split(',')
+      .map(function (x) { return x.trim().toUpperCase(); })
+      .filter(String);
+    var has = list.indexOf(sku) >= 0;
+
+    if (wanted[other] && !has) {
+      list.push(sku);
+    } else if (!wanted[other] && has) {
+      list = list.filter(function (x) { return x !== sku; });
+    } else {
+      return;                       // already correct, leave the row alone
+    }
+    updateRow(SHEETS.PRODUCTS, r._row, { related_skus: list.join(',') });
   });
 }
 
@@ -370,6 +442,8 @@ function buildCatalogueJson() {
   var liveSkus = {};
   live.forEach(function (p) { liveSkus[p.sku] = 1; });
 
+  var carried = carryOverStaticFields();
+
   var cats = {};
   full.categories.filter(function (c) { return c.active; })
     .forEach(function (c) { (cats[c.parent_slug] = cats[c.parent_slug] || []).push(c.label); });
@@ -382,18 +456,44 @@ function buildCatalogueJson() {
       return { slug: k, label: k, subcategories: cats[k].sort() };
     }),
     products: live.map(function (p) {
+      var was = carried[p.sku] || {};
       return {
-        sku: p.sku, name: p.name, url_key: '', category: p.category,
-        subcategory: p.subcategory, attribute_set: '',
-        description: p.description, specs: [],
+        sku: p.sku, name: p.name, url_key: was.url_key || '', category: p.category,
+        subcategory: p.subcategory, attribute_set: was.attribute_set || '',
+        description: p.description, specs: was.specs || [],
         moq: p.moq, gst_rate: p.gst_rate, base_price: p.base_price,
         tiers: p.tiers, sizes: p.sizes, has_sizes: p.has_sizes,
-        image: p.image, weight: '', active: true,
+        image: p.image, weight: was.weight || '', active: true,
         // only point at products that are still live
         related: p.related_skus.filter(function (s) { return liveSkus[s]; })
       };
     })
   };
+}
+
+/**
+ * specs, url_key, weight and attribute_set came from the Magento scrape and
+ * have no column in the Sheet, so a publish built purely from the Sheet would
+ * blank the spec table on 127 product pages. Read them back off the catalogue
+ * that is already live and carry them forward.
+ *
+ * A fetch failure is not fatal: a product with no specs still sells.
+ */
+function carryOverStaticFields() {
+  var out = {};
+  try {
+    var res = UrlFetchApp.fetch(CATALOGUE_URL, { muteHttpExceptions: true });
+    if (res.getResponseCode() !== 200) return out;
+    JSON.parse(res.getContentText()).products.forEach(function (p) {
+      out[String(p.sku).trim().toUpperCase()] = {
+        url_key: p.url_key || '', attribute_set: p.attribute_set || '',
+        weight: p.weight || '', specs: p.specs || []
+      };
+    });
+  } catch (err) {
+    console.log('carryOverStaticFields: ' + err.message);
+  }
+  return out;
 }
 
 function buildSiteJson() {
