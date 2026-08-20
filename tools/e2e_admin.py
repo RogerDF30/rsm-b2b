@@ -106,12 +106,52 @@ def main():
         pg.fill(f'{tier}:nth-child(1)', '25')
         pg.wait_for_timeout(200)
 
-        # --- 7. related products ---------------------------------------------
-        pg.select_option('.drawer-inner select >> nth=-1', 'B2BRSMON-0091')
+        # --- 7. related products: modal, multi-select, thumbnails -------------
+        check('nothing related yet',
+              'None selected' in pg.inner_text('#relatedPicker'), True)
+        pg.click('#relChoose')
+        pg.wait_for_selector('#relModal .pick-tile', timeout=10000)
+        check('picker shows every other active product',
+              pg.locator('#relModal .pick-tile').count(), 134)
+        pg.wait_for_timeout(700)
+        check('picker tiles render real images',
+              pg.eval_on_selector_all(
+                  '#relModal .pick-tile img',
+                  'e=>e.filter(x=>x.naturalWidth>0).length') > 0, True)
+
+        pg.fill('#pickSearch', 'B2BRSMON-0091')
         pg.wait_for_timeout(400)
-        chips = pg.eval_on_selector_all('.drawer-inner .filters .chip',
-                                        'e=>e.map(x=>x.textContent)')
-        check('related product attached', any('OMG' in c for c in chips), True)
+        check('picker search narrows the grid',
+              pg.locator('#relModal .pick-tile').count(), 1)
+        pg.click('#relModal .pick-tile')
+        pg.fill('#pickSearch', 'B2BRSMON-0092')
+        pg.wait_for_timeout(400)
+        pg.click('#relModal .pick-tile')          # second one: multi-select
+        check('two selected in the modal',
+              pg.inner_text('#pickCount').strip(), '2 selected')
+
+        pg.click('#pickDone')
+        pg.wait_for_timeout(400)
+        check('two related tiles attached',
+              pg.locator('#relSelected .rel-tile').count(), 2)
+        pg.wait_for_timeout(700)
+        check('attached tiles show images',
+              pg.eval_on_selector_all(
+                  '#relSelected .rel-tile img',
+                  'e=>e.filter(x=>x.naturalWidth>0).length'), 2)
+
+        # remove one, then confirm the modal remembers the survivor
+        pg.click('#relSelected .rel-tile:first-child .rel-x')
+        pg.wait_for_timeout(300)
+        check('remove leaves one', pg.locator('#relSelected .rel-tile').count(), 1)
+        pg.click('#relChoose')
+        pg.wait_for_selector('#relModal .pick-tile', timeout=10000)
+        check('modal reopens with the survivor ticked',
+              pg.inner_text('#pickCount').strip(), '1 selected')
+        pg.click('#relModal >> text=Cancel')
+        pg.wait_for_timeout(300)
+        check('cancel leaves the selection alone',
+              pg.locator('#relSelected .rel-tile').count(), 1)
 
         pg.click('text=Add product >> nth=-1')
         pg.wait_for_timeout(1800)

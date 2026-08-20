@@ -310,5 +310,15 @@ http.createServer((req, res) => {
     res.writeHead(404); res.end('not found'); return;
   }
   res.writeHead(200, { 'Content-Type': MIME[path.extname(file)] || 'application/octet-stream' });
+
+  /* app.js ships with the live Apps Script URL and the live token. Point the
+     served copy at this process instead, so nothing in a test run leaves the
+     machine. The file on disk is never touched. */
+  if (rel === 'assets/js/app.js') {
+    res.end(fs.readFileSync(file, 'utf8')
+      .replace(/API_URL:\s*'[^']*'/, "API_URL: 'http://localhost:8900/'")
+      .replace(/API_TOKEN:\s*'[^']*'/, "API_TOKEN: '" + API_TOKEN + "'"));
+    return;
+  }
   res.end(fs.readFileSync(file));
 }).listen(8900, () => console.log('mock api + site on http://localhost:8900'));

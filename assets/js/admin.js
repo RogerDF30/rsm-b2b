@@ -352,39 +352,135 @@ function editProduct(p) {
       }, 'Delete'))));
 }
 
+/**
+ * Related products: a thumbnail strip of what is attached, plus a modal that
+ * shows the whole catalogue as a searchable image grid you can multi-select.
+ * Choices are held in a working copy so Cancel really cancels.
+ */
 function relatedPicker(draft) {
-  const box = el('div');
-  const chips = el('div', { class: 'filters', style: 'margin-bottom:8px' });
+  const box = el('div', { id: 'relatedPicker' });
+  const grid = el('div', { class: 'rel-strip', id: 'relSelected' });
+  const count = el('span', { class: 'small muted', id: 'relCount' });
+
   const repaint = () => {
-    chips.textContent = '';
+    count.textContent = draft.related_skus.length + ' selected';
+    grid.textContent = '';
     if (!draft.related_skus.length) {
-      chips.append(el('span', { class: 'small muted' }, 'None selected'));
+      grid.append(el('div', { class: 'small muted' }, 'None selected'));
+      return;
     }
-    draft.related_skus.forEach((s, i) => {
-      const hit = CAT.products.find(p => p.sku === s);
-      chips.append(el('button', {
-        type: 'button', class: 'chip on',
-        onclick: () => { draft.related_skus.splice(i, 1); repaint(); },
-      }, `${hit ? hit.name : s} ✕`));
+    draft.related_skus.forEach((sku, i) => {
+      const p = CAT.products.find(x => x.sku === sku);
+      grid.append(el('div', { class: 'rel-tile', 'data-sku': sku },
+        el('img', { src: (p && p.image) || '', alt: (p && p.name) || sku, loading: 'lazy' }),
+        el('div', { class: 'rel-name' }, (p && p.name) || sku),
+        el('div', { class: 'rel-sku' }, sku),
+        el('button', {
+          type: 'button', class: 'rel-x', title: 'Remove',
+          onclick: () => { draft.related_skus.splice(i, 1); repaint(); },
+        }, '✕')));
     });
   };
   repaint();
 
-  const picker = el('select', {
-    onchange: e => {
-      const v = e.target.value;
-      if (v && !draft.related_skus.includes(v) && v !== draft.sku) {
-        draft.related_skus.push(v);
-        repaint();
-      }
-      e.target.value = '';
-    },
-  }, el('option', { value: '' }, 'Add a related product…'),
-     ...CAT.products.filter(p => p.active)
-       .map(p => el('option', { value: p.sku }, `${p.name} (${p.sku})`)));
-
-  box.append(chips, picker);
+  box.append(grid, el('div', { class: 'row', style: 'margin-top:10px' },
+    el('button', {
+      type: 'button', class: 'btn btn-ghost btn-sm', id: 'relChoose',
+      onclick: () => relatedModal(draft, repaint),
+    }, 'Choose related products'),
+    count));
   return box;
+}
+
+/** Full-catalogue image grid, multi-select, applied only on Done. */
+function relatedModal(draft, onDone) {
+  const pool = CAT.products.filter(p => p.active && p.sku !== draft.sku);
+  const chosen = new Set(draft.related_skus);
+  let term = '';
+  let cat = '';
+
+  const grid = el('div', { class: 'pick-grid', id: 'pickGrid' });
+  const countLbl = el('span', { class: 'small muted', id: 'pickCount' });
+
+  const paint = () => {
+    const t = term.trim().toLowerCase();
+    const list = pool.filter(p =>
+      (!cat || p.category === cat) &&
+      (!t || p.name.toLowerCase().includes(t) || p.sku.toLowerCase().includes(t)));
+
+    grid.textContent = '';
+    if (!list.length) {
+      grid.append(el('div', { class: 'small muted' }, 'No products match.'));
+    }
+    list.forEach(p => {
+      const on = chosen.has(p.sku);
+      grid.append(el('button', {
+        type: 'button',
+        class: 'pick-tile' + (on ? ' on' : ''),
+        'data-sku': p.sku,
+        onclick: e => {
+          const tile = e.currentTarget;
+          if (chosen.has(p.sku)) { chosen.delete(p.sku); tile.classList.remove('on'); }
+          else { chosen.add(p.sku); tile.classList.add('on'); }
+          countLbl.textContent = chosen.size + ' selected';
+        },
+      },
+        el('span', { class: 'pick-mark' }, '✓'),
+        el('img', { src: p.image || '', alt: p.name, loading: 'lazy' }),
+        el('span', { class: 'pick-name' }, p.name),
+        el('span', { class: 'pick-sku' }, p.sku)));
+    });
+    countLbl.textContent = chosen.size + ' selected';
+  };
+
+  const search = el('input', {
+    type: 'search', id: 'pickSearch', placeholder: 'Search name or SKU',
+    oninput: e => { term = e.target.value; paint(); },
+  });
+
+  const catSel = selectOf(
+    [...new Set(pool.map(p => p.category))].filter(Boolean).sort(), '',
+    v => { cat = v; paint(); }, 'All categories');
+  catSel.id = 'pickCat';
+
+  paint();
+
+  const modal = el('div', { class: 'modal', id: 'relModal',
+    onclick: e => { if (e.target.id === 'relModal') close(); } },
+    el('div', { class: 'modal-inner' },
+      el('div', { class: 'row-between', style: 'margin-bottom:12px' },
+        el('h3', { style: 'margin:0' }, 'Related products'),
+        el('button', { type: 'button', class: 'btn btn-ghost btn-sm', onclick: () => close() }, 'Close')),
+      el('div', { class: 'row', style: 'gap:10px;margin-bottom:12px' },
+        el('div', { class: 'grow' }, search), catSel),
+      grid,
+      el('div', { class: 'row-between', style: 'margin-top:14px' },
+        countLbl,
+        el('div', { class: 'row' },
+          el('button', { type: 'button', class: 'btn btn-ghost btn-sm',
+            onclick: () => close() }, 'Cancel'),
+          el('button', { type: 'button', class: 'btn btn-sm', id: 'pickDone',
+            onclick: () => {
+              // keep the existing order, append newcomers in catalogue order
+              const kept = draft.related_skus.filter(s => chosen.has(s));
+              pool.forEach(p => {
+                if (chosen.has(p.sku) && !kept.includes(p.sku)) kept.push(p.sku);
+              });
+              draft.related_skus.length = 0;
+              kept.forEach(s => draft.related_skus.push(s));
+              close();
+              onDone();
+            } }, 'Done')))));
+
+  function close() {
+    document.removeEventListener('keydown', esc);
+    modal.remove();
+  }
+  function esc(e) { if (e.key === 'Escape') close(); }
+  document.addEventListener('keydown', esc);
+
+  document.body.appendChild(modal);
+  search.focus();
 }
 
 function confirmDelete(sku) {
@@ -587,8 +683,9 @@ function field(label, input, full) {
     el('span', {}, label), input);
 }
 
-function selectOf(values, current, onchange) {
+function selectOf(values, current, onchange, blankLabel) {
   return el('select', { onchange: e => onchange(e.target.value) },
+    blankLabel ? el('option', { value: '', selected: current ? null : 'selected' }, blankLabel) : null,
     ...values.map(v => el('option', { value: v, selected: v === current ? 'selected' : null }, v)));
 }
 
