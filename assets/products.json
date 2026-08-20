@@ -7544,6 +7544,2515 @@
       "weight": "0.5",
       "active": true,
       "related": []
+    },
+    {
+      "sku": "B2BRSMON-0181",
+      "name": "Omg Drop shoulder T-shirt",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "T-Shirts",
+      "attribute_set": "",
+      "description": "Upgrade your everyday wardrobe with our Drop Shoulder T-Shirt, designed for a relaxed and contemporary look. Featuring an oversized silhouette with extended shoulder seams, it offers a laid-back fit that combines comfort with effortless style.",
+      "specs": [],
+      "moq": 100,
+      "gst_rate": 5,
+      "base_price": 466,
+      "tiers": [
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 466
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 433
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 381
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 332
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "has_sizes": true,
+      "image": "assets/products/B2BRSMON-0181.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0182",
+      "name": "OMG Endurance Polo T-shirt",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "T-Shirts",
+      "attribute_set": "",
+      "description": "Crafted from 100% fine cotton for a premium feel.\nFeatures 230 GSM compacted pre-shrunk fabric.\nRegular fit ensures an effortless, comfortable silhouette.\nLightweight and breathable, perfect for all-day wear.\nGender: Men",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 5,
+      "base_price": 547,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 547
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 525
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 488
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 430
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 374
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "has_sizes": true,
+      "image": "assets/products/B2BRSMON-0182.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0183",
+      "name": "Spanish Dry Fit Polo",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Shirts",
+      "attribute_set": "",
+      "description": "Dry Fit polo shirt with a classic style\nMaterial wicks away perspiration and dries fast, regulating body temperature\nGender: Men",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 5,
+      "base_price": 559,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 559
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 536
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 499
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 439
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 382
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "has_sizes": true,
+      "image": "assets/products/B2BRSMON-0183.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0184",
+      "name": "ETTU Recycled No Zip Hoodie",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Hoodies",
+      "attribute_set": "",
+      "description": "Made from 65% recycled cotton and 35% recycled polyester\nBlended with polyester and pre-consumer textiles\nManufactured without harmful dyes\nDesigned to conserve water and reduce CO₂ emissions\nEnvironmentally friendly, supports sustainable cotton farming",
+      "specs": [],
+      "moq": 100,
+      "gst_rate": 5,
+      "base_price": 1698,
+      "tiers": [
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1698
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1579
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 1390
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 1209
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "has_sizes": true,
+      "image": "assets/products/B2BRSMON-0184.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0185",
+      "name": "Neo Cycling jersey",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Shirts",
+      "attribute_set": "",
+      "description": "Lightweight, breathable, jersey for all-day comfort.\nStretchable fabric with moisture-wicking and anti-microbial properties.\nMade from 88% polyester and 12% spandex for flexibility and durability.",
+      "specs": [],
+      "moq": 100,
+      "gst_rate": 5,
+      "base_price": 1552,
+      "tiers": [
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1552
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1444
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 1270
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 1105
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "has_sizes": true,
+      "image": "assets/products/B2BRSMON-0185.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0186",
+      "name": "OMG surrey sweatshirt.",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Hoodies",
+      "attribute_set": "",
+      "description": "Made from 100% cotton, compacted, washed, and preshrunk for durability.\nCrafted with 280 GSM fabric for superior comfort and warmth.\nRibbed cuffs and waistband ensure a snug, polished fit.\nBrushed interior provides soft, comfort.\nProduct Information",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 5,
+      "base_price": 970,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 970
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 931
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 838
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 713
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 570
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "has_sizes": true,
+      "image": "assets/products/B2BRSMON-0186.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0187",
+      "name": "OMG Full Zipper Hoodie",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Hoodies",
+      "attribute_set": "",
+      "description": "\"Crafted from 100% cotton for ultimate softness and comfort.\nCompacted, washed, and preshrunk fabric ensures a lasting fit.\nFeatures a contrasting hood color for added style.\nFull zip closure and spacious kangaroo pocket for practicality.\nRibbed cuffs and hem add a snug, polished touch.\nStylish, relaxed design ideal for everyday wear.\"",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 5,
+      "base_price": 1225,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 1225
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1176
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1094
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 962
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 837
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "has_sizes": true,
+      "image": "assets/products/B2BRSMON-0187.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0188",
+      "name": "OMG Full Zip Swag Jacket",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Jackets",
+      "attribute_set": "",
+      "description": "\"Durable 100% Swag fleece for long-lasting wear.\nFeatures a reverse-coil zipper for a sleek finish.\nLong sleeves for added warmth and coverage.\nFeatures front zippered pockets\"",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 5,
+      "base_price": 1544,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 1544
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1451
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1291
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 1033
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 919
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "has_sizes": true,
+      "image": "assets/products/B2BRSMON-0188.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0189",
+      "name": "ET-TU Hoodie in a Bag",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Hoodies",
+      "attribute_set": "",
+      "description": "\"100% polyester. Center front reversed coil zipper with semi auto-lock pull tab. Self-fabric Banded cuffs and waistband. Doubles up as a drawstring bag. Style- Unisex\n\n\"",
+      "specs": [],
+      "moq": 100,
+      "gst_rate": 5,
+      "base_price": 1646,
+      "tiers": [
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1646
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1531
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 1347
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 1199
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "has_sizes": true,
+      "image": "assets/products/B2BRSMON-0189.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0190",
+      "name": "ET-TU Re Pace Funnel Neck",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Hoodies",
+      "attribute_set": "",
+      "description": "Funnel Neck Pullover Women's Stay warm and stylish with this eco-friendly pullover. Featuring a modern funnel neck design and raglan sleeves for unrestricted movement, it’s perfect for relaxing at home or staying active on the go.Classic fitFabric: 58% Recycled Cotton, 38% Recycler Polyester, 4% Spandex Embroidery decoration.",
+      "specs": [],
+      "moq": 100,
+      "gst_rate": 5,
+      "base_price": 1833,
+      "tiers": [
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1833
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1705
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 1500
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 1305
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "has_sizes": true,
+      "image": "assets/products/B2BRSMON-0190.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0191",
+      "name": "OMG Prime Cap",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Headwear",
+      "attribute_set": "",
+      "description": "This value-priced cap has a contrast sandwich brim and a quintessential look for up-to-date style.\nFabric: 100% cotton twill. Closure: Hook and loop.\nStyle - Onesize",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 5,
+      "base_price": 195,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 195
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 187
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 174
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 166
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 141
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0191.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0194",
+      "name": "OMG Baseball Cap",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Headwear",
+      "attribute_set": "",
+      "description": "Stylish and versatile design with a flat brim visor\nAdjustable snapback for a comfortable fit\nMade from soft, breathable polyester/cotton blend\nEmbroidered side holes on each panel for better airflow and cooling\nHelps reduce sweating during outdoor summer wear\nFeatures an adjustable Velcro strap for added convenience",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 5,
+      "base_price": 377,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 377
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 362
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 326
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 287
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 250
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0194.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0192",
+      "name": "OMG Jersey Cap",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Headwear",
+      "attribute_set": "",
+      "description": "Structured mid-profile cap made from 100% polyester jersey\nFabric: 100% polyester jersey with sandwich bill\nStructure: Structured",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 5,
+      "base_price": 255,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 255
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 245
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 220
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 194
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 169
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0192.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0193",
+      "name": "OMG Puffy Cap",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Headwear",
+      "attribute_set": "",
+      "description": "Features a quilted “puffy jacket” style body for a trendy and eye-catching look.\nDesigned with a pre-curved fabric visor that provides shade and a classic cap silhouette.\nConstructed with a six-panel structure for a structured and comfortable fit.\nEquipped with an adjustable plastic snap closure for a secure and customizable fit.\nDetailed with embroidered logos and an embroidered logo patch for a premium finish.\nAvailable in a stylish grey and black color combination.\nCute, classic, and close-fitting design makes it ideal for daily wear and suitable for any occasion.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 5,
+      "base_price": 336,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 336
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 323
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 290
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 232
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 200
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0193.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0195",
+      "name": "OMG Riveira Cap",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Headwear",
+      "attribute_set": "",
+      "description": "Cap features a contrast rollover underbill for added style\nVintage wash gives it a lived-in, worn-in look\nMade from 100% cotton twill fabric\nStructured design for a classic fit\nClosure: Velcro / Hook and loop",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 5,
+      "base_price": 191,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 191
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 183
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 171
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 150
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 131
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0195.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0196",
+      "name": "OMG Tonal Cap - 3D Logo Embroidery",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Headwear",
+      "attribute_set": "",
+      "description": "Brighten up your day with the Tonal Cap. Its vibrant color adds a pop of sunshine to your outfit, making it impossible to go unnoticed. 100% Cotton Fabric twill cap. 5 panel construction. 3D Embroidered logo in front. Moisture wicking sweatband. Curve bill style.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 5,
+      "base_price": 166,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 166
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 155
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 144
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 127
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 113
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0196.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0197",
+      "name": "OMG Two-Tone Corduroy Cap",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Headwear",
+      "attribute_set": "",
+      "description": "Cotton corduroy. Structured fit. Plastic snapback closure. Navy with embroidery. It’s a two-toned delight with a cap offering seriously soft corduroy along with our logo to complete the look. A structured fit creates a comfortable shape while a snapback closure ensures a great fit.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 5,
+      "base_price": 387,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 387
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 372
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 346
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 304
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 265
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0197.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0198",
+      "name": "OMG Bucket Hat",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Headwear",
+      "attribute_set": "",
+      "description": "Classic bucket hat design with wide all-around brim\nLightweight and comfortable for everyday wear\nProvides shade and protection during outdoor activities\nA versatile accessory for casual wear and travel",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 5,
+      "base_price": 213,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 213
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 205
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 191
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 168
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 146
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0198.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0199",
+      "name": "Visor Cap",
+      "url_key": "",
+      "category": "Apparel",
+      "subcategory": "Headwear",
+      "attribute_set": "",
+      "description": "Designed for practicality and style, the Wizzer Bag is the perfect companion for your daily essentials. With a compact yet spacious design, it offers organized storage while maintaining a sleek and modern look.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 5,
+      "base_price": 169,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 169
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 162
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 151
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 133
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 116
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0199.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0200",
+      "name": "Neoprene tote bag",
+      "url_key": "",
+      "category": "Travel",
+      "subcategory": "Tote bags",
+      "attribute_set": "",
+      "description": "Made from 600D TPU coated rPET and neoprene using recycled materials\nSpacious open cavity fits towels and large beach essentials\nInterior water-resistant zippered pocket for organized storage\nVersatile carry options with padded grab handles and fixed shoulder straps\nProduct Information",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 916,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 916
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 880
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 800
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 704
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 613
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0200.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0201",
+      "name": "Cera travel laptop backpack",
+      "url_key": "",
+      "category": "Travel",
+      "subcategory": "Bag pack",
+      "attribute_set": "",
+      "description": "Fastening: zipper\nRucksack travel bag with laptop compartment with100% 600d polyester, highly durable\nLarge main compartment and front vertical zipper pocket with internal slip and zipper mesh pockets and top lid pocket\nSeparate laptop compartment with access from back panel\nPadded shoulder straps with easy access metro card pocket\nDimensions: 30.5 cm x 51 cm x 25.4 cm , capacity: 26 ltr ,weight: 0.84 kg , no. of compartments: 5",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 1558,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 1558
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1496
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1391
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 1224
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 1065
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0201.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0202",
+      "name": "TRAVEL XOXO Overnight travel backpack",
+      "url_key": "",
+      "category": "Travel",
+      "subcategory": "Bag pack",
+      "attribute_set": "",
+      "description": "MULTI UTILITY Backpack for daily use including or weekend travelling,\nhiking and trekking for both men and women. Waist Pads, shoulder\nstraps and chest strap aid in load adjustment. Detachable Waist\nBelt, Shoulder and Chest Straps along with multiple compression\nstraps aid in load adjustment.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 1509,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 1509
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1449
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1347
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 1213
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 1152
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0202.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0203",
+      "name": "PIivot lunar backpack",
+      "url_key": "",
+      "category": "Travel",
+      "subcategory": "Bag pack",
+      "attribute_set": "",
+      "description": "Spacious zippered main compartment with a secure laptop compartment\nPadded 14 inch laptop sleeve. External zippered compartment with 2\ndeep slip-in pockets and a keyring holder. Capacity : 11 Litres\nMaterial : Recycled Nylon Ripstop, Nylon lining\nDimensions : 42 (H) x 32 (W) x 12(D) cms",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 1298,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 1298
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1221
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1135
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 942
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 801
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0203.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0204",
+      "name": "TRAVEL XOXO Transit backpack",
+      "url_key": "",
+      "category": "Travel",
+      "subcategory": "Bag pack",
+      "attribute_set": "",
+      "description": "Padded laptop compartment that fits up to a 15 inch laptop with a strap\nlock & a 180 ° flat opening for easy access. Has a silicon grab handle &\nergonomic shoulder straps designed for extra comfort. Straps feature easy\nlength adjustment buckles. Crafted with durable and premium zippers.\nSplendidly sized: 42 x 26 x 15.5 cms.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 1984,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 1984
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1905
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1772
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 1559
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 1356
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0204.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0205",
+      "name": "Weekender duffle backpack",
+      "url_key": "",
+      "category": "Travel",
+      "subcategory": "Bag pack",
+      "attribute_set": "",
+      "description": "This essential overnight bag combines a clean, contemporary design with\npractical functionality. Featuring a spacious main compartment, it provides\nample room for clothing, tech, and other essentials—perfect for a work\ntrip or weekend getaway. while the coated zip closure ensures water\nresistance to keep your items dry. Dimensions: H27 x D26 x W52 cm",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 1680,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 1680
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1613
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1500
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 1320
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 1148
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0205.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0207",
+      "name": "TRAVEL XOXO crossbody belt bag",
+      "url_key": "",
+      "category": "Travel",
+      "subcategory": "Laptop handbag",
+      "attribute_set": "",
+      "description": "Can be worn as a fanny pack or across the chest sling. 230T\npolyester & 150D polyester Lining. Zippered main compartment.\nBack zippered pocket. 2\" Gusset. 40\" Strap, 52\" including bag\nDetachable/Adjustable Waist Strap.\nSpot clean/air dry. Size: 7.5\"W x 5\"H.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 524,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 524
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 503
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 468
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 412
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 350
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0207.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0208",
+      "name": "Oblique cross body sling bag",
+      "url_key": "",
+      "category": "Travel",
+      "subcategory": "Laptop handbag",
+      "attribute_set": "",
+      "description": "Stylish and Functional Sling Bag Upgrade your everyday look with this\nsleek and versatile sling bag, designed for both convenience and style.\nCrafted with premium materials, it oers durability and a modern aesthetic\nthat suits any occasion. Features: Compact\nDesign: Perfect for carrying your essentials without the bulk.\nAdjustable Strap: Customize the fit for maximum comfort on the go.\nMultiple Compartments: Stay organized with spacious pockets for your\nphone, wallet, keys, and more. Lightweight & Durable.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 710,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 710
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 682
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 634
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 571
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 514
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0208.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0209",
+      "name": "TRAVEL XOXO tech accesory backpack",
+      "url_key": "",
+      "category": "Travel",
+      "subcategory": "Bag pack",
+      "attribute_set": "",
+      "description": "Express your love for the innovation company that inspires us all\nto fuel progress and make the world work better.\n210-denier polyester ripstop. Travel Product\nThree zip front pockets. Large zip back pocket. Hanging loop\nDimensions: 9\"x7\"Inches",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 260,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 260
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 249
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 232
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 199
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 173
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0209.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0210",
+      "name": "Oblique mick duffle bag",
+      "url_key": "",
+      "category": "Travel",
+      "subcategory": "Duffle bag",
+      "attribute_set": "",
+      "description": "Spacious DUFFLE BAG for everyday gym or a short travel \nSide zipper pocket to keep your shoes seperate \nAdjustable long handle along with short handles for ease \nTop zipper for keeping everything secured",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 1166,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 1166
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1120
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1041
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 916
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 797
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0210.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0211",
+      "name": "Oblique spaded bag",
+      "url_key": "",
+      "category": "Utilities",
+      "subcategory": "Accessories",
+      "attribute_set": "",
+      "description": "Lightweight super smart duffle for travel or gym \nQuilt look material enhances the bag appeal. \nDetachable and adjustable handles for personal comfort. \nQuick access back zipper pocket.\nLaptop compartment inside that fits in 15.6  Inch  laptop.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 1632,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 1632
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1566
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1504
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 1429
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 1421
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0211.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0212",
+      "name": "cross body sling bag",
+      "url_key": "",
+      "category": "Travel",
+      "subcategory": "Laptop handbag",
+      "attribute_set": "",
+      "description": "Made from durable 300D Ripstop fabric using 100% recycled polyester with PU coating.\nFabric is sourced from pre-consumer waste, making it environmentally responsible.\nSide zipper provides quick access to a padded interior sleeve suitable for tablets, e-readers, etc.\nAmbidextrous, adjustable strap allows the bag to be worn over either shoulder, across the chest, or on the back.\nTricot-lined top pocket offers scratch protection for phones or sunglasses.\nSoft satin front zip pocket includes a key keeper for added convenience.\nRoomy main compartment accommodates everyday essentials.\nStylish yet functional design makes it a versatile and favorite everyday sling bag",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 990,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 990
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 950
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 884
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 778
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 677
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0212.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0213",
+      "name": "travelXOXO Urban Fanny Pack",
+      "url_key": "",
+      "category": "Travel",
+      "subcategory": "Laptop handbag",
+      "attribute_set": "",
+      "description": "Sleek and lightweight design for everyday convenience\nAdjustable belt strap ensures a secure and comfortable fit\nMain zippered pocket keeps essentials organized and within reach\nPerfect for travel, outdoor adventures, or casual daily wear",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 892,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 892
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 856
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 796
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 701
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 610
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0213.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0206",
+      "name": "SOIL Fold Over Tote Bag",
+      "url_key": "",
+      "category": "Travel",
+      "subcategory": "Tote bags",
+      "attribute_set": "",
+      "description": "Made from cotton canvas fabric featuring broad shoulder straps\nFeatures a coconut button on the front\nSize: L 35.5cm x W 10cm x H 34cm",
+      "specs": [],
+      "moq": 100,
+      "gst_rate": 5,
+      "base_price": 541,
+      "tiers": [
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 541
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 503
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 443
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 385
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0206.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0214",
+      "name": "travelXOXO EDC Tactical Tech Kit",
+      "url_key": "",
+      "category": "Utilities",
+      "subcategory": "Accessories",
+      "attribute_set": "",
+      "description": "Designed to keep everyday tech essentials organized, this versatile organizer is ideal for storing headphones, chargers, cables, power banks, and other accessories. Made from durable 100% polyester, it features premium reversed YKK zippers, a 4×5 Molle panel with Velcro strips, internal mesh compartments, a zippered pocket, and elastic webbing for secure storage and easy access. Size: 10\" W × 6.75\" H × 4.3\" D.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 557,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 557
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 535
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 497
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 437
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 381
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0214.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0215",
+      "name": "Behome zebra travel bag",
+      "url_key": "",
+      "category": "Utilities",
+      "subcategory": "Accessories",
+      "attribute_set": "",
+      "description": "BeHome introduces the Zebra Travel Mug, a design-forward beverage solution engineered to permanently eliminate the anxiety of workplace spills and damaged electronics. Fusing minimalist aesthetic appeal with cutting-edge physics, the Zebra Travel Mug is built specifically for modern professionals, commuters, and dynamic creators.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 1147,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 1147
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1101
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1057
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 951
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 827
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0215.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0216",
+      "name": "BeHome Marvel Single Wall Stainless Steel Water Bottle",
+      "url_key": "",
+      "category": "Drinkware",
+      "subcategory": "Bottles",
+      "attribute_set": "",
+      "description": "The BeHome Marvel Single Wall Stainless Steel Water Bottle (Model Code: MWB 123) is a sleek, lightweight hydration bottle designed primarily for corporate gifting and sports merchandising",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 341,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 341
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 327
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 304
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 268
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 233
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0216.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0217",
+      "name": "UG stainless steel hot and cold bottle white",
+      "url_key": "",
+      "category": "Drinkware",
+      "subcategory": "Bottles",
+      "attribute_set": "",
+      "description": "A 750 ml vacuum-insulated sports steel flask featuring a clean, matte white finish designed for outdoor sports, gym workouts, and travel.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 897,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 897
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 861
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 801
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 705
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 613
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0217.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0218",
+      "name": "Bamboo Sipper",
+      "url_key": "",
+      "category": "Drinkware",
+      "subcategory": "Bottles",
+      "attribute_set": "",
+      "description": "Bamboo lined steel vacuum flask. Keeps your beverage hot or cold for a longer period Capacity: 500\nml",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 783,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 783
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 752
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 714
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 607
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 486
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0218.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0219",
+      "name": "Urban Gear Carter Stainless Steel Travel Mug With Handle",
+      "url_key": "",
+      "category": "Drinkware",
+      "subcategory": "Mugs & tumblers",
+      "attribute_set": "",
+      "description": "Urban Gear CARTER stainless steel travel mug with handle\n900 ml capacity, weight 372 g\nDimensions: 7.5 × 11 × 24 cm for tall, sleek design\nBPA-free construction for safe use\nDouble-wall insulated stainless steel body\nKeeps beverages hot or cold for extended periods",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 735,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 735
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 706
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 656
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 577
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 491
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0219.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0220",
+      "name": "Urban Gear Vino Staineless Steel Vacuum Bottle",
+      "url_key": "",
+      "category": "Drinkware",
+      "subcategory": "Bottles",
+      "attribute_set": "",
+      "description": "Ceramic Mug with Bamboo Lid & Handle 13.5x8x10cm\n389gms Capacity: 350ml Material: Ceramic with Bamboo\nNO BPA\nHot & Cold\nBPA Free",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 671,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 671
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 644
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 599
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 527
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 459
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0220.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0221",
+      "name": "Urban Gear Ebony Bottle",
+      "url_key": "",
+      "category": "Drinkware",
+      "subcategory": "Bottles",
+      "attribute_set": "",
+      "description": "Stainless Steel Vaccum Bottle\n* 7*7*23cm\n* 500ml\n* SS 304 Grade\n* Wooden Cap With Handle For easy carry\n* Hot and Cold : upto 6 to 8 hours\n* Latest Vaccum Technology\n* 273gms",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 671,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 671
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 644
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 599
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 527
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 459
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0221.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0222",
+      "name": "Mouse holder",
+      "url_key": "",
+      "category": "Utilities",
+      "subcategory": "Accessories",
+      "attribute_set": "",
+      "description": "Organize your workspace effortlessly with our Mouse Holder, designed to keep your mouseand within easy reach. Its compact and functional design helps reduce desk clutter while improving accessibility during work.",
+      "specs": [],
+      "moq": 500,
+      "gst_rate": 18,
+      "base_price": 346,
+      "tiers": [
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 346
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 301
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0222.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0223",
+      "name": "SOIL Phone Pillow Holder",
+      "url_key": "",
+      "category": "Utilities",
+      "subcategory": "Accessories",
+      "attribute_set": "",
+      "description": "Soft fabric phone stand designed like a mini bean bag cushion, offering a fun and comfortable way to support your smartphone. Its triangular shape and non-slip base provide stable, hands-free viewing for movies, video calls, or browsing. Lightweight, portable, and visually appealing, it is made from reusable, washable fabric for everyday convenience. Product dimensions: 11.43 × 12.45 × 7.87 cm; Weight: 68.04 grams.",
+      "specs": [],
+      "moq": 500,
+      "gst_rate": 18,
+      "base_price": 135,
+      "tiers": [
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 135
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 117
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0223.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0224",
+      "name": "SOIL Loom Canvas Pouch",
+      "url_key": "",
+      "category": "Travel",
+      "subcategory": "Laptop handbag",
+      "attribute_set": "",
+      "description": "Stylish natural canvas pouch with a secure zipper.\nCompact and chic design for everyday essentials.\nPerfect for organizing makeup, tools, and travel items.\nNeutral-toned with a convenient top zipper.\nSize: 7.5\" H x 5.9\" W.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 5,
+      "base_price": 142,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 142
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 136
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 127
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 112
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 100
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0224.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0230",
+      "name": "SOIL Wire Manager",
+      "url_key": "",
+      "category": "Utilities",
+      "subcategory": "Accessories",
+      "attribute_set": "",
+      "description": "Practical wooden wire manager for cable organization.\nEasily attachable to any flat surface for convenience.\nPrevents tangling and clutter, keeping wires neatly in place.\nSleek wooden design adds elegance to your workspace.\nProvides a tidy and efficient cable management solution.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 240,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 240
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 230
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 214
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 189
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 164
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0230.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0227",
+      "name": "Accupressure massage ball Decathlon",
+      "url_key": "",
+      "category": "Utilities",
+      "subcategory": "Accessories",
+      "attribute_set": "",
+      "description": "These massage balls with small spikes are designed for deeply massaging hands and feet. Used for acupressure massage and foot reflexology. What could be better than a massage for relaxing your muscles?Treat yourself to a few minutes of relaxation after working out or everyday activities.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 297,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 297
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 285
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 271
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 244
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 224
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0227.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0229",
+      "name": "Vibrating electronic massage tool Decathlon",
+      "url_key": "",
+      "category": "Utilities",
+      "subcategory": "Accessories",
+      "attribute_set": "",
+      "description": "Designed for relaxing your muscles and trigger points with a self-massage. The massage tool can be used on many body areas: legs, arms, pectorals, neck. The massage tool can be used on many body areas: legs, arms, pectorals, neck.The manual massage is enhanced by vibrations.",
+      "specs": [],
+      "moq": 50,
+      "gst_rate": 18,
+      "base_price": 1127,
+      "tiers": [
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 1127
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1104
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1082
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 1061
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 1008
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0229.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0225",
+      "name": "Stress buster ball",
+      "url_key": "",
+      "category": "Utilities",
+      "subcategory": "Accessories",
+      "attribute_set": "",
+      "description": "Relieve tension and stay focused with our Stress Buster Ball, designed to help you relax anytime, anywhere. Made from high-quality, durable foam, this soft and squeezable ball fits perfectly in your hand, making it ideal for stress relief, improving grip strength, and enhancing concentration",
+      "specs": [],
+      "moq": 100,
+      "gst_rate": 18,
+      "base_price": 202,
+      "tiers": [
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 202
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 196
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 176
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 153
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0225.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0226",
+      "name": "Fidget spinner",
+      "url_key": "",
+      "category": "Utilities",
+      "subcategory": "Accessories",
+      "attribute_set": "",
+      "description": "Stay focused and relaxed with our high-quality Fidget Spinner, designed to reduce stress and improve concentration. Built with smooth, high-speed bearings, it delivers a satisfying and long-lasting spin with minimal effort.",
+      "specs": [],
+      "moq": 100,
+      "gst_rate": 18,
+      "base_price": 132,
+      "tiers": [
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 132
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 122
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 110
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 100
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0226.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0228",
+      "name": "Puzzle 100pc",
+      "url_key": "",
+      "category": "Utilities",
+      "subcategory": "Accessories",
+      "attribute_set": "",
+      "description": "Relax, and challenge your mind with our 100-Piece Puzzle, perfect for all age groups. Designed with vibrant prints and precision-cut pieces, this puzzle offers a smooth and enjoyable assembly experience while boosting focus, memory, and problem-solving skills.",
+      "specs": [],
+      "moq": 100,
+      "gst_rate": 18,
+      "base_price": 494,
+      "tiers": [
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 494
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 459
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 404
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 352
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0228.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0231",
+      "name": "Portronics power bank luxcell c mrp discounted - 1199",
+      "url_key": "",
+      "category": "Utilities",
+      "subcategory": "Accessories",
+      "attribute_set": "",
+      "description": "Battery Capacity: 10,000 mAh Lithium-Polymer batteryFast Charging: Delivers up to 22.5W max output with support for Type-C Power Delivery (PD) and universal Mach USB-A.",
+      "specs": [],
+      "moq": 10,
+      "gst_rate": 18,
+      "base_price": 875,
+      "tiers": [
+        {
+          "min_qty": 10,
+          "max_qty": 49,
+          "unit_price": 875
+        },
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 866
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 858
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 849
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 841
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 832
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0231.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0232",
+      "name": "Portronics luxcell B 20K mrp discounted - 1219",
+      "url_key": "",
+      "category": "Utilities",
+      "subcategory": "Accessories",
+      "attribute_set": "",
+      "description": "Capacity: 20,000 mAh (Lithium Polymer).\n\nOutput: 22.5W Max (Fast Charging).\n\nPorts: Dual output—1 Mach USB-A (22.5W) and 1 Type-C PD (20W).\n\nBest Feature: A very clear digital LED display that shows exact battery percentages. It’s \"flight-approved,\" making it a great travel companion.\n\nIdeal For: Travelers and heavy users who already carry their own high-quality charging cables",
+      "specs": [],
+      "moq": 10,
+      "gst_rate": 18,
+      "base_price": 1425,
+      "tiers": [
+        {
+          "min_qty": 10,
+          "max_qty": 49,
+          "unit_price": 1425
+        },
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 1411
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1397
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1383
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 1369
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 1355
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0232.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0233",
+      "name": "Portronics luxcell bind mini 20k mrp discounted - 1592",
+      "url_key": "",
+      "category": "Utilities",
+      "subcategory": "Accessories",
+      "attribute_set": "",
+      "description": "Capacity: 20,000 mAh.  Output: 22.5W Max.Integrated Cables: Features built-in Type-C and 8-pin (Lightning) cables. You don’t need to carry any extra wires to charge your phone.  Ports: Can charge 3 devices simultaneously (using the two built-in cables plus the extra USB-A port).  Ideal For: Commuters and people who frequently forget their charging cables at home.",
+      "specs": [],
+      "moq": 10,
+      "gst_rate": 18,
+      "base_price": 1845,
+      "tiers": [
+        {
+          "min_qty": 10,
+          "max_qty": 49,
+          "unit_price": 1845
+        },
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 1808
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 1736
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 1614
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 1421
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 1236
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0233.webp",
+      "weight": "",
+      "active": true,
+      "related": []
+    },
+    {
+      "sku": "B2BRSMON-0234",
+      "name": "Portronics luxcell stride 10 mrp - 899",
+      "url_key": "",
+      "category": "Utilities",
+      "subcategory": "Accessories",
+      "attribute_set": "",
+      "description": "Capacity: 10,000 mAh.  Output: 22.5W Max.Key Feature: It comes with a detachable Type-C cable that doubles as a carry strap (lanyard). It also supports bidirectional charging, meaning the Type-C port works for both input and output.  Design: Ultra-slim profile with the signature Luxcell LED indicator.  Ideal For: Daily office use or students who just need 1.5–2 full charges to get through the day without the weight of a 20K brick.",
+      "specs": [],
+      "moq": 10,
+      "gst_rate": 18,
+      "base_price": 925,
+      "tiers": [
+        {
+          "min_qty": 10,
+          "max_qty": 49,
+          "unit_price": 925
+        },
+        {
+          "min_qty": 50,
+          "max_qty": 99,
+          "unit_price": 906
+        },
+        {
+          "min_qty": 100,
+          "max_qty": 199,
+          "unit_price": 870
+        },
+        {
+          "min_qty": 200,
+          "max_qty": 499,
+          "unit_price": 809
+        },
+        {
+          "min_qty": 500,
+          "max_qty": 999,
+          "unit_price": 712
+        },
+        {
+          "min_qty": 1000,
+          "max_qty": null,
+          "unit_price": 620
+        }
+      ],
+      "sizes": [],
+      "has_sizes": false,
+      "image": "assets/products/B2BRSMON-0234.webp",
+      "weight": "",
+      "active": true,
+      "related": []
     }
   ]
 }
