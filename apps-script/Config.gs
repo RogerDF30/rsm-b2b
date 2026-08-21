@@ -27,7 +27,8 @@ var SHEETS = {
   ORDERS: 'Orders',
   LINES: 'OrderLines',
   FILES: 'Files',
-  AUDIT: 'AuditLog'
+  AUDIT: 'AuditLog',
+  EVENTS: 'Events'
 };
 
 var ORDER_PREFIX = 'RSMB';

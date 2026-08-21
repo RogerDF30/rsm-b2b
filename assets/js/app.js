@@ -62,6 +62,58 @@ async function api(fn, payload = {}) {
   return data;
 }
 
+/* ---------------------------------------------------------------- tracking */
+
+/* Fire-and-forget usage events. Analytics must never be able to break the
+   shop, so every call is wrapped, unawaited, and silent on failure. Nothing
+   personal is recorded beyond the email of someone already signed in. */
+const Track = {
+  sid() {
+    let s = sessionStorage.getItem('rsm_sid');
+    if (!s) {
+      s = 's' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+      sessionStorage.setItem('rsm_sid', s);
+    }
+    return s;
+  },
+
+  /* Searches fire once the typing settles, otherwise every keystroke becomes
+     a row. A search that found nothing is recorded separately: that list is
+     the most useful thing on the dashboard, because it is people asking for
+     products the catalogue does not have. */
+  _searchTimer: null,
+  search(q, results) {
+    clearTimeout(this._searchTimer);
+    const term = (q || '').trim();
+    if (term.length < 2) return;
+    this._searchTimer = setTimeout(() => {
+      this.event(results ? 'search' : 'search_empty', { query: term, qty: results });
+    }, 900);
+  },
+
+  event(name, props = {}) {
+    try {
+      const u = Auth.user();
+      const body = JSON.stringify({
+        fn: 'track', token: CONFIG.API_TOKEN,
+        session: this.sid(), event: name,
+        path: location.pathname.split('/').pop() || 'index.html',
+        user_email: u ? u.email : '',
+        ua: navigator.userAgent,
+        ...props,
+      });
+      // keepalive so an event fired during navigation still leaves the page
+      fetch(CONFIG.API_URL, {
+        method: 'POST', keepalive: true,
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body,
+      }).catch(() => {});
+    } catch (err) {
+      /* never surface an analytics failure to a shopper */
+    }
+  },
+};
+
 /* ------------------------------------------------------------------- catalogue */
 
 const Catalog = {
@@ -441,6 +493,11 @@ function mount(active) {
   document.body.prepend(header(active));
   document.body.append(footer());
   Cart.paintCount();
+  Track.event('page_view');
+  // one counter for "how much are people actually doing", not per-element
+  document.addEventListener('click', e => {
+    if (e.target.closest('a, button')) Track.event('click');
+  }, { passive: true });
 }
 
 /* Catalogue tile, shared by index.html and category.html. */

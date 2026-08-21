@@ -167,7 +167,9 @@ function paint() {
       needsSizes(r)
         ? el('button', { class: 'btn btn-block', disabled: 'disabled' }, 'Assign sizes to continue')
         : r.valid
-          ? el('a', { class: 'btn btn-block', href: 'checkout.html' }, 'Proceed to checkout')
+          ? el('a', { class: 'btn btn-block', href: 'checkout.html',
+              onclick: () => Track.event('checkout_start', { value: r.grandTotal }) },
+              'Proceed to checkout')
           : el('button', { class: 'btn btn-block', disabled: 'disabled' }, 'Minimum quantities not met'),
       el('a', { class: 'btn btn-ghost btn-block', href: 'index.html', style: 'margin-top:8px' }, 'Continue shopping')));
 }

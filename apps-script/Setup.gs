@@ -65,7 +65,13 @@ var TAB_HEADERS = {
     'uploaded_by', 'uploaded_at'],
 
   AuditLog: ['ts', 'actor_email', 'action', 'entity', 'entity_id',
-    'before', 'after', 'user_agent']
+    'before', 'after', 'user_agent'],
+
+  /* Storefront behaviour, written by fnTrack. One row per event, trimmed to
+     the newest EVENT_CAP rows. Nothing here identifies a person beyond the
+     email of someone already signed in. */
+  Events: ['ts', 'session_id', 'event', 'path', 'sku', 'query', 'qty', 'value',
+    'user_email', 'user_agent']
 };
 
 function setupBackend() {
@@ -211,6 +217,16 @@ function upgradeSchema() {
       .setFontWeight('bold').setBackground('#F4F8FB');
     done.push('added Products.' + col);
   });
+
+  // 3b. Events tab, added after the store was already live
+  if (!ss.getSheetByName(SHEETS.EVENTS)) {
+    var ev = ss.insertSheet(SHEETS.EVENTS);
+    var eh = TAB_HEADERS.Events;
+    ev.getRange(1, 1, 1, eh.length).setValues([eh])
+      .setFontWeight('bold').setBackground('#F4F8FB');
+    ev.setFrozenRows(1);
+    done.push('created the Events tab');
+  }
 
   // 4. Orders.lob_approver, inserted right after lob
   var idx = headerIndex(SHEETS.ORDERS);

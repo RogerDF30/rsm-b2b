@@ -75,6 +75,7 @@ function generate() {
     return;
   }
   KITS = buildKits(p, EMP, BUDGET, 8);
+  Track.event('kit_generate', { qty: EMP, value: BUDGET });
   paintKits();
 }
 
@@ -251,6 +252,7 @@ function choose(sku) {
 function addKit(i) {
   const k = KITS[i];
   k.items.forEach(p => Cart.add(p.sku, '', EMP));
+  Track.event('kit_add', { qty: EMP, value: k.items.reduce((s, p) => s + unitAt(p, EMP), 0) * EMP });
   const sized = k.items.filter(p => p.has_sizes).length;
   toast(sized
     ? `Kit added · ${sized} sized item${sized === 1 ? '' : 's'} need a size split in the cart`

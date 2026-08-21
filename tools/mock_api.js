@@ -85,7 +85,72 @@ const admin = req => {
   if (req.admin_pass !== ADMIN_PASS) throw new Error('Admin password is incorrect.');
 };
 
+const ANALYTICS_PASS = 'RSMCS@2026';
+const EVENTS = [];
+
+/* Enough shaped data to exercise every branch of analytics.html: statuses,
+   a week-by-week trend, products that sell and products that never have. */
+function fakeAnalytics(req) {
+  if (req.pass !== ANALYTICS_PASS) throw new Error('Wrong password.');
+  const days = Number(req.days) || 90;
+  const weeks = Math.max(2, Math.round(days / 7));
+  const trend = [];
+  for (let i = weeks - 1; i >= 0; i--) {
+    const d = new Date(); d.setDate(d.getDate() - i * 7);
+    trend.push({ week: d.toISOString().slice(0, 10),
+      orders: 2 + ((i * 7) % 9), value: 40000 + ((i * 9173) % 90000), sessions: 10 + (i % 13) });
+  }
+  const top = catalog.products.slice(0, 12).map((p, i) => ({
+    sku: p.sku, name: p.name, units: 400 - i * 27, value: (400 - i * 27) * (p.base_price || 100) }));
+  const never = catalog.products.slice(60, 96).map(p => ({
+    sku: p.sku, name: p.name, category: p.category, moq: p.moq }));
+  const counts = EVENTS.reduce((m, e) => { m[e.event] = (m[e.event] || 0) + 1; return m; }, {});
+  const sessions = new Set(EVENTS.map(e => e.session)).size;
+
+  return {
+    ok: true, days, generated_at: new Date().toISOString().slice(0, 19).replace('T', ' '),
+    tracking_since: EVENTS.length ? new Date().toISOString().slice(0, 10) : '',
+    orders: { count: 63, value: 4130000, average: 65555.55,
+      by_status: { 'Closed': 31, 'Approved': 14, 'Pending Approval': 11, 'Rejected': 7 } },
+    approval: { submitted: 63, decided: 52, approved: 45, rejected: 7, awaiting: 11,
+      awaiting_over_3_days: 4, approval_rate: 86.54,
+      median_hours_to_decision: 19.5, median_days_to_close: 6 },
+    products: { top_by_units: top, top_by_value: top.slice().sort((a, b) => b.value - a.value),
+      slowest: top.slice().reverse(), never_ordered: never, never_ordered_total: never.length,
+      ordered_distinct: top.length, catalogue_size: catalog.products.length },
+    demand: { by_lob: [
+        { key: 'Consulting', count: 22, value: 1650000 }, { key: 'Assurance', count: 17, value: 1180000 },
+        { key: 'Tax', count: 12, value: 760000 }, { key: 'IT', count: 8, value: 390000 },
+        { key: 'Enterprises', count: 4, value: 150000 }],
+      top_requesters: [
+        { key: 'neha.garg@rsmus.com', count: 14, value: 910000 },
+        { key: 'demo@rsmus.com', count: 9, value: 520000 }],
+      by_approver: [{ key: 'Kawalpreet Kaur', count: 21, value: 1400000 }] },
+    trend,
+    traffic: {
+      events: EVENTS.length, page_views: counts.page_view || 0, sessions,
+      clicks: counts.click || 0, product_views: counts.product_view || 0,
+      add_to_cart: counts.add_to_cart || 0, kit_generated: counts.kit_generate || 0,
+      kit_added: counts.kit_add || 0, checkout_start: counts.checkout_start || 0,
+      order_submit: counts.order_submit || 0,
+      funnel: [
+        { step: 'Sessions', n: sessions },
+        { step: 'Product views', n: counts.product_view || 0 },
+        { step: 'Added to cart', n: counts.add_to_cart || 0 },
+        { step: 'Reached checkout', n: counts.checkout_start || 0 },
+        { step: 'Submitted', n: counts.order_submit || 0 }],
+      top_viewed: Object.entries(EVENTS.filter(e => e.event === 'product_view')
+        .reduce((m, e) => { m[e.sku] = (m[e.sku] || 0) + 1; return m; }, {}))
+        .map(([key, count]) => ({ key, count })).sort((a, b) => b.count - a.count).slice(0, 12),
+      top_searches: [{ key: 'cap', count: 9 }, { key: 'bottle', count: 6 }],
+      searches_with_nothing: [{ key: 'umbrella stand', count: 4 }, { key: 'power bank 40k', count: 2 }],
+    },
+  };
+}
+
 const ROUTES = {
+  track: req => { EVENTS.push(req); return { ok: true }; },
+  analytics: fakeAnalytics,
   login(req) {
     const u = USERS[String(req.email || '').toLowerCase()];
     if (!u || u.password !== req.password) throw new Error('Email or password is incorrect.');

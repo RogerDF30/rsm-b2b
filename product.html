@@ -43,6 +43,7 @@ let P = null;
 
   paint();
   paintRelated();
+  Track.event('product_view', { sku: P.sku });
 })();
 
 /* Curated in the admin console, per product, and mutual: if this product
@@ -186,6 +187,7 @@ function addToCart() {
       sku: P.sku, size: e.size, qty: e.qty,
     })),
   ]);
+  Track.event('add_to_cart', { sku: P.sku, qty: total, value: total * unitAt(P, total) });
   toast(`${qty(total)} × ${P.name} in cart`);
 }
 </script>

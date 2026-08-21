@@ -66,6 +66,7 @@
     const grid = document.getElementById('grid');
     grid.textContent = '';
     grid.append(...shown.map(productCard));
+    Track.search(Filters.state.q, shown.length);
   }
 })();
 

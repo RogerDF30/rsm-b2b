@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Analytics | RSM Business Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="page-head">
+    <div class="row-between">
+      <div>
+        <h1>Analytics</h1>
+        <div class="muted small" id="stamp"></div>
+      </div>
+      <div id="rangeBar"></div>
+    </div>
+  </div>
+
+  <div class="panel hidden" id="gate">
+    <h2>Analytics access</h2>
+    <form id="gateForm" style="max-width:360px">
+      <label class="field"><span>Password</span>
+        <input type="password" id="apass" required autocomplete="current-password"></label>
+      <button class="btn" type="submit">Unlock</button>
+    </form>
+  </div>
+
+  <div id="app" class="hidden"></div>
+</main>
+
+<script src="assets/js/app.js"></script>
+<script>
+let PASS = '', DAYS = 90, D = null;
+
+(async function () {
+  await Catalog.load();
+  mount();
+  PASS = sessionStorage.getItem('rsm_analytics') || '';
+  PASS ? load() : gate();
+})();
+
+function gate(msg) {
+  document.getElementById('gate').classList.remove('hidden');
+  document.getElementById('app').classList.add('hidden');
+  if (msg) toast(msg, 'error');
+  document.getElementById('gateForm').onsubmit = e => {
+    e.preventDefault();
+    PASS = document.getElementById('apass').value;
+    sessionStorage.setItem('rsm_analytics', PASS);
+    load();
+  };
+}
+
+async function load() {
+  try {
+    D = await api('analytics', { pass: PASS, days: DAYS });
+    document.getElementById('gate').classList.add('hidden');
+    document.getElementById('app').classList.remove('hidden');
+    paint();
+  } catch (err) {
+    sessionStorage.removeItem('rsm_analytics');
+    PASS = '';
+    gate(err.message);
+  }
+}
+
+/* ------------------------------------------------------------------- paint */
+
+function paint() {
+  document.getElementById('stamp').textContent =
+    `Last ${DAYS} days · generated ${D.generated_at}`;
+
+  const rb = document.getElementById('rangeBar');
+  rb.textContent = '';
+  rb.append(el('div', { class: 'filters' },
+    [[30, '30 days'], [90, '90 days'], [180, '6 months'], [365, '1 year']].map(([n, label]) =>
+      el('button', {
+        class: 'chip' + (DAYS === n ? ' on' : ''),
+        onclick: () => { DAYS = n; load(); },
+      }, label))));
+
+  const host = document.getElementById('app');
+  host.textContent = '';
+
+  const o = D.orders, a = D.approval, t = D.traffic, p = D.products;
+
+  host.append(
+    section('Orders', 'Every order placed through this store. Complete from day one.'),
+    tiles([
+      ['Orders', qty(o.count)],
+      ['Order value', money(o.value)],
+      ['Average order', money(o.average)],
+      ['Approval rate', a.approval_rate === null ? '—' : a.approval_rate + '%'],
+      ['Median time to decide', a.median_hours_to_decision === null ? '—'
+        : a.median_hours_to_decision + ' h'],
+      ['Median days to close', a.median_days_to_close === null ? '—'
+        : a.median_days_to_close + ' d'],
+    ]),
+
+    a.awaiting_over_3_days
+      ? el('div', { class: 'note note-warn' },
+          el('strong', {}, `${qty(a.awaiting_over_3_days)} order${a.awaiting_over_3_days === 1 ? '' : 's'} waiting more than 3 days for a decision.`),
+          ` ${qty(a.awaiting)} awaiting approval in total.`)
+      : null,
+
+    twoCol(
+      card('Approval outcome', statusBars(o.by_status)),
+      card('Orders and value by week', trendChart(D.trend))),
+
+    section('Products', 'What actually sells, by units ordered and by value.'),
+    twoCol(
+      card('Best selling by units', barList(p.top_by_units, r => r.name, r => r.units, qty)),
+      card('Best selling by value', barList(p.top_by_value, r => r.name, r => r.value, money))),
+
+    card(`Never ordered · ${qty(p.never_ordered_total)} of ${qty(p.catalogue_size)} products`,
+      p.never_ordered.length
+        ? tableOf(['SKU', 'Product', 'Category', 'MOQ'],
+            p.never_ordered.map(r => [r.sku, r.name, r.category, qty(r.moq)]))
+        : el('div', { class: 'small muted' }, 'Every active product has been ordered at least once.'),
+      'A product nobody has ever ordered is either wrong for this audience, priced past what they will spend, or has an MOQ too high to be reachable.'),
+
+    section('Demand', 'Who is ordering, and who signs it off.'),
+    twoCol(
+      card('By department', barList(D.demand.by_lob, r => r.key, r => r.value, money)),
+      card('Top requesters', barList(D.demand.top_requesters, r => r.key, r => r.value, money))),
+
+    section('Traffic', trafficNote()),
+    tiles([
+      ['Page views', qty(t.page_views)],
+      ['Sessions', qty(t.sessions)],
+      ['Clicks', qty(t.clicks)],
+      ['Product views', qty(t.product_views)],
+      ['Added to cart', qty(t.add_to_cart)],
+      ['Kits generated', qty(t.kit_generated)],
+    ]),
+
+    t.events
+      ? twoCol(
+          card('From visit to submitted order', funnel(t.funnel)),
+          card('Most viewed products', barList(t.top_viewed, r => nameOf(r.key), r => r.count, qty)))
+      : el('div', { class: 'note' },
+          el('strong', {}, 'No traffic recorded yet.'),
+          ' Page views and clicks start accumulating from the moment this ships. Order figures above are unaffected.'),
+
+    t.searches_with_nothing.length
+      ? card('Searched for, found nothing',
+          barList(t.searches_with_nothing, r => r.key, r => r.count, qty),
+          'The most useful list here: people asking the catalogue for products it does not carry.')
+      : null,
+
+    t.top_searches.length
+      ? card('Top searches', barList(t.top_searches, r => r.key, r => r.count, qty))
+      : null);
+}
+
+function trafficNote() {
+  return D.tracking_since
+    ? `Behaviour on the site. Recording began ${D.tracking_since}, so anything before that is not here.`
+    : 'Behaviour on the site. Nothing recorded yet — this fills up from the day tracking ships.';
+}
+
+function nameOf(sku) {
+  const p = Catalog.bySku(sku);
+  return p ? p.name : sku;
+}
+
+/* ------------------------------------------------------------- components */
+
+function section(title, note) {
+  return el('div', { style: 'margin:34px 0 14px' },
+    el('h2', { style: 'margin:0' }, title),
+    note ? el('div', { class: 'small muted', style: 'margin-top:4px' }, note) : null);
+}
+
+function tiles(pairs) {
+  return el('div', { class: 'stat-row' },
+    pairs.map(([label, value]) => el('div', { class: 'stat' },
+      el('div', { class: 'stat-n' }, value),
+      el('div', { class: 'stat-l' }, label))));
+}
+
+function card(title, body, note) {
+  return el('div', { class: 'panel', style: 'margin-bottom:16px' },
+    el('h3', { style: 'margin:0 0 4px' }, title),
+    note ? el('div', { class: 'small muted', style: 'margin-bottom:10px' }, note) : null,
+    body);
+}
+
+function twoCol(a, b) {
+  return el('div', { class: 'an-two' }, a, b);
+}
+
+function tableOf(head, rows) {
+  return el('div', { style: 'max-height:320px;overflow:auto' },
+    el('table', { class: 'tbl' },
+      el('thead', {}, el('tr', {}, head.map(h => el('th', {}, h)))),
+      el('tbody', {}, rows.map(r => el('tr', {}, r.map(c => el('td', {}, String(c))))))));
+}
+
+/* Horizontal bars: the label sits outside the bar and the value is written at
+   the end of it, so the chart is readable without colour and without hovering. */
+function barList(rows, label, value, fmt) {
+  if (!rows || !rows.length) return el('div', { class: 'small muted' }, 'Nothing yet.');
+  const max = Math.max(...rows.map(value));
+  return el('div', { class: 'bars' },
+    rows.map(r => {
+      const v = value(r);
+      return el('div', { class: 'bar-row' },
+        el('div', { class: 'bar-label', title: label(r) }, label(r)),
+        el('div', { class: 'bar-track' },
+          el('div', { class: 'bar-fill', style: `width:${max ? (v / max) * 100 : 0}%` })),
+        el('div', { class: 'bar-val mono' }, fmt(v)));
+    }));
+}
+
+/* Status is a state, not a series, so each bar is labelled with its name and
+   count. Colour is a second signal, never the only one. */
+const STATUS_COLOR = { approved: '#1E7F3C', closed: '#009CDE', rejected: '#D93025',
+                       pending: '#E8A33D' };
+
+function statusColour(name) {
+  const k = String(name).toLowerCase();
+  for (const key of Object.keys(STATUS_COLOR)) if (k.includes(key)) return STATUS_COLOR[key];
+  return '#5B6A80';
+}
+
+function statusBars(byStatus) {
+  const rows = Object.entries(byStatus).sort((a, b) => b[1] - a[1]);
+  if (!rows.length) return el('div', { class: 'small muted' }, 'No orders in this window.');
+  const total = rows.reduce((s, [, n]) => s + n, 0);
+  return el('div', { class: 'bars' },
+    rows.map(([name, n]) => el('div', { class: 'bar-row' },
+      el('div', { class: 'bar-label' }, name),
+      el('div', { class: 'bar-track' },
+        el('div', { class: 'bar-fill',
+          style: `width:${(n / total) * 100}%;background:${statusColour(name)}` })),
+      el('div', { class: 'bar-val mono' }, `${qty(n)} · ${Math.round(n / total * 100)}%`))));
+}
+
+function funnel(steps) {
+  const top = steps[0] ? steps[0].n : 0;
+  return el('div', { class: 'bars' },
+    steps.map((s, i) => {
+      const prev = i ? steps[i - 1].n : null;
+      return el('div', { class: 'bar-row' },
+        el('div', { class: 'bar-label' }, s.step),
+        el('div', { class: 'bar-track' },
+          el('div', { class: 'bar-fill', style: `width:${top ? (s.n / top) * 100 : 0}%` })),
+        el('div', { class: 'bar-val mono' },
+          qty(s.n) + (prev ? ` · ${prev ? Math.round(s.n / prev * 100) : 0}%` : '')));
+    }));
+}
+
+/* Two measures of different scale, so two stacked plots sharing one x axis
+   rather than one chart with two y axes. */
+function trendChart(weeks) {
+  if (!weeks || weeks.length < 2) {
+    return el('div', { class: 'small muted' }, 'Not enough weeks yet to draw a trend.');
+  }
+  return el('div', {},
+    sparkline(weeks, w => w.orders, 'Orders per week', qty),
+    sparkline(weeks, w => w.value, 'Order value per week', money));
+}
+
+function sparkline(weeks, pick, title, fmt) {
+  const w = 460, h = 96, pad = 6;
+  const vals = weeks.map(pick);
+  const max = Math.max(1, ...vals);
+  const step = (w - pad * 2) / (weeks.length - 1);
+  const pt = i => [pad + i * step, h - pad - (vals[i] / max) * (h - pad * 2)];
+  const line = vals.map((_, i) => pt(i).join(',')).join(' ');
+  const area = `${pad},${h - pad} ${line} ${w - pad},${h - pad}`;
+  const last = vals[vals.length - 1];
+
+  return el('div', { style: 'margin-bottom:14px' },
+    el('div', { class: 'row-between' },
+      el('span', { class: 'small muted' }, title),
+      el('strong', { class: 'mono' }, fmt(last))),
+    el('div', { html:
+      `<svg viewBox="0 0 ${w} ${h}" class="spark" preserveAspectRatio="none" role="img"
+            aria-label="${title}, latest ${fmt(last)}">
+         <polygon points="${area}" fill="rgba(0,156,222,.12)"></polygon>
+         <polyline points="${line}" fill="none" stroke="#009CDE" stroke-width="2"
+                   stroke-linejoin="round" stroke-linecap="round"></polyline>
+         <circle cx="${pt(vals.length - 1)[0]}" cy="${pt(vals.length - 1)[1]}" r="4"
+                 fill="#009CDE" stroke="#fff" stroke-width="2"></circle>
+       </svg>` }),
+    el('div', { class: 'row-between small muted' },
+      el('span', {}, weeks[0].week),
+      el('span', {}, weeks[weeks.length - 1].week)));
+}
+</script>
+</body>
+</html>

@@ -46,6 +46,7 @@ function paint() {
     `${qty(list.length)} of ${qty(Catalog.products.length)} products`;
   document.getElementById('empty').classList.toggle('hidden', list.length > 0);
   list.forEach(p => grid.append(productCard(p)));
+  Track.search(Filters.state.q, list.length);
 }
 </script>
 </body>
