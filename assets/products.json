@@ -47,73 +47,6 @@
   ],
   "products": [
     {
-      "sku": "B2BRSMON-0096",
-      "name": "OMG Mesh Cap- Standard Grey",
-      "url_key": "b2b-omg-mesh-cap-grey",
-      "category": "Apparel",
-      "subcategory": "Headwear",
-      "attribute_set": "Caps",
-      "description": "This ultra-breathable cap is extra comfortable\nFabric: 100% cotton twill front panels; 100% polyester mesh mid and back panels\nStructure: Structured\nClosure: Velcro\nColour:  Grey",
-      "specs": [
-        [
-          "Fabric",
-          "100% cotton twill front panels; 100% polyester mesh mid and back panels"
-        ],
-        [
-          "Structure",
-          "Structured"
-        ],
-        [
-          "Closure",
-          "Velcro"
-        ],
-        [
-          "Colour",
-          "Grey"
-        ]
-      ],
-      "moq": 25,
-      "gst_rate": 5,
-      "base_price": 195,
-      "tiers": [
-        {
-          "min_qty": 25,
-          "max_qty": 49,
-          "unit_price": 195
-        },
-        {
-          "min_qty": 50,
-          "max_qty": 99,
-          "unit_price": 180
-        },
-        {
-          "min_qty": 100,
-          "max_qty": 249,
-          "unit_price": 170
-        },
-        {
-          "min_qty": 250,
-          "max_qty": null,
-          "unit_price": 160
-        }
-      ],
-      "sizes": [],
-      "has_sizes": false,
-      "image": "assets/products/B2BRSMON-0096.webp",
-      "weight": "0.5",
-      "active": true,
-      "related": [
-        "B2BRSMON-0095",
-        "B2BRSMON-0097",
-        "B2BRSMON-0099",
-        "B2BRSMON-0098",
-        "B2BRSMON-0092",
-        "B2BRSMON-0093",
-        "B2BRSMON-0094",
-        "B2BRSMON-0091"
-      ]
-    },
-    {
       "sku": "B2BRSMON-0095",
       "name": "OMG Mesh Cap- Standard Navy Blue",
       "url_key": "b2b-omg-mesh-cap-navy-blue",
@@ -170,7 +103,6 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096",
         "B2BRSMON-0097",
         "B2BRSMON-0092",
         "B2BRSMON-0093",
@@ -235,7 +167,6 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096",
         "B2BRSMON-0095",
         "B2BRSMON-0092",
         "B2BRSMON-0093",
@@ -304,7 +235,6 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096",
         "B2BRSMON-0098",
         "B2BRSMON-0198",
         "B2BRSMON-0191",
@@ -374,7 +304,6 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096",
         "B2BRSMON-0099",
         "B2BRSMON-0198",
         "B2BRSMON-0191",
@@ -436,7 +365,6 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096",
         "B2BRSMON-0093",
         "B2BRSMON-0094",
         "B2BRSMON-0091",
@@ -497,7 +425,6 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096",
         "B2BRSMON-0092",
         "B2BRSMON-0094",
         "B2BRSMON-0091",
@@ -558,7 +485,6 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096",
         "B2BRSMON-0092",
         "B2BRSMON-0093",
         "B2BRSMON-0091",
@@ -619,7 +545,6 @@
       "weight": "0.5",
       "active": true,
       "related": [
-        "B2BRSMON-0096",
         "B2BRSMON-0092",
         "B2BRSMON-0093",
         "B2BRSMON-0094",
@@ -2468,198 +2393,6 @@
       ]
     },
     {
-      "sku": "B2BRSMON-0052",
-      "name": "Jack & Jones Round Neck Cotton T-Shirt Grey",
-      "url_key": "b2b-jack&jones-roundneck-t-shirt-grey",
-      "category": "Apparel",
-      "subcategory": "T-Shirts",
-      "attribute_set": "Apparel",
-      "description": "This comfortable classic t-shirt is crafted with 100% cotton. The fabric has a soft feel and relaxed fit and is lightweight. Breathable and perfect for every day.\n \nMachine Wash\n \nGSM: 180\n \nColour: Grey",
-      "specs": [
-        [
-          "GSM",
-          "180"
-        ],
-        [
-          "Colour",
-          "Grey"
-        ]
-      ],
-      "moq": 25,
-      "gst_rate": 5,
-      "base_price": 650,
-      "tiers": [
-        {
-          "min_qty": 25,
-          "max_qty": 49,
-          "unit_price": 650
-        },
-        {
-          "min_qty": 50,
-          "max_qty": 99,
-          "unit_price": 605
-        },
-        {
-          "min_qty": 100,
-          "max_qty": 249,
-          "unit_price": 570
-        },
-        {
-          "min_qty": 250,
-          "max_qty": null,
-          "unit_price": 535
-        }
-      ],
-      "sizes": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL",
-        "2XL"
-      ],
-      "has_sizes": true,
-      "image": "assets/products/B2BRSMON-0052.webp",
-      "weight": "0.5",
-      "active": true,
-      "related": [
-        "B2BRSMON-0007",
-        "B2BRSMON-0051",
-        "B2BRSMON-0063",
-        "B2BRSMON-0062",
-        "B2BRSMON-0064",
-        "B2BRSMON-0058"
-      ]
-    },
-    {
-      "sku": "B2BRSMON-0007",
-      "name": "Jack & Jones Round Neck Cotton T-Shirt Standard Navy Blue",
-      "url_key": "b2b-jack&jones-roundneck-t-shirt-navy-blue",
-      "category": "Apparel",
-      "subcategory": "T-Shirts",
-      "attribute_set": "Apparel",
-      "description": "This comfortable classic t-shirt is crafted with 100% cotton. The fabric has a soft feel and relaxed fit and is lightweight. Breathable and perfect for every day.\n \nMachine Wash\n \nGSM: 180\n \nColour: Navy Blue",
-      "specs": [
-        [
-          "GSM",
-          "180"
-        ],
-        [
-          "Colour",
-          "Navy Blue"
-        ]
-      ],
-      "moq": 25,
-      "gst_rate": 5,
-      "base_price": 650,
-      "tiers": [
-        {
-          "min_qty": 25,
-          "max_qty": 49,
-          "unit_price": 650
-        },
-        {
-          "min_qty": 50,
-          "max_qty": 99,
-          "unit_price": 605
-        },
-        {
-          "min_qty": 100,
-          "max_qty": 249,
-          "unit_price": 570
-        },
-        {
-          "min_qty": 250,
-          "max_qty": null,
-          "unit_price": 535
-        }
-      ],
-      "sizes": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL",
-        "2XL"
-      ],
-      "has_sizes": true,
-      "image": "assets/products/B2BRSMON-0007.webp",
-      "weight": "0.5",
-      "active": true,
-      "related": [
-        "B2BRSMON-0052",
-        "B2BRSMON-0051",
-        "B2BRSMON-0063",
-        "B2BRSMON-0062",
-        "B2BRSMON-0064",
-        "B2BRSMON-0058"
-      ]
-    },
-    {
-      "sku": "B2BRSMON-0051",
-      "name": "Jack & Jones Round Neck Cotton T-Shirt White",
-      "url_key": "b2b-jack&jones-roundneck-t-shirt-white",
-      "category": "Apparel",
-      "subcategory": "T-Shirts",
-      "attribute_set": "Apparel",
-      "description": "This comfortable classic t-shirt is crafted with 100% cotton. The fabric has a soft feel and relaxed fit and is lightweight. Breathable and perfect for every day.\n \nMachine Wash\n \nGSM: 180\n \nColour: White",
-      "specs": [
-        [
-          "GSM",
-          "180"
-        ],
-        [
-          "Colour",
-          "White"
-        ]
-      ],
-      "moq": 25,
-      "gst_rate": 5,
-      "base_price": 650,
-      "tiers": [
-        {
-          "min_qty": 25,
-          "max_qty": 49,
-          "unit_price": 650
-        },
-        {
-          "min_qty": 50,
-          "max_qty": 99,
-          "unit_price": 605
-        },
-        {
-          "min_qty": 100,
-          "max_qty": 249,
-          "unit_price": 570
-        },
-        {
-          "min_qty": 250,
-          "max_qty": null,
-          "unit_price": 535
-        }
-      ],
-      "sizes": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL",
-        "2XL"
-      ],
-      "has_sizes": true,
-      "image": "assets/products/B2BRSMON-0051.webp",
-      "weight": "0.5",
-      "active": true,
-      "related": [
-        "B2BRSMON-0052",
-        "B2BRSMON-0007",
-        "B2BRSMON-0063",
-        "B2BRSMON-0062",
-        "B2BRSMON-0064",
-        "B2BRSMON-0058"
-      ]
-    },
-    {
       "sku": "B2BRSMON-0004",
       "name": "OMG Endurance Round Neck Cotton T-Shirt- Unisex- Standard Green",
       "url_key": "b2b-omg-endurance-roundneck-t-shirt-green",
@@ -3109,10 +2842,7 @@
       "related": [
         "B2BRSMON-0061",
         "B2BRSMON-0062",
-        "B2BRSMON-0064",
-        "B2BRSMON-0052",
-        "B2BRSMON-0007",
-        "B2BRSMON-0051"
+        "B2BRSMON-0064"
       ]
     },
     {
@@ -3173,10 +2903,7 @@
       "related": [
         "B2BRSMON-0061",
         "B2BRSMON-0063",
-        "B2BRSMON-0064",
-        "B2BRSMON-0052",
-        "B2BRSMON-0007",
-        "B2BRSMON-0051"
+        "B2BRSMON-0064"
       ]
     },
     {
@@ -3237,10 +2964,7 @@
       "related": [
         "B2BRSMON-0061",
         "B2BRSMON-0063",
-        "B2BRSMON-0062",
-        "B2BRSMON-0052",
-        "B2BRSMON-0007",
-        "B2BRSMON-0051"
+        "B2BRSMON-0062"
       ]
     },
     {
@@ -3301,9 +3025,6 @@
       "active": true,
       "related": [
         "B2BRSMON-0057",
-        "B2BRSMON-0052",
-        "B2BRSMON-0007",
-        "B2BRSMON-0051",
         "B2BRSMON-0182",
         "B2BRSMON-0059"
       ]
@@ -3757,154 +3478,6 @@
       ]
     },
     {
-      "sku": "B2BRSMON-0113",
-      "name": "Rubbl 500ml Bottle- Matt Black",
-      "url_key": "b2b-rubbl-500ml-bottle-black",
-      "category": "Drinkware",
-      "subcategory": "Bottles",
-      "attribute_set": "Sipper",
-      "description": "Stainless Steel Vacuum Bottle\nCapacity: 500 ml\nDimension: 7x7x23.5 cm\nWeight: 263 gms\nMaterial: Stainless Steel 304 Grade\nFinish: Rubber Finish on the Outside\nHot & Cold: Up to 6 to 8 hours\nColour: Black",
-      "specs": [
-        [
-          "Capacity",
-          "500 ml"
-        ],
-        [
-          "Dimension",
-          "7x7x23.5 cm"
-        ],
-        [
-          "Weight",
-          "263 gms"
-        ],
-        [
-          "Material",
-          "Stainless Steel 304 Grade"
-        ],
-        [
-          "Finish",
-          "Rubber Finish on the Outside"
-        ],
-        [
-          "Colour",
-          "Black"
-        ]
-      ],
-      "moq": 25,
-      "gst_rate": 18,
-      "base_price": 650,
-      "tiers": [
-        {
-          "min_qty": 25,
-          "max_qty": 49,
-          "unit_price": 650
-        },
-        {
-          "min_qty": 50,
-          "max_qty": 99,
-          "unit_price": 605
-        },
-        {
-          "min_qty": 100,
-          "max_qty": 249,
-          "unit_price": 570
-        },
-        {
-          "min_qty": 250,
-          "max_qty": null,
-          "unit_price": 535
-        }
-      ],
-      "sizes": [],
-      "has_sizes": false,
-      "image": "assets/products/B2BRSMON-0113.webp",
-      "weight": "1",
-      "active": true,
-      "related": [
-        "B2BRSMON-0114",
-        "B2BRSMON-0032",
-        "B2BRSMON-0220",
-        "B2BRSMON-0221",
-        "B2BRSMON-0218",
-        "B2BRSMON-0217",
-        "B2BRSMON-0034"
-      ]
-    },
-    {
-      "sku": "B2BRSMON-0114",
-      "name": "Rubbl 500ml Bottle- Matt Blue",
-      "url_key": "b2b-rubbl-500ml-bottle-blue",
-      "category": "Drinkware",
-      "subcategory": "Bottles",
-      "attribute_set": "Sipper",
-      "description": "Stainless Steel Vacuum Bottle\nCapacity: 500 ml\nDimension: 7x7x23.5 cm\nWeight: 263 gms\nMaterial: Stainless Steel 304 Grade\nFinish: Rubber Finish on the Outside\nHot & Cold: Up to 6 to 8 hours\nColour: Blue",
-      "specs": [
-        [
-          "Capacity",
-          "500 ml"
-        ],
-        [
-          "Dimension",
-          "7x7x23.5 cm"
-        ],
-        [
-          "Weight",
-          "263 gms"
-        ],
-        [
-          "Material",
-          "Stainless Steel 304 Grade"
-        ],
-        [
-          "Finish",
-          "Rubber Finish on the Outside"
-        ],
-        [
-          "Colour",
-          "Blue"
-        ]
-      ],
-      "moq": 25,
-      "gst_rate": 18,
-      "base_price": 650,
-      "tiers": [
-        {
-          "min_qty": 25,
-          "max_qty": 49,
-          "unit_price": 650
-        },
-        {
-          "min_qty": 50,
-          "max_qty": 99,
-          "unit_price": 605
-        },
-        {
-          "min_qty": 100,
-          "max_qty": 249,
-          "unit_price": 570
-        },
-        {
-          "min_qty": 250,
-          "max_qty": null,
-          "unit_price": 535
-        }
-      ],
-      "sizes": [],
-      "has_sizes": false,
-      "image": "assets/products/B2BRSMON-0114.webp",
-      "weight": "1",
-      "active": true,
-      "related": [
-        "B2BRSMON-0113",
-        "B2BRSMON-0032",
-        "B2BRSMON-0220",
-        "B2BRSMON-0221",
-        "B2BRSMON-0218",
-        "B2BRSMON-0217",
-        "B2BRSMON-0034"
-      ]
-    },
-    {
       "sku": "B2BRSMON-0117",
       "name": "SIGMA Sipper 500ml- Black",
       "url_key": "b2b-sigma-sipper-500ml-black",
@@ -4034,8 +3607,6 @@
       "weight": "1",
       "active": true,
       "related": [
-        "B2BRSMON-0113",
-        "B2BRSMON-0114",
         "B2BRSMON-0117",
         "B2BRSMON-0220",
         "B2BRSMON-0221",
@@ -4378,10 +3949,7 @@
       "image": "assets/products/B2BRSMON-0034.webp",
       "weight": "1",
       "active": true,
-      "related": [
-        "B2BRSMON-0113",
-        "B2BRSMON-0114"
-      ]
+      "related": []
     },
     {
       "sku": "B2BRSMON-0101",
@@ -4441,7 +4009,6 @@
       "active": true,
       "related": [
         "B2BRSMON-0100",
-        "B2BRSMON-0104",
         "B2BRSMON-0103",
         "B2BRSMON-0102",
         "B2BRSMON-0112",
@@ -4502,7 +4069,6 @@
       "active": true,
       "related": [
         "B2BRSMON-0101",
-        "B2BRSMON-0104",
         "B2BRSMON-0103",
         "B2BRSMON-0102",
         "B2BRSMON-0112",
@@ -4552,78 +4118,8 @@
         "B2BRSMON-0215",
         "B2BRSMON-0106",
         "B2BRSMON-0109",
-        "B2BRSMON-0110",
         "B2BRSMON-0108",
         "B2BRSMON-0219"
-      ]
-    },
-    {
-      "sku": "B2BRSMON-0104",
-      "name": "Corky Mug 400ml",
-      "url_key": "b2b-corky-mug-400ml-white",
-      "category": "Drinkware",
-      "subcategory": "Mugs & tumblers",
-      "attribute_set": "Mug",
-      "description": "Dimension: 12x8.5x11 cm\nCapacity: 400 ml\nWeight: Around 398 gm\nMaterial: Ceramic with Cork Base\nColour: White with Cork Base",
-      "specs": [
-        [
-          "Dimension",
-          "12x8.5x11 cm"
-        ],
-        [
-          "Capacity",
-          "400 ml"
-        ],
-        [
-          "Weight",
-          "Around 398 gm"
-        ],
-        [
-          "Material",
-          "Ceramic with Cork Base"
-        ],
-        [
-          "Colour",
-          "White with Cork Base"
-        ]
-      ],
-      "moq": 25,
-      "gst_rate": 18,
-      "base_price": 450,
-      "tiers": [
-        {
-          "min_qty": 25,
-          "max_qty": 49,
-          "unit_price": 450
-        },
-        {
-          "min_qty": 50,
-          "max_qty": 99,
-          "unit_price": 420
-        },
-        {
-          "min_qty": 100,
-          "max_qty": 249,
-          "unit_price": 395
-        },
-        {
-          "min_qty": 250,
-          "max_qty": null,
-          "unit_price": 370
-        }
-      ],
-      "sizes": [],
-      "has_sizes": false,
-      "image": "assets/products/B2BRSMON-0104.webp",
-      "weight": "0.5",
-      "active": true,
-      "related": [
-        "B2BRSMON-0101",
-        "B2BRSMON-0100",
-        "B2BRSMON-0103",
-        "B2BRSMON-0102",
-        "B2BRSMON-0112",
-        "B2BRSMON-0105"
       ]
     },
     {
@@ -4683,72 +4179,6 @@
       "weight": "1.5",
       "active": true,
       "related": [
-        "B2BRSMON-0110",
-        "B2BRSMON-0108",
-        "B2BRSMON-0107",
-        "B2BRSMON-0106",
-        "B2BRSMON-0215",
-        "B2BRSMON-0219"
-      ]
-    },
-    {
-      "sku": "B2BRSMON-0110",
-      "name": "Hydra Mug 1200 ml with Lid and Straw- Standard Green",
-      "url_key": "b2b-hydra-mug-1200-ml-with-lid-and-straw-grey",
-      "category": "Drinkware",
-      "subcategory": "Mugs & tumblers",
-      "attribute_set": "Mug",
-      "description": "Stainless Steel Mug with Grip\nDouble Wall 304 SS\n12x9.5x27 cm - 495 gms\nCapacity: 1200 ml\nHot & Cold: Up to 6 to 8 hours with latest vacuum technology\nStraw included\nBPA Free: Yes\nLeak Proof: Yes\nColour: Green",
-      "specs": [
-        [
-          "Capacity",
-          "1200 ml"
-        ],
-        [
-          "BPA Free",
-          "Yes"
-        ],
-        [
-          "Leak Proof",
-          "Yes"
-        ],
-        [
-          "Colour",
-          "Green"
-        ]
-      ],
-      "moq": 25,
-      "gst_rate": 18,
-      "base_price": 950,
-      "tiers": [
-        {
-          "min_qty": 25,
-          "max_qty": 49,
-          "unit_price": 950
-        },
-        {
-          "min_qty": 50,
-          "max_qty": 99,
-          "unit_price": 885
-        },
-        {
-          "min_qty": 100,
-          "max_qty": 249,
-          "unit_price": 835
-        },
-        {
-          "min_qty": 250,
-          "max_qty": null,
-          "unit_price": 780
-        }
-      ],
-      "sizes": [],
-      "has_sizes": false,
-      "image": "assets/products/B2BRSMON-0110.webp",
-      "weight": "1.5",
-      "active": true,
-      "related": [
-        "B2BRSMON-0109",
         "B2BRSMON-0108",
         "B2BRSMON-0107",
         "B2BRSMON-0106",
@@ -4814,7 +4244,6 @@
       "active": true,
       "related": [
         "B2BRSMON-0109",
-        "B2BRSMON-0110",
         "B2BRSMON-0107",
         "B2BRSMON-0106",
         "B2BRSMON-0215",
@@ -4876,7 +4305,6 @@
       "related": [
         "B2BRSMON-0107",
         "B2BRSMON-0109",
-        "B2BRSMON-0110",
         "B2BRSMON-0108",
         "B2BRSMON-0215",
         "B2BRSMON-0219"
@@ -4946,7 +4374,6 @@
         "B2BRSMON-0102",
         "B2BRSMON-0101",
         "B2BRSMON-0100",
-        "B2BRSMON-0104",
         "B2BRSMON-0112",
         "B2BRSMON-0105"
       ]
@@ -5015,7 +4442,6 @@
         "B2BRSMON-0103",
         "B2BRSMON-0101",
         "B2BRSMON-0100",
-        "B2BRSMON-0104",
         "B2BRSMON-0112",
         "B2BRSMON-0105"
       ]
@@ -5084,7 +4510,6 @@
         "B2BRSMON-0031",
         "B2BRSMON-0101",
         "B2BRSMON-0100",
-        "B2BRSMON-0104",
         "B2BRSMON-0103",
         "B2BRSMON-0102"
       ]
@@ -5219,7 +4644,6 @@
       "related": [
         "B2BRSMON-0101",
         "B2BRSMON-0100",
-        "B2BRSMON-0104",
         "B2BRSMON-0103",
         "B2BRSMON-0102",
         "B2BRSMON-0031"
@@ -5924,7 +5348,6 @@
       "active": true,
       "related": [
         "B2BRSMON-0138",
-        "B2BRSMON-0143",
         "B2BRSMON-0142",
         "B2BRSMON-0139",
         "B2BRSMON-0140",
@@ -5978,75 +5401,9 @@
       "active": true,
       "related": [
         "B2BRSMON-0144",
-        "B2BRSMON-0143",
         "B2BRSMON-0142",
         "B2BRSMON-0139",
         "B2BRSMON-0140",
-        "B2BRSMON-0206"
-      ]
-    },
-    {
-      "sku": "B2BRSMON-0143",
-      "name": "SOIL Canvas Tote Bag- Green",
-      "url_key": "b2b-soil-canvas-tote-bag-green",
-      "category": "Travel",
-      "subcategory": "Tote bags",
-      "attribute_set": "Bags",
-      "description": "Comfortable Tote Bag: Made of easy-care cotton fabric, perfect for running errands. Fold-flat construction ensures easy storage.\nWeight: 70g\nDimensions: W37 cm x H41 cm\nColour: Green",
-      "specs": [
-        [
-          "Comfortable Tote Bag",
-          "Made of easy-care cotton fabric, perfect for running errands. Fold-flat construction ensures easy storage."
-        ],
-        [
-          "Weight",
-          "70g"
-        ],
-        [
-          "Dimensions",
-          "W37 cm x H41 cm"
-        ],
-        [
-          "Colour",
-          "Green"
-        ]
-      ],
-      "moq": 10,
-      "gst_rate": 5,
-      "base_price": 285,
-      "tiers": [
-        {
-          "min_qty": 10,
-          "max_qty": 19,
-          "unit_price": 285
-        },
-        {
-          "min_qty": 20,
-          "max_qty": 39,
-          "unit_price": 265
-        },
-        {
-          "min_qty": 40,
-          "max_qty": 99,
-          "unit_price": 250
-        },
-        {
-          "min_qty": 100,
-          "max_qty": null,
-          "unit_price": 235
-        }
-      ],
-      "sizes": [],
-      "has_sizes": false,
-      "image": "assets/products/B2BRSMON-0143.webp",
-      "weight": "1",
-      "active": true,
-      "related": [
-        "B2BRSMON-0140",
-        "B2BRSMON-0144",
-        "B2BRSMON-0138",
-        "B2BRSMON-0142",
-        "B2BRSMON-0139",
         "B2BRSMON-0206"
       ]
     },
@@ -6109,7 +5466,6 @@
       "related": [
         "B2BRSMON-0144",
         "B2BRSMON-0138",
-        "B2BRSMON-0143",
         "B2BRSMON-0139",
         "B2BRSMON-0140",
         "B2BRSMON-0206"
@@ -6174,7 +5530,6 @@
       "related": [
         "B2BRSMON-0144",
         "B2BRSMON-0138",
-        "B2BRSMON-0143",
         "B2BRSMON-0142",
         "B2BRSMON-0140",
         "B2BRSMON-0206"
@@ -6237,7 +5592,6 @@
       "weight": "1",
       "active": true,
       "related": [
-        "B2BRSMON-0143",
         "B2BRSMON-0144",
         "B2BRSMON-0138",
         "B2BRSMON-0142",
@@ -10182,7 +9536,6 @@
       "related": [
         "B2BRSMON-0144",
         "B2BRSMON-0138",
-        "B2BRSMON-0143",
         "B2BRSMON-0142",
         "B2BRSMON-0139",
         "B2BRSMON-0140",
@@ -10289,7 +9642,6 @@
       "related": [
         "B2BRSMON-0107",
         "B2BRSMON-0109",
-        "B2BRSMON-0110",
         "B2BRSMON-0108",
         "B2BRSMON-0106",
         "B2BRSMON-0031"
@@ -10393,8 +9745,6 @@
       "active": true,
       "related": [
         "B2BRSMON-0120",
-        "B2BRSMON-0113",
-        "B2BRSMON-0114",
         "B2BRSMON-0117",
         "B2BRSMON-0178",
         "B2BRSMON-0216"
@@ -10445,8 +9795,6 @@
       "weight": "",
       "active": true,
       "related": [
-        "B2BRSMON-0113",
-        "B2BRSMON-0114",
         "B2BRSMON-0117",
         "B2BRSMON-0032",
         "B2BRSMON-0216",
@@ -10500,7 +9848,6 @@
       "related": [
         "B2BRSMON-0107",
         "B2BRSMON-0109",
-        "B2BRSMON-0110",
         "B2BRSMON-0108",
         "B2BRSMON-0106",
         "B2BRSMON-0031"
@@ -10551,8 +9898,6 @@
       "weight": "",
       "active": true,
       "related": [
-        "B2BRSMON-0113",
-        "B2BRSMON-0114",
         "B2BRSMON-0117",
         "B2BRSMON-0032",
         "B2BRSMON-0216",
@@ -10604,8 +9949,6 @@
       "weight": "",
       "active": true,
       "related": [
-        "B2BRSMON-0113",
-        "B2BRSMON-0114",
         "B2BRSMON-0117",
         "B2BRSMON-0032",
         "B2BRSMON-0216"
