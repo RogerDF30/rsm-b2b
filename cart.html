@@ -24,6 +24,67 @@
   paint();
 })();
 
+/* Units of a sized product that have not been given a size yet. A kit adds
+   apparel this way: the right quantity, split still to be decided. */
+function unassignedQty(lines) {
+  return lines.filter(l => !l.size).reduce((a, l) => a + l.qty, 0);
+}
+
+function needsSizes(r) {
+  return Object.values(r.groups).some(g =>
+    g.product.has_sizes && unassignedQty(r.lines.filter(l => l.sku === g.product.sku)));
+}
+
+/* Spread the unassigned units across the product's sizes. The group total
+   never changes, so the price band and the MOQ check stay put while the
+   requester decides the split. */
+function sizeSplitter(product, lines) {
+  const left = unassignedQty(lines);
+  const bySize = {};
+  lines.forEach(l => { if (l.size) bySize[l.size] = l.qty; });
+
+  const write = next => {
+    const total = lines.reduce((a, l) => a + l.qty, 0);
+    const assigned = Object.values(next).reduce((a, n) => a + n, 0);
+    if (assigned > total) return toast('That is more than the kit quantity', 'error');
+    const others = Cart.read().filter(i => i.sku !== product.sku);
+    const rows = Object.entries(next)
+      .filter(([, n]) => n > 0)
+      .map(([size, n]) => ({ key: product.sku + '_' + size, sku: product.sku, size, qty: n }));
+    if (total - assigned > 0) {
+      rows.push({ key: product.sku, sku: product.sku, size: '', qty: total - assigned });
+    }
+    Cart.write(others.concat(rows));
+    paint();
+  };
+
+  return el('div', { class: 'note note-warn', style: 'margin-top:12px' },
+    el('strong', {}, `${qty(left)} unit${left === 1 ? '' : 's'} still need a size.`),
+    ' Split them below. The total stays the same, so the price band does not move.',
+    el('div', { class: 'size-split' },
+      product.sizes.map(size => el('label', {},
+        el('span', {}, size),
+        el('input', {
+          type: 'number', min: '0', value: bySize[size] || 0,
+          onchange: e => {
+            const next = { ...bySize };
+            next[size] = Math.max(0, Math.floor(Number(e.target.value) || 0));
+            write(next);
+          },
+        })))),
+    el('button', {
+      class: 'btn btn-ghost btn-sm', style: 'margin-top:10px',
+      onclick: () => {
+        const total = lines.reduce((a, l) => a + l.qty, 0);
+        const sizes = product.sizes;
+        const base = Math.floor(total / sizes.length);
+        const next = {};
+        sizes.forEach((s, i) => { next[s] = base + (i < total % sizes.length ? 1 : 0); });
+        write(next);
+      },
+    }, 'Split evenly'));
+}
+
 function paint() {
   const host = document.getElementById('body');
   host.textContent = '';
@@ -64,7 +125,8 @@ function paint() {
           el('th', { class: 'num' }, 'Line total'),
           el('th', {}, ''))),
         el('tbody', {}, lines.map(l => el('tr', {},
-          el('td', {}, el('strong', {}, l.size || 'Standard')),
+          el('td', {}, el('strong', {},
+            l.size || (g.product.has_sizes ? 'Size not set' : 'Standard'))),
           el('td', { class: 'num' },
             el('input', {
               type: 'number', min: '0', class: 'qty-in', value: l.qty,
@@ -77,6 +139,10 @@ function paint() {
               class: 'btn btn-ghost btn-sm',
               onclick: () => { Cart.remove(l.key); paint(); },
             }, 'Remove')))))),
+
+      g.product.has_sizes && unassignedQty(lines)
+        ? sizeSplitter(g.product, lines)
+        : null,
 
       !g.meetsMoq
         ? el('div', { class: 'note', style: 'margin-top:12px' },
@@ -98,9 +164,11 @@ function paint() {
         el('tr', { class: 'grand' }, el('td', {}, 'Total'), el('td', {}, money(r.grandTotal))))),
       el('div', { class: 'small muted', style: 'margin:10px 0 14px' },
         'Shipping is quoted separately by CompanyStore.IO after approval.'),
-      r.valid
-        ? el('a', { class: 'btn btn-block', href: 'checkout.html' }, 'Proceed to checkout')
-        : el('button', { class: 'btn btn-block', disabled: 'disabled' }, 'Minimum quantities not met'),
+      needsSizes(r)
+        ? el('button', { class: 'btn btn-block', disabled: 'disabled' }, 'Assign sizes to continue')
+        : r.valid
+          ? el('a', { class: 'btn btn-block', href: 'checkout.html' }, 'Proceed to checkout')
+          : el('button', { class: 'btn btn-block', disabled: 'disabled' }, 'Minimum quantities not met'),
       el('a', { class: 'btn btn-ghost btn-block', href: 'index.html', style: 'margin-top:8px' }, 'Continue shopping')));
 }
 </script>

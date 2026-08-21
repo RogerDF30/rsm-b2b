@@ -54,6 +54,20 @@ function priceOrder(rawLines) {
     });
   });
 
+  // The kit builder can put a sized product in the cart with the size still to
+  // be chosen. The cart makes the requester split it, but nothing stops a
+  // hand-made POST, so refuse an unsized line here too.
+  Object.keys(groups).forEach(function (sku) {
+    var p = cat.products[sku];
+    // p is the raw sheet row, so has_sizes is the string 'TRUE'/'FALSE'
+    if (!p || String(p.has_sizes).toUpperCase() !== 'TRUE') return;
+    groups[sku].forEach(function (i) {
+      if (!i.size) {
+        throw new Error(p.name + ' needs a size on every unit. Open the cart and split the quantity across sizes.');
+      }
+    });
+  });
+
   var lines = [], subtotal = 0, taxTotal = 0;
 
   Object.keys(groups).forEach(function (sku) {

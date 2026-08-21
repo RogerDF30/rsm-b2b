@@ -241,6 +241,167 @@ function tierLabel(t) {
   return t.max_qty ? `${t.min_qty}–${t.max_qty}` : `${t.min_qty}+`;
 }
 
+/* Unit price this product would carry at a given quantity. */
+function unitAt(p, n) {
+  const t = pickTier(p.tiers, n);
+  return t ? t.unit_price : p.base_price;
+}
+
+/* Cheapest tier on the card, which is what "from ₹x" means. */
+function lowestPrice(p) {
+  return Math.min(...(p.tiers || []).map(t => t.unit_price).concat(p.base_price || Infinity));
+}
+
+/* ------------------------------------------------------------- filtering */
+
+/* One filter model shared by the category pages, the all-products page and
+   the kit builder, so "Drinkware under ₹500" cannot mean two different things
+   in two places. */
+const Filters = {
+  state: { q: '', sort: 'featured', min: 0, max: Infinity, moq: Infinity, cat: '', sub: '' },
+
+  reset() {
+    this.state = { q: '', sort: 'featured', min: 0, max: Infinity, moq: Infinity, cat: '', sub: '' };
+  },
+
+  matches(p) {
+    const s = this.state, price = lowestPrice(p);
+    if (price < s.min || price > s.max) return false;
+    if (p.moq > s.moq) return false;
+    if (s.cat && p.category !== s.cat) return false;
+    if (s.sub && p.subcategory !== s.sub) return false;
+    const q = s.q.trim().toLowerCase();
+    if (!q) return true;
+    const hay = `${p.name} ${p.sku} ${p.category} ${p.subcategory} ${p.description || ''}`.toLowerCase();
+    return q.split(/\s+/).every(w => hay.includes(w));
+  },
+
+  apply(products) {
+    const s = this.state;
+    const out = products.filter(p => this.matches(p));
+    if (s.sort === 'pl') out.sort((a, b) => lowestPrice(a) - lowestPrice(b));
+    else if (s.sort === 'ph') out.sort((a, b) => lowestPrice(b) - lowestPrice(a));
+    else if (s.sort === 'az') out.sort((a, b) => a.name.localeCompare(b.name));
+    else if (s.sort === 'moq') out.sort((a, b) => a.moq - b.moq);
+    return out;
+  },
+
+  /* Renders the bar into `host`. `opts.categories` adds a category select,
+     which the all-products page wants and a category page does not. */
+  bar(host, opts, onChange) {
+    opts = opts || {};
+    const s = this.state;
+    const fire = () => onChange();
+
+    const field = (label, input) =>
+      el('label', { class: 'fbar-fld' }, el('span', {}, label), input);
+
+    const search = el('input', {
+      type: 'search', id: 'fq', placeholder: 'Search name or SKU', value: s.q,
+      oninput: e => { s.q = e.target.value; fire(); },
+    });
+
+    const sort = el('select', {
+      id: 'fsort', onchange: e => { s.sort = e.target.value; fire(); },
+    }, [['featured', 'Featured'], ['pl', 'Price: low to high'], ['ph', 'Price: high to low'],
+        ['az', 'Name A–Z'], ['moq', 'MOQ: low to high']].map(([v, t]) =>
+      el('option', { value: v, selected: s.sort === v ? 'selected' : null }, t)));
+
+    const min = el('input', { type: 'number', min: '0', id: 'fmin', placeholder: 'Min',
+      value: s.min || '', oninput: e => { s.min = Number(e.target.value) || 0; fire(); } });
+    const max = el('input', { type: 'number', min: '0', id: 'fmax', placeholder: 'Max',
+      value: isFinite(s.max) ? s.max : '', oninput: e => { s.max = Number(e.target.value) || Infinity; fire(); } });
+
+    const moq = el('input', { type: 'number', min: '0', id: 'fmoq', placeholder: 'Any',
+      value: isFinite(s.moq) ? s.moq : '',
+      oninput: e => { s.moq = Number(e.target.value) || Infinity; fire(); } });
+
+    const bits = [field('Search', search), field('Sort', sort),
+      el('label', { class: 'fbar-fld' }, el('span', {}, 'Price'),
+        el('span', { class: 'fbar-range' }, min, el('i', {}, '–'), max)),
+      field('MOQ up to', moq)];
+
+    if (opts.categories) {
+      const cat = el('select', {
+        id: 'fcat', onchange: e => { s.cat = e.target.value; s.sub = ''; fire(); },
+      }, el('option', { value: '' }, 'All categories'),
+         ...opts.categories.map(c => el('option', { value: c, selected: s.cat === c ? 'selected' : null }, c)));
+      bits.splice(1, 0, field('Category', cat));
+    }
+
+    host.append(el('div', { class: 'fbar' }, ...bits,
+      el('button', {
+        class: 'btn btn-ghost btn-sm', style: 'margin-left:auto',
+        onclick: () => { const keep = s.cat, sub = s.sub; Filters.reset();
+          Filters.state.cat = opts.keepCategory ? keep : ''; Filters.state.sub = opts.keepCategory ? sub : '';
+          host.textContent = ''; Filters.bar(host, opts, onChange); fire(); },
+      }, 'Reset')));
+  },
+};
+
+/* ----------------------------------------------------------- kit builder */
+
+/* A kit is one unit of each item per employee, so every product in it is
+   ordered `emp` times. That means the MOQ has to be met by the headcount
+   alone, and the price each item contributes is its tier price at `emp`. */
+function kitEligible(products, emp, budget) {
+  return products.filter(p =>
+    (p.tiers || []).length && p.moq <= emp && unitAt(p, emp) <= budget);
+}
+
+function buildOneKit(pool, emp, budget, target, allowRepeat) {
+  const kit = { items: [], per: 0 };
+  const usedSub = new Set();
+  let avail = pool.slice();
+  const ok = p => allowRepeat || !usedSub.has(p.subcategory);
+  const add = p => {
+    kit.items.push(p);
+    kit.per += unitAt(p, emp);
+    usedSub.add(p.subcategory);
+    avail = avail.filter(x => x.sku !== p.sku);
+  };
+
+  while (kit.items.length < target) {
+    const c = avail.filter(p => ok(p) && kit.per + unitAt(p, emp) <= budget);
+    if (!c.length) break;
+    const pick = c.sort(() => Math.random() - 0.5).slice(0, 6);
+    add(pick[Math.floor(Math.random() * pick.length)]);
+  }
+  // spend the remainder on the closest-fitting item still available
+  for (let i = 0; i < 40; i++) {
+    const left = budget - kit.per;
+    if (left <= Math.min(50, budget * 0.03)) break;
+    const c = avail.filter(p => ok(p) && unitAt(p, emp) <= left);
+    if (!c.length) break;
+    c.sort((x, y) => Math.abs(left - unitAt(x, emp)) - Math.abs(left - unitAt(y, emp)));
+    add(c[0]);
+  }
+  return kit.items.length ? kit : null;
+}
+
+function buildKits(pool, emp, budget, count) {
+  if (!pool.length) return [];
+  // one item per subcategory keeps a kit varied, unless the filter has already
+  // narrowed things to a single subcategory
+  const allowRepeat = new Set(pool.map(p => p.subcategory)).size < 2;
+  const avg = pool.reduce((s, p) => s + unitAt(p, emp), 0) / pool.length;
+  const maxItems = Math.max(2, Math.min(10, Math.floor(budget / Math.max(1, avg * 0.6))));
+  const targets = [];
+  for (let i = maxItems; i >= 1; i--) targets.push(i);
+
+  const kits = [], seen = new Set();
+  for (let a = 0; kits.length < count && a < count * 120; a++) {
+    const k = buildOneKit(pool, emp, budget, targets[a % targets.length], allowRepeat);
+    if (!k) continue;
+    const key = k.items.map(p => p.sku).sort().join('|');
+    if (seen.has(key)) continue;
+    seen.add(key);
+    kits.push(k);
+  }
+  kits.sort((a, b) => b.per - a.per || b.items.length - a.items.length);
+  return kits;
+}
+
 /* ------------------------------------------------------------------ chrome */
 
 function header(active) {
@@ -256,7 +417,9 @@ function header(active) {
           el('a', {
             href: 'category.html?cat=' + encodeURIComponent(c),
             class: active === c ? 'on' : '',
-          }, c))),
+          }, c)),
+        el('a', { href: 'all.html', class: active === 'All' ? 'on' : '' }, 'All products'),
+        el('a', { href: 'kit.html', class: 'nav-kit' + (active === 'Kit' ? ' on' : '') }, 'Build a kit')),
       el('div', { class: 'head-right' },
         u
           ? el('div', { class: 'who' },
@@ -282,7 +445,7 @@ function mount(active) {
 
 /* Catalogue tile, shared by index.html and category.html. */
 function productCard(p) {
-  const lowest = Math.min(...p.tiers.map(t => t.unit_price));
+  const lowest = lowestPrice(p);
   return el('a', { class: 'card', href: 'product.html?sku=' + encodeURIComponent(p.sku) },
     el('div', { class: 'card-img' }, el('img', { src: p.image, alt: p.name, loading: 'lazy' })),
     el('div', { class: 'card-body' },

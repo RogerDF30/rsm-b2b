@@ -18,6 +18,7 @@
     <div class="muted small" id="count"></div>
   </div>
   <div class="filters" id="filters"></div>
+  <div id="bar"></div>
   <div class="grid" id="grid"></div>
   <div class="empty hidden" id="empty"><h2>Nothing here</h2><p>No products in this filter.</p></div>
 </main>
@@ -49,14 +50,22 @@
     location.href = 'category.html?cat=' + encodeURIComponent(cat) + (s ? '&sub=' + encodeURIComponent(s) : '');
   }
 
-  const shown = sub ? all.filter(p => p.subcategory === sub) : all;
-  document.getElementById('count').textContent =
-    `${shown.length} product${shown.length === 1 ? '' : 's'}` + (sub ? ` in ${sub}` : '');
+  // the subcategory chips stay in the URL; the bar filters within them
+  Filters.reset();
+  Filters.state.cat = cat;
+  Filters.state.sub = sub || '';
+  Filters.bar(document.getElementById('bar'), { keepCategory: true }, paint);
+  paint();
 
-  if (!shown.length) {
-    document.getElementById('empty').classList.remove('hidden');
-  } else {
-    document.getElementById('grid').append(...shown.map(productCard));
+  function paint() {
+    const shown = Filters.apply(Catalog.products);
+    document.getElementById('count').textContent =
+      `${shown.length} of ${all.length} product${all.length === 1 ? '' : 's'}` +
+      (sub ? ` in ${sub}` : '');
+    document.getElementById('empty').classList.toggle('hidden', shown.length > 0);
+    const grid = document.getElementById('grid');
+    grid.textContent = '';
+    grid.append(...shown.map(productCard));
   }
 })();
 

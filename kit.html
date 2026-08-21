@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Build a kit | RSM Business Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="page-head">
+    <h1>Build a kit</h1>
+    <div class="muted small">
+      Tell us the headcount and the budget per person. Every item in a kit is ordered
+      once per person, so only products whose minimum order quantity is met by your
+      headcount can appear.
+    </div>
+  </div>
+
+  <div class="kit-form" id="form"></div>
+  <div id="bar"></div>
+  <div class="fbar-count" id="pool"></div>
+  <div id="out"></div>
+</main>
+
+<script src="assets/js/app.js"></script>
+<script>
+let EMP = 100, BUDGET = 1500, KITS = [];
+
+(async function () {
+  await Catalog.load();
+  mount('Kit');
+  Filters.reset();
+
+  const form = document.getElementById('form');
+  form.append(
+    el('label', { class: 'fbar-fld' }, el('span', {}, 'Employees'),
+      el('input', { type: 'number', min: '1', id: 'emp', value: EMP,
+        oninput: e => { EMP = Math.max(1, Math.floor(Number(e.target.value) || 0)); poolNote(); } })),
+    el('label', { class: 'fbar-fld' }, el('span', {}, 'Budget per person'),
+      el('input', { type: 'number', min: '1', id: 'budget', value: BUDGET,
+        oninput: e => { BUDGET = Number(e.target.value) || 0; poolNote(); } })),
+    el('button', { class: 'btn', id: 'gen', onclick: generate }, 'Generate kits'));
+
+  const cats = [...new Set(Catalog.products.map(p => p.category))].sort();
+  Filters.bar(document.getElementById('bar'), { categories: cats }, poolNote);
+  poolNote();
+})();
+
+/* Products that could go in a kit at the current headcount and budget. */
+function pool() {
+  return kitEligible(Filters.apply(Catalog.products), EMP, BUDGET);
+}
+
+function poolNote() {
+  const n = pool().length;
+  const blockedByMoq = Filters.apply(Catalog.products).filter(p => p.moq > EMP).length;
+  document.getElementById('pool').textContent =
+    `${qty(n)} product${n === 1 ? '' : 's'} can go in a kit at ${qty(EMP)} people` +
+    (blockedByMoq ? ` · ${qty(blockedByMoq)} excluded because their MOQ is above ${qty(EMP)}` : '');
+}
+
+function generate() {
+  const p = pool();
+  const out = document.getElementById('out');
+  out.textContent = '';
+  if (p.length < 1) {
+    out.append(el('div', { class: 'empty' },
+      el('h2', {}, 'Nothing fits yet'),
+      el('p', {}, 'Raise the budget or the headcount, or clear the filters.')));
+    return;
+  }
+  KITS = buildKits(p, EMP, BUDGET, 8);
+  paintKits();
+}
+
+function paintKits() {
+  const out = document.getElementById('out');
+  out.textContent = '';
+  if (!KITS.length) {
+    out.append(el('div', { class: 'empty' }, el('h2', {}, 'No combinations found'),
+      el('p', {}, 'Try a higher budget per person.')));
+    return;
+  }
+  out.append(el('div', { class: 'small muted', style: 'margin-bottom:12px' },
+    'Prices are per person and exclude GST. Remove anything you do not want before adding a kit to the cart.'));
+  KITS.forEach((k, i) => out.append(kitCard(k, i)));
+}
+
+function kitCard(k, i) {
+  const per = k.items.reduce((s, p) => s + unitAt(p, EMP), 0);
+  k.per = per;
+  const gst = k.items.reduce((s, p) => s + unitAt(p, EMP) * (p.gst_rate / 100), 0);
+  const left = BUDGET - per;
+
+  return el('div', { class: 'kit' },
+    el('div', { class: 'kit-head' },
+      el('strong', {}, `${k.items.length}-item kit`),
+      el('span', { class: 'small muted' },
+        left >= 0 ? `${money(left)} per person left in budget` : `${money(-left)} over budget`)),
+
+    el('div', { class: 'kit-items' },
+      k.items.map((p, j) => el('div', { class: 'kit-item' },
+        el('img', { src: p.image, alt: p.name, loading: 'lazy' }),
+        el('div', { class: 'kn' }, p.name),
+        el('div', { class: 'kp' }, money(unitAt(p, EMP)) + (p.has_sizes ? ' · sized' : '')),
+        el('button', {
+          type: 'button', class: 'kx', title: 'Remove from this kit',
+          onclick: () => {
+            if (k.items.length <= 1) return toast('A kit needs at least one item');
+            k.items.splice(j, 1);
+            paintKits();
+          },
+        }, '✕')))),
+
+    el('div', { class: 'kit-foot' },
+      el('div', {},
+        el('div', { class: 'kit-per' }, money(per) + ' per person'),
+        el('div', { class: 'small muted' },
+          `${money(per * EMP)} for ${qty(EMP)} people, plus ${money(gst * EMP)} GST`)),
+      el('button', { class: 'btn', onclick: () => addKit(i) }, 'Add kit to cart')));
+}
+
+/* Each item goes in at one unit per person. Sized products go in without a
+   size, and the cart makes you split them before checkout. */
+function addKit(i) {
+  const k = KITS[i];
+  k.items.forEach(p => Cart.add(p.sku, '', EMP));
+  const sized = k.items.filter(p => p.has_sizes).length;
+  toast(sized
+    ? `Kit added · ${sized} sized item${sized === 1 ? '' : 's'} need a size split in the cart`
+    : 'Kit added to your cart');
+  setTimeout(() => { location.href = 'cart.html'; }, 900);
+}
+</script>
+</body>
+</html>
