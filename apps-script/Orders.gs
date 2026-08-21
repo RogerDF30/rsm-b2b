@@ -190,7 +190,7 @@ function fnSubmitOrder(req) {
 
   // after the approval email, never before: the email is what actually moves
   // the order forward, the chat message only tells the room about it
-  notifyChat('submitted', findOrderRow(orderId), { items: priced.lines.length });
+  notifyChat('submitted', findOrderRow(orderId));
 
   return { ok: true, order_id: orderId, total: priced.grand_total };
 }

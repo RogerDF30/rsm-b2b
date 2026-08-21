@@ -31,6 +31,7 @@ function routes() {
     adminAutoRelate: fnAdminAutoRelate,
     adminSetAnalyticsPass: fnAdminSetAnalyticsPass,
     adminSetChatWebhook: fnAdminSetChatWebhook,
+    adminTestChat: fnAdminTestChat,
     track: fnTrack,
     analytics: fnAnalytics,
     adminUploadImage: fnAdminUploadImage,

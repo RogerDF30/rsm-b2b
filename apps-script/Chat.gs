@@ -91,11 +91,18 @@ function notifyChat(kind, o, opts) {
     if (kind === 'rejected') {
       rows.push(['Reason', str(o.rejection_reason) || 'No reason given']);
     }
-    if (opts.items) rows.splice(4, 0, ['Items', String(opts.items)]);
-
     var widgets = rows.map(function (r) {
       return { decoratedText: { topLabel: r[0], text: chatEsc(r[1]), wrapText: true } };
     });
+
+    // What was actually ordered. Without this the room has a value and no idea
+    // what it bought, which is the first thing anyone asks.
+    var basket = basketLines(id);
+    if (basket.text) {
+      widgets.splice(4, 0, {
+        decoratedText: { topLabel: basket.label, text: basket.text, wrapText: true }
+      });
+    }
 
     var link = prop('SITE_URL', '') + '/status.html?id=' + encodeURIComponent(id);
     if (prop('SITE_URL', '')) {
@@ -125,9 +132,64 @@ function notifyChat(kind, o, opts) {
   }
 }
 
+/**
+ * One line per product: name, total quantity and what that came to.
+ *
+ * Sizes are rolled up into the parent, the same way the price band is decided,
+ * so a shirt ordered across five sizes reads as one row rather than five. The
+ * list is capped: a long order should not push the value off a phone screen.
+ */
+function basketLines(orderId) {
+  var lines = orderLines(orderId);
+  if (!lines.length) return { label: '', text: '' };
+
+  var order = [], by = {};
+  lines.forEach(function (l) {
+    var sku = String(l.parent_sku || '').trim();
+    if (!by[sku]) {
+      by[sku] = { name: String(l.product_name || sku), qty: 0, value: 0 };
+      order.push(sku);
+    }
+    by[sku].qty += Number(l.qty) || 0;
+    by[sku].value += Number(l.line_total) || 0;
+  });
+
+  var MAX = 8;
+  var shown = order.slice(0, MAX).map(function (sku) {
+    var p = by[sku];
+    return chatEsc(p.name) + ' — ' + p.qty + ' × ' + inr(p.value / (p.qty || 1)) +
+      ' = ' + inr(p.value);
+  });
+  if (order.length > MAX) {
+    shown.push('and ' + (order.length - MAX) + ' more product' +
+      (order.length - MAX === 1 ? '' : 's'));
+  }
+
+  var units = lines.reduce(function (a, l) { return a + (Number(l.qty) || 0); }, 0);
+  return {
+    label: order.length + (order.length === 1 ? ' product · ' : ' products · ') +
+      units + ' units',
+    text: shown.join('<br>')
+  };
+}
+
 /** Escape the characters Chat treats as formatting. */
 function chatEsc(s) {
   return String(s === undefined || s === null ? '' : s).replace(/[*_~`]/g, '');
+}
+
+/**
+ * Re-send the notification for a real order, without changing the order.
+ * The point is to exercise the same code path a live order takes, so what
+ * lands in the group is what the group will actually get.
+ */
+function fnAdminTestChat(req) {
+  requireAdmin(req);
+  var o = findOrderRow(String(req.order_id || ''));
+  if (!o) throw new Error('Order ' + req.order_id + ' not found.');
+  var kind = ['submitted', 'approved', 'rejected'].indexOf(String(req.kind)) >= 0
+    ? String(req.kind) : 'submitted';
+  return { ok: true, sent: notifyChat(kind, o) };
 }
 
 /** Post a sample of each of the three messages, to prove the wiring. */
