@@ -50,31 +50,37 @@ def main():
         # --- 2. tabs ---------------------------------------------------------
         tabs = pg.eval_on_selector_all('#adminTabs .chip', 'e=>e.map(x=>x.textContent)')
         check('four tabs', len(tabs), 4)
-        check('catalogue tab counts products', '134' in tabs[1], True)
+        # count comes from the catalogue itself, so seeding more products
+        # never turns this into a false failure
+        total = pg.evaluate('CAT.products.length')
+        check('catalogue tab counts products', str(total) in tabs[1], True)
 
         # --- 3. catalogue list + filters -------------------------------------
         pg.click('#adminTabs .chip:nth-child(2)')
         pg.wait_for_selector('#prodRows tr', timeout=10000)
-        check('all products listed', pg.locator('#prodRows tr').count(), 134)
+        check('all products listed', pg.locator('#prodRows tr').count(), total)
 
         pg.fill('input[placeholder="Search name or SKU"]', 'arrow')
         pg.wait_for_timeout(400)
         n = pg.locator('#prodRows tr').count()
-        check('search narrows the list', 0 < n < 134, True)
+        check('search narrows the list', 0 < n < total, True)
         pg.fill('input[placeholder="Search name or SKU"]', '')
         pg.wait_for_timeout(400)
 
         # --- 4. show / hide ---------------------------------------------------
         row = '#prodRows tr:has-text("B2BRSMON-0013")'
-        check('product starts visible', pg.inner_text(f'{row} .chip').strip(), 'Visible')
-        pg.click(f'{row} .chip')
+        check('product starts visible', pg.inner_text(f'{row} .sw').strip(), 'Visible')
+        check('switch reports its state to a screen reader',
+              pg.get_attribute(f'{row} .sw', 'aria-checked'), 'true')
+        pg.click(f'{row} .sw')
         pg.wait_for_timeout(900)
-        check('toggled to hidden', pg.inner_text(f'{row} .chip').strip(), 'Hidden')
+        check('toggled to hidden', pg.inner_text(f'{row} .sw').strip(), 'Hidden')
+        check('aria-checked follows', pg.get_attribute(f'{row} .sw', 'aria-checked'), 'false')
 
         pg.click('text=Hidden only')
         pg.wait_for_selector('#prodRows tr', timeout=10000)
         check('hidden filter finds exactly it', pg.locator('#prodRows tr').count(), 1)
-        pg.click(f'{row} .chip')          # put it back
+        pg.click(f'{row} .sw')          # put it back
         pg.wait_for_timeout(900)
         pg.click('text=Hidden only')
         pg.wait_for_timeout(600)
@@ -112,7 +118,8 @@ def main():
         pg.click('#relChoose')
         pg.wait_for_selector('#relModal .pick-tile', timeout=10000)
         check('picker shows every other active product',
-              pg.locator('#relModal .pick-tile').count(), 134)
+              pg.locator('#relModal .pick-tile').count(),
+              pg.evaluate('CAT.products.filter(p=>p.active).length'))
         pg.wait_for_timeout(700)
         check('picker tiles render real images',
               pg.eval_on_selector_all(

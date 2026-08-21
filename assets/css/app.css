@@ -297,6 +297,10 @@ input[type=file] { font-size: .85rem; }
 @media (max-width: 900px) {
   .grid, .cat-grid { grid-template-columns: repeat(2, 1fr); }
   .pdp, .form-grid { grid-template-columns: 1fr; }
+  /* The image is sticky so it stays beside the buy panel on a wide screen.
+     Once the grid is one column there is nothing beside it, so sticky just
+     drags the image down over the copy underneath. */
+  .pdp-img { position: static; top: auto; }
   .nav { display: none; }
   .head-inner { gap: 14px; }
 }
@@ -439,3 +443,18 @@ input[type=file] { font-size: .85rem; }
              overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .prod-sku { display: block; font-size: .72rem; color: var(--muted); margin-top: 2px; }
 .prod-val { font-size: .84rem; font-weight: 800; white-space: nowrap; }
+
+/* ------------------------------------------------------------ switch */
+.sw { display: inline-flex; align-items: center; gap: 9px; border: 0; padding: 0;
+      background: none; font: inherit; cursor: pointer; color: var(--ink); }
+.sw:disabled { opacity: .55; cursor: default; }
+.sw-track { width: 38px; height: 22px; border-radius: 999px; background: var(--grey);
+            position: relative; flex: none; transition: background .16s ease; }
+.sw-knob { position: absolute; top: 3px; left: 3px; width: 16px; height: 16px;
+           border-radius: 50%; background: #fff; transition: transform .16s ease;
+           box-shadow: 0 1px 3px rgba(0, 21, 61, .35); }
+.sw.on .sw-track { background: var(--brand); }
+.sw.on .sw-knob { transform: translateX(16px); }
+.sw-label { font-size: .82rem; font-weight: 700; }
+.sw:not(.on) .sw-label { color: var(--muted); }
+.sw:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 6px; }

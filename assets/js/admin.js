@@ -714,18 +714,33 @@ function selectOf(values, current, onchange, blankLabel) {
     ...values.map(v => el('option', { value: v, selected: v === current ? 'selected' : null }, v)));
 }
 
-/* A checkbox reads as a form field; this reads as a visibility switch. */
+/* An actual switch, because this sets a state rather than performing an
+   action. role="switch" and aria-checked mean a screen reader says "on" or
+   "off" rather than reading it as a button. */
 function toggle(on, fn) {
+  const knob = el('span', { class: 'sw-knob' });
+  const track = el('span', { class: 'sw-track' }, knob);
+  const label = el('span', { class: 'sw-label' }, on ? 'Visible' : 'Hidden');
+
   const b = el('button', {
-    type: 'button', class: 'chip' + (on ? ' on' : ''),
+    type: 'button', class: 'sw' + (on ? ' on' : ''),
+    role: 'switch', 'aria-checked': on ? 'true' : 'false',
     onclick: async () => {
+      if (b.disabled) return;
+      const next = !b.classList.contains('on');
+      b.disabled = true;
       try {
-        await fn(!b.classList.contains('on'));
-        b.classList.toggle('on');
-        b.textContent = b.classList.contains('on') ? 'Visible' : 'Hidden';
-      } catch (err) { toast(err.message, 'error'); }
+        await fn(next);
+        b.classList.toggle('on', next);
+        b.setAttribute('aria-checked', next ? 'true' : 'false');
+        label.textContent = next ? 'Visible' : 'Hidden';
+      } catch (err) {
+        toast(err.message, 'error');
+      } finally {
+        b.disabled = false;
+      }
     },
-  }, on ? 'Visible' : 'Hidden');
+  }, track, label);
   return b;
 }
 

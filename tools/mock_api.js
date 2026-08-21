@@ -67,6 +67,7 @@ const stamp = () => new Date().toISOString().slice(0, 19).replace('T', ' ');
 const ADMIN_STATE = {
   hidden: new Set(),
   related: {},
+  autoRelated: {},
   banners: [
     { slug: 'welcome', title: 'RSM branded merchandise',
       subtitle: 'Browse the approved catalogue.', image_url: '',
@@ -279,6 +280,11 @@ const ROUTES = {
         base_price: p.base_price, has_sizes: p.has_sizes, image: p.image,
         lead_time_days: 14, active: ADMIN_STATE.hidden.has(p.sku) ? false : true,
         sort_order: 0, related_skus: ADMIN_STATE.related[p.sku] || [],
+        // the real backend keeps auto-mapped links in their own column and
+        // returns the union; the console reads related_all
+        auto_related_skus: ADMIN_STATE.autoRelated[p.sku] || [],
+        related_all: [...new Set([...(ADMIN_STATE.related[p.sku] || []),
+                                  ...(ADMIN_STATE.autoRelated[p.sku] || [])])],
         sizes: p.sizes, tiers: p.tiers,
       })),
       categories: catalog.categories.flatMap(c => c.subcategories.map((s, i) => ({
