@@ -188,6 +188,10 @@ function fnSubmitOrder(req) {
     updateRow(SHEETS.ORDERS, row._row, { notified_at: now() });
   });
 
+  // after the approval email, never before: the email is what actually moves
+  // the order forward, the chat message only tells the room about it
+  notifyChat('submitted', findOrderRow(orderId), { items: priced.lines.length });
+
   return { ok: true, order_id: orderId, total: priced.grand_total };
 }
 
@@ -274,6 +278,13 @@ function applyDecision(orderId, action, approverEmail, reason) {
     o.rejection_reason = reason || '';
     return { already: false, status: status, order: o };
   });
+}
+
+/* Both the approval page and the API land here, so one hook covers approve and
+   reject. Called outside the lock: a slow webhook should not hold the sheet. */
+function announceDecision(result) {
+  if (!result || result.already) return;
+  notifyChat(result.status === 'Approved' ? 'approved' : 'rejected', result.order);
 }
 
 /* --------------------------------------------------------------- closure */

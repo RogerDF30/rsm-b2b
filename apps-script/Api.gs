@@ -30,6 +30,7 @@ function routes() {
     adminToggle: fnAdminToggle,
     adminAutoRelate: fnAdminAutoRelate,
     adminSetAnalyticsPass: fnAdminSetAnalyticsPass,
+    adminSetChatWebhook: fnAdminSetChatWebhook,
     track: fnTrack,
     analytics: fnAnalytics,
     adminUploadImage: fnAdminUploadImage,
@@ -210,6 +211,7 @@ function submitDecision(act, orderId, who, exp, sig, reason) {
   } catch (err) {
     console.error('decision mail failed for ' + orderId + ': ' + err.message);
   }
+  announceDecision(res);
 
   return html(
     '<h2>Order ' + esc(res.status.toLowerCase()) + '</h2>' +
