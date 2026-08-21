@@ -145,6 +145,43 @@ function fakeAnalytics(req) {
       top_searches: [{ key: 'cap', count: 9 }, { key: 'bottle', count: 6 }],
       searches_with_nothing: [{ key: 'umbrella stand', count: 4 }, { key: 'power bank 40k', count: 2 }],
     },
+    audience: fakeAudience(),
+  };
+}
+
+function fakeAudience() {
+  const sess = {}, vis = new Set(), fresh = new Set(), dev = {}, src = {}, pages = {};
+  EVENTS.forEach(e => {
+    const sid = e.session || 'x';
+    if (!sess[sid]) sess[sid] = { views: 0, device: /Mobi/.test(e.ua || '') ? 'Mobile' : 'Desktop',
+                                  source: e.ref ? 'referral' : '(direct) / none' };
+    if (e.event === 'page_view') sess[sid].views++;
+    if (e.visitor) { vis.add(e.visitor); if (e.is_new) fresh.add(e.visitor); }
+    const path = e.path || 'index.html';
+    if (!pages[path]) pages[path] = { page: path, title: e.title || path, views: 0, events: 0, s: new Set(), b: 0 };
+    pages[path].events++;
+    if (e.event === 'page_view') pages[path].views++;
+    pages[path].s.add(sid);
+  });
+  const ids = Object.keys(sess);
+  let bounced = 0;
+  ids.forEach(sid => { if (sess[sid].views <= 1) bounced++;
+    dev[sess[sid].device] = (dev[sess[sid].device] || 0) + 1;
+    src[sess[sid].source] = (src[sess[sid].source] || 0) + 1; });
+  ids.forEach(sid => { if (sess[sid].views > 1) return;
+    Object.values(pages).forEach(p => { if (p.s.has(sid)) p.b++; }); });
+
+  return {
+    users: vis.size || ids.length, new_users: fresh.size,
+    returning_users: Math.max(0, (vis.size || ids.length) - fresh.size),
+    sessions: ids.length, avg_session_seconds: 236,
+    bounce_rate: ids.length ? Math.round(bounced / ids.length * 1000) / 10 : 0,
+    pages: Object.values(pages).map(p => ({ page: p.page, title: p.title, views: p.views,
+      events: p.events, sessions: p.s.size,
+      bounce_rate: p.s.size ? Math.round(p.b / p.s.size * 1000) / 10 : 0 }))
+      .sort((a, b) => b.views - a.views).slice(0, 10),
+    devices: Object.entries(dev).map(([key, count]) => ({ key, count })),
+    sources: Object.entries(src).map(([key, count]) => ({ key, count })),
   };
 }
 

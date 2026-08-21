@@ -68,6 +68,23 @@ async function api(fn, payload = {}) {
    shop, so every call is wrapped, unawaited, and silent on failure. Nothing
    personal is recorded beyond the email of someone already signed in. */
 const Track = {
+  /* A session is one browser tab visit; a visitor persists across visits.
+     Both are random ids with nothing personal in them, and the visitor id is
+     what makes "new vs returning" possible at all. */
+  vid() {
+    try {
+      let v = localStorage.getItem('rsm_vid');
+      if (!v) {
+        v = 'v' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+        localStorage.setItem('rsm_vid', v);
+        return { id: v, isNew: true };
+      }
+      return { id: v, isNew: false };
+    } catch (err) {
+      return { id: '', isNew: false };   // storage blocked; count it as a session only
+    }
+  },
+
   sid() {
     let s = sessionStorage.getItem('rsm_sid');
     if (!s) {
@@ -94,10 +111,18 @@ const Track = {
   event(name, props = {}) {
     try {
       const u = Auth.user();
+      const v = this.vid();
+      // referrer is only meaningful on the first page of a visit
+      const firstOfSession = !sessionStorage.getItem('rsm_seen');
+      if (firstOfSession) sessionStorage.setItem('rsm_seen', '1');
+
       const body = JSON.stringify({
         fn: 'track', token: CONFIG.API_TOKEN,
-        session: this.sid(), event: name,
+        session: this.sid(), visitor: v.id, event: name,
+        is_new: v.isNew ? 1 : 0,
+        ref: firstOfSession ? (document.referrer || '') : '',
         path: location.pathname.split('/').pop() || 'index.html',
+        title: document.title.replace(' | RSM Business Store', ''),
         user_email: u ? u.email : '',
         ua: navigator.userAgent,
         ...props,

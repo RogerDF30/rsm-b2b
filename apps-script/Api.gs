@@ -46,7 +46,7 @@ function fnAdminUpgrade(req) {
   requireAdmin(req);
   var done = upgradeSchema();
   audit('admin', 'schema_upgrade', 'sheet', prop('SHEET_ID'), null, { steps: done });
-  return { ok: true, steps: done };
+  return { ok: true, steps: done, events_header: Object.keys(headerIndex(SHEETS.EVENTS)) };
 }
 
 function json(obj) {

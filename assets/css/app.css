@@ -424,3 +424,18 @@ input[type=file] { font-size: .85rem; }
 .bar-fill { height: 100%; background: var(--brand); border-radius: 0 4px 4px 0; min-width: 2px; }
 .bar-val { font-size: .78rem; color: var(--muted); white-space: nowrap; }
 .spark { width: 100%; height: 96px; display: block; }
+
+/* ------------------------------------------------- analytics product rows */
+.prod-rows { display: flex; flex-direction: column; gap: 4px; }
+.prod-row { display: grid; grid-template-columns: 22px 52px 1fr auto; gap: 12px;
+            align-items: center; padding: 8px; border-radius: 10px;
+            text-decoration: none; color: inherit; }
+.prod-row:hover { background: var(--off); }
+.prod-rank { font-size: .8rem; font-weight: 800; color: var(--muted); text-align: center; }
+.prod-img { width: 52px; height: 52px; object-fit: contain; background: var(--off);
+            border-radius: 8px; }
+.prod-body { min-width: 0; }
+.prod-name { display: block; font-size: .86rem; font-weight: 700; line-height: 1.25;
+             overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.prod-sku { display: block; font-size: .72rem; color: var(--muted); margin-top: 2px; }
+.prod-val { font-size: .84rem; font-weight: 800; white-space: nowrap; }

@@ -90,7 +90,32 @@ function paint() {
 
   const o = D.orders, a = D.approval, t = D.traffic, p = D.products;
 
+  const au = D.audience || null;
+
   host.append(
+    au && au.sessions
+      ? el('div', {},
+          section('Audience', `Visitors and sessions. ${D.tracking_since
+            ? 'Recording began ' + D.tracking_since + '.'
+            : 'Recording has just started.'}`),
+          tiles([
+            ['Active users', qty(au.users)],
+            ['New users', qty(au.new_users)],
+            ['Returning', qty(au.returning_users)],
+            ['Sessions', qty(au.sessions)],
+            ['Avg session', duration(au.avg_session_seconds)],
+            ['Bounce rate', au.bounce_rate + '%'],
+          ]),
+          twoCol(
+            card('Top pages', pageTable(au.pages),
+              'Bounce rate here means the session saw this page and nothing else.'),
+            el('div', {},
+              card('Device', barList(au.devices, r => r.key, r => r.count,
+                (n) => qty(n) + ' · ' + Math.round(n / au.sessions * 100) + '%')),
+              card('Where sessions came from', barList(au.sources, r => r.key, r => r.count, qty),
+                'City is not shown: Google gets it from the visitor IP address, which this backend never receives.'))))
+      : null,
+
     section('Orders', 'Every order placed through this store. Complete from day one.'),
     tiles([
       ['Orders', qty(o.count)],
@@ -115,8 +140,8 @@ function paint() {
 
     section('Products', 'What actually sells, by units ordered and by value.'),
     twoCol(
-      card('Best selling by units', barList(p.top_by_units, r => r.name, r => r.units, qty)),
-      card('Best selling by value', barList(p.top_by_value, r => r.name, r => r.value, money))),
+      card('Best selling by units', productBars(p.top_by_units.slice(0, 5), r => r.units, qty)),
+      card('Best selling by value', productBars(p.top_by_value.slice(0, 5), r => r.value, money))),
 
     card(`Never ordered · ${qty(p.never_ordered_total)} of ${qty(p.catalogue_size)} products`,
       p.never_ordered.length
@@ -143,7 +168,9 @@ function paint() {
     t.events
       ? twoCol(
           card('From visit to submitted order', funnel(t.funnel)),
-          card('Most viewed products', barList(t.top_viewed, r => nameOf(r.key), r => r.count, qty)))
+          card('Most viewed products',
+            productBars(t.top_viewed.slice(0, 5).map(r => ({ sku: r.key, name: nameOf(r.key), n: r.count })),
+              r => r.n, qty)))
       : el('div', { class: 'note' },
           el('strong', {}, 'No traffic recorded yet.'),
           ' Page views and clicks start accumulating from the moment this ships. Order figures above are unaffected.'),
@@ -201,6 +228,40 @@ function tableOf(head, rows) {
     el('table', { class: 'tbl' },
       el('thead', {}, el('tr', {}, head.map(h => el('th', {}, h)))),
       el('tbody', {}, rows.map(r => el('tr', {}, r.map(c => el('td', {}, String(c))))))));
+}
+
+/* Product rows carry the picture, because a SKU and a truncated name are not
+   enough for anyone to recognise what sold. */
+function productBars(rows, value, fmt) {
+  if (!rows || !rows.length) return el('div', { class: 'small muted' }, 'Nothing yet.');
+  const max = Math.max(...rows.map(value));
+  return el('div', { class: 'prod-rows' },
+    rows.map((r, i) => {
+      const p = Catalog.bySku(r.sku);
+      const v = value(r);
+      return el('a', { class: 'prod-row',
+        href: 'product.html?sku=' + encodeURIComponent(r.sku) },
+        el('span', { class: 'prod-rank' }, i + 1),
+        el('img', { class: 'prod-img', src: p ? p.image : '', alt: '', loading: 'lazy' }),
+        el('span', { class: 'prod-body' },
+          el('span', { class: 'prod-name' }, r.name || (p ? p.name : r.sku)),
+          el('span', { class: 'prod-sku' }, r.sku + (p ? ' · ' + p.subcategory : '')),
+          el('span', { class: 'bar-track', style: 'margin-top:6px' },
+            el('span', { class: 'bar-fill', style: `display:block;height:100%;width:${max ? (v / max) * 100 : 0}%` }))),
+        el('span', { class: 'prod-val mono' }, fmt(v)));
+    }));
+}
+
+function pageTable(rows) {
+  if (!rows || !rows.length) return el('div', { class: 'small muted' }, 'Nothing yet.');
+  return tableOf(['Page', 'Views', 'Sessions', 'Events', 'Bounce'],
+    rows.map(r => [r.title || r.page, qty(r.views), qty(r.sessions), qty(r.events),
+                   r.bounce_rate + '%']));
+}
+
+function duration(sec) {
+  const s = Math.max(0, Math.round(sec || 0));
+  return s < 60 ? s + 's' : Math.floor(s / 60) + 'm ' + (s % 60) + 's';
 }
 
 /* Horizontal bars: the label sits outside the bar and the value is written at

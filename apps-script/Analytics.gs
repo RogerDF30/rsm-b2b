@@ -34,6 +34,11 @@ function fnTrack(req) {
     appendRow(SHEETS.EVENTS, {
       ts: now(),
       session_id: clip(req.session),
+      visitor_id: clip(req.visitor),
+      is_new: req.is_new ? 1 : '',
+      referrer: clip(req.ref),
+      title: clip(req.title),
+      device: deviceOf(req.ua),
       event: name,
       path: clip(req.path),
       sku: clip(req.sku),
@@ -48,6 +53,15 @@ function fnTrack(req) {
     console.log('track failed: ' + err.message);
     return { ok: true, skipped: true };
   }
+}
+
+/* Coarse device split, the same three buckets GA reports. Parsing a user
+   agent is never exact; this is deliberately blunt rather than pretending. */
+function deviceOf(ua) {
+  var s = String(ua || '');
+  if (/iPad|Tablet|PlayBook|Silk/i.test(s)) return 'Tablet';
+  if (/Mobi|Android|iPhone|iPod|Windows Phone/i.test(s)) return 'Mobile';
+  return 'Desktop';
 }
 
 function clip(v) {
@@ -118,6 +132,7 @@ function fnAnalytics(req) {
     demand: demandStats(inRange),
     trend: trendStats(inRange, events, since),
     traffic: trafficStats(events, since),
+    audience: audienceStats(events, since),
     tracking_since: firstEventDate(events)
   };
 }
@@ -327,6 +342,109 @@ function trafficStats(events, since) {
       return { key: k, count: empty[k] };
     }).sort(function (a, b) { return b.count - a.count; }).slice(0, 12)
   };
+}
+
+/**
+ * The audience figures Google Analytics reports, computed from the same event
+ * rows: users, new users, session length, bounce rate, per-page detail, device
+ * split and where the visit came from.
+ *
+ * City is deliberately absent. GA derives it from the visitor's IP address,
+ * and Apps Script is never given the caller's IP, so there is no honest way to
+ * produce it here. Better a missing panel than an invented one.
+ */
+function audienceStats(events, since) {
+  var recent = events.filter(function (e) {
+    var d = parseTs(e.ts);
+    return d && d >= since;
+  });
+
+  var sessions = {}, visitors = {}, newVisitors = {}, devices = {}, sources = {}, pages = {};
+
+  recent.forEach(function (e) {
+    var sid = String(e.session_id || ''), vid = String(e.visitor_id || '');
+    var d = parseTs(e.ts);
+    if (!sid || !d) return;
+
+    if (!sessions[sid]) {
+      sessions[sid] = { first: d, last: d, views: 0, visitor: vid, device: e.device || 'Desktop',
+                        source: sourceOf(e.referrer) };
+    }
+    var s = sessions[sid];
+    if (d < s.first) s.first = d;
+    if (d > s.last) s.last = d;
+    if (String(e.event) === 'page_view') s.views++;
+    if (e.referrer) s.source = sourceOf(e.referrer);
+
+    if (vid) {
+      visitors[vid] = 1;
+      if (e.is_new) newVisitors[vid] = 1;
+    }
+
+    var path = String(e.path || 'index.html');
+    if (!pages[path]) {
+      pages[path] = { page: path, title: String(e.title || path), views: 0,
+                      events: 0, sessions: {}, bounced: 0 };
+    }
+    pages[path].events++;
+    if (String(e.event) === 'page_view') pages[path].views++;
+    if (e.title) pages[path].title = String(e.title);
+    pages[path].sessions[sid] = 1;
+  });
+
+  var ids = Object.keys(sessions);
+  var durations = [], bounced = 0;
+  ids.forEach(function (sid) {
+    var s = sessions[sid];
+    durations.push((s.last - s.first) / 1000);
+    // one page view and nothing else is the definition of a bounce
+    if (s.views <= 1) bounced++;
+    devices[s.device] = (devices[s.device] || 0) + 1;
+    sources[s.source] = (sources[s.source] || 0) + 1;
+  });
+
+  // a page is "bounced on" when the session that saw it saw nothing else
+  ids.forEach(function (sid) {
+    var s = sessions[sid];
+    if (s.views > 1) return;
+    Object.keys(pages).forEach(function (p) {
+      if (pages[p].sessions[sid]) pages[p].bounced++;
+    });
+  });
+
+  var pageRows = Object.keys(pages).map(function (p) {
+    var row = pages[p];
+    var n = Object.keys(row.sessions).length;
+    return { page: p, title: row.title, views: row.views, events: row.events,
+             sessions: n, bounce_rate: n ? round2(row.bounced / n * 100) : 0 };
+  }).sort(function (a, b) { return b.views - a.views; }).slice(0, 10);
+
+  return {
+    users: Object.keys(visitors).length,
+    new_users: Object.keys(newVisitors).length,
+    returning_users: Math.max(0, Object.keys(visitors).length - Object.keys(newVisitors).length),
+    sessions: ids.length,
+    avg_session_seconds: durations.length
+      ? Math.round(durations.reduce(function (a, b) { return a + b; }, 0) / durations.length)
+      : 0,
+    bounce_rate: ids.length ? round2(bounced / ids.length * 100) : 0,
+    pages: pageRows,
+    devices: Object.keys(devices).map(function (k) {
+      return { key: k, count: devices[k],
+               share: round2(devices[k] / ids.length * 100) };
+    }).sort(function (a, b) { return b.count - a.count; }),
+    sources: Object.keys(sources).map(function (k) {
+      return { key: k, count: sources[k] };
+    }).sort(function (a, b) { return b.count - a.count; }).slice(0, 10)
+  };
+}
+
+/** "(direct) / none" or the referring host, which is all a referrer gives us. */
+function sourceOf(ref) {
+  var s = String(ref || '').trim();
+  if (!s) return '(direct) / none';
+  var m = s.match(/^https?:\/\/([^\/?#]+)/i);
+  return m ? m[1].replace(/^www\./, '') + ' / referral' : '(direct) / none';
 }
 
 function firstEventDate(events) {

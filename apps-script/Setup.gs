@@ -70,7 +70,8 @@ var TAB_HEADERS = {
   /* Storefront behaviour, written by fnTrack. One row per event, trimmed to
      the newest EVENT_CAP rows. Nothing here identifies a person beyond the
      email of someone already signed in. */
-  Events: ['ts', 'session_id', 'event', 'path', 'sku', 'query', 'qty', 'value',
+  Events: ['ts', 'session_id', 'visitor_id', 'is_new', 'referrer', 'title',
+    'device', 'event', 'path', 'sku', 'query', 'qty', 'value',
     'user_email', 'user_agent']
 };
 
@@ -226,6 +227,17 @@ function upgradeSchema() {
       .setFontWeight('bold').setBackground('#F4F8FB');
     ev.setFrozenRows(1);
     done.push('created the Events tab');
+  } else {
+    // Events shipped before visitor, device and referrer existed. appendRow
+    // writes by header name, so a missing column silently drops its value.
+    var ev = sheet(SHEETS.EVENTS);
+    var have = headerIndex(SHEETS.EVENTS);
+    TAB_HEADERS.Events.forEach(function (col) {
+      if (have[col]) return;
+      ev.getRange(1, ev.getLastColumn() + 1).setValue(col)
+        .setFontWeight('bold').setBackground('#F4F8FB');
+      done.push('added Events.' + col);
+    });
   }
 
   // 4. Orders.lob_approver, inserted right after lob
