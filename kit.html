@@ -78,6 +78,23 @@ function generate() {
   paintKits();
 }
 
+/* Another round of combinations, appended rather than replacing what is on
+   screen, so a kit you were looking at does not vanish. Duplicates of kits
+   already listed are dropped, and when nothing new can be formed the button
+   says so instead of silently doing nothing. */
+function moreKits() {
+  const p = pool();
+  const seen = new Set(KITS.map(k => k.items.map(x => x.sku).sort().join('|')));
+  const fresh = buildKits(p, EMP, BUDGET, 12)
+    .filter(k => !seen.has(k.items.map(x => x.sku).sort().join('|')));
+  if (!fresh.length) {
+    toast('No further combinations at this budget');
+    return;
+  }
+  KITS = KITS.concat(fresh.slice(0, 4));
+  paintKits();
+}
+
 function paintKits() {
   const out = document.getElementById('out');
   out.textContent = '';
@@ -89,6 +106,9 @@ function paintKits() {
   out.append(el('div', { class: 'small muted', style: 'margin-bottom:12px' },
     'Prices are per person and exclude GST. Remove anything you do not want before adding a kit to the cart.'));
   KITS.forEach((k, i) => out.append(kitCard(k, i)));
+  out.append(el('div', { style: 'text-align:center;margin:18px 0 8px' },
+    el('button', { class: 'btn btn-ghost', id: 'more', onclick: moreKits },
+      '↻ Generate more kits')));
 }
 
 function kitCard(k, i) {
@@ -107,15 +127,21 @@ function kitCard(k, i) {
       k.items.map((p, j) => el('div', { class: 'kit-item' },
         el('img', { src: p.image, alt: p.name, loading: 'lazy' }),
         el('div', { class: 'kn' }, p.name),
-        el('div', { class: 'kp' }, money(unitAt(p, EMP)) + (p.has_sizes ? ' · sized' : '')),
-        el('button', {
-          type: 'button', class: 'kx', title: 'Remove from this kit',
-          onclick: () => {
-            if (k.items.length <= 1) return toast('A kit needs at least one item');
-            k.items.splice(j, 1);
-            paintKits();
-          },
-        }, '✕')))),
+        el('div', { class: 'kp' }, money(unitAt(p, EMP)) +
+          (p.moq > 1 ? ' · MOQ ' + qty(p.moq) : '') + (p.has_sizes ? ' · sized' : '')),
+        el('div', { class: 'kit-acts' },
+          el('button', { type: 'button', class: 'kit-rep',
+            onclick: () => openPicker(i, j) }, '⇄ Replace'),
+          el('button', {
+            type: 'button', class: 'kit-rem', title: 'Remove from this kit',
+            onclick: () => {
+              if (k.items.length <= 1) return toast('A kit needs at least one item');
+              k.items.splice(j, 1);
+              paintKits();
+            },
+          }, '×')))),
+      el('button', { type: 'button', class: 'kit-add', onclick: () => openPicker(i, null) },
+        el('span', { class: 'plus' }, '+'), el('span', {}, 'Add product'))),
 
     el('div', { class: 'kit-foot' },
       el('div', {},
@@ -123,6 +149,101 @@ function kitCard(k, i) {
         el('div', { class: 'small muted' },
           `${money(per * EMP)} for ${qty(EMP)} people, plus ${money(gst * EMP)} GST`)),
       el('button', { class: 'btn', onclick: () => addKit(i) }, 'Add kit to cart')));
+}
+
+/* ---------------------------------------------------------------- picker */
+
+/* Replace one item, or add another. Only products whose MOQ is met by the
+   headcount can appear: a kit orders one unit per person, so an item needing
+   more than that cannot be in it at all. Replacements start near the price of
+   the item being swapped, because that is the choice that keeps the kit inside
+   its budget; the full catalogue is one click away. */
+let PICK = null;
+
+function openPicker(kitIndex, itemIndex) {
+  PICK = { kit: kitIndex, item: itemIndex, wide: itemIndex === null };
+  renderPicker();
+}
+
+function closePicker() {
+  PICK = null;
+  document.getElementById('picker')?.remove();
+  document.removeEventListener('keydown', pickerEsc);
+}
+
+function pickerEsc(e) { if (e.key === 'Escape') closePicker(); }
+
+function pickerCandidates() {
+  const k = KITS[PICK.kit];
+  const inKit = new Set(k.items.map(p => p.sku));
+  const current = PICK.item === null ? null : k.items[PICK.item];
+  const spent = k.items.reduce((s, p) => s + unitAt(p, EMP), 0) -
+    (current ? unitAt(current, EMP) : 0);
+  const left = BUDGET - spent;
+
+  let list = Catalog.products.filter(p =>
+    (p.tiers || []).length && p.moq <= EMP && !inKit.has(p.sku));
+
+  if (!PICK.wide) {
+    const price = unitAt(current, EMP);
+    list = list.filter(p => Math.abs(unitAt(p, EMP) - price) <= 100);
+  } else {
+    list = list.filter(p => unitAt(p, EMP) <= left);
+  }
+  return list.sort((a, b) => unitAt(a, EMP) - unitAt(b, EMP));
+}
+
+function renderPicker() {
+  document.getElementById('picker')?.remove();
+  const k = KITS[PICK.kit];
+  const current = PICK.item === null ? null : k.items[PICK.item];
+  const list = pickerCandidates();
+  const blocked = Catalog.products.filter(p => p.moq > EMP).length;
+
+  const body = el('div', { class: 'pick-grid' },
+    list.length ? list.map(p => el('button', {
+      type: 'button', class: 'pick-tile', onclick: () => choose(p.sku),
+    },
+      el('img', { src: p.image, alt: p.name, loading: 'lazy' }),
+      el('span', { class: 'pick-name' }, p.name),
+      el('span', { class: 'pick-meta' }, p.subcategory + ' · MOQ ' + qty(p.moq)),
+      el('span', { class: 'pick-price' }, money(unitAt(p, EMP)))))
+      : el('div', { class: 'small muted' },
+          PICK.wide ? 'Nothing else fits the remaining budget.'
+                    : 'Nothing within ₹100. Try the full catalogue below.'));
+
+  const modal = el('div', { class: 'kmodal', id: 'picker',
+    onclick: e => { if (e.target.id === 'picker') closePicker(); } },
+    el('div', { class: 'kmodal-inner' },
+      el('div', { class: 'kmodal-head' },
+        el('div', {},
+          el('h3', {}, current ? 'Replace: ' + current.name : 'Add a product'),
+          el('div', { class: 'small muted' },
+            (current && !PICK.wide
+              ? `Within ₹100 of ${money(unitAt(current, EMP))}`
+              : 'Full catalogue') +
+            ` · ${qty(list.length)} option${list.length === 1 ? '' : 's'}` +
+            ` · priced at ${qty(EMP)} units` +
+            (blocked ? ` · ${qty(blocked)} hidden, MOQ above ${qty(EMP)}` : ''))),
+        el('button', { type: 'button', class: 'btn btn-ghost btn-sm', onclick: closePicker }, 'Close')),
+      body,
+      !PICK.wide
+        ? el('div', { class: 'kmodal-foot' },
+            el('button', { type: 'button', class: 'btn btn-ghost',
+              onclick: () => { PICK.wide = true; renderPicker(); } },
+              'Find more from the full catalogue →'))
+        : null));
+
+  document.addEventListener('keydown', pickerEsc);
+  document.body.appendChild(modal);
+}
+
+function choose(sku) {
+  const p = Catalog.bySku(sku), k = KITS[PICK.kit];
+  if (PICK.item === null) k.items.push(p);
+  else k.items[PICK.item] = p;
+  closePicker();
+  paintKits();
 }
 
 /* Each item goes in at one unit per person. Sized products go in without a
