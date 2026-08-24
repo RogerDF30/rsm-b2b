@@ -28,6 +28,8 @@ function routes() {
     adminSaveProduct: fnAdminSaveProduct,
     adminDeleteProduct: fnAdminDeleteProduct,
     adminToggle: fnAdminToggle,
+    adminUsers: fnAdminUsers,
+    adminAddUser: fnAdminAddUser,
     adminAutoRelate: fnAdminAutoRelate,
     adminSetAnalyticsPass: fnAdminSetAnalyticsPass,
     adminSetChatWebhook: fnAdminSetChatWebhook,

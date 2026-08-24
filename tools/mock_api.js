@@ -18,6 +18,7 @@ const USERS = {
     default_ship_phone: '8744083233',
     default_ship_street: '9th & 10th Floor, HQ 27, The Headquarters, Sector 27',
     default_ship_city: 'Gurugram', default_ship_pincode: '122002',
+    active: true, last_login: '',
   },
 };
 const ADMIN_PASS = 'admin2026';
@@ -331,6 +332,41 @@ const ROUTES = {
       const b = ADMIN_STATE.banners.find(x => x.slug === req.key);
       if (b) b.active = req.active;
     }
+    if (req.kind === 'user') {
+      const u = USERS[String(req.key).toLowerCase()];
+      if (!u) throw new Error('No user "' + req.key + '".');
+      u.active = req.active;
+    }
+    return { ok: true };
+  },
+
+  adminUsers(req) {
+    admin(req);
+    return {
+      ok: true,
+      users: Object.values(USERS).map(u => ({
+        email: u.email, full_name: u.full_name, lob: u.lob,
+        active: u.active !== false, locked_until: '', created_at: '',
+        last_login: u.last_login || '',
+      })),
+      departments: ROUTES.meta().departments.map(d => d.lob),
+    };
+  },
+  adminAddUser(req) {
+    admin(req);
+    const u = req.user || {};
+    const email = String(u.email || '').trim().toLowerCase();
+    const name = String(u.full_name || '').trim();
+    const pw = String(u.password || '');
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw new Error('Enter a valid email address.');
+    if (!name) throw new Error('Full name is required.');
+    if (pw.length < 10) throw new Error('Choose a password of at least 10 characters.');
+    if (USERS[email]) throw new Error(email + ' already has an account.');
+    USERS[email] = {
+      email, full_name: name, lob: String(u.lob || '').trim(), password: pw,
+      default_ship_name: '', default_ship_phone: '', default_ship_street: '',
+      default_ship_city: '', default_ship_pincode: '', active: true, last_login: '',
+    };
     return { ok: true };
   },
   adminUploadImage(req) {

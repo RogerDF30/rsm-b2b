@@ -526,15 +526,16 @@ function fnAdminDeleteProduct(req) {
   });
 }
 
-/** Show or hide a product or a subcategory. */
+/** Show or hide a product or a subcategory, or activate a user. */
 function fnAdminToggle(req) {
   requireAdmin(req);
   var kind = req.kind, key = String(req.key || '').trim();
   var on = req.active === true;
   var tab = kind === 'category' ? SHEETS.CATEGORIES
           : kind === 'banner' ? SHEETS.BANNERS
+          : kind === 'user' ? SHEETS.USERS
           : SHEETS.PRODUCTS;
-  var keyCol = kind === 'product' ? 'sku' : 'slug';
+  var keyCol = kind === 'product' ? 'sku' : kind === 'user' ? 'email' : 'slug';
 
   return withLock(function () {
     var hit = null;
@@ -543,7 +544,8 @@ function fnAdminToggle(req) {
     });
     if (!hit) throw new Error('No ' + kind + ' "' + key + '".');
     updateRow(tab, hit._row, { active: on ? 'TRUE' : 'FALSE' });
-    audit('admin', on ? 'shown' : 'hidden', kind, key, null, null);
+    audit('admin', kind === 'user' ? (on ? 'user_activated' : 'user_deactivated')
+                                   : (on ? 'shown' : 'hidden'), kind, key, null, null);
     return { ok: true };
   });
 }
@@ -766,4 +768,61 @@ function commitFile(repo, token, path, content, message) {
     throw new Error('GitHub rejected ' + path + ' (HTTP ' + code + '): ' +
       res.getContentText().slice(0, 300));
   }
+}
+
+/* ------------------------------------------------------------------ users */
+
+/**
+ * What the Users tab reads: the roster, plus the department names the add
+ * form offers. password_hash and salt never leave the sheet.
+ */
+function fnAdminUsers(req) {
+  requireAdmin(req);
+  var users = readTab(SHEETS.USERS).map(function (u) {
+    return {
+      email: str(u.email), full_name: str(u.full_name), lob: str(u.lob),
+      active: String(u.active).toUpperCase() !== 'FALSE',
+      locked_until: str(u.locked_until),
+      created_at: str(u.created_at), last_login: str(u.last_login)
+    };
+  });
+  var departments = readTab(SHEETS.DEPARTMENTS)
+    .filter(function (d) { return String(d.active).toUpperCase() !== 'FALSE'; })
+    .map(function (d) { return String(d.lob).trim(); });
+  return { ok: true, users: users, departments: departments };
+}
+
+/**
+ * Create one requester. The admin types the first password. must_reset is
+ * written the way seedUserPasswords() writes it, so an admin-issued password
+ * is marked as such on the row.
+ */
+function fnAdminAddUser(req) {
+  requireAdmin(req);
+  var u = req.user || {};
+  var email = String(u.email || '').trim().toLowerCase();
+  var name = String(u.full_name || '').trim();
+  var pw = String(u.password || '');
+
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+    throw new Error('Enter a valid email address.');
+  }
+  if (!name) throw new Error('Full name is required.');
+  /* Same floor as fnResetConfirm, so the console cannot issue a password
+     weaker than the user is allowed to choose for themselves. */
+  if (pw.length < 10) throw new Error('Choose a password of at least 10 characters.');
+  if (findUser(email)) throw new Error(email + ' already has an account.');
+
+  var salt = randomToken(12);
+  withLock(function () {
+    appendRow(SHEETS.USERS, {
+      email: email, full_name: name, lob: String(u.lob || '').trim(),
+      password_hash: hashPassword(pw, salt), salt: salt,
+      must_reset: 'TRUE', failed_attempts: 0, locked_until: '',
+      active: 'TRUE', created_at: now(), last_login: ''
+    });
+  });
+  audit('admin', 'user_added', 'user', email, null,
+    { full_name: name, lob: String(u.lob || '') });
+  return { ok: true };
 }

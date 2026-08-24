@@ -3,6 +3,7 @@
 let PASS = '';
 let ORDERS = [], ORDER_FILTER = 'All';
 let CAT = null;            // { products, categories, banners, settings, published_at }
+let USERS = [], DEPTS = [];
 let TAB = 'orders';
 let PROD_FILTER = { q: '', cat: 'All', hidden: 'all' };
 
@@ -29,12 +30,15 @@ function gate(msg) {
 
 async function loadAll() {
   try {
-    const [o, c] = await Promise.all([
+    const [o, c, u] = await Promise.all([
       api('adminList', { admin_pass: PASS }),
       api('adminCatalog', { admin_pass: PASS }),
+      api('adminUsers', { admin_pass: PASS }),
     ]);
     ORDERS = o.orders;
     CAT = c;
+    USERS = u.users;
+    DEPTS = u.departments;
     document.getElementById('gate').classList.add('hidden');
     document.getElementById('app').classList.remove('hidden');
     paint();
@@ -53,6 +57,7 @@ function paint() {
   [['orders', `Orders (${ORDERS.length})`],
    ['catalogue', `Catalogue (${CAT.products.length})`],
    ['banners', `Banners (${CAT.banners.length})`],
+   ['users', `Users (${USERS.length})`],
    ['appearance', 'Appearance']].forEach(([k, label]) =>
     nav.append(el('button', {
       class: 'chip' + (TAB === k ? ' on' : ''),
@@ -61,8 +66,8 @@ function paint() {
 
   const host = document.getElementById('panel');
   host.textContent = '';
-  ({ orders: paintOrders, catalogue: paintCatalogue,
-     banners: paintBanners, appearance: paintAppearance })[TAB](host);
+  ({ orders: paintOrders, catalogue: paintCatalogue, banners: paintBanners,
+     users: paintUsers, appearance: paintAppearance })[TAB](host);
 
   const pub = document.getElementById('publishBar');
   pub.textContent = '';
@@ -615,6 +620,57 @@ function editBanner(b) {
       }, 'Remove'))));
 }
 
+/* ------------------------------------------------------------------ users */
+
+function paintUsers(host) {
+  host.append(
+    el('div', { class: 'row-between', style: 'margin-bottom:12px' },
+      el('span', { class: 'small muted' },
+        'People who can sign in and raise orders. Deactivating one blocks the next sign-in.'),
+      el('button', { class: 'btn btn-sm', onclick: addUser }, 'Add user')),
+    el('div', { class: 'stack' }, USERS.map(u => el('div', { class: 'panel' },
+      el('div', { class: 'row-between', style: 'align-items:flex-start' },
+        el('div', {},
+          el('strong', {}, u.full_name || u.email),
+          el('div', { class: 'small muted' }, u.email),
+          el('div', { class: 'small muted' },
+            [u.lob || 'No department',
+             u.last_login ? 'last signed in ' + u.last_login : 'never signed in'].join(' \u00b7 '))),
+        toggle(u.active, async on => {
+          await api('adminToggle', { admin_pass: PASS, kind: 'user', key: u.email, active: on });
+          u.active = on;
+        }, ['Active', 'Inactive']))))));
+  if (!USERS.length) host.append(el('div', { class: 'empty' }, el('h2', {}, 'No users yet')));
+}
+
+function addUser() {
+  const draft = { email: '', full_name: '', lob: '', password: '' };
+
+  drawer(el('div', {},
+    drawerHead('Add user'),
+    el('div', { class: 'form-grid' },
+      field('Email', el('input', { type: 'email', autocomplete: 'off',
+        oninput: e => { draft.email = e.target.value.trim(); } })),
+      field('Full name', el('input', { type: 'text',
+        oninput: e => { draft.full_name = e.target.value; } })),
+      field('Department', selectOf(DEPTS, '', v => { draft.lob = v; }, 'Not set')),
+      field('First password, at least 10 characters', el('input', {
+        type: 'text', autocomplete: 'off',
+        oninput: e => { draft.password = e.target.value; } }))),
+    el('div', { class: 'small muted', style: 'margin-top:10px' },
+      'Give the password to the user yourself. They can change it from the ' +
+      'sign-in page with Forgot password.'),
+    el('div', { class: 'row', style: 'margin-top:20px' },
+      el('button', { class: 'btn', onclick: async () => {
+        try {
+          await api('adminAddUser', { admin_pass: PASS, user: draft });
+          toast(draft.email + ' added.');
+          closeDrawer(); await loadAll();
+        } catch (err) { toast(err.message, 'error'); }
+      } }, 'Add user'),
+      el('button', { class: 'btn btn-ghost', onclick: closeDrawer }, 'Cancel'))));
+}
+
 /* ------------------------------------------------------------- appearance */
 
 function paintAppearance(host) {
@@ -717,10 +773,11 @@ function selectOf(values, current, onchange, blankLabel) {
 /* An actual switch, because this sets a state rather than performing an
    action. role="switch" and aria-checked mean a screen reader says "on" or
    "off" rather than reading it as a button. */
-function toggle(on, fn) {
+function toggle(on, fn, labels) {
+  const [onLabel, offLabel] = labels || ['Visible', 'Hidden'];
   const knob = el('span', { class: 'sw-knob' });
   const track = el('span', { class: 'sw-track' }, knob);
-  const label = el('span', { class: 'sw-label' }, on ? 'Visible' : 'Hidden');
+  const label = el('span', { class: 'sw-label' }, on ? onLabel : offLabel);
 
   const b = el('button', {
     type: 'button', class: 'sw' + (on ? ' on' : ''),
@@ -733,7 +790,7 @@ function toggle(on, fn) {
         await fn(next);
         b.classList.toggle('on', next);
         b.setAttribute('aria-checked', next ? 'true' : 'false');
-        label.textContent = next ? 'Visible' : 'Hidden';
+        label.textContent = next ? onLabel : offLabel;
       } catch (err) {
         toast(err.message, 'error');
       } finally {
