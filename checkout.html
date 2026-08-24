@@ -121,6 +121,7 @@
 <script>
 let R = null;
 const uploads = [];
+const reading = [];          // files still being read, shown with their own bar
 
 (async function () {
   await Catalog.load();
@@ -205,8 +206,24 @@ function wireUploads() {
 function take(fileList) {
   for (const file of fileList) {
     if (file.size > 8 * 1024 * 1024) { toast(`${file.name} is over 8 MB`, 'error'); continue; }
+
+    const job = { name: file.name, bytes: file.size, pct: 0 };
+    reading.push(job);
+    paintFiles();
+
     const reader = new FileReader();
+    reader.onprogress = e => {
+      if (!e.lengthComputable) return;
+      job.pct = e.loaded / e.total;
+      paintFiles();
+    };
+    reader.onerror = () => {
+      reading.splice(reading.indexOf(job), 1);
+      toast(`${file.name} could not be read.`, 'error');
+      paintFiles();
+    };
     reader.onload = () => {
+      reading.splice(reading.indexOf(job), 1);
       uploads.push({
         name: file.name, mime: file.type || 'application/octet-stream',
         bytes: file.size, data: reader.result.split(',')[1],
@@ -220,6 +237,15 @@ function take(fileList) {
 function paintFiles() {
   const host = document.getElementById('fileList');
   host.textContent = '';
+
+  reading.forEach(job => host.append(
+    el('div', { class: 'file-row' },
+      el('div', { class: 'grow' },
+        el('div', {}, job.name),
+        el('div', { class: 'prog file-prog' },
+          el('div', { class: 'prog-fill', style: 'width:' + Math.round(job.pct * 100) + '%' }))),
+      el('span', { class: 'muted small' }, Math.round(job.pct * 100) + '%'))));
+
   uploads.forEach((f, i) => host.append(
     el('div', { class: 'file-row' },
       el('span', { class: 'grow' }, f.name),
@@ -254,7 +280,9 @@ function paintSummary() {
     el('button', {
       class: 'btn btn-block', id: 'submitBtn', type: 'button', onclick: submit,
     }, 'Submit for approval'),
-    el('div', { class: 'small muted center', style: 'margin-top:10px' },
+    el('div', { class: 'prog prog-text hidden', id: 'prog' },
+      el('div', { class: 'prog-fill', id: 'progFill' })),
+    el('div', { class: 'small muted center', style: 'margin-top:10px', id: 'progText' },
       uploads.length
         ? `${uploads.length} evidence file${uploads.length === 1 ? '' : 's'} attached`
         : 'Attach evidence before submitting')));
@@ -327,8 +355,22 @@ async function submit() {
   const btn = document.getElementById('submitBtn');
   btn.disabled = true; btn.textContent = 'Submitting…';
 
+  /* Evidence rides along with the order, so the bar tracks the whole request:
+     at 100% the files are with Apps Script and it is writing the rows. */
+  const bar = document.getElementById('prog');
+  const fill = document.getElementById('progFill');
+  const text = document.getElementById('progText');
+  bar.classList.remove('hidden');
+  const onProgress = pct => {
+    fill.style.width = Math.round(pct * 100) + '%';
+    text.textContent = pct < 1
+      ? `Uploading evidence, ${Math.round(pct * 100)}%`
+      : 'Uploaded. Recording the order…';
+  };
+  onProgress(0);
+
   try {
-    const r = await api('submitOrder', {
+    const r = await submitWithProgress(onProgress, {
       order: data,
       files: uploads,
       /* Prices are recomputed server-side from the Sheet. These are sent so the
@@ -342,8 +384,25 @@ async function submit() {
     Cart.clear();
     location.href = 'status.html?id=' + encodeURIComponent(r.order_id) + '&new=1';
   } catch (err) {
+    bar.classList.add('hidden');
+    fill.style.width = '0';
+    text.textContent = uploads.length
+      ? `${uploads.length} evidence file${uploads.length === 1 ? '' : 's'} attached`
+      : 'Attach evidence before submitting';
     toast(err.message, 'error');
     btn.disabled = false; btn.textContent = 'Submit for approval';
+  }
+}
+
+/* XHR reports upload progress; fetch does not. If the XHR itself cannot reach
+   the server, fall back to the plain fetch path rather than lose the order. */
+async function submitWithProgress(onProgress, payload) {
+  try {
+    return await apiUpload('submitOrder', payload, onProgress);
+  } catch (err) {
+    if (!err.transport) throw err;
+    onProgress(1);
+    return api('submitOrder', payload);
   }
 }
 </script>

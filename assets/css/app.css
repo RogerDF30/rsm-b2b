@@ -553,3 +553,41 @@ input[type=file] { font-size: .85rem; }
   .cat-tiles, .grid-5 { grid-template-columns: repeat(2, 1fr); }
   .cat-tile-img { height: 170px; }
 }
+
+
+/* ------------------------------------------------ category rail, with menus */
+
+.catnav-inner { overflow: visible; }
+.catnav-item { position: relative; }
+.catnav-top { display: inline-flex; align-items: center; gap: 6px;
+              font-weight: 600; font-size: .9rem; white-space: nowrap; line-height: 46px; }
+.catnav-top.on, .catnav-top:hover { color: var(--brand); }
+.catnav-top .caret { font-size: .7rem; color: var(--muted); }
+
+/* Hover opens it, focus-within keeps it open for the keyboard. */
+.catnav-menu {
+  display: none; position: absolute; top: 100%; left: -14px; z-index: 50;
+  min-width: 196px; padding: 8px 0; background: #fff;
+  border: 1px solid var(--line); border-top: 0; box-shadow: var(--shadow);
+}
+.catnav-item:hover .catnav-menu, .catnav-item:focus-within .catnav-menu { display: block; }
+.catnav-menu a { display: block; padding: 9px 20px; font-size: .88rem; font-weight: 600; }
+.catnav-menu a:hover { background: var(--off); color: var(--brand); }
+
+/* --------------------------------------------------------- policy documents */
+
+.doc-page { max-width: 860px; }
+.doc-page h2 { font-size: 1.1rem; margin: 26px 0 8px; }
+.doc-page p { margin: 0 0 12px; color: var(--muted); }
+.doc-page ul { margin: 0 0 14px; padding-left: 20px; color: var(--muted); }
+.doc-page li { margin-bottom: 6px; }
+.doc-page a { color: var(--brand); text-decoration: underline; }
+.doc-foot { margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--line); }
+
+/* ------------------------------------------------------------ progress bars */
+
+.prog { height: 8px; border-radius: 999px; background: var(--off); overflow: hidden; }
+.prog-fill { height: 100%; width: 0; background: var(--brand); border-radius: 999px;
+             transition: width .18s linear; }
+.file-prog { height: 5px; margin-top: 6px; }
+.prog-text { margin-top: 8px; }

@@ -62,6 +62,36 @@ async function api(fn, payload = {}) {
   return data;
 }
 
+/* Same envelope as api(), over XMLHttpRequest, because fetch cannot report
+   upload progress and evidence files are large enough for a submit to look
+   frozen without a bar. */
+function apiUpload(fn, payload = {}, onProgress) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', CONFIG.API_URL, true);
+    xhr.setRequestHeader('Content-Type', 'text/plain;charset=utf-8');
+    if (onProgress && xhr.upload) {
+      xhr.upload.onprogress = e => {
+        if (e.lengthComputable) onProgress(e.loaded / e.total);
+      };
+      xhr.upload.onload = () => onProgress(1);
+    }
+    xhr.onload = () => {
+      let d;
+      try { d = JSON.parse(xhr.responseText); }
+      catch (err) { reject(new Error('The server sent a reply we could not read.')); return; }
+      if (!d.ok) reject(new Error(d.error || 'Request failed'));
+      else resolve(d);
+    };
+    xhr.onerror = () => {
+      const err = new Error('The upload did not reach the server. Check your connection.');
+      err.transport = true;             // lets the caller retry over fetch
+      reject(err);
+    };
+    xhr.send(JSON.stringify({ fn, token: CONFIG.API_TOKEN, session: Auth.token(), ...payload }));
+  });
+}
+
 /* ---------------------------------------------------------------- tracking */
 
 /* Fire-and-forget usage events. Analytics must never be able to break the
@@ -525,12 +555,27 @@ function header(active) {
 
     el('nav', { class: 'catnav' },
       el('div', { class: 'wrap catnav-inner' },
-        cats.map(c => el('a', {
-          href: 'category.html?cat=' + encodeURIComponent(c),
-          class: active === c ? 'on' : '',
-        }, c)),
-        el('a', { href: 'all.html', class: active === 'All' ? 'on' : '' }, 'All products'),
-        el('a', { href: 'kit.html', class: 'nav-kit' + (active === 'Kit' ? ' on' : '') }, 'Build a kit'))));
+        cats.map(c => catnavItem(c, active)),
+        el('a', { class: 'catnav-top' + (active === 'All' ? ' on' : ''), href: 'all.html' },
+          'All products'),
+        el('a', { class: 'catnav-top nav-kit' + (active === 'Kit' ? ' on' : ''), href: 'kit.html' },
+          'Build a kit'))));
+}
+
+/* One category plus its subcategories. The subcategory list comes from the
+   catalogue, so a new subcategory appears in the rail without a code change. */
+function catnavItem(cat, active) {
+  const meta = (Catalog.categories || []).find(c => c.slug === cat);
+  const subs = meta ? meta.subcategories : [];
+  const href = 'category.html?cat=' + encodeURIComponent(cat);
+
+  return el('div', { class: 'catnav-item' },
+    el('a', { class: 'catnav-top' + (active === cat ? ' on' : ''), href },
+      cat, subs.length ? el('span', { class: 'caret' }, '\u02c5') : null),
+    subs.length
+      ? el('div', { class: 'catnav-menu' }, subs.map(s =>
+          el('a', { href: href + '&sub=' + encodeURIComponent(s) }, s)))
+      : null);
 }
 
 function footer() {
@@ -540,9 +585,10 @@ function footer() {
         'For questions about your order, please contact Customer Service at ',
         el('a', { href: 'mailto:helpdesk@companystore.io' }, 'helpdesk@companystore.io'), '.'),
       el('p', { class: 'foot-links' },
-        el('a', { href: 'status.html' }, 'Track an order'), ' | ',
-        el('a', { href: 'all.html' }, 'All products'), ' | ',
-        el('a', { href: 'kit.html' }, 'Build a kit')),
+        el('a', { href: 'privacy.html' }, 'Privacy policy'), ' | ',
+        el('a', { href: 'returns.html' }, 'Returns & refunds'), ' | ',
+        el('a', { href: 'faq.html' }, 'FAQ'), ' | ',
+        el('a', { href: 'status.html' }, 'Track an order')),
       el('p', { class: 'foot-note small' },
         Site.get('footer_note', 'RSM Business Store, operated by CompanyStore.IO')),
       el('p', { class: 'foot-copy small' },
