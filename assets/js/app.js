@@ -180,8 +180,8 @@ const Catalog = {
     this._bySku = Object.fromEntries(this._data.products.map(p => [p.sku, p]));
     return this._data;
   },
-  get products() { return this._data.products; },
-  get categories() { return this._data.categories; },
+  get products() { return this._data ? this._data.products : []; },
+  get categories() { return this._data ? this._data.categories : []; },
   bySku(sku) { return this._bySku[sku]; },
 };
 
@@ -565,7 +565,9 @@ function header(active) {
 /* One category plus its subcategories. The subcategory list comes from the
    catalogue, so a new subcategory appears in the rail without a code change. */
 function catnavItem(cat, active) {
-  const meta = (Catalog.categories || []).find(c => c.slug === cat);
+  /* login.html, reset.html and status.html mount the chrome without loading
+     the catalogue, so there may be no subcategories to hang a menu on. */
+  const meta = Catalog.categories.find(c => c.slug === cat);
   const subs = meta ? meta.subcategories : [];
   const href = 'category.html?cat=' + encodeURIComponent(cat);
 
