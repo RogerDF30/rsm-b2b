@@ -59,13 +59,21 @@
 function paintHero() {
   const b = Site.banners[0];
   const host = document.getElementById('hero');
-  host.className = 'hero';
+
+  /* Banner artwork carries its own headline, body copy and logo, so it is
+     shown whole rather than darkened into a backdrop for a second set of the
+     same words. Without artwork the page still needs the typeset hero below. */
   if (b && b.image_url) {
-    host.style.backgroundImage =
-      `linear-gradient(rgba(0,21,61,.72), rgba(0,21,61,.72)), url(${b.image_url})`;
-    host.style.backgroundSize = 'cover';
-    host.style.backgroundPosition = 'center';
+    host.className = 'hero-art';
+    host.append(el('img', { src: b.image_url, alt: b.title || 'RSM Business Store' }));
+    if (b.link_url) {
+      host.append(el('div', { class: 'wrap' },
+        el('a', { class: 'btn', href: b.link_url }, 'Browse')));
+    }
+    return;
   }
+
+  host.className = 'hero';
   host.append(el('div', { class: 'wrap' },
     el('img', { class: 'hero-logo', alt: 'RSM',
       src: Site.get('logo_white_url', 'assets/brand/rsm-logo-white.png') }),

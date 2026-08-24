@@ -71,7 +71,8 @@ const ADMIN_STATE = {
   autoRelated: {},
   banners: [
     { slug: 'welcome', title: 'RSM branded merchandise',
-      subtitle: 'Browse the approved catalogue.', image_url: '',
+      subtitle: 'Browse the approved catalogue.',
+      image_url: 'assets/brand/rsm-hero-banner.jpg',
       link_url: 'category.html?cat=Apparel', sort_order: 0, active: true },
   ],
   settings: {

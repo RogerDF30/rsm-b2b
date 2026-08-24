@@ -114,6 +114,11 @@ h3 { font-size: 1.05rem; }
 .hero .bar { width: 56px; height: 4px; background: var(--brand); margin-bottom: 20px; }
 .hero-logo { height: 40px; width: auto; display: block; margin-bottom: 22px; }
 
+/* Hero that is one piece of artwork rather than typeset copy over a photo. */
+.hero-art { display: block; background: var(--ink); }
+.hero-art img { display: block; width: 100%; height: auto; }
+.hero-art .wrap { padding: 18px 0 4px; }
+
 .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 32px 0; }
 .cat-card {
   border: 1px solid var(--line); border-radius: var(--radius);

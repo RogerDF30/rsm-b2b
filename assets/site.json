@@ -12,7 +12,7 @@
       "slug": "welcome",
       "title": "RSM branded merchandise",
       "subtitle": "Browse the approved catalogue. Sign in at checkout to raise an order for approval.",
-      "image_url": "",
+      "image_url": "https://rogerdf30.github.io/rsm-b2b/assets/brand/rsm-hero-banner.jpg",
       "link_url": "category.html?cat=Apparel",
       "sort_order": 0,
       "active": true
