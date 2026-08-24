@@ -71,6 +71,9 @@
       <div class="panel">
         <h2>Shipping address</h2>
         <div class="form-grid">
+          <label class="field full hidden" id="shipPresetRow"><span>Deliver to</span>
+            <select id="shipPreset"></select>
+            <div class="small muted" id="shipPresetNote" style="margin-top:5px"></div></label>
           <label class="field"><span>Recipient name <b class="req">*</b></span>
             <input type="text" name="ship_name" required></label>
           <label class="field"><span>Phone <b class="req">*</b></span>
@@ -138,6 +141,7 @@ const uploads = [];
   document.getElementById('sameAs').onchange = e =>
     document.getElementById('billFields').classList.toggle('hidden', e.target.checked);
 
+  await loadShipPresets(f, u);
   await loadDepartments(u.lob);
   wireUploads();
   paintSummary();
@@ -251,6 +255,51 @@ function paintSummary() {
       uploads.length
         ? `${uploads.length} evidence file${uploads.length === 1 ? '' : 's'} attached`
         : 'Attach evidence before submitting')));
+}
+
+/* --------------------------------------------------------- delivery presets */
+
+/* Deliver to the user's saved address, one of the RSM offices, or an address
+   typed by hand. The office list is a static file so the picker does not
+   depend on the backend; the fields stay editable after a pick. */
+async function loadShipPresets(f, u) {
+  let offices;
+  try {
+    offices = (await (await fetch('assets/offices.json')).json()).offices;
+  } catch (err) {
+    return;                       // no list, the form works as it always did
+  }
+  if (!offices || !offices.length) return;
+
+  const sel = document.getElementById('shipPreset');
+  const note = document.getElementById('shipPresetNote');
+  document.getElementById('shipPresetRow').classList.remove('hidden');
+
+  sel.append(el('option', { value: 'saved' }, 'My saved address'));
+  offices.forEach(o => sel.append(el('option', { value: o.id }, o.label)));
+  sel.append(el('option', { value: 'other' }, 'Another address'));
+
+  const set = v => {
+    f.ship_name.value = v.name; f.ship_phone.value = v.phone;
+    f.ship_street.value = v.street; f.ship_city.value = v.city;
+    f.ship_state.value = v.state; f.ship_pincode.value = v.pincode;
+  };
+
+  sel.onchange = () => {
+    const o = offices.find(x => x.id === sel.value);
+    note.textContent = o ? (o.note || '') : '';
+    if (o) {
+      set({ name: o.contact_name, phone: o.contact_phone, street: o.street,
+            city: o.city, state: o.state, pincode: o.pincode });
+    } else if (sel.value === 'saved') {
+      set({ name: u.default_ship_name || u.full_name || '',
+            phone: u.default_ship_phone || '', street: u.default_ship_street || '',
+            city: u.default_ship_city || '', state: '',
+            pincode: u.default_ship_pincode || '' });
+    } else {
+      set({ name: '', phone: '', street: '', city: '', state: '', pincode: '' });
+    }
+  };
 }
 
 /* ------------------------------------------------------------------- submit */
