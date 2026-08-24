@@ -463,3 +463,93 @@ input[type=file] { font-size: .85rem; }
 .sw-label { font-size: .82rem; font-weight: 700; }
 .sw:not(.on) .sw-label { color: var(--muted); }
 .sw:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 6px; }
+
+
+/* ================================================== store chrome, RSM layout
+   Account strip, logo + search, category rail, then a footer that carries the
+   service address and the firm's line. Mirrors the Magento store this replaces
+   so the two do not read as different shops during the changeover. */
+
+.site-head { position: static; border-bottom: 0; }
+
+.util { background: var(--ink); color: #fff; }
+.util-inner { display: flex; align-items: center; justify-content: flex-end;
+              gap: 18px; height: 36px; font-size: .8rem; }
+.util a { color: #fff; font-weight: 600; }
+.util a:hover { color: var(--brand); }
+.util-name { color: var(--grey); }
+.util-btn { background: var(--brand); color: #fff; padding: 5px 14px; border-radius: 6px; font-weight: 700; }
+.util-btn:hover { background: #fff; color: var(--ink); }
+
+.head-inner { display: flex; align-items: center; gap: 24px; height: 88px; }
+.brand-logo { height: 42px; }
+
+.search { position: relative; flex: 1; max-width: 400px; margin-left: auto; }
+.search input {
+  width: 100%; padding: 9px 42px 9px 14px; font: inherit; font-size: .9rem;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--off);
+}
+.search input:focus { outline: none; background: #fff; border-color: var(--brand);
+                      box-shadow: 0 0 0 3px rgba(0, 156, 222, .15); }
+.search button { position: absolute; top: 4px; right: 4px; width: 32px; height: 30px;
+                 display: flex; align-items: center; justify-content: center;
+                 border: 0; background: none; color: var(--muted); cursor: pointer; }
+.search button:hover { color: var(--brand); }
+
+.head-icons { display: flex; align-items: center; gap: 4px; }
+.icon-btn { position: relative; width: 42px; height: 42px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; color: var(--ink); }
+.icon-btn:hover { background: var(--off); color: var(--brand); }
+.icon-btn .pill { position: absolute; top: 2px; right: 0; }
+
+.catnav { background: var(--off); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.catnav-inner { display: flex; align-items: center; gap: 26px; height: 46px; overflow-x: auto; }
+.catnav a { font-weight: 600; font-size: .9rem; white-space: nowrap; }
+.catnav a.on, .catnav a:hover { color: var(--brand); }
+
+/* ----------------------------------------------------------- hero carousel */
+
+.hero-art { position: relative; background: var(--ink); }
+.hero-slide { display: none; }
+.hero-slide.on { display: block; }
+.hero-slide img { display: block; width: 100%; height: auto; }
+.hero-dots { position: absolute; left: 0; right: 0; bottom: 14px;
+             display: flex; justify-content: center; gap: 9px; }
+.hero-dot { width: 11px; height: 11px; padding: 0; border: 0; border-radius: 50%;
+            background: rgba(255, 255, 255, .5); cursor: pointer; }
+.hero-dot.on { background: #fff; }
+
+/* -------------------------------------------------------- homepage sections */
+
+.home-sec { margin-top: 44px; }
+.home-sec h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 22px; }
+
+.cat-tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.cat-tile { text-align: center; }
+.cat-tile-img { height: 232px; padding: 18px; background: #fff;
+                border: 1px solid var(--line); border-radius: var(--radius);
+                display: flex; align-items: center; justify-content: center; }
+.cat-tile:hover .cat-tile-img { border-color: var(--brand); box-shadow: var(--shadow); }
+.cat-tile-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.cat-tile-label { margin-top: 12px; font-size: 1.05rem; font-weight: 700; }
+
+.grid-5 { grid-template-columns: repeat(5, 1fr); }
+
+/* ------------------------------------------------------------------ footer */
+
+.site-foot { margin-top: 56px; padding: 26px 0 34px; }
+.foot-inner { display: block; font-size: .84rem; color: var(--muted); line-height: 1.7; }
+.foot-inner a { color: var(--muted); text-decoration: underline; }
+.foot-inner a:hover { color: var(--brand); }
+.foot-inner p { margin: 0; }
+.foot-links { margin: 4px 0 14px; }
+.foot-note { max-width: 900px; }
+.foot-copy { margin-top: 12px; }
+
+@media (max-width: 900px) {
+  .head-inner { height: auto; flex-wrap: wrap; padding-top: 14px; padding-bottom: 14px; gap: 14px; }
+  .search { order: 3; flex-basis: 100%; max-width: none; margin-left: 0; }
+  .head-icons { margin-left: auto; }
+  .cat-tiles, .grid-5 { grid-template-columns: repeat(2, 1fr); }
+  .cat-tile-img { height: 170px; }
+}

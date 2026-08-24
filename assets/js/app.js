@@ -481,37 +481,72 @@ function buildKits(pool, emp, budget, count) {
 
 /* ------------------------------------------------------------------ chrome */
 
+const ICONS = {
+  user: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+        'stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="8" r="3.6"/>' +
+        '<path d="M4.6 20c1.3-3.7 4-5.6 7.4-5.6S18.1 16.3 19.4 20"/></svg>',
+  cart: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+        'stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M2.5 4h2.3l2.2 10.5h9.6L19 7H6.4"/><circle cx="9.5" cy="19" r="1.5"/>' +
+        '<circle cx="16.5" cy="19" r="1.5"/></svg>',
+  search: '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+          'stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/>' +
+          '<path d="M15.5 15.5 21 21"/></svg>',
+};
+
+/* Three bands, the same order the RSM store has used since Magento: account
+   strip, logo and search, then the category rail. */
 function header(active) {
   const u = Auth.user();
+  const cats = ['Apparel', 'Drinkware', 'Travel', 'Utilities'];
+
   return el('header', { class: 'site-head' },
+    el('div', { class: 'util' },
+      el('div', { class: 'wrap util-inner' },
+        u ? el('span', { class: 'util-name' }, 'Welcome, ' + (u.full_name || u.email)) : null,
+        u
+          ? el('a', { href: '#', onclick: e => { e.preventDefault(); Auth.clear(); location.reload(); } }, 'Sign out')
+          : el('a', { href: 'login.html' }, 'Sign in'),
+        el('a', { class: 'util-btn', href: 'status.html' }, 'Track an order'))),
+
     el('div', { class: 'wrap head-inner' },
       el('a', { class: 'brand', href: 'index.html' },
         el('img', { class: 'brand-logo', alt: 'RSM',
-          src: Site.get('logo_url', 'assets/brand/rsm-logo.png') }),
-        el('span', { class: 'brand-sub' }, 'Business Store')),
-      el('nav', { class: 'nav' },
-        ['Apparel', 'Drinkware', 'Travel', 'Utilities'].map(c =>
-          el('a', {
-            href: 'category.html?cat=' + encodeURIComponent(c),
-            class: active === c ? 'on' : '',
-          }, c)),
+          src: Site.get('logo_url', 'assets/brand/rsm-logo.png') })),
+      el('form', { class: 'search', action: 'all.html', method: 'get' },
+        el('input', { type: 'search', name: 'q', 'aria-label': 'Search products',
+          placeholder: 'Search entire store here...' }),
+        el('button', { type: 'submit', 'aria-label': 'Search', html: ICONS.search })),
+      el('div', { class: 'head-icons' },
+        el('a', { class: 'icon-btn', href: u ? 'status.html' : 'login.html',
+          title: u ? 'Your orders' : 'Sign in', html: ICONS.user }),
+        el('a', { class: 'icon-btn', href: 'cart.html', title: 'Cart', html: ICONS.cart },
+          el('span', { 'data-cart-count': '1', class: 'pill hidden' }, '0')))),
+
+    el('nav', { class: 'catnav' },
+      el('div', { class: 'wrap catnav-inner' },
+        cats.map(c => el('a', {
+          href: 'category.html?cat=' + encodeURIComponent(c),
+          class: active === c ? 'on' : '',
+        }, c)),
         el('a', { href: 'all.html', class: active === 'All' ? 'on' : '' }, 'All products'),
-        el('a', { href: 'kit.html', class: 'nav-kit' + (active === 'Kit' ? ' on' : '') }, 'Build a kit')),
-      el('div', { class: 'head-right' },
-        u
-          ? el('div', { class: 'who' },
-              el('span', { class: 'who-name' }, u.full_name || u.email),
-              el('a', { href: '#', class: 'link-quiet', onclick: e => { e.preventDefault(); Auth.clear(); location.reload(); } }, 'Sign out'))
-          : el('a', { class: 'link-quiet', href: 'login.html' }, 'Sign in'),
-        el('a', { class: 'cart-btn', href: 'cart.html' }, 'Cart',
-          el('span', { 'data-cart-count': '1', class: 'pill hidden' }, '0')))));
+        el('a', { href: 'kit.html', class: 'nav-kit' + (active === 'Kit' ? ' on' : '') }, 'Build a kit'))));
 }
 
 function footer() {
   return el('footer', { class: 'site-foot' },
     el('div', { class: 'wrap foot-inner' },
-      el('span', {}, Site.get('footer_note', 'RSM Business Store, operated by CompanyStore.IO')),
-      el('a', { href: 'status.html', class: 'link-quiet' }, 'Track an order')));
+      el('p', { class: 'foot-help' },
+        'For questions about your order, please contact Customer Service at ',
+        el('a', { href: 'mailto:helpdesk@companystore.io' }, 'helpdesk@companystore.io'), '.'),
+      el('p', { class: 'foot-links' },
+        el('a', { href: 'status.html' }, 'Track an order'), ' | ',
+        el('a', { href: 'all.html' }, 'All products'), ' | ',
+        el('a', { href: 'kit.html' }, 'Build a kit')),
+      el('p', { class: 'foot-note small' },
+        Site.get('footer_note', 'RSM Business Store, operated by CompanyStore.IO')),
+      el('p', { class: 'foot-copy small' },
+        '\u00a9 ' + new Date().getFullYear() + ' RSM US LLP. All rights reserved.')));
 }
 
 function mount(active) {

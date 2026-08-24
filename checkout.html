@@ -32,9 +32,10 @@
           <label class="field"><span>Contact number <b class="req">*</b></span>
             <input type="tel" name="requester_phone" required></label>
           <label class="field full"><span>Approver <b class="req">*</b></span>
-            <select name="lob_approver" id="lobApprover" required>
-              <option value="">Select a department first</option>
-            </select>
+            <input type="text" name="lob_approver" id="lobApprover" required
+                   list="approverList" autocomplete="off"
+                   placeholder="Name of the RSM partner who sanctioned this spend">
+            <datalist id="approverList"></datalist>
             <span class="small muted" style="display:block;margin-top:5px">
               The RSM partner who sanctioned this spend. Their approval email is
               what you attach as evidence below.
@@ -97,6 +98,9 @@
           <input type="checkbox" id="sameAs" checked style="width:auto"> Same as shipping address
         </label>
         <div class="form-grid hidden" id="billFields">
+          <label class="field full hidden" id="billPresetRow"><span>Bill to</span>
+            <select id="billPreset"></select>
+            <div class="small muted" id="billPresetNote" style="margin-top:5px"></div></label>
           <label class="field"><span>Billing name</span><input type="text" name="bill_name"></label>
           <label class="field"><span>Phone</span><input type="tel" name="bill_phone"></label>
           <label class="field full"><span>Street address</span>
@@ -141,7 +145,7 @@ const uploads = [];
   document.getElementById('sameAs').onchange = e =>
     document.getElementById('billFields').classList.toggle('hidden', e.target.checked);
 
-  await loadShipPresets(f, u);
+  await loadAddressPresets(f, u);
   await loadDepartments(u.lob);
   wireUploads();
   paintSummary();
@@ -164,21 +168,20 @@ async function loadDepartments(preset) {
   lob.append(...deps.map(d => el('option', { value: d.lob }, d.lob)));
   if (preset && deps.some(d => d.lob === preset)) lob.value = preset;
 
+  /* Free text, because approvers change and cross-LOB sanctioning happens.
+     The known partners are offered as suggestions, and the department's own
+     partner is filled in until the requester types over it. */
+  const list = document.getElementById('approverList');
+  list.append(...deps.filter(d => d.approver)
+    .map(d => el('option', { value: d.approver }, d.lob)));
+  ap.oninput = () => { ap.dataset.auto = ''; };
+
   const fill = () => {
     const hit = deps.find(d => d.lob === lob.value);
-    ap.textContent = '';
-    if (!lob.value) {
-      ap.append(el('option', { value: '' }, 'Select a department first'));
-      return;
+    if (hit && hit.approver && (!ap.value || ap.dataset.auto === '1')) {
+      ap.value = hit.approver;
+      ap.dataset.auto = '1';
     }
-    ap.append(el('option', { value: '' }, 'Select an approver'));
-    if (hit && hit.approver) {
-      ap.append(el('option', { value: hit.approver }, hit.approver));
-    }
-    // Every other partner stays selectable: cross-LOB sanctioning happens.
-    deps.filter(d => d.approver && (!hit || d.approver !== hit.approver))
-        .forEach(d => ap.append(el('option', { value: d.approver }, `${d.approver} (${d.lob})`)));
-    if (hit && hit.approver) ap.value = hit.approver;
   };
   lob.onchange = fill;
   fill();
@@ -259,10 +262,10 @@ function paintSummary() {
 
 /* --------------------------------------------------------- delivery presets */
 
-/* Deliver to the user's saved address, one of the RSM offices, or an address
-   typed by hand. The office list is a static file so the picker does not
-   depend on the backend; the fields stay editable after a pick. */
-async function loadShipPresets(f, u) {
+/* Ship or bill to the user's saved address, one of the RSM offices, or an
+   address typed by hand. The office list is a static file so the picker does
+   not depend on the backend; the fields stay editable after a pick. */
+async function loadAddressPresets(f, u) {
   let offices;
   try {
     offices = (await (await fetch('assets/offices.json')).json()).offices;
@@ -270,19 +273,23 @@ async function loadShipPresets(f, u) {
     return;                       // no list, the form works as it always did
   }
   if (!offices || !offices.length) return;
+  wirePreset(f, u, offices, 'ship');
+  wirePreset(f, u, offices, 'bill');
+}
 
-  const sel = document.getElementById('shipPreset');
-  const note = document.getElementById('shipPresetNote');
-  document.getElementById('shipPresetRow').classList.remove('hidden');
+function wirePreset(f, u, offices, kind) {
+  const sel = document.getElementById(kind + 'Preset');
+  const note = document.getElementById(kind + 'PresetNote');
+  document.getElementById(kind + 'PresetRow').classList.remove('hidden');
 
   sel.append(el('option', { value: 'saved' }, 'My saved address'));
   offices.forEach(o => sel.append(el('option', { value: o.id }, o.label)));
   sel.append(el('option', { value: 'other' }, 'Another address'));
 
   const set = v => {
-    f.ship_name.value = v.name; f.ship_phone.value = v.phone;
-    f.ship_street.value = v.street; f.ship_city.value = v.city;
-    f.ship_state.value = v.state; f.ship_pincode.value = v.pincode;
+    f[kind + '_name'].value = v.name; f[kind + '_phone'].value = v.phone;
+    f[kind + '_street'].value = v.street; f[kind + '_city'].value = v.city;
+    f[kind + '_state'].value = v.state; f[kind + '_pincode'].value = v.pincode;
   };
 
   sel.onchange = () => {
