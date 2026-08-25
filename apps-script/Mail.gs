@@ -71,6 +71,9 @@ function lineTable(lines) {
   var rows = lines.map(function (l) {
     return '<tr><td>' + esc(l.product_name) +
       (l.size ? '<div class="muted">Size ' + esc(l.size) + '</div>' : '') +
+      (String(l.below_moq).toUpperCase() === 'YES'
+        ? '<div style="color:#8A6A00;font-weight:700">Below the usual minimum order quantity</div>'
+        : '') +
       '</td><td>' + esc(l.variant_sku) + '</td>' +
       '<td class="num">' + l.qty + '</td>' +
       '<td class="num">' + inr(l.unit_price) + '</td>' +

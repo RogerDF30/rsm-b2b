@@ -157,13 +157,18 @@ const reading = [];          // files still being read, shown with their own bar
 async function loadDepartments(preset) {
   const lob = document.getElementById('lob');
   const ap = document.getElementById('lobApprover');
-  let deps = [];
-  try {
-    const res = await fetch(CONFIG.API_URL + '?fn=meta');
-    const data = await res.json();
-    deps = data.ok ? data.departments : [];
-  } catch (err) {
-    toast('Could not load the department list.', 'error');
+  /* The published site file carries the department list, so the two dropdowns
+     fill immediately. The live call is the fallback for a store that has not
+     published since this was added. */
+  let deps = Site.departments || [];
+  if (!deps.length) {
+    try {
+      const res = await fetch(CONFIG.API_URL + '?fn=meta');
+      const data = await res.json();
+      deps = data.ok ? data.departments : [];
+    } catch (err) {
+      toast('Could not load the department list.', 'error');
+    }
   }
 
   lob.append(...deps.map(d => el('option', { value: d.lob }, d.lob)));
@@ -275,6 +280,12 @@ function paintSummary() {
       el('tr', {}, el('td', {}, 'Subtotal'), el('td', {}, money(R.subtotal))),
       el('tr', {}, el('td', {}, 'GST'), el('td', {}, money(R.taxTotal))),
       el('tr', { class: 'grand' }, el('td', {}, 'Total'), el('td', {}, money(R.grandTotal))))),
+    R.belowMoq.length
+      ? el('div', { class: 'warn', style: 'margin:12px 0' },
+          el('strong', {}, 'Below minimum order quantity. '),
+          R.belowMoq.map(g => `${g.product.name}: ${qty(g.groupQty)} of ${qty(g.product.moq)}`).join('; ') +
+          '. The order can be raised, and this is shown to the approver.')
+      : null,
     el('div', { class: 'small muted', style: 'margin:12px 0' },
       'Shipping is quoted separately after approval.'),
     el('button', {

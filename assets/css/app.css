@@ -592,3 +592,46 @@ input[type=file] { font-size: .85rem; }
              transition: width .18s linear; }
 .file-prog { height: 5px; margin-top: 6px; }
 .prog-text { margin-top: 8px; }
+
+
+/* ------------------------------------------------------------- mobile menu */
+
+.burger { display: none; width: 42px; height: 42px; margin-left: -6px; padding: 0;
+          align-items: center; justify-content: center; border: 0; border-radius: 8px;
+          background: none; color: var(--ink); cursor: pointer; }
+.burger:hover { background: var(--off); color: var(--brand); }
+
+.menu-shade { position: fixed; inset: 0; z-index: 80; background: rgba(0, 21, 61, .45); }
+.menu-panel { width: min(320px, 86vw); height: 100%; background: #fff;
+              display: flex; flex-direction: column; box-shadow: 0 0 40px rgba(0, 21, 61, .25); }
+.menu-head { display: flex; align-items: center; justify-content: space-between;
+             padding: 16px 18px; border-bottom: 1px solid var(--line); }
+.menu-title { font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+              font-size: .78rem; color: var(--muted); }
+.menu-x { border: 0; background: none; color: var(--ink); cursor: pointer; padding: 4px; display: flex; }
+.menu-x:hover { color: var(--brand); }
+.menu-body { flex: 1; overflow-y: auto; padding: 8px 0 24px; }
+.menu-group { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.menu-group:last-child { border-bottom: 0; }
+.menu-cat { display: block; padding: 11px 20px; font-weight: 700; font-size: .98rem; }
+.menu-cat.on, .menu-cat:hover { color: var(--brand); }
+.menu-sub { display: block; padding: 8px 20px 8px 34px; font-size: .9rem; color: var(--muted); }
+.menu-sub:hover { color: var(--brand); }
+
+@media (max-width: 900px) {
+  .burger { display: flex; }
+  .catnav { display: none; }
+  .head-inner { flex-wrap: wrap; }
+  .brand { margin-right: auto; }
+}
+
+/* ---------------------------------------------------------- below-MOQ flag */
+
+.warn {
+  background: #FFF8E1; border: 1px solid #F2D680; color: #6B4E00;
+  border-radius: var(--radius); padding: 12px 14px; font-size: .88rem; line-height: 1.5;
+}
+.warn strong { color: #5A4200; }
+.warn a { color: #5A4200; text-decoration: underline; }
+.tag-warn { background: #FFF1C2; color: #6B4E00; border-radius: 999px;
+            padding: 2px 9px; font-size: .72rem; font-weight: 800; display: inline-block; }

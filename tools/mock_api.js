@@ -21,6 +21,18 @@ const USERS = {
     active: true, last_login: '',
   },
 };
+/* Published into site.json by adminPublish, and served live by meta. */
+const MOCK_DEPARTMENTS = [
+  { lob: 'Assurance', approver: 'Kawalpreet Kaur' },
+  { lob: 'CMG', approver: '' },
+  { lob: 'Consulting', approver: 'Balasundaram Nagarajan' },
+  { lob: 'Enterprises', approver: 'Gowri Srinivas' },
+  { lob: 'ESS', approver: '' },
+  { lob: 'IT', approver: 'Malleswara Reddy' },
+  { lob: 'Talent', approver: '' },
+  { lob: 'Tax', approver: '' },
+];
+
 const ADMIN_PASS = 'admin2026';
 const API_TOKEN = 'rsm-demo-token';
 
@@ -40,13 +52,13 @@ function priceOrder(raw) {
     const p = BY_SKU[sku];
     if (!p) throw new Error(`Product ${sku} is no longer available.`);
     const groupQty = items.reduce((a, i) => a + i.qty, 0);
-    if (groupQty < p.moq) {
-      throw new Error(`${p.name} needs at least ${p.moq} units. You have ${groupQty}.`);
-    }
+    // below the MOQ is allowed and flagged, matching apps-script/Orders.gs
+    const short = groupQty < p.moq;
     let tier = null;
     for (const t of p.tiers) if (groupQty >= t.min_qty && (!tier || t.min_qty > tier.min_qty)) tier = t;
     const unit = tier ? tier.unit_price : p.base_price;
-    const band = tier ? (tier.max_qty ? `${tier.min_qty}-${tier.max_qty}` : `${tier.min_qty}+`) : '';
+    const band = tier ? (tier.max_qty ? `${tier.min_qty}-${tier.max_qty}` : `${tier.min_qty}+`)
+                      : `below MOQ ${p.moq}`;
     for (const i of items) {
       const lineTotal = unit * i.qty;
       const tax = lineTotal * p.gst_rate / 100;
@@ -54,6 +66,7 @@ function priceOrder(raw) {
       out.push({
         parent_sku: sku, variant_sku: i.variant_sku, product_name: p.name,
         size: i.size || '', qty: i.qty, group_qty: groupQty, tier_applied: band,
+        below_moq: short ? 'YES' : '',
         unit_price: unit, line_total: lineTotal, gst_rate: p.gst_rate,
         tax_amount: r2(tax), line_total_with_tax: r2(lineTotal + tax),
       });
@@ -199,16 +212,7 @@ const ROUTES = {
   },
   resetRequest() { return { ok: true }; },
   meta() {
-    return { ok: true, departments: [
-      { lob: 'Assurance', approver: 'Kawalpreet Kaur' },
-      { lob: 'CMG', approver: '' },
-      { lob: 'Consulting', approver: 'Balasundaram Nagarajan' },
-      { lob: 'Enterprises', approver: 'Gowri Srinivas' },
-      { lob: 'ESS', approver: '' },
-      { lob: 'IT', approver: 'Malleswara Reddy' },
-      { lob: 'Talent', approver: '' },
-      { lob: 'Tax', approver: '' },
-    ]};
+    return { ok: true, departments: MOCK_DEPARTMENTS };
   },
 
   submitOrder(req) {

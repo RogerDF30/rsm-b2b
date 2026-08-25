@@ -195,7 +195,7 @@ const Catalog = {
 /* Banners and site settings, published alongside products.json. Absent on a
    store that has never published, so every read is defensive. */
 const Site = {
-  settings: {}, banners: [],
+  settings: {}, banners: [], departments: [],
   async load() {
     try {
       const res = await fetch('assets/site.json');
@@ -203,6 +203,9 @@ const Site = {
       const d = await res.json();
       this.settings = d.settings || {};
       this.banners = d.banners || [];
+      /* Published alongside the catalogue so checkout does not have to wait on
+         a live Apps Script call to fill two dropdowns. */
+      this.departments = d.departments || [];
     } catch (err) {
       // a missing site.json is not an error, the defaults below cover it
     }
@@ -325,12 +328,17 @@ function priceCart(items, lookup) {
     }
   }
 
-  const blocked = Object.values(groupInfo).filter(g => !g.meetsMoq);
+  /* Ordering under the MOQ is allowed: the vendor may still accept it, and a
+     requester who needs eight of something should not be forced to buy
+     twenty-five. It is flagged everywhere it appears rather than blocked, and
+     the approver sees the flag before deciding. */
+  const belowMoq = Object.values(groupInfo).filter(g => !g.meetsMoq);
   return {
     lines, groups: groupInfo, subtotal, taxTotal,
     grandTotal: subtotal + taxTotal,
-    blocked,
-    valid: lines.length > 0 && blocked.length === 0,
+    belowMoq,
+    blocked: belowMoq,        // old name, kept so nothing breaks mid-deploy
+    valid: lines.length > 0,
   };
 }
 
@@ -529,6 +537,10 @@ const ICONS = {
   search: '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
           'stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/>' +
           '<path d="M15.5 15.5 21 21"/></svg>',
+  burger: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+          'stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
+  close: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+         'stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
 };
 
 /* Three bands, the same order the RSM store has used since Magento: account
@@ -552,6 +564,10 @@ function header(active) {
         el('a', { class: 'util-btn', href: 'status.html' }, 'Track an order'))),
 
     el('div', { class: 'wrap head-inner' },
+      el('button', {
+        class: 'burger', type: 'button', 'aria-label': 'Menu',
+        onclick: () => openMenu(active), html: ICONS.burger,
+      }),
       el('a', { class: 'brand', href: 'index.html' },
         el('img', { class: 'brand-logo', alt: 'RSM',
           src: Site.get('logo_url', 'assets/brand/rsm-logo.png') })),
@@ -590,6 +606,64 @@ function catnavItem(cat, active) {
       ? el('div', { class: 'catnav-menu' }, subs.map(s =>
           el('a', { href: href + '&sub=' + encodeURIComponent(s) }, s)))
       : null);
+}
+
+/* The category rail does not survive a phone: five headings with dropdowns
+   either overflow or scroll sideways. On small screens the rail is hidden and
+   this drawer carries the same links, subcategories included. */
+function openMenu(active) {
+  closeMenu();
+  const u = Auth.user();
+  const cats = Catalog.categories.length
+    ? Catalog.categories
+    : ['Apparel', 'Drinkware', 'Travel', 'Utilities'].map(c => ({ slug: c, label: c, subcategories: [] }));
+
+  const panel = el('nav', { class: 'menu-panel', 'aria-label': 'Site menu' },
+    el('div', { class: 'menu-head' },
+      el('span', { class: 'menu-title' }, 'Menu'),
+      el('button', { class: 'menu-x', type: 'button', 'aria-label': 'Close', onclick: closeMenu, html: ICONS.close })),
+
+    el('div', { class: 'menu-body' },
+      cats.map(c => el('div', { class: 'menu-group' },
+        el('a', {
+          class: 'menu-cat' + (active === c.slug ? ' on' : ''),
+          href: 'category.html?cat=' + encodeURIComponent(c.slug),
+        }, c.label),
+        (c.subcategories || []).map(sub => el('a', {
+          class: 'menu-sub',
+          href: 'category.html?cat=' + encodeURIComponent(c.slug) + '&sub=' + encodeURIComponent(sub),
+        }, sub)))),
+
+      el('div', { class: 'menu-group' },
+        el('a', { class: 'menu-cat', href: 'all.html' }, 'All products'),
+        el('a', { class: 'menu-cat', href: 'kit.html' }, 'Build a kit'),
+        el('a', { class: 'menu-cat', href: 'status.html' }, 'Track an order')),
+
+      el('div', { class: 'menu-group' },
+        u
+          ? el('a', { class: 'menu-sub', href: '#', onclick: e => { e.preventDefault(); Auth.clear(); location.reload(); } },
+              'Sign out of ' + (u.full_name || u.email))
+          : el('a', { class: 'menu-sub', href: 'login.html' }, 'Sign in'))));
+
+  const shade = el('div', {
+    class: 'menu-shade', id: 'menuShade',
+    onclick: e => { if (e.target.id === 'menuShade') closeMenu(); },
+  }, panel);
+
+  document.body.append(shade);
+  document.body.style.overflow = 'hidden';
+  document.addEventListener('keydown', menuEscape);
+  panel.querySelector('a, button')?.focus();
+}
+
+function closeMenu() {
+  document.getElementById('menuShade')?.remove();
+  document.body.style.overflow = '';
+  document.removeEventListener('keydown', menuEscape);
+}
+
+function menuEscape(e) {
+  if (e.key === 'Escape') closeMenu();
 }
 
 function footer() {

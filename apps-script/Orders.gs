@@ -76,15 +76,17 @@ function priceOrder(rawLines) {
 
     var items = groups[sku];
     var groupQty = items.reduce(function (a, i) { return a + i.qty; }, 0);
+    /* Under the MOQ is allowed. The vendor may still take it, and refusing
+       cost more than it saved: requesters split orders or gave up. It is
+       recorded on the line and shown to the approver instead. */
     var moq = Number(p.moq || 1);
-    if (groupQty < moq) {
-      throw new Error(p.name + ' needs at least ' + moq + ' units. You have ' + groupQty + '.');
-    }
+    var short = groupQty < moq;
 
     var tier = serverPickTier(cat.tiers[sku], groupQty);
     var unit = tier ? tier.unit_price : Number(p.base_price);
     var gst = Number(p.gst_rate || 0);
-    var band = tier ? (tier.max_qty ? tier.min_qty + '-' + tier.max_qty : tier.min_qty + '+') : '';
+    var band = tier ? (tier.max_qty ? tier.min_qty + '-' + tier.max_qty : tier.min_qty + '+')
+                    : 'below MOQ ' + moq;
 
     items.forEach(function (i) {
       var lineTotal = unit * i.qty;
@@ -93,7 +95,10 @@ function priceOrder(rawLines) {
       taxTotal += tax;
       lines.push({
         parent_sku: sku, variant_sku: i.variant_sku, product_name: p.name,
-        size: i.size, qty: i.qty, group_qty: groupQty, tier_applied: band,
+        /* A leading apostrophe keeps Sheets from reading a band like "10-19"
+           as a date, which is exactly what it did before. */
+        size: i.size, qty: i.qty, group_qty: groupQty, tier_applied: "'" + band,
+        below_moq: short ? 'YES' : '',
         unit_price: unit, line_total: lineTotal, gst_rate: gst,
         tax_amount: round2(tax), line_total_with_tax: round2(lineTotal + tax)
       });

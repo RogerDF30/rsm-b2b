@@ -160,8 +160,12 @@ function paint() {
     hint.classList.add('muted');
     btn.disabled = true;
   } else if (total < P.moq) {
-    hint.innerHTML = `<strong style="color:#00153D">Add ${qty(P.moq - total)} more.</strong> The minimum order quantity is ${qty(P.moq)}.`;
-    btn.disabled = true;
+    /* Under the MOQ is allowed, and flagged rather than blocked. */
+    hint.className = 'warn small';
+    hint.innerHTML = `<strong>Below the minimum order quantity.</strong> This product is normally ` +
+      `ordered in ${qty(P.moq)}s; you have ${qty(total)}. The order can still be raised, and the ` +
+      `approver will see the shortfall.`;
+    btn.disabled = false;
   } else if (next) {
     hint.innerHTML = `Add <strong>${qty(next.min_qty - total)}</strong> more to reach ${money(next.unit_price)} each.`;
     hint.classList.add('muted');
@@ -176,7 +180,7 @@ function paint() {
 function addToCart() {
   const entries = readQtys();
   const total = entries.reduce((a, e) => a + e.qty, 0);
-  if (total < P.moq) return;
+  if (total === 0) return;
 
   // Replace this product's existing lines rather than stacking onto them, so
   // the page always reflects exactly what the inputs show.

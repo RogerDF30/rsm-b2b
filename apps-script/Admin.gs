@@ -732,10 +732,19 @@ function carryOverStaticFields() {
 }
 
 function buildSiteJson() {
+  /* Checkout used to fetch these live, which meant two dropdowns sat empty for
+     several seconds on every order. They change about twice a year. */
+  var departments = readTab(SHEETS.DEPARTMENTS)
+    .filter(function (d) { return String(d.active).toUpperCase() !== 'FALSE'; })
+    .map(function (d) {
+      return { lob: String(d.lob).trim(), approver: String(d.approver_name || '').trim() };
+    });
+
   return {
     generated_at: now(),
     settings: readSettings(),
-    banners: readBanners(false)
+    banners: readBanners(false),
+    departments: departments
   };
 }
 

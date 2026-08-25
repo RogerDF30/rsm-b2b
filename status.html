@@ -55,17 +55,48 @@
   };
 })();
 
+let LOADING = false;
+
 async function load(id, email) {
+  if (LOADING) return;
+  LOADING = true;
+
   const out = document.getElementById('out');
+  const btn = document.querySelector('#findForm button');
+  if (btn) { btn.disabled = true; btn.textContent = 'Looking…'; }
+
   out.textContent = '';
-  out.append(el('p', { class: 'muted' }, 'Loading…'));
+  out.append(el('div', { class: 'panel', style: 'margin-top:18px' },
+    el('div', { class: 'muted' }, 'Looking up ' + id + '…'),
+    el('div', { class: 'small muted', style: 'margin-top:6px' },
+      'The backend runs on Apps Script and takes a few seconds to answer.')));
+
   try {
     const r = await api('getOrder', { order_id: id, email });
-    render(r.order, r.lines, r.files);
+    render(r.order, r.lines || [], r.files || []);
   } catch (err) {
     out.textContent = '';
-    out.append(el('div', { class: 'note' }, err.message));
+    /* The backend answers the same way whether the id is wrong or the email
+       does not match it, so say both rather than guess. */
+    const notFound = /no order found/i.test(err.message);
+    out.append(el('div', { class: 'note', style: 'margin-top:18px' },
+      el('strong', {}, notFound ? 'No order matches that pair. ' : 'That did not work. '),
+      notFound
+        ? 'Check the order ID, and use the work email the order was raised under. ' +
+          'An order raised by a colleague cannot be looked up with your address.'
+        : err.message));
+  } finally {
+    LOADING = false;
+    if (btn) { btn.disabled = false; btn.textContent = 'Find order'; }
   }
+}
+
+/* The Sheet hands dates back as ISO strings. Nobody wants to read those. */
+function when(v) {
+  if (!v) return '—';
+  const d = new Date(v);
+  if (isNaN(d)) return String(v);
+  return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
 }
 
 function render(o, lines, files) {
@@ -81,7 +112,7 @@ function render(o, lines, files) {
       el('div', { class: 'row-between' },
         el('div', {},
           el('h2', { style: 'border:0;margin:0;padding:0' }, o.order_id),
-          el('div', { class: 'small muted' }, 'Raised ' + o.created_at + ' by ' + o.requester_name)),
+          el('div', { class: 'small muted' }, 'Raised ' + when(o.created_at) + ' by ' + o.requester_name)),
         el('span', { class: 'status ' + o.status.split(' ')[0].toLowerCase() }, o.status)),
 
       rejected
@@ -126,10 +157,11 @@ function render(o, lines, files) {
       el('h2', {}, 'Details'),
       el('table', { class: 'spec-table' }, el('tbody', {},
         [['Department', o.lob], ['Approver', o.lob_approver || '—'],
-         ['Event date', o.event_date], ['Purpose', o.purpose],
+         ['Event date', when(o.event_date)], ['Purpose', o.purpose],
          ['Ship to', `${o.ship_name}, ${o.ship_street}, ${o.ship_city} ${o.ship_state || ''} ${o.ship_pincode}`],
          ['Bill to', `${o.bill_name || o.ship_name}, ${o.bill_street || o.ship_street}, ${o.bill_city || o.ship_city} ${o.bill_pincode || o.ship_pincode}`],
-         ['Decided by', o.decided_by || '—'], ['Decided at', o.decided_at || '—']]
+         ['Decided by', o.decided_by || '—'],
+         ['Decided at', o.decided_at ? when(o.decided_at) : '—']]
           .map(([k, v]) => el('tr', {}, el('td', {}, k), el('td', {}, String(v || '—'))))))),
 
     files && files.length

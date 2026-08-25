@@ -145,10 +145,12 @@ function paint() {
         : null,
 
       !g.meetsMoq
-        ? el('div', { class: 'note', style: 'margin-top:12px' },
-            el('strong', {}, `Add ${qty(g.shortBy)} more.`),
-            ` The minimum order quantity for this product is ${qty(g.product.moq)}` +
-            (g.product.has_sizes ? ', counted across all sizes.' : '.'))
+        ? el('div', { class: 'warn', style: 'margin-top:12px' },
+            el('strong', {}, 'Below the minimum order quantity. '),
+            `This product is normally ordered in ${qty(g.product.moq)}s` +
+            (g.product.has_sizes ? ', counted across all sizes' : '') +
+            `; you have ${qty(g.groupQty)}. Add ${qty(g.shortBy)} more to reach it, or carry on ` +
+            'and the approver will see the shortfall.')
         : g.next
           ? el('div', { class: 'note note-quiet', style: 'margin-top:12px' },
               `Add ${qty(g.needForNext)} more to drop the unit price to ${money(g.next.unit_price)}.`)
@@ -164,13 +166,17 @@ function paint() {
         el('tr', { class: 'grand' }, el('td', {}, 'Total'), el('td', {}, money(r.grandTotal))))),
       el('div', { class: 'small muted', style: 'margin:10px 0 14px' },
         'Shipping is quoted separately by CompanyStore.IO after approval.'),
+      r.belowMoq.length
+        ? el('div', { class: 'warn', style: 'margin-bottom:12px' },
+            r.belowMoq.length === 1
+              ? 'One product is under its minimum order quantity.'
+              : `${r.belowMoq.length} products are under their minimum order quantity.`)
+        : null,
       needsSizes(r)
         ? el('button', { class: 'btn btn-block', disabled: 'disabled' }, 'Assign sizes to continue')
-        : r.valid
-          ? el('a', { class: 'btn btn-block', href: 'checkout.html',
-              onclick: () => Track.event('checkout_start', { value: r.grandTotal }) },
-              'Proceed to checkout')
-          : el('button', { class: 'btn btn-block', disabled: 'disabled' }, 'Minimum quantities not met'),
+        : el('a', { class: 'btn btn-block', href: 'checkout.html',
+            onclick: () => Track.event('checkout_start', { value: r.grandTotal }) },
+            'Proceed to checkout'),
       el('a', { class: 'btn btn-ghost btn-block', href: 'index.html', style: 'margin-top:8px' }, 'Continue shopping')));
 }
 </script>

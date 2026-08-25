@@ -59,7 +59,7 @@ var TAB_HEADERS = {
 
   OrderLines: ['order_id', 'line_no', 'parent_sku', 'variant_sku',
     'product_name', 'size', 'qty', 'group_qty', 'tier_applied', 'unit_price',
-    'line_total', 'gst_rate', 'tax_amount', 'line_total_with_tax'],
+    'line_total', 'gst_rate', 'tax_amount', 'line_total_with_tax', 'below_moq'],
 
   Files: ['file_id', 'order_id', 'filename', 'mime', 'bytes', 'drive_url',
     'uploaded_by', 'uploaded_at'],
@@ -179,6 +179,19 @@ function healthCheck() {
 function upgradeSchema() {
   var ss = book();
   var done = [];
+
+  // 0. below_moq on OrderLines. Orders under the minimum are accepted now, and
+  //    the approver is told which lines are short.
+  var linesSh = ss.getSheetByName(SHEETS.LINES);
+  if (linesSh) {
+    var lineHead = linesSh.getRange(1, 1, 1, linesSh.getLastColumn()).getValues()[0]
+      .map(function (h) { return String(h).trim(); });
+    if (lineHead.indexOf('below_moq') < 0) {
+      linesSh.getRange(1, lineHead.length + 1).setValue('below_moq')
+        .setFontWeight('bold').setBackground('#F4F8FB');
+      done.push('added below_moq to OrderLines');
+    }
+  }
 
   // 1. Departments tab
   if (!ss.getSheetByName(SHEETS.DEPARTMENTS)) {
