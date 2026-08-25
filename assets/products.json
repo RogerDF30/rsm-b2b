@@ -1,6 +1,6 @@
 {
  "generated_from": "admin console",
- "generated_at": "2026-08-25 13:09:38",
+ "generated_at": "2026-08-25 13:59:11",
  "pricing_status": "from the Sheet",
  "categories": [
   {
@@ -8509,34 +8509,39 @@
    "attribute_set": "",
    "description": "Crafted from 100% fine cotton for a premium feel.\nFeatures 230 GSM compacted pre-shrunk fabric.\nRegular fit ensures an effortless, comfortable silhouette.\nLightweight and breathable, perfect for all-day wear.\nGender: Men",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 547,
+   "base_price": 525,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 525
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 547
+     "unit_price": 514.5
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 525
+     "unit_price": 493.92
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 488
+     "unit_price": 459.35
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 430
+     "unit_price": 404.22
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 374
+     "unit_price": 351.67
     }
    ],
    "sizes": [
@@ -8570,34 +8575,39 @@
    "attribute_set": "",
    "description": "Dry Fit polo shirt with a classic style\nMaterial wicks away perspiration and dries fast, regulating body temperature\nGender: Men",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 559,
+   "base_price": 575,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 575
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 559
+     "unit_price": 563.5
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 536
+     "unit_price": 540.96
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 499
+     "unit_price": 503.09
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 439
+     "unit_price": 442.72
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 382
+     "unit_price": 385.17
     }
    ],
    "sizes": [
@@ -8628,29 +8638,39 @@
    "attribute_set": "",
    "description": "Made from 65% recycled cotton and 35% recycled polyester\nBlended with polyester and pre-consumer textiles\nManufactured without harmful dyes\nDesigned to conserve water and reduce CO₂ emissions\nEnvironmentally friendly, supports sustainable cotton farming",
    "specs": [],
-   "moq": 100,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 1698,
+   "base_price": 1805,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 1805
+    },
+    {
+     "min_qty": 50,
+     "max_qty": 99,
+     "unit_price": 1768.9
+    },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1698
+     "unit_price": 1650
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1579
+     "unit_price": 1534.5
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1390
+     "unit_price": 1350.36
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1209
+     "unit_price": 1174.81
     }
    ],
    "sizes": [
@@ -8684,29 +8704,39 @@
    "attribute_set": "",
    "description": "Lightweight, breathable, jersey for all-day comfort.\nStretchable fabric with moisture-wicking and anti-microbial properties.\nMade from 88% polyester and 12% spandex for flexibility and durability.",
    "specs": [],
-   "moq": 100,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 1552,
+   "base_price": 1650,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 1650
+    },
+    {
+     "min_qty": 50,
+     "max_qty": 99,
+     "unit_price": 1617
+    },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1552
+     "unit_price": 1510
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1444
+     "unit_price": 1404.3
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1270
+     "unit_price": 1235.78
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1105
+     "unit_price": 1075.13
     }
    ],
    "sizes": [
@@ -8740,34 +8770,39 @@
    "attribute_set": "",
    "description": "Made from 100% cotton, compacted, washed, and preshrunk for durability.\nCrafted with 280 GSM fabric for superior comfort and warmth.\nRibbed cuffs and waistband ensure a snug, polished fit.\nBrushed interior provides soft, comfort.\nProduct Information",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 970,
+   "base_price": 990,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 990
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 970
+     "unit_price": 970.2
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 931
+     "unit_price": 931.39
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 838
+     "unit_price": 838.25
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 713
+     "unit_price": 712.51
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 570
+     "unit_price": 570.01
     }
    ],
    "sizes": [
@@ -8801,10 +8836,15 @@
    "attribute_set": "",
    "description": "\"Crafted from 100% cotton for ultimate softness and comfort.\nCompacted, washed, and preshrunk fabric ensures a lasting fit.\nFeatures a contrasting hood color for added style.\nFull zip closure and spacious kangaroo pocket for practicality.\nRibbed cuffs and hem add a snug, polished touch.\nStylish, relaxed design ideal for everyday wear.\"",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 1225,
+   "base_price": 1250,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 1250
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
@@ -8818,17 +8858,17 @@
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1094
+     "unit_price": 1093.68
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 962
+     "unit_price": 962.44
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 837
+     "unit_price": 837.32
     }
    ],
    "sizes": [
@@ -8862,34 +8902,39 @@
    "attribute_set": "",
    "description": "\"Durable 100% Swag fleece for long-lasting wear.\nFeatures a reverse-coil zipper for a sleek finish.\nLong sleeves for added warmth and coverage.\nFeatures front zippered pockets\"",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 1544,
+   "base_price": 1375,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 1375
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1544
+     "unit_price": 1347.5
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1451
+     "unit_price": 1266.65
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1291
+     "unit_price": 1127.32
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1033
+     "unit_price": 901.85
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 919
+     "unit_price": 802.65
     }
    ],
    "sizes": [
@@ -8975,29 +9020,39 @@
    "attribute_set": "",
    "description": "Funnel Neck Pullover Women's Stay warm and stylish with this eco-friendly pullover. Featuring a modern funnel neck design and raglan sleeves for unrestricted movement, it’s perfect for relaxing at home or staying active on the go.Classic fitFabric: 58% Recycled Cotton, 38% Recycler Polyester, 4% Spandex Embroidery decoration.",
    "specs": [],
-   "moq": 100,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 1833,
+   "base_price": 2100,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 2100
+    },
+    {
+     "min_qty": 50,
+     "max_qty": 99,
+     "unit_price": 2037
+    },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1833
+     "unit_price": 1915
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1705
+     "unit_price": 1780.95
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1500
+     "unit_price": 1567.24
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1305
+     "unit_price": 1363.5
     }
    ],
    "sizes": [
@@ -9031,34 +9086,39 @@
    "attribute_set": "",
    "description": "This value-priced cap has a contrast sandwich brim and a quintessential look for up-to-date style.\nFabric: 100% cotton twill. Closure: Hook and loop.\nStyle - Onesize",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 195,
+   "base_price": 210,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 210
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 195
+     "unit_price": 195.3
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 187
+     "unit_price": 187.49
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 174
+     "unit_price": 174.36
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 166
+     "unit_price": 165.65
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 141
+     "unit_price": 140.8
     }
    ],
    "sizes": [],
@@ -9084,34 +9144,39 @@
    "attribute_set": "",
    "description": "Stylish and versatile design with a flat brim visor\nAdjustable snapback for a comfortable fit\nMade from soft, breathable polyester/cotton blend\nEmbroidered side holes on each panel for better airflow and cooling\nHelps reduce sweating during outdoor summer wear\nFeatures an adjustable Velcro strap for added convenience",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 377,
+   "base_price": 385,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 385
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 377
+     "unit_price": 377.3
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 362
+     "unit_price": 362.21
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 326
+     "unit_price": 325.99
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 287
+     "unit_price": 286.87
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 250
+     "unit_price": 249.58
     }
    ],
    "sizes": [],
@@ -9137,34 +9202,39 @@
    "attribute_set": "",
    "description": "Structured mid-profile cap made from 100% polyester jersey\nFabric: 100% polyester jersey with sandwich bill\nStructure: Structured",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 255,
+   "base_price": 260,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 260
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 255
+     "unit_price": 254.8
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 245
+     "unit_price": 244.61
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 220
+     "unit_price": 220.15
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 194
+     "unit_price": 193.73
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 169
+     "unit_price": 168.54
     }
    ],
    "sizes": [],
@@ -9190,10 +9260,15 @@
    "attribute_set": "",
    "description": "Features a quilted “puffy jacket” style body for a trendy and eye-catching look.\nDesigned with a pre-curved fabric visor that provides shade and a classic cap silhouette.\nConstructed with a six-panel structure for a structured and comfortable fit.\nEquipped with an adjustable plastic snap closure for a secure and customizable fit.\nDetailed with embroidered logos and an embroidered logo patch for a premium finish.\nAvailable in a stylish grey and black color combination.\nCute, classic, and close-fitting design makes it ideal for daily wear and suitable for any occasion.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 336,
+   "base_price": 350,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 350
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
@@ -9202,22 +9277,22 @@
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 323
+     "unit_price": 322.56
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 290
+     "unit_price": 290.3
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 232
+     "unit_price": 232.24
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 200
+     "unit_price": 199.73
     }
    ],
    "sizes": [],
@@ -9243,34 +9318,39 @@
    "attribute_set": "",
    "description": "Cap features a contrast rollover underbill for added style\nVintage wash gives it a lived-in, worn-in look\nMade from 100% cotton twill fabric\nStructured design for a classic fit\nClosure: Velcro / Hook and loop",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 191,
+   "base_price": 195,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 195
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 191
+     "unit_price": 191.1
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 183
+     "unit_price": 183.46
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 171
+     "unit_price": 170.61
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 150
+     "unit_price": 150.14
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 131
+     "unit_price": 130.62
     }
    ],
    "sizes": [],
@@ -9296,34 +9376,39 @@
    "attribute_set": "",
    "description": "Brighten up your day with the Tonal Cap. Its vibrant color adds a pop of sunshine to your outfit, making it impossible to go unnoticed. 100% Cotton Fabric twill cap. 5 panel construction. 3D Embroidered logo in front. Moisture wicking sweatband. Curve bill style.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 166,
+   "base_price": 175,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 175
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 166
+     "unit_price": 166.25
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 155
+     "unit_price": 154.61
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 144
+     "unit_price": 143.79
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 127
+     "unit_price": 126.53
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 113
+     "unit_price": 112.62
     }
    ],
    "sizes": [],
@@ -9350,34 +9435,39 @@
    "attribute_set": "",
    "description": "Cotton corduroy. Structured fit. Plastic snapback closure. Navy with embroidery. It’s a two-toned delight with a cap offering seriously soft corduroy along with our logo to complete the look. A structured fit creates a comfortable shape while a snapback closure ensures a great fit.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 387,
+   "base_price": 395,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 395
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 387
+     "unit_price": 387.1
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 372
+     "unit_price": 371.62
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 346
+     "unit_price": 345.6
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 304
+     "unit_price": 304.13
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 265
+     "unit_price": 264.59
     }
    ],
    "sizes": [],
@@ -9400,34 +9490,39 @@
    "attribute_set": "",
    "description": "Classic bucket hat design with wide all-around brim\nLightweight and comfortable for everyday wear\nProvides shade and protection during outdoor activities\nA versatile accessory for casual wear and travel",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 213,
+   "base_price": 220,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 220
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 213
+     "unit_price": 213.4
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 205
+     "unit_price": 204.86
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 191
+     "unit_price": 190.52
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 168
+     "unit_price": 167.66
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 146
+     "unit_price": 145.86
     }
    ],
    "sizes": [],
@@ -9453,34 +9548,39 @@
    "attribute_set": "",
    "description": "Designed for practicality and style, the Wizzer Bag is the perfect companion for your daily essentials. With a compact yet spacious design, it offers organized storage while maintaining a sleek and modern look.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 169,
+   "base_price": 180,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 180
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 169
+     "unit_price": 169.2
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 162
+     "unit_price": 162.43
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 151
+     "unit_price": 151.06
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 133
+     "unit_price": 132.93
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 116
+     "unit_price": 115.65
     }
    ],
    "sizes": [],
@@ -9502,34 +9602,39 @@
    "attribute_set": "",
    "description": "Made from 600D TPU coated rPET and neoprene using recycled materials\nSpacious open cavity fits towels and large beach essentials\nInterior water-resistant zippered pocket for organized storage\nVersatile carry options with padded grab handles and fixed shoulder straps\nProduct Information",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 916,
+   "base_price": 835,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 835
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 916
+     "unit_price": 818.3
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 880
+     "unit_price": 785.57
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 800
+     "unit_price": 714.87
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 704
+     "unit_price": 629.08
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 613
+     "unit_price": 547.3
     }
    ],
    "sizes": [],
@@ -9551,34 +9656,39 @@
    "attribute_set": "",
    "description": "Fastening: zipper\nRucksack travel bag with laptop compartment with100% 600d polyester, highly durable\nLarge main compartment and front vertical zipper pocket with internal slip and zipper mesh pockets and top lid pocket\nSeparate laptop compartment with access from back panel\nPadded shoulder straps with easy access metro card pocket\nDimensions: 30.5 cm x 51 cm x 25.4 cm , capacity: 26 ltr ,weight: 0.84 kg , no. of compartments: 5",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 1558,
+   "base_price": 1590,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 1590
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1558
+     "unit_price": 1558.2
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1496
+     "unit_price": 1495.87
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1391
+     "unit_price": 1391.16
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1224
+     "unit_price": 1224.22
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1065
+     "unit_price": 1065.07
     }
    ],
    "sizes": [],
@@ -9604,34 +9714,39 @@
    "attribute_set": "",
    "description": "MULTI UTILITY Backpack for daily use including or weekend travelling,\nhiking and trekking for both men and women. Waist Pads, shoulder\nstraps and chest strap aid in load adjustment. Detachable Waist\nBelt, Shoulder and Chest Straps along with multiple compression\nstraps aid in load adjustment.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 1509,
+   "base_price": 1540,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 1540
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1509
+     "unit_price": 1509.2
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1449
+     "unit_price": 1448.83
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1347
+     "unit_price": 1347.41
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1213
+     "unit_price": 1212.67
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1152
+     "unit_price": 1152.04
     }
    ],
    "sizes": [],
@@ -9656,34 +9771,39 @@
    "attribute_set": "",
    "description": "Spacious zippered main compartment with a secure laptop compartment\nPadded 14 inch laptop sleeve. External zippered compartment with 2\ndeep slip-in pockets and a keyring holder. Capacity : 11 Litres\nMaterial : Recycled Nylon Ripstop, Nylon lining\nDimensions : 42 (H) x 32 (W) x 12(D) cms",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 1298,
+   "base_price": 1025,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 1025
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1298
+     "unit_price": 1004.5
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1221
+     "unit_price": 944.23
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1135
+     "unit_price": 878.13
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 942
+     "unit_price": 728.85
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 801
+     "unit_price": 619.52
     }
    ],
    "sizes": [],
@@ -9706,34 +9826,39 @@
    "attribute_set": "",
    "description": "Padded laptop compartment that fits up to a 15 inch laptop with a strap\nlock & a 180 ° flat opening for easy access. Has a silicon grab handle &\nergonomic shoulder straps designed for extra comfort. Straps feature easy\nlength adjustment buckles. Crafted with durable and premium zippers.\nSplendidly sized: 42 x 26 x 15.5 cms.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 1984,
+   "base_price": 2025,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 2025
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1984
+     "unit_price": 1984.5
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1905
+     "unit_price": 1905.12
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1772
+     "unit_price": 1771.76
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1559
+     "unit_price": 1559.15
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1356
+     "unit_price": 1356.46
     }
    ],
    "sizes": [],
@@ -9759,34 +9884,39 @@
    "attribute_set": "",
    "description": "This essential overnight bag combines a clean, contemporary design with\npractical functionality. Featuring a spacious main compartment, it provides\nample room for clothing, tech, and other essentials—perfect for a work\ntrip or weekend getaway. while the coated zip closure ensures water\nresistance to keep your items dry. Dimensions: H27 x D26 x W52 cm",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 1680,
+   "base_price": 1455,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 1455
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1680
+     "unit_price": 1396.8
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1613
+     "unit_price": 1340.93
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1500
+     "unit_price": 1247.06
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1320
+     "unit_price": 1097.42
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1148
+     "unit_price": 954.75
     }
    ],
    "sizes": [],
@@ -9812,34 +9942,39 @@
    "attribute_set": "",
    "description": "Can be worn as a fanny pack or across the chest sling. 230T\npolyester & 150D polyester Lining. Zippered main compartment.\nBack zippered pocket. 2\" Gusset. 40\" Strap, 52\" including bag\nDetachable/Adjustable Waist Strap.\nSpot clean/air dry. Size: 7.5\"W x 5\"H.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 524,
+   "base_price": 499,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 499
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 524
+     "unit_price": 489.02
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 503
+     "unit_price": 469.46
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 468
+     "unit_price": 436.6
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 412
+     "unit_price": 384.21
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 350
+     "unit_price": 326.57
     }
    ],
    "sizes": [],
@@ -9866,34 +10001,39 @@
    "attribute_set": "",
    "description": "Stylish and Functional Sling Bag Upgrade your everyday look with this\nsleek and versatile sling bag, designed for both convenience and style.\nCrafted with premium materials, it oers durability and a modern aesthetic\nthat suits any occasion. Features: Compact\nDesign: Perfect for carrying your essentials without the bulk.\nAdjustable Strap: Customize the fit for maximum comfort on the go.\nMultiple Compartments: Stay organized with spacious pockets for your\nphone, wallet, keys, and more. Lightweight & Durable.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 710,
+   "base_price": 725,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 725
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 710
+     "unit_price": 710.5
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 682
+     "unit_price": 682.08
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 634
+     "unit_price": 634.33
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 571
+     "unit_price": 570.9
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 514
+     "unit_price": 513.81
     }
    ],
    "sizes": [],
@@ -9920,34 +10060,39 @@
    "attribute_set": "",
    "description": "Express your love for the innovation company that inspires us all\nto fuel progress and make the world work better.\n210-denier polyester ripstop. Travel Product\nThree zip front pockets. Large zip back pocket. Hanging loop\nDimensions: 9\"x7\"Inches",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 260,
+   "base_price": 265,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 265
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 260
+     "unit_price": 259.7
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 249
+     "unit_price": 249.31
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 232
+     "unit_price": 231.86
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 199
+     "unit_price": 199.4
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 173
+     "unit_price": 173.48
     }
    ],
    "sizes": [],
@@ -9969,34 +10114,39 @@
    "attribute_set": "",
    "description": "Spacious DUFFLE BAG for everyday gym or a short travel \nSide zipper pocket to keep your shoes seperate \nAdjustable long handle along with short handles for ease \nTop zipper for keeping everything secured",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 1166,
+   "base_price": 1099,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 1099
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1166
+     "unit_price": 1077.02
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1120
+     "unit_price": 1033.94
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1041
+     "unit_price": 961.56
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 916
+     "unit_price": 846.18
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 797
+     "unit_price": 736.17
     }
    ],
    "sizes": [],
@@ -10020,34 +10170,39 @@
    "attribute_set": "",
    "description": "Lightweight super smart duffle for travel or gym \nQuilt look material enhances the bag appeal. \nDetachable and adjustable handles for personal comfort. \nQuick access back zipper pocket.\nLaptop compartment inside that fits in 15.6  Inch  laptop.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 1632,
+   "base_price": 1665,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 1665
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1632
+     "unit_price": 1631.7
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1566
+     "unit_price": 1566.43
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1504
+     "unit_price": 1503.77
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1429
+     "unit_price": 1428.59
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1421
+     "unit_price": 1421.44
     }
    ],
    "sizes": [],
@@ -10071,34 +10226,39 @@
    "attribute_set": "",
    "description": "Made from durable 300D Ripstop fabric using 100% recycled polyester with PU coating.\nFabric is sourced from pre-consumer waste, making it environmentally responsible.\nSide zipper provides quick access to a padded interior sleeve suitable for tablets, e-readers, etc.\nAmbidextrous, adjustable strap allows the bag to be worn over either shoulder, across the chest, or on the back.\nTricot-lined top pocket offers scratch protection for phones or sunglasses.\nSoft satin front zip pocket includes a key keeper for added convenience.\nRoomy main compartment accommodates everyday essentials.\nStylish yet functional design makes it a versatile and favorite everyday sling bag",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 990,
+   "base_price": 1010,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 1010
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 990
+     "unit_price": 989.8
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 950
+     "unit_price": 950.21
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 884
+     "unit_price": 883.69
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 778
+     "unit_price": 777.65
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 677
+     "unit_price": 676.56
     }
    ],
    "sizes": [],
@@ -10124,34 +10284,39 @@
    "attribute_set": "",
    "description": "Sleek and lightweight design for everyday convenience\nAdjustable belt strap ensures a secure and comfortable fit\nMain zippered pocket keeps essentials organized and within reach\nPerfect for travel, outdoor adventures, or casual daily wear",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 892,
+   "base_price": 910,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 910
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 892
+     "unit_price": 891.8
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 856
+     "unit_price": 856.13
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 796
+     "unit_price": 796.2
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 701
+     "unit_price": 700.66
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 610
+     "unit_price": 609.57
     }
    ],
    "sizes": [],
@@ -10177,29 +10342,39 @@
    "attribute_set": "",
    "description": "Made from cotton canvas fabric featuring broad shoulder straps\nFeatures a coconut button on the front\nSize: L 35.5cm x W 10cm x H 34cm",
    "specs": [],
-   "moq": 100,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 541,
+   "base_price": 575,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 575
+    },
+    {
+     "min_qty": 50,
+     "max_qty": 99,
+     "unit_price": 563.5
+    },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 541
+     "unit_price": 540.96
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 503
+     "unit_price": 503.09
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 443
+     "unit_price": 442.72
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 385
+     "unit_price": 385.17
     }
    ],
    "sizes": [],
@@ -10225,34 +10400,39 @@
    "attribute_set": "",
    "description": "Designed to keep everyday tech essentials organized, this versatile organizer is ideal for storing headphones, chargers, cables, power banks, and other accessories. Made from durable 100% polyester, it features premium reversed YKK zippers, a 4×5 Molle panel with Velcro strips, internal mesh compartments, a zippered pocket, and elastic webbing for secure storage and easy access. Size: 10\" W × 6.75\" H × 4.3\" D.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 557,
+   "base_price": 485,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 485
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 557
+     "unit_price": 465.6
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 535
+     "unit_price": 446.98
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 497
+     "unit_price": 415.69
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 437
+     "unit_price": 365.81
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 381
+     "unit_price": 350
     }
    ],
    "sizes": [],
@@ -10278,34 +10458,39 @@
    "attribute_set": "",
    "description": "BeHome introduces the Zebra Travel Mug, a design-forward beverage solution engineered to permanently eliminate the anxiety of workplace spills and damaged electronics. Fusing minimalist aesthetic appeal with cutting-edge physics, the Zebra Travel Mug is built specifically for modern professionals, commuters, and dynamic creators.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 1147,
+   "base_price": 1025,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 1025
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1147
+     "unit_price": 1004.5
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1101
+     "unit_price": 964.32
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1057
+     "unit_price": 925.75
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 951
+     "unit_price": 833.17
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 827
+     "unit_price": 724.86
     }
    ],
    "sizes": [],
@@ -10330,34 +10515,39 @@
    "attribute_set": "",
    "description": "The BeHome Marvel Single Wall Stainless Steel Water Bottle (Model Code: MWB 123) is a sleek, lightweight hydration bottle designed primarily for corporate gifting and sports merchandising",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 341,
+   "base_price": 345,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 345
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 341
+     "unit_price": 331.2
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 327
+     "unit_price": 317.95
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 304
+     "unit_price": 295.7
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 268
+     "unit_price": 260.21
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 233
+     "unit_price": 226.38
     }
    ],
    "sizes": [],
@@ -10382,34 +10572,39 @@
    "attribute_set": "",
    "description": "A 750 ml vacuum-insulated sports steel flask featuring a clean, matte white finish designed for outdoor sports, gym workouts, and travel.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 897,
+   "base_price": 815,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 815
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 897
+     "unit_price": 798.7
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 861
+     "unit_price": 766.75
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 801
+     "unit_price": 713.08
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 705
+     "unit_price": 627.51
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 613
+     "unit_price": 545.93
     }
    ],
    "sizes": [],
@@ -10433,34 +10628,39 @@
    "attribute_set": "",
    "description": "Bamboo lined steel vacuum flask. Keeps your beverage hot or cold for a longer period Capacity: 500\nml",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 783,
+   "base_price": 710,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 710
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 783
+     "unit_price": 695.8
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 752
+     "unit_price": 667.97
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 714
+     "unit_price": 634.57
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 607
+     "unit_price": 539.38
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 486
+     "unit_price": 431.51
     }
    ],
    "sizes": [],
@@ -10484,34 +10684,39 @@
    "attribute_set": "",
    "description": "Urban Gear CARTER stainless steel travel mug with handle\n900 ml capacity, weight 372 g\nDimensions: 7.5 × 11 × 24 cm for tall, sleek design\nBPA-free construction for safe use\nDouble-wall insulated stainless steel body\nKeeps beverages hot or cold for extended periods",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 735,
+   "base_price": 699,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 699
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 735
+     "unit_price": 685.02
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 706
+     "unit_price": 657.62
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 656
+     "unit_price": 611.59
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 577
+     "unit_price": 538.2
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 491
+     "unit_price": 457.47
     }
    ],
    "sizes": [],
@@ -10536,34 +10741,39 @@
    "attribute_set": "",
    "description": "Ceramic Mug with Bamboo Lid & Handle 13.5x8x10cm\n389gms Capacity: 350ml Material: Ceramic with Bamboo\nNO BPA\nHot & Cold\nBPA Free",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 671,
+   "base_price": 685,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 685
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 671
+     "unit_price": 671.3
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 644
+     "unit_price": 644.45
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 599
+     "unit_price": 599.34
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 527
+     "unit_price": 527.42
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 459
+     "unit_price": 458.85
     }
    ],
    "sizes": [],
@@ -10587,34 +10797,39 @@
    "attribute_set": "",
    "description": "Stainless Steel Vaccum Bottle\n* 7*7*23cm\n* 500ml\n* SS 304 Grade\n* Wooden Cap With Handle For easy carry\n* Hot and Cold : upto 6 to 8 hours\n* Latest Vaccum Technology\n* 273gms",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 671,
+   "base_price": 685,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 685
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 671
+     "unit_price": 671.3
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 644
+     "unit_price": 644.45
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 599
+     "unit_price": 599.34
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 527
+     "unit_price": 527.42
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 459
+     "unit_price": 458.85
     }
    ],
    "sizes": [],
@@ -10637,19 +10852,39 @@
    "attribute_set": "",
    "description": "Organize your workspace effortlessly with our Mouse Holder, designed to keep your mouseand within easy reach. Its compact and functional design helps reduce desk clutter while improving accessibility during work.",
    "specs": [],
-   "moq": 500,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 346,
+   "base_price": 450,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 450
+    },
+    {
+     "min_qty": 50,
+     "max_qty": 99,
+     "unit_price": 385
+    },
+    {
+     "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 369.6
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 343.73
+    },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 346
+     "unit_price": 302.48
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 301
+     "unit_price": 263.16
     }
    ],
    "sizes": [],
@@ -10675,19 +10910,39 @@
    "attribute_set": "",
    "description": "Soft fabric phone stand designed like a mini bean bag cushion, offering a fun and comfortable way to support your smartphone. Its triangular shape and non-slip base provide stable, hands-free viewing for movies, video calls, or browsing. Lightweight, portable, and visually appealing, it is made from reusable, washable fabric for everyday convenience. Product dimensions: 11.43 × 12.45 × 7.87 cm; Weight: 68.04 grams.",
    "specs": [],
-   "moq": 500,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 135,
+   "base_price": 175,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 175
+    },
+    {
+     "min_qty": 50,
+     "max_qty": 99,
+     "unit_price": 171.5
+    },
+    {
+     "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 164.64
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 153.12
+    },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 135
+     "unit_price": 134.74
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 117
+     "unit_price": 117.22
     }
    ],
    "sizes": [],
@@ -10713,34 +10968,39 @@
    "attribute_set": "",
    "description": "Stylish natural canvas pouch with a secure zipper.\nCompact and chic design for everyday essentials.\nPerfect for organizing makeup, tools, and travel items.\nNeutral-toned with a convenient top zipper.\nSize: 7.5\" H x 5.9\" W.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 142,
+   "base_price": 165,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 165
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 142
+     "unit_price": 161.7
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 136
+     "unit_price": 155.23
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 127
+     "unit_price": 144.37
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 112
+     "unit_price": 127.04
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 100
+     "unit_price": 114.34
     }
    ],
    "sizes": [],
@@ -10762,34 +11022,39 @@
    "attribute_set": "",
    "description": "Practical wooden wire manager for cable organization.\nEasily attachable to any flat surface for convenience.\nPrevents tangling and clutter, keeping wires neatly in place.\nSleek wooden design adds elegance to your workspace.\nProvides a tidy and efficient cable management solution.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 240,
+   "base_price": 285,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 285
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 240
+     "unit_price": 279.3
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 230
+     "unit_price": 268.13
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 214
+     "unit_price": 249.36
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 189
+     "unit_price": 219.44
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 164
+     "unit_price": 190.91
     }
    ],
    "sizes": [],
@@ -10815,34 +11080,39 @@
    "attribute_set": "",
    "description": "These massage balls with small spikes are designed for deeply massaging hands and feet. Used for acupressure massage and foot reflexology. What could be better than a massage for relaxing your muscles?Treat yourself to a few minutes of relaxation after working out or everyday activities.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 297,
+   "base_price": 220,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 220
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 297
+     "unit_price": 217.8
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 285
+     "unit_price": 209.09
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 271
+     "unit_price": 198.63
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 244
+     "unit_price": 178.77
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 224
+     "unit_price": 164.47
     }
    ],
    "sizes": [],
@@ -10868,34 +11138,39 @@
    "attribute_set": "",
    "description": "Designed for relaxing your muscles and trigger points with a self-massage. The massage tool can be used on many body areas: legs, arms, pectorals, neck. The massage tool can be used on many body areas: legs, arms, pectorals, neck.The manual massage is enhanced by vibrations.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 1127,
+   "base_price": 1100,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 1100
+    },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1127
+     "unit_price": 1078
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1104
+     "unit_price": 1056.44
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1082
+     "unit_price": 1035.31
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1061
+     "unit_price": 1014.6
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1008
+     "unit_price": 963.87
     }
    ],
    "sizes": [],
@@ -10920,29 +11195,39 @@
    "attribute_set": "",
    "description": "Relieve tension and stay focused with our Stress Buster Ball, designed to help you relax anytime, anywhere. Made from high-quality, durable foam, this soft and squeezable ball fits perfectly in your hand, making it ideal for stress relief, improving grip strength, and enhancing concentration",
    "specs": [],
-   "moq": 100,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 202,
+   "base_price": 185,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 185
+    },
+    {
+     "min_qty": 50,
+     "max_qty": 99,
+     "unit_price": 181.3
+    },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 202
+     "unit_price": 177.67
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 196
+     "unit_price": 172.34
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 176
+     "unit_price": 155.11
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 153
+     "unit_price": 134.95
     }
    ],
    "sizes": [],
@@ -10968,29 +11253,39 @@
    "attribute_set": "",
    "description": "Stay focused and relaxed with our high-quality Fidget Spinner, designed to reduce stress and improve concentration. Built with smooth, high-speed bearings, it delivers a satisfying and long-lasting spin with minimal effort.",
    "specs": [],
-   "moq": 100,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 132,
+   "base_price": 145,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 145
+    },
+    {
+     "min_qty": 50,
+     "max_qty": 99,
+     "unit_price": 142.1
+    },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 132
+     "unit_price": 136.42
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 122
+     "unit_price": 126.87
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 110
+     "unit_price": 114.18
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 100
+     "unit_price": 103.9
     }
    ],
    "sizes": [],
@@ -11016,29 +11311,39 @@
    "attribute_set": "",
    "description": "Relax, and challenge your mind with our 100-Piece Puzzle, perfect for all age groups. Designed with vibrant prints and precision-cut pieces, this puzzle offers a smooth and enjoyable assembly experience while boosting focus, memory, and problem-solving skills.",
    "specs": [],
-   "moq": 100,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 494,
+   "base_price": 465,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 465
+    },
+    {
+     "min_qty": 50,
+     "max_qty": 99,
+     "unit_price": 455.7
+    },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 494
+     "unit_price": 437.47
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 459
+     "unit_price": 406.85
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 404
+     "unit_price": 358.03
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 352
+     "unit_price": 311.48
     }
    ],
    "sizes": [],
@@ -11064,39 +11369,39 @@
    "attribute_set": "",
    "description": "Battery Capacity: 10,000 mAh Lithium-Polymer batteryFast Charging: Delivers up to 22.5W max output with support for Type-C Power Delivery (PD) and universal Mach USB-A.",
    "specs": [],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 875,
+   "base_price": 845,
    "tiers": [
     {
-     "min_qty": 10,
+     "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 875
+     "unit_price": 845
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 866
+     "unit_price": 836.55
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 858
+     "unit_price": 828.18
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 849
+     "unit_price": 819.9
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 841
+     "unit_price": 811.7
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 832
+     "unit_price": 803.59
     }
    ],
    "sizes": [],
@@ -11122,39 +11427,39 @@
    "attribute_set": "",
    "description": "Capacity: 20,000 mAh (Lithium Polymer).\n\nOutput: 22.5W Max (Fast Charging).\n\nPorts: Dual output—1 Mach USB-A (22.5W) and 1 Type-C PD (20W).\n\nBest Feature: A very clear digital LED display that shows exact battery percentages. It’s \"flight-approved,\" making it a great travel companion.\n\nIdeal For: Travelers and heavy users who already carry their own high-quality charging cables",
    "specs": [],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 1425,
+   "base_price": 1350,
    "tiers": [
     {
-     "min_qty": 10,
+     "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1425
+     "unit_price": 1350
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1411
+     "unit_price": 1309.5
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1397
+     "unit_price": 1283.31
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1383
+     "unit_price": 1231.98
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1369
+     "unit_price": 1170.38
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1355
+     "unit_price": 1111.86
     }
    ],
    "sizes": [],
@@ -11177,39 +11482,39 @@
    "attribute_set": "",
    "description": "Capacity: 20,000 mAh.  Output: 22.5W Max.Integrated Cables: Features built-in Type-C and 8-pin (Lightning) cables. You don’t need to carry any extra wires to charge your phone.  Ports: Can charge 3 devices simultaneously (using the two built-in cables plus the extra USB-A port).  Ideal For: Commuters and people who frequently forget their charging cables at home.",
    "specs": [],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 1845,
    "tiers": [
     {
-     "min_qty": 10,
+     "min_qty": 1,
      "max_qty": 49,
      "unit_price": 1845
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1808
+     "unit_price": 1826.55
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1736
+     "unit_price": 1790.02
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1614
+     "unit_price": 1754.22
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1421
+     "unit_price": 1736.68
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1236
+     "unit_price": 1563.01
     }
    ],
    "sizes": [],
@@ -11232,39 +11537,39 @@
    "attribute_set": "",
    "description": "Capacity: 10,000 mAh.  Output: 22.5W Max.Key Feature: It comes with a detachable Type-C cable that doubles as a carry strap (lanyard). It also supports bidirectional charging, meaning the Type-C port works for both input and output.  Design: Ultra-slim profile with the signature Luxcell LED indicator.  Ideal For: Daily office use or students who just need 1.5–2 full charges to get through the day without the weight of a 20K brick.",
    "specs": [],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 925,
    "tiers": [
     {
-     "min_qty": 10,
+     "min_qty": 1,
      "max_qty": 49,
      "unit_price": 925
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 906
+     "unit_price": 906.5
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 870
+     "unit_price": 888.37
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 809
+     "unit_price": 852.84
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 712
+     "unit_price": 750.49
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 620
+     "unit_price": 742.99
     }
    ],
    "sizes": [],
