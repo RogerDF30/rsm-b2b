@@ -613,6 +613,13 @@ function mount(active) {
   document.body.prepend(header(active));
   document.body.append(footer());
   Cart.paintCount();
+
+  /* The console is staff-only, and its own calls are slow enough already:
+     every tracking POST queues behind them in Apps Script, which is how the
+     unlock ended up failing. Nothing to learn from watching ourselves. */
+  const page = location.pathname.split('/').pop();
+  if (page === 'admin.html' || page === 'analytics.html') return;
+
   Track.event('page_view');
   // one counter for "how much are people actually doing", not per-element
   document.addEventListener('click', e => {
