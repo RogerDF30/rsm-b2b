@@ -1,6 +1,6 @@
 {
  "generated_from": "admin console",
- "generated_at": "2026-08-25 12:31:01",
+ "generated_at": "2026-08-25 13:09:38",
  "pricing_status": "from the Sheet",
  "categories": [
   {
@@ -79,29 +79,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 195,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 195
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 180
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 170
+     "max_qty": 199,
+     "unit_price": 185.25
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 181.35
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 175.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 160
+     "unit_price": 173.55
     }
    ],
    "sizes": [],
@@ -143,29 +148,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 195,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 195
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 180
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 170
+     "max_qty": 199,
+     "unit_price": 185.25
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 181.35
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 175.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 160
+     "unit_price": 173.55
     }
    ],
    "sizes": [],
@@ -211,29 +221,34 @@
      "Grey"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 210,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 210
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 195
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 185
+     "max_qty": 199,
+     "unit_price": 199.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 195.3
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 189
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 170
+     "unit_price": 186.9
     }
    ],
    "sizes": [],
@@ -280,29 +295,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 210,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 210
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 195
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 185
+     "max_qty": 199,
+     "unit_price": 199.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 195.3
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 189
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 170
+     "unit_price": 186.9
     }
    ],
    "sizes": [],
@@ -341,29 +361,34 @@
      "Grey"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 195,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 195
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 180
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 170
+     "max_qty": 199,
+     "unit_price": 185.25
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 181.35
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 175.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 160
+     "unit_price": 173.55
     }
    ],
    "sizes": [],
@@ -401,29 +426,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 195,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 195
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 180
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 170
+     "max_qty": 199,
+     "unit_price": 185.25
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 181.35
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 175.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 160
+     "unit_price": 173.55
     }
    ],
    "sizes": [],
@@ -461,29 +491,34 @@
      "Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 195,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 195
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 180
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 170
+     "max_qty": 199,
+     "unit_price": 185.25
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 181.35
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 175.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 160
+     "unit_price": 173.55
     }
    ],
    "sizes": [],
@@ -521,29 +556,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 195,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 195
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 180
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 170
+     "max_qty": 199,
+     "unit_price": 185.25
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 181.35
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 175.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 160
+     "unit_price": 173.55
     }
    ],
    "sizes": [],
@@ -581,29 +621,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 2250,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 2250
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 2090
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 1980
+     "max_qty": 199,
+     "unit_price": 2137.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2092.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2025
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1845
+     "unit_price": 2002.5
     }
    ],
    "sizes": [
@@ -657,29 +702,34 @@
      "Black"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 2050,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 2050
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 1905
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 1805
+     "max_qty": 199,
+     "unit_price": 1947.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1906.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1845
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1680
+     "unit_price": 1824.5
     }
    ],
    "sizes": [
@@ -717,29 +767,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 2850,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 2850
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 2650
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 2510
+     "max_qty": 199,
+     "unit_price": 2707.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2650.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2565
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 2335
+     "unit_price": 2536.5
     }
    ],
    "sizes": [
@@ -793,29 +848,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 2250,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 2250
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 2090
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 1980
+     "max_qty": 199,
+     "unit_price": 2137.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2092.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2025
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1845
+     "unit_price": 2002.5
     }
    ],
    "sizes": [
@@ -854,29 +914,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 3100,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 3100
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 2885
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 2730
+     "max_qty": 199,
+     "unit_price": 3100
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2945
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2883
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 2540
+     "unit_price": 2759
     }
    ],
    "sizes": [
@@ -942,29 +1007,34 @@
      "Khaki"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 2500,
+   "base_price": 2498,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
-     "unit_price": 2500
-    },
-    {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
-     "unit_price": 2325
+     "unit_price": 2498
     },
     {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 2200
+     "max_qty": 199,
+     "unit_price": 2373.1
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2323.14
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2248.2
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 2050
+     "unit_price": 2223.22
     }
    ],
    "sizes": [
@@ -1030,29 +1100,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 2500,
+   "base_price": 2498,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
-     "unit_price": 2500
-    },
-    {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
-     "unit_price": 2325
+     "unit_price": 2498
     },
     {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 2200
+     "max_qty": 199,
+     "unit_price": 2373.1
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2323.14
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2248.2
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 2050
+     "unit_price": 2223.22
     }
    ],
    "sizes": [
@@ -1118,29 +1193,34 @@
      "Grey"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 2500,
+   "base_price": 2498,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
-     "unit_price": 2500
-    },
-    {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
-     "unit_price": 2325
+     "unit_price": 2498
     },
     {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 2200
+     "max_qty": 199,
+     "unit_price": 2373.1
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2323.14
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2248.2
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 2050
+     "unit_price": 2223.22
     }
    ],
    "sizes": [
@@ -1182,29 +1262,34 @@
      "Grey"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 2250,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 2250
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 2090
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 1980
+     "max_qty": 199,
+     "unit_price": 2137.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2092.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2025
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1845
+     "unit_price": 2002.5
     }
    ],
    "sizes": [
@@ -1239,29 +1324,34 @@
      "Black"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 2750,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 2750
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 2560
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 2420
+     "max_qty": 199,
+     "unit_price": 2612.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2557.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2475
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 2255
+     "unit_price": 2447.5
     }
    ],
    "sizes": [
@@ -1298,29 +1388,34 @@
      "Black"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 2350,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 2350
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 2185
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 2070
+     "max_qty": 199,
+     "unit_price": 2232.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2185.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2115
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1925
+     "unit_price": 2091.5
     }
    ],
    "sizes": [
@@ -1358,29 +1453,34 @@
      "Grey"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 1650,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1650
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 1535
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 1450
+     "max_qty": 199,
+     "unit_price": 1567.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1534.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1485
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1355
+     "unit_price": 1468.5
     }
    ],
    "sizes": [
@@ -1418,29 +1518,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 1650,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1650
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 1535
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 1450
+     "max_qty": 199,
+     "unit_price": 1567.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1534.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1485
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1355
+     "unit_price": 1468.5
     }
    ],
    "sizes": [
@@ -1482,29 +1587,34 @@
      "Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 1650,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1650
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 1535
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 1450
+     "max_qty": 199,
+     "unit_price": 1567.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1534.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1485
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1355
+     "unit_price": 1468.5
     }
    ],
    "sizes": [
@@ -1547,29 +1657,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 1650,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1650
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 1535
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 1450
+     "max_qty": 199,
+     "unit_price": 1567.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1534.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1485
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1355
+     "unit_price": 1468.5
     }
    ],
    "sizes": [
@@ -1608,29 +1723,34 @@
      "Black"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 2250,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 2250
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 2090
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 1980
+     "max_qty": 199,
+     "unit_price": 2250
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2137.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2092.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1845
+     "unit_price": 2002.5
     }
    ],
    "sizes": [
@@ -1668,29 +1788,34 @@
      "Black"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 3150,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 3150
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 2930
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 2770
+     "max_qty": 199,
+     "unit_price": 3150
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2992.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2929.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 2585
+     "unit_price": 2803.5
     }
    ],
    "sizes": [
@@ -1728,29 +1853,34 @@
      "Grey"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 3150,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 3150
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 2930
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 2770
+     "max_qty": 199,
+     "unit_price": 3150
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2992.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2929.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 2585
+     "unit_price": 2803.5
     }
    ],
    "sizes": [
@@ -1787,29 +1917,34 @@
      "Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 3150,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 3150
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 2930
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 2770
+     "max_qty": 199,
+     "unit_price": 3150
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2992.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2929.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 2585
+     "unit_price": 2803.5
     }
    ],
    "sizes": [
@@ -1846,29 +1981,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 3150,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 3150
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 2930
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 2770
+     "max_qty": 199,
+     "unit_price": 3150
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2992.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2929.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 2585
+     "unit_price": 2803.5
     }
    ],
    "sizes": [
@@ -1909,29 +2049,34 @@
      "CVC Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 1550,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1550
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 1440
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 1365
+     "max_qty": 199,
+     "unit_price": 1472.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1441.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1395
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1270
+     "unit_price": 1379.5
     }
    ],
    "sizes": [
@@ -1974,29 +2119,34 @@
      "CVC White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 1550,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1550
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 1440
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 1365
+     "max_qty": 199,
+     "unit_price": 1472.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1441.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1395
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1270
+     "unit_price": 1379.5
     }
    ],
    "sizes": [
@@ -2039,29 +2189,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 1050,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1050
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 975
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 925
+     "max_qty": 199,
+     "unit_price": 997.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 976.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 945
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 860
+     "unit_price": 934.5
     }
    ],
    "sizes": [
@@ -2104,29 +2259,34 @@
      "Sky Blue with Tipping"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 1050,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1050
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 975
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 925
+     "max_qty": 199,
+     "unit_price": 997.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 976.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 945
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 860
+     "unit_price": 934.5
     }
    ],
    "sizes": [
@@ -2169,29 +2329,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 1050,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1050
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 975
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 925
+     "max_qty": 199,
+     "unit_price": 997.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 976.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 945
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 860
+     "unit_price": 934.5
     }
    ],
    "sizes": [
@@ -2225,29 +2390,34 @@
    "attribute_set": "Apparel",
    "description": "Color - Navy Blue,\n \nNeck - Round Neck\n \nSleeve - Short Sleeves\n \n170 GSM - 100% Cotton",
    "specs": [],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 850,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 850
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 790
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 750
+     "max_qty": 199,
+     "unit_price": 807.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 790.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 765
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 695
+     "unit_price": 756.5
     }
    ],
    "sizes": [
@@ -2289,29 +2459,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 850,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 850
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 790
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 750
+     "max_qty": 199,
+     "unit_price": 807.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 790.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 765
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 695
+     "unit_price": 756.5
     }
    ],
    "sizes": [
@@ -2353,29 +2528,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 850,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 850
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 790
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 750
+     "max_qty": 199,
+     "unit_price": 807.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 790.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 765
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 695
+     "unit_price": 756.5
     }
    ],
    "sizes": [
@@ -2417,29 +2597,34 @@
      "Green"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 350,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 350
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 325
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 310
+     "max_qty": 199,
+     "unit_price": 332.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 325.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 315
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 285
+     "unit_price": 311.5
     }
    ],
    "sizes": [
@@ -2481,29 +2666,34 @@
      "Grey"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 350,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 350
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 325
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 310
+     "max_qty": 199,
+     "unit_price": 332.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 325.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 315
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 285
+     "unit_price": 311.5
     }
    ],
    "sizes": [
@@ -2549,29 +2739,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 350,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 350
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 325
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 310
+     "max_qty": 199,
+     "unit_price": 332.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 325.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 315
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 285
+     "unit_price": 311.5
     }
    ],
    "sizes": [
@@ -2617,29 +2812,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 350,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 350
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 325
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 310
+     "max_qty": 199,
+     "unit_price": 332.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 325.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 315
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 285
+     "unit_price": 311.5
     }
    ],
    "sizes": [
@@ -2681,29 +2881,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 350,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 350
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 325
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 310
+     "max_qty": 199,
+     "unit_price": 332.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 325.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 315
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 285
+     "unit_price": 311.5
     }
    ],
    "sizes": [
@@ -2745,29 +2950,34 @@
      "Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 750,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 750
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 700
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 660
+     "max_qty": 199,
+     "unit_price": 712.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 697.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 675
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 615
+     "unit_price": 667.5
     }
    ],
    "sizes": [
@@ -2809,29 +3019,34 @@
      "Grey"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 750,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 750
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 700
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 660
+     "max_qty": 199,
+     "unit_price": 712.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 697.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 675
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 615
+     "unit_price": 667.5
     }
    ],
    "sizes": [
@@ -2870,29 +3085,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 750,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 750
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 700
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 660
+     "max_qty": 199,
+     "unit_price": 712.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 697.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 675
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 615
+     "unit_price": 667.5
     }
    ],
    "sizes": [
@@ -2931,29 +3151,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 750,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 750
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 700
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 660
+     "max_qty": 199,
+     "unit_price": 712.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 697.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 675
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 615
+     "unit_price": 667.5
     }
    ],
    "sizes": [
@@ -2992,29 +3217,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 750,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 750
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 700
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 660
+     "max_qty": 199,
+     "unit_price": 712.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 697.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 675
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 615
+     "unit_price": 667.5
     }
    ],
    "sizes": [
@@ -3054,29 +3284,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 750,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 750
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 700
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 660
+     "max_qty": 199,
+     "unit_price": 712.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 697.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 675
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 615
+     "unit_price": 667.5
     }
    ],
    "sizes": [
@@ -3122,29 +3357,34 @@
      "Charcoal Melange"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 1050,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1050
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 975
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 925
+     "max_qty": 199,
+     "unit_price": 997.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 976.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 945
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 860
+     "unit_price": 934.5
     }
    ],
    "sizes": [
@@ -3190,29 +3430,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 1050,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1050
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 975
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 925
+     "max_qty": 199,
+     "unit_price": 997.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 976.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 945
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 860
+     "unit_price": 934.5
     }
    ],
    "sizes": [
@@ -3255,29 +3500,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 1050,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1050
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 975
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 925
+     "max_qty": 199,
+     "unit_price": 997.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 976.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 945
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 860
+     "unit_price": 934.5
     }
    ],
    "sizes": [
@@ -3331,29 +3581,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 1250,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1250
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 1160
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 1100
+     "max_qty": 199,
+     "unit_price": 1187.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1162.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1125
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1025
+     "unit_price": 1112.5
     }
    ],
    "sizes": [],
@@ -3384,29 +3639,34 @@
      "Suject to stock availability"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 1450,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1450
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 1350
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 1275
+     "max_qty": 199,
+     "unit_price": 1377.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1348.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1305
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1190
+     "unit_price": 1290.5
     }
    ],
    "sizes": [],
@@ -3445,29 +3705,34 @@
      "Suject to stock availability"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 950,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 950
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 885
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 835
+     "max_qty": 199,
+     "unit_price": 902.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 883.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 855
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 780
+     "unit_price": 845.5
     }
    ],
    "sizes": [],
@@ -3526,29 +3791,34 @@
      "Flip Cap"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 450,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 450
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 420
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 395
+     "max_qty": 199,
+     "unit_price": 427.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 418.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 405
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 370
+     "unit_price": 400.5
     }
    ],
    "sizes": [],
@@ -3583,29 +3853,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 650,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 650
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 605
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 570
+     "max_qty": 199,
+     "unit_price": 617.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 604.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 585
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 535
+     "unit_price": 578.5
     }
    ],
    "sizes": [],
@@ -3650,29 +3925,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 1100,
+   "base_price": 1450,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
-     "unit_price": 1100
-    },
-    {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
-     "unit_price": 1025
+     "unit_price": 1450
     },
     {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 970
+     "max_qty": 199,
+     "unit_price": 1377.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1348.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1305
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 900
+     "unit_price": 1290.5
     }
    ],
    "sizes": [],
@@ -3719,29 +3999,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 1100,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1100
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 1025
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 970
+     "max_qty": 199,
+     "unit_price": 1045
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1023
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 990
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 900
+     "unit_price": 979
     }
    ],
    "sizes": [],
@@ -3788,29 +4073,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 1100,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1100
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 1025
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 970
+     "max_qty": 199,
+     "unit_price": 1045
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1023
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 990
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 900
+     "unit_price": 979
     }
    ],
    "sizes": [],
@@ -3857,29 +4147,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
-   "base_price": 1100,
+   "base_price": 1450,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
-     "unit_price": 1100
-    },
-    {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
-     "unit_price": 1025
+     "unit_price": 1450
     },
     {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 970
+     "max_qty": 199,
+     "unit_price": 1377.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1348.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1305
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 900
+     "unit_price": 1290.5
     }
    ],
    "sizes": [],
@@ -3926,29 +4221,34 @@
      "Gray"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 650,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 650
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 605
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 570
+     "max_qty": 199,
+     "unit_price": 617.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 604.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 585
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 535
+     "unit_price": 578.5
     }
    ],
    "sizes": [],
@@ -3984,29 +4284,34 @@
      "SAFE Food Grade, BPA Free"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 250,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 250
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 230
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 220
+     "max_qty": 199,
+     "unit_price": 237.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 232.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 225
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 205
+     "unit_price": 222.5
     }
    ],
    "sizes": [],
@@ -4045,29 +4350,34 @@
      "White with Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 215,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 215
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 200
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 190
+     "max_qty": 199,
+     "unit_price": 204.25
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 199.95
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 193.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 175
+     "unit_price": 191.35
     }
    ],
    "sizes": [],
@@ -4093,29 +4403,34 @@
    "attribute_set": "Mug",
    "description": "The world's first, 100% leak-proof reusable coffee cup, made from single-use paper cups. Designed for 10 years of use, Circular Reusable Coffee Cup is 100% recyclable. Keeps your drink hot or cold for 60-90 minutes. Easy one-hand opening, perfect for life on the go. 360-degree drinking, allowing you to enjoy the full coffee aroma. BPA & melamine free. Dishwasher safe.",
    "specs": [],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 1350,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1350
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 1255
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 1190
+     "max_qty": 199,
+     "unit_price": 1282.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1255.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1215
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1105
+     "unit_price": 1201.5
     }
    ],
    "sizes": [],
@@ -4140,29 +4455,34 @@
    "attribute_set": "",
    "description": "Dimension: 12x8.5x11 cm\nCapacity: 400 ml\nWeight: Around 398 gm\nMaterial: Ceramic with Cork Base\nColour: White with Cork Base",
    "specs": [],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 450,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 450
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 420
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 395
+     "max_qty": 199,
+     "unit_price": 427.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 418.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 405
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 370
+     "unit_price": 400.5
     }
    ],
    "sizes": [],
@@ -4205,29 +4525,34 @@
      "Black"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 950,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 950
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 885
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 835
+     "max_qty": 199,
+     "unit_price": 902.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 883.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 855
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 780
+     "unit_price": 845.5
     }
    ],
    "sizes": [],
@@ -4252,29 +4577,34 @@
    "attribute_set": "",
    "description": "Stainless Steel Mug with Grip\nDouble Wall 304 SS\n12x9.5x27 cm - 495 gms\nCapacity: 1200 ml\nHot & Cold: Up to 6 to 8 hours with latest vacuum technology\nStraw included\nBPA Free: Yes\nLeak Proof: Yes\nColour: White",
    "specs": [],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 950,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 950
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 885
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 835
+     "max_qty": 199,
+     "unit_price": 902.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 883.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 855
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 780
+     "unit_price": 845.5
     }
    ],
    "sizes": [],
@@ -4312,29 +4642,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 1100,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1100
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 1025
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 970
+     "max_qty": 199,
+     "unit_price": 1045
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1023
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 990
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 900
+     "unit_price": 979
     }
    ],
    "sizes": [],
@@ -4380,29 +4715,34 @@
      "Black"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 450,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 450
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 420
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 395
+     "max_qty": 199,
+     "unit_price": 427.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 418.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 405
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 370
+     "unit_price": 400.5
     }
    ],
    "sizes": [],
@@ -4449,29 +4789,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 450,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 450
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 420
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 395
+     "max_qty": 199,
+     "unit_price": 427.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 418.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 405
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 370
+     "unit_price": 400.5
     }
    ],
    "sizes": [],
@@ -4518,29 +4863,34 @@
      "Black"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 650,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 650
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 605
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 570
+     "max_qty": 199,
+     "unit_price": 617.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 604.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 585
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 535
+     "unit_price": 578.5
     }
    ],
    "sizes": [],
@@ -4587,29 +4937,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 650,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 650
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 605
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 570
+     "max_qty": 199,
+     "unit_price": 617.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 604.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 585
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 535
+     "unit_price": 578.5
     }
    ],
    "sizes": [],
@@ -4654,29 +5009,34 @@
      "Food Grade with Silicone Grip"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 550,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 550
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 510
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 485
+     "max_qty": 199,
+     "unit_price": 522.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 511.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 495
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 450
+     "unit_price": 489.5
     }
    ],
    "sizes": [],
@@ -4727,29 +5087,34 @@
      "Suject to stock availability"
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 2850,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 2850
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 2650
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 2510
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 2707.5
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2650.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2565
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 2335
+     "unit_price": 2536.5
     }
    ],
    "sizes": [],
@@ -4792,29 +5157,34 @@
      "Suject to stock availability"
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 3250,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 3250
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 3020
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 2860
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 3087.5
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 3022.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2925
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 2665
+     "unit_price": 2892.5
     }
    ],
    "sizes": [],
@@ -4851,29 +5221,34 @@
      "20 x 42 x 34 cm"
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 3100,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 3100
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 2885
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 2730
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 2945
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2883
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2790
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 2540
+     "unit_price": 2759
     }
    ],
    "sizes": [],
@@ -4908,29 +5283,34 @@
      "18.5\" L x 12.5\" W x 8\" D"
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 1750,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1750
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 1630
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 1540
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 1662.5
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1627.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1575
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1435
+     "unit_price": 1557.5
     }
    ],
    "sizes": [],
@@ -4977,29 +5357,34 @@
      "Suject to stock availability"
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 1990,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1990
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 1850
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 1750
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 1890.5
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1850.7
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1791
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1630
+     "unit_price": 1771.1
     }
    ],
    "sizes": [],
@@ -5036,29 +5421,34 @@
      "Adjustable shoulder strap that is fully detachable, webbed carry handles, and a small zippered pouch pocket for items that need easier access."
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 650,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 650
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 605
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 570
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 617.5
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 604.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 585
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 535
+     "unit_price": 578.5
     }
    ],
    "sizes": [],
@@ -5082,29 +5472,34 @@
    "attribute_set": "Bags",
    "description": "Vegan Fabric Small Duffel Bag: Functional yet minimal, perfect for gym or travel. Designed with broad handles, spacious pockets, and structured to retain its shape, making it an ideal eco-friendly companion.",
    "specs": [],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 2100,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 2100
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 1955
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 1850
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 1995
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1953
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1890
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1720
+     "unit_price": 1869
     }
    ],
    "sizes": [],
@@ -5157,29 +5552,34 @@
      "Suject to stock availability"
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 2450,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 2450
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 2280
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 2155
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 2327.5
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2278.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2205
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 2010
+     "unit_price": 2180.5
     }
    ],
    "sizes": [],
@@ -5230,29 +5630,34 @@
      "Tan"
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 2450,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 2450
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 2280
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 2155
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 2327.5
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 2278.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 2205
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 2010
+     "unit_price": 2180.5
     }
    ],
    "sizes": [],
@@ -5307,29 +5712,34 @@
      "Suject to stock availability"
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 1780,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 1780
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 1655
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 1565
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 1691
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 1655.4
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 1602
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1460
+     "unit_price": 1584.2
     }
    ],
    "sizes": [],
@@ -5360,29 +5770,34 @@
      "16"
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 375,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 375
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 350
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 330
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 356.25
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 348.75
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 337.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 310
+     "unit_price": 333.75
     }
    ],
    "sizes": [],
@@ -5413,29 +5828,34 @@
      "8"
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 275,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 275
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 255
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 240
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 261.25
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 255.75
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 247.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 225
+     "unit_price": 244.75
     }
    ],
    "sizes": [],
@@ -5477,29 +5897,34 @@
      "Light Blue"
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 285,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 285
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 265
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 250
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 270.75
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 265.05
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 256.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 235
+     "unit_price": 253.65
     }
    ],
    "sizes": [],
@@ -5541,29 +5966,34 @@
      "Natural Canvas"
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 285,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 285
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 265
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 250
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 270.75
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 265.05
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 256.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 235
+     "unit_price": 253.65
     }
    ],
    "sizes": [],
@@ -5605,29 +6035,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 285,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 285
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 265
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 250
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 270.75
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 265.05
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 256.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 235
+     "unit_price": 253.65
     }
    ],
    "sizes": [],
@@ -5681,29 +6116,34 @@
      "Suject to stock availability"
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 8200,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 8200
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 7625
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 7215
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 7790
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 7626
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 7380
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 6725
+     "unit_price": 7298
     }
    ],
    "sizes": [],
@@ -5738,29 +6178,34 @@
      "Suject to stock availability"
     ]
    ],
-   "moq": 10,
+   "moq": 1,
    "gst_rate": 5,
    "base_price": 8100,
    "tiers": [
     {
-     "min_qty": 10,
-     "max_qty": 19,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 8100
     },
     {
-     "min_qty": 20,
-     "max_qty": 39,
-     "unit_price": 7535
-    },
-    {
-     "min_qty": 40,
-     "max_qty": 99,
-     "unit_price": 7130
-    },
-    {
      "min_qty": 100,
+     "max_qty": 199,
+     "unit_price": 7695
+    },
+    {
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 7533
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 7290
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 6640
+     "unit_price": 7209
     }
    ],
    "sizes": [],
@@ -5795,29 +6240,34 @@
      "Black"
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 745,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 745
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 695
+     "unit_price": 707.75
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 655
+     "unit_price": 692.85
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 670.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 610
+     "unit_price": 663.05
     }
    ],
    "sizes": [],
@@ -5856,29 +6306,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 745,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 745
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 695
+     "unit_price": 707.75
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 655
+     "unit_price": 692.85
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 670.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 610
+     "unit_price": 663.05
     }
    ],
    "sizes": [],
@@ -5917,29 +6372,34 @@
      "Black"
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 745,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 745
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 695
+     "unit_price": 707.75
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 655
+     "unit_price": 692.85
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 670.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 610
+     "unit_price": 663.05
     }
    ],
    "sizes": [],
@@ -5970,29 +6430,34 @@
      "Black"
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 650,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 650
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 605
+     "unit_price": 617.5
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 570
+     "unit_price": 604.5
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 585
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 535
+     "unit_price": 578.5
     }
    ],
    "sizes": [],
@@ -6023,29 +6488,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 650,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 650
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 605
+     "unit_price": 617.5
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 570
+     "unit_price": 604.5
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 585
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 535
+     "unit_price": 578.5
     }
    ],
    "sizes": [],
@@ -6076,29 +6546,34 @@
      "White"
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 650,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 650
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 605
+     "unit_price": 617.5
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 570
+     "unit_price": 604.5
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 585
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 535
+     "unit_price": 578.5
     }
    ],
    "sizes": [],
@@ -6133,29 +6608,34 @@
      "495.3mm W x 20mm L"
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 180,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 180
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 165
+     "unit_price": 171
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 160
+     "unit_price": 167.4
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 162
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 150
+     "unit_price": 160.2
     }
    ],
    "sizes": [],
@@ -6181,29 +6661,34 @@
    "attribute_set": "Accessories",
    "description": "A PopSocket is a versatile, collapsible grip and stand for your phone or tablet.\n It sticks to the back of your device, providing a more comfortable way to hold your phone, especially for one-handed use. When not in use,\n it can be collapsed flat, making it easy to slide into pockets or bags.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 30,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 30
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 30
+     "unit_price": 28.5
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 25
+     "unit_price": 27.9
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 27
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 25
+     "unit_price": 26.7
     }
    ],
    "sizes": [],
@@ -6229,29 +6714,34 @@
    "attribute_set": "Accessories",
    "description": "Charging Station, Wood Docking Station, Tech Gift, Portable Mobile Phone Stand.\n100% NATURAL Sustainable material.\nCompatible with iPhone and Android phones in 4–8 inches, such as iPhone, Huawei, Galaxy S6, S7, S8, Sony, Kindle, LG, even 10-inch iPad, even withcase.",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 275,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 275
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 255
+     "unit_price": 261.25
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 240
+     "unit_price": 255.75
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 247.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 225
+     "unit_price": 244.75
     }
    ],
    "sizes": [],
@@ -6294,29 +6784,34 @@
      "Black"
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 840,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 840
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 780
+     "unit_price": 798
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 740
+     "unit_price": 781.2
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 756
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 690
+     "unit_price": 747.6
     }
    ],
    "sizes": [],
@@ -6359,29 +6854,34 @@
      "Navy Blue"
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 840,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 840
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 780
+     "unit_price": 798
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 740
+     "unit_price": 781.2
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 756
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 690
+     "unit_price": 747.6
     }
    ],
    "sizes": [],
@@ -6424,29 +6924,34 @@
      "White"
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 840,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 840
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 780
+     "unit_price": 798
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 740
+     "unit_price": 781.2
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 756
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 690
+     "unit_price": 747.6
     }
    ],
    "sizes": [],
@@ -6477,29 +6982,34 @@
      "Compatible with all laptops, standalone web cameras, desktops with web cameras on panel, PCs, smartphones, tablets, and mobile front cameras of phones, etc."
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 35,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 35
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 35
+     "unit_price": 33.25
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 30
+     "unit_price": 32.55
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 31.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 30
+     "unit_price": 31.15
     }
    ],
    "sizes": [],
@@ -6530,29 +7040,34 @@
      "Compatible with all laptops, standalone web cameras, desktops with web cameras on panel, PCs, and tablets."
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 35,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 35
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 35
+     "unit_price": 33.25
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 30
+     "unit_price": 32.55
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 31.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 30
+     "unit_price": 31.15
     }
    ],
    "sizes": [],
@@ -6583,29 +7098,34 @@
      "Compatible with all laptops, standalone web cameras, desktops with web cameras on panel, PCs, and tablets."
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 35,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 35
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 35
+     "unit_price": 33.25
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 30
+     "unit_price": 32.55
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 31.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 30
+     "unit_price": 31.15
     }
    ],
    "sizes": [],
@@ -6636,29 +7156,34 @@
      "Sleek and modern drink accessories designed to protect surfaces from spills, heat, and condensation."
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 130,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 130
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 120
+     "unit_price": 123.5
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 115
+     "unit_price": 120.9
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 117
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 105
+     "unit_price": 115.7
     }
    ],
    "sizes": [],
@@ -6689,29 +7214,34 @@
      "Sleek and modern drink accessories designed to protect surfaces from spills, heat, and condensation."
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 130,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 130
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 120
+     "unit_price": 123.5
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 115
+     "unit_price": 120.9
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 117
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 105
+     "unit_price": 115.7
     }
    ],
    "sizes": [],
@@ -6742,29 +7272,34 @@
      "Sleek and modern drink accessories designed to protect surfaces from spills, heat, and condensation."
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 130,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 130
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 120
+     "unit_price": 123.5
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 115
+     "unit_price": 120.9
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 117
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 105
+     "unit_price": 115.7
     }
    ],
    "sizes": [],
@@ -6795,29 +7330,34 @@
      "Sleek and modern drink accessories designed to protect surfaces from spills, heat, and condensation."
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 130,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 130
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 120
+     "unit_price": 123.5
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 115
+     "unit_price": 120.9
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 117
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 105
+     "unit_price": 115.7
     }
    ],
    "sizes": [],
@@ -6848,29 +7388,34 @@
      "Sleek and modern drink accessories designed to protect surfaces from spills, heat, and condensation."
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 130,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 130
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 120
+     "unit_price": 123.5
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 115
+     "unit_price": 120.9
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 117
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 105
+     "unit_price": 115.7
     }
    ],
    "sizes": [],
@@ -6896,29 +7441,34 @@
    "attribute_set": "Accessories",
    "description": "Environmentally Friendly Materials: Our cork coasters are made of 100% real cork. These eco-friendly materials allow you to enjoy tea while contributing positively to the environment.\nCork coasters per piece 140 rupees",
    "specs": [],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 140,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 140
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 130
+     "unit_price": 133
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 125
+     "unit_price": 130.2
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 126
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 115
+     "unit_price": 124.6
     }
    ],
    "sizes": [],
@@ -6949,29 +7499,34 @@
      "Set of 4"
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 250,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 250
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 230
+     "unit_price": 237.5
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 220
+     "unit_price": 232.5
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 225
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 205
+     "unit_price": 222.5
     }
    ],
    "sizes": [],
@@ -7002,29 +7557,34 @@
      "Set of 4"
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 250,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 250
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 230
+     "unit_price": 237.5
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 220
+     "unit_price": 232.5
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 225
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 205
+     "unit_price": 222.5
     }
    ],
    "sizes": [],
@@ -7055,29 +7615,34 @@
      "Set of 4"
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 250,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 250
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 230
+     "unit_price": 237.5
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 220
+     "unit_price": 232.5
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 225
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 205
+     "unit_price": 222.5
     }
    ],
    "sizes": [],
@@ -7108,29 +7673,34 @@
      "Set of 4"
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 250,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 250
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 230
+     "unit_price": 237.5
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 220
+     "unit_price": 232.5
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 225
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 205
+     "unit_price": 222.5
     }
    ],
    "sizes": [],
@@ -7159,29 +7729,34 @@
      "Set of 4"
     ]
    ],
-   "moq": 50,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 250,
    "tiers": [
     {
-     "min_qty": 50,
+     "min_qty": 1,
      "max_qty": 99,
      "unit_price": 250
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 230
+     "unit_price": 237.5
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 220
+     "unit_price": 232.5
     },
     {
      "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 225
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 205
+     "unit_price": 222.5
     }
    ],
    "sizes": [],
@@ -7214,29 +7789,34 @@
      "Kraft"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 550,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 550
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 510
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 485
+     "max_qty": 199,
+     "unit_price": 522.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 511.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 495
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 450
+     "unit_price": 489.5
     }
    ],
    "sizes": [],
@@ -7275,29 +7855,34 @@
      "Black"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 650,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 650
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 605
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 570
+     "max_qty": 199,
+     "unit_price": 617.5
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 604.5
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 585
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 535
+     "unit_price": 578.5
     }
    ],
    "sizes": [],
@@ -7323,29 +7908,34 @@
    "attribute_set": "Stationery",
    "description": "Eco-friendly Spiral-bound Notebook: Made with lemongrass paper, this unique writing tool combines sustainability with a refreshing natural aesthetic. Crafted from lemongrass fibers, a renewable resource, it's an environmentally conscious alternative to traditional notebooks.",
    "specs": [],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 485,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 485
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 450
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 425
+     "max_qty": 199,
+     "unit_price": 460.75
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 451.05
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 436.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 400
+     "unit_price": 431.65
     }
    ],
    "sizes": [],
@@ -7384,29 +7974,34 @@
      "Green"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 75,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 75
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 70
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 65
+     "max_qty": 199,
+     "unit_price": 71.25
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 69.75
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 67.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 60
+     "unit_price": 66.75
     }
    ],
    "sizes": [],
@@ -7445,29 +8040,34 @@
      "Kraft"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 75,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 75
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 70
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 65
+     "max_qty": 199,
+     "unit_price": 71.25
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 69.75
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 67.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 60
+     "unit_price": 66.75
     }
    ],
    "sizes": [],
@@ -7506,29 +8106,34 @@
      "Sky Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 75,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 75
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 70
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 65
+     "max_qty": 199,
+     "unit_price": 71.25
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 69.75
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 67.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 60
+     "unit_price": 66.75
     }
    ],
    "sizes": [],
@@ -7567,29 +8172,34 @@
      "White"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 75,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 75
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 70
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 65
+     "max_qty": 199,
+     "unit_price": 71.25
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 69.75
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 67.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 60
+     "unit_price": 66.75
     }
    ],
    "sizes": [],
@@ -7620,29 +8230,34 @@
      "Ballpoint Pen"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 115,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 115
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 105
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 100
+     "max_qty": 199,
+     "unit_price": 109.25
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 106.95
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 103.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 95
+     "unit_price": 102.35
     }
    ],
    "sizes": [],
@@ -7670,29 +8285,34 @@
      "The original and best-selling promotional ballpen, available in a wide range of colours. Features a push-button mechanism."
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 75,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 75
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 70
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 65
+     "max_qty": 199,
+     "unit_price": 71.25
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 69.75
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 67.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 60
+     "unit_price": 66.75
     }
    ],
    "sizes": [],
@@ -7724,29 +8344,34 @@
      "Black, White, and Royal Blue"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 95,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 95
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 90
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 85
+     "max_qty": 199,
+     "unit_price": 90.25
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 88.35
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 85.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 80
+     "unit_price": 84.55
     }
    ],
    "sizes": [],
@@ -7778,29 +8403,34 @@
      "Black"
     ]
    ],
-   "moq": 25,
+   "moq": 1,
    "gst_rate": 18,
    "base_price": 95,
    "tiers": [
     {
-     "min_qty": 25,
-     "max_qty": 49,
+     "min_qty": 1,
+     "max_qty": 99,
      "unit_price": 95
     },
     {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 90
-    },
-    {
      "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 85
+     "max_qty": 199,
+     "unit_price": 90.25
     },
     {
-     "min_qty": 250,
+     "min_qty": 200,
+     "max_qty": 499,
+     "unit_price": 88.35
+    },
+    {
+     "min_qty": 500,
+     "max_qty": 999,
+     "unit_price": 85.5
+    },
+    {
+     "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 80
+     "unit_price": 84.55
     }
    ],
    "sizes": [],
