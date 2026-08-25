@@ -17,8 +17,8 @@
  * after a price change, and resetAdminPassword() to rotate the console password.
  */
 
-var CATALOGUE_URL = 'https://rogerdf30.github.io/rsm-b2b/assets/products.json';
-var SITE = 'https://rogerdf30.github.io/rsm-b2b';
+var CATALOGUE_URL = 'https://b2b.rsmus.companystore.gifts/assets/products.json';
+var SITE = 'https://b2b.rsmus.companystore.gifts';
 
 /* Fixed so assets/js/app.js can be configured before the first run. This is
    NOT a secret: it ships in the public frontend and only blocks casual

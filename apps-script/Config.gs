@@ -10,7 +10,7 @@
  *   PEPPER        long random string, used for password hashing and HMAC tokens
  *   ADMIN_PASS    password for admin.html
  *   SENDER_ALIAS  e.g. rsm@companystore.io  (must be a verified "send as" alias)
- *   SITE_URL      https://<user>.github.io/rsm-b2b   (used in emails)
+ *   SITE_URL      https://b2b.rsmus.companystore.gifts  (used in emails)
  */
 
 var SHEETS = {
