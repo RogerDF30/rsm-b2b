@@ -114,8 +114,8 @@ function paintOrders(host) {
           el('td', { class: 'num mono' }, money(o.grand_total)),
           el('td', {}, el('span', { class: 'status ' + o.status.split(' ')[0].toLowerCase() }, o.status)),
           el('td', { class: 'right' },
-            el('button', { class: 'btn btn-ghost btn-sm', onclick: () => openOrder(o.order_id) }, 'Open'))))))),
-    list.length ? null : el('div', { class: 'empty' }, el('h2', {}, 'No orders')));
+            el('button', { class: 'btn btn-ghost btn-sm', onclick: () => openOrder(o.order_id) }, 'Open'))))))));
+  if (!list.length) host.append(el('div', { class: 'empty' }, el('h2', {}, 'No orders')));
 }
 
 async function openOrder(id) {
@@ -561,8 +561,8 @@ function paintBanners(host) {
             await api('adminToggle', { admin_pass: PASS, kind: 'banner', key: b.slug, active: on });
             b.active = on;
           }),
-          el('button', { class: 'btn btn-ghost btn-sm', onclick: () => editBanner(b) }, 'Edit')))))),
-    CAT.banners.length ? null : el('div', { class: 'empty' }, el('h2', {}, 'No banners yet')));
+          el('button', { class: 'btn btn-ghost btn-sm', onclick: () => editBanner(b) }, 'Edit')))))));
+  if (!CAT.banners.length) host.append(el('div', { class: 'empty' }, el('h2', {}, 'No banners yet')));
 }
 
 function editBanner(b) {
