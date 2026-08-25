@@ -1,2 +1,5 @@
 node_modules/
 .DS_Store
+
+# Staff roster, one-time migration. Never commit: this repo is public.
+apps-script/_Import.gs
