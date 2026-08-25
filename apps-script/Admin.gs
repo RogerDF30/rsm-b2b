@@ -900,3 +900,65 @@ function fnAdminRenameSku(req) {
     return { ok: true, from: from, to: to, tiers: tiers.length, variants: variants.length };
   });
 }
+
+/* ---------------------------------------------------------- order archive */
+
+/**
+ * Move orders out of the live tabs into archive tabs.
+ *
+ * Test orders have to leave the console without the numbers, totals and
+ * evidence they carried disappearing for good: an order id that once existed
+ * should still be explainable a year later. Rows are copied to
+ * Orders_Archive, OrderLines_Archive and Files_Archive, then removed from the
+ * live tabs. Deleting the archive tabs afterwards is a deliberate, separate
+ * act, and it is yours to make.
+ */
+function archiveRows_(tabName, archiveName, ids) {
+  var sh = sheet(tabName);
+  var values = sh.getDataRange().getValues();
+  if (values.length < 2) return 0;
+
+  var head = values[0];
+  var col = head.indexOf('order_id');
+  if (col < 0) throw new Error('No order_id column on ' + tabName + '.');
+
+  var hits = [];
+  for (var i = 1; i < values.length; i++) {
+    if (ids.indexOf(String(values[i][col]).trim().toUpperCase()) >= 0) hits.push(i);
+  }
+  if (!hits.length) return 0;
+
+  var ss = book();
+  var arch = ss.getSheetByName(archiveName);
+  if (!arch) {
+    arch = ss.insertSheet(archiveName);
+    arch.getRange(1, 1, 1, head.length).setValues([head]);
+    arch.getRange(1, 1, 1, head.length).setFontWeight('bold').setBackground('#F4F8FB');
+    arch.setFrozenRows(1);
+  }
+  var rows = hits.map(function (i) { return values[i]; });
+  arch.getRange(arch.getLastRow() + 1, 1, rows.length, head.length).setValues(rows);
+
+  // bottom up, so the earlier row numbers stay valid as rows disappear
+  for (var j = hits.length - 1; j >= 0; j--) sh.deleteRow(hits[j] + 1);
+  return rows.length;
+}
+
+function fnAdminArchiveOrders(req) {
+  requireAdmin(req);
+  var ids = (req.order_ids || []).map(function (s) {
+    return String(s).trim().toUpperCase();
+  }).filter(String);
+  if (!ids.length) throw new Error('order_ids is required.');
+
+  return withLock(function () {
+    var moved = {
+      orders: archiveRows_(SHEETS.ORDERS, 'Orders_Archive', ids),
+      lines: archiveRows_(SHEETS.LINES, 'OrderLines_Archive', ids),
+      files: archiveRows_(SHEETS.FILES, 'Files_Archive', ids)
+    };
+    if (!moved.orders) throw new Error('No order matched ' + ids.join(', ') + '.');
+    audit('admin', 'orders_archived', 'order', ids.join(','), null, moved);
+    return { ok: true, archived: ids, moved: moved };
+  });
+}

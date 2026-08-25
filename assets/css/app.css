@@ -524,7 +524,8 @@ input[type=file] { font-size: .85rem; }
 .home-sec { margin-top: 44px; }
 .home-sec h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 22px; }
 
-.cat-tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+/* Five categories once Trophies arrived, and a sixth is a sheet edit away. */
+.cat-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 22px; }
 .cat-tile { text-align: center; }
 .cat-tile-img { height: 232px; padding: 18px; background: #fff;
                 border: 1px solid var(--line); border-radius: var(--radius);
