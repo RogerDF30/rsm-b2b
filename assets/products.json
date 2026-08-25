@@ -1,6 +1,6 @@
 {
  "generated_from": "admin console",
- "generated_at": "2026-08-25 14:07:10",
+ "generated_at": "2026-08-25 20:33:05",
  "pricing_status": "from the Sheet",
  "categories": [
   {
@@ -11596,7 +11596,7 @@
    ]
   },
   {
-   "sku": "TEMP-0001",
+   "sku": "B2BRSMON-0235",
    "name": "Crystal Trophy 001 - 9.75\"",
    "url_key": "",
    "category": "Trophies",
@@ -11622,7 +11622,7 @@
    "related": []
   },
   {
-   "sku": "TEMP-0002",
+   "sku": "B2BRSMON-0236",
    "name": "Crystal Trophy 001 - 11\"",
    "url_key": "",
    "category": "Trophies",
@@ -11648,7 +11648,7 @@
    "related": []
   },
   {
-   "sku": "TEMP-0003",
+   "sku": "B2BRSMON-0237",
    "name": "Crystal Trophy 002 - 9\"",
    "url_key": "",
    "category": "Trophies",
@@ -11674,7 +11674,7 @@
    "related": []
   },
   {
-   "sku": "TEMP-0004",
+   "sku": "B2BRSMON-0238",
    "name": "Crystal Trophy 002 - 10\"",
    "url_key": "",
    "category": "Trophies",
@@ -11700,7 +11700,7 @@
    "related": []
   },
   {
-   "sku": "TEMP-0005",
+   "sku": "B2BRSMON-0239",
    "name": "Crystal Trophy 003 - 9\"",
    "url_key": "",
    "category": "Trophies",
@@ -11726,7 +11726,7 @@
    "related": []
   },
   {
-   "sku": "TEMP-0007",
+   "sku": "B2BRSMON-0240",
    "name": "Crystal Trophy 004 - 7\"",
    "url_key": "",
    "category": "Trophies",
@@ -11752,7 +11752,7 @@
    "related": []
   },
   {
-   "sku": "TEMP-0008",
+   "sku": "B2BRSMON-0241",
    "name": "Crystal Trophy 004 - 8\"",
    "url_key": "",
    "category": "Trophies",
@@ -11778,7 +11778,7 @@
    "related": []
   },
   {
-   "sku": "TEMP-0009",
+   "sku": "B2BRSMON-0242",
    "name": "Crystal Trophy 005 - 5.25\"",
    "url_key": "",
    "category": "Trophies",
