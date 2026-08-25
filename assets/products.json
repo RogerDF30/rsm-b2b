@@ -1,6 +1,6 @@
 {
  "generated_from": "admin console",
- "generated_at": "2026-08-25 09:45:54",
+ "generated_at": "2026-08-25 12:10:02",
  "pricing_status": "from the Sheet",
  "categories": [
   {
@@ -53,56 +53,6 @@
   }
  ],
  "products": [
-  {
-   "sku": "B2BRSMON-0096",
-   "name": "OMG Mesh Cap- Standard Grey",
-   "url_key": "",
-   "category": "Apparel",
-   "subcategory": "Headwear",
-   "attribute_set": "",
-   "description": "This ultra-breathable cap is extra comfortable\nFabric: 100% cotton twill front panels; 100% polyester mesh mid and back panels\nStructure: Structured\nClosure: Velcro\nColour:  Grey",
-   "specs": [],
-   "moq": 25,
-   "gst_rate": 5,
-   "base_price": 195,
-   "tiers": [
-    {
-     "min_qty": 25,
-     "max_qty": 49,
-     "unit_price": 195
-    },
-    {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 180
-    },
-    {
-     "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 170
-    },
-    {
-     "min_qty": 250,
-     "max_qty": null,
-     "unit_price": 160
-    }
-   ],
-   "sizes": [],
-   "has_sizes": false,
-   "image": "assets/products/B2BRSMON-0096.webp",
-   "weight": "",
-   "active": true,
-   "related": [
-    "B2BRSMON-0095",
-    "B2BRSMON-0097",
-    "B2BRSMON-0099",
-    "B2BRSMON-0098",
-    "B2BRSMON-0092",
-    "B2BRSMON-0093",
-    "B2BRSMON-0094",
-    "B2BRSMON-0091"
-   ]
-  },
   {
    "sku": "B2BRSMON-0095",
    "name": "OMG Mesh Cap- Standard Navy Blue",
@@ -160,7 +110,6 @@
    "weight": "0.5",
    "active": true,
    "related": [
-    "B2BRSMON-0096",
     "B2BRSMON-0097",
     "B2BRSMON-0092",
     "B2BRSMON-0093",
@@ -225,7 +174,6 @@
    "weight": "0.5",
    "active": true,
    "related": [
-    "B2BRSMON-0096",
     "B2BRSMON-0095",
     "B2BRSMON-0092",
     "B2BRSMON-0093",
@@ -294,7 +242,6 @@
    "weight": "0.5",
    "active": true,
    "related": [
-    "B2BRSMON-0096",
     "B2BRSMON-0098",
     "B2BRSMON-0198",
     "B2BRSMON-0191",
@@ -364,7 +311,6 @@
    "weight": "0.5",
    "active": true,
    "related": [
-    "B2BRSMON-0096",
     "B2BRSMON-0099",
     "B2BRSMON-0198",
     "B2BRSMON-0191",
@@ -426,7 +372,6 @@
    "weight": "0.5",
    "active": true,
    "related": [
-    "B2BRSMON-0096",
     "B2BRSMON-0093",
     "B2BRSMON-0094",
     "B2BRSMON-0091",
@@ -487,7 +432,6 @@
    "weight": "0.5",
    "active": true,
    "related": [
-    "B2BRSMON-0096",
     "B2BRSMON-0092",
     "B2BRSMON-0094",
     "B2BRSMON-0091",
@@ -548,7 +492,6 @@
    "weight": "0.5",
    "active": true,
    "related": [
-    "B2BRSMON-0096",
     "B2BRSMON-0092",
     "B2BRSMON-0093",
     "B2BRSMON-0091",
@@ -609,7 +552,6 @@
    "weight": "0.5",
    "active": true,
    "related": [
-    "B2BRSMON-0096",
     "B2BRSMON-0092",
     "B2BRSMON-0093",
     "B2BRSMON-0094",
