@@ -3,7 +3,7 @@
 let PASS = '';
 let ORDERS = [], ORDER_FILTER = 'All';
 let CAT = null;            // { products, categories, banners, settings, published_at }
-let USERS = [], DEPTS = [];
+let USERS = [], DEPTS = [], USERS_LOADED = false;
 let TAB = 'orders';
 let PROD_FILTER = { q: '', cat: 'All', hidden: 'all' };
 
@@ -30,15 +30,16 @@ function gate(msg) {
 
 async function loadAll() {
   try {
-    const [o, c, u] = await Promise.all([
+    /* Two calls, not three. Apps Script serialises requests from one user and
+       adminCatalog alone takes 15 seconds, so a third parallel call at unlock
+       was enough to make the browser give up with "Failed to fetch". The
+       roster is fetched when the Users tab is first opened instead. */
+    const [o, c] = await Promise.all([
       api('adminList', { admin_pass: PASS }),
       api('adminCatalog', { admin_pass: PASS }),
-      api('adminUsers', { admin_pass: PASS }),
     ]);
     ORDERS = o.orders;
     CAT = c;
-    USERS = u.users;
-    DEPTS = u.departments;
     document.getElementById('gate').classList.add('hidden');
     document.getElementById('app').classList.remove('hidden');
     paint();
@@ -57,7 +58,7 @@ function paint() {
   [['orders', `Orders (${ORDERS.length})`],
    ['catalogue', `Catalogue (${CAT.products.length})`],
    ['banners', `Banners (${CAT.banners.length})`],
-   ['users', `Users (${USERS.length})`],
+   ['users', USERS_LOADED ? `Users (${USERS.length})` : 'Users'],
    ['appearance', 'Appearance']].forEach(([k, label]) =>
     nav.append(el('button', {
       class: 'chip' + (TAB === k ? ' on' : ''),
@@ -623,6 +624,14 @@ function editBanner(b) {
 /* ------------------------------------------------------------------ users */
 
 function paintUsers(host) {
+  if (!USERS_LOADED) {
+    host.append(el('div', { class: 'panel' }, el('span', { class: 'muted' }, 'Loading users…')));
+    api('adminUsers', { admin_pass: PASS })
+      .then(u => { USERS = u.users; DEPTS = u.departments; USERS_LOADED = true; paint(); })
+      .catch(err => toast(err.message, 'error'));
+    return;
+  }
+
   host.append(
     el('div', { class: 'row-between', style: 'margin-bottom:12px' },
       el('span', { class: 'small muted' },

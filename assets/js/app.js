@@ -52,11 +52,18 @@ function toast(msg, kind = 'info') {
    text/plain with a JSON string body. Changing this breaks all writes. */
 async function api(fn, payload = {}) {
   if (!CONFIG.API_URL) throw new Error('API_URL is not configured yet.');
-  const res = await fetch(CONFIG.API_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify({ fn, token: CONFIG.API_TOKEN, session: Auth.token(), ...payload }),
-  });
+  let res;
+  try {
+    res = await fetch(CONFIG.API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ fn, token: CONFIG.API_TOKEN, session: Auth.token(), ...payload }),
+    });
+  } catch (err) {
+    /* fetch only rejects on a network-level failure, and the browser's own
+       wording for that is the unhelpful "Failed to fetch". */
+    throw new Error('The backend did not respond. Check your connection and try again.');
+  }
   const data = await res.json();
   if (!data.ok) throw new Error(data.error || 'Request failed');
   return data;
