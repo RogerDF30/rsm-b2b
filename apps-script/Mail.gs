@@ -52,12 +52,23 @@ function esc(s) {
     .replace(/"/g, '&quot;');
 }
 
-function send(to, subject, html) {
-  MailApp.sendEmail({
+function send(to, subject, html, cc) {
+  var opts = {
     to: to, subject: subject, htmlBody: html,
     name: 'RSM Business Store',
     replyTo: prop('SENDER_ALIAS', 'rsm@companystore.io')
-  });
+  };
+  if (cc) opts.cc = cc;
+  MailApp.sendEmail(opts);
+}
+
+/* The legacy Magento system closed every notification this way. Requesters
+   are used to it, and it stops replies landing in an unwatched mailbox. */
+function autoFooter() {
+  return '<p class="muted" style="margin-top:24px">' +
+    'This is an automated notification. Please do not reply to this email.<br>' +
+    'If you have any questions, please contact ' +
+    esc(prop('SENDER_ALIAS', 'rsm@companystore.io')) + '.</p>';
 }
 
 function page(inner) {
@@ -172,6 +183,80 @@ function sendApprovalEmails(orderId, exp) {
   });
 }
 
+/* ------------------------------------------------------------- placed mail */
+
+/**
+ * Confirmation to the person who raised the order, sent at submit time.
+ * The legacy system never sent one: requesters saw nothing between pressing
+ * submit and the approver deciding, which generated the "did it go through?"
+ * calls. This closes that gap. It is a receipt, not a request: no decision
+ * links, and nothing here is actionable by the recipient.
+ */
+function sendPlacedEmail(orderId) {
+  var o = findOrderRow(orderId);
+  if (!o) return;
+  var lines = orderLines(orderId);
+  var files = orderFiles(orderId);
+  var approvers = activeApprovers().map(function (a) {
+    return String(a.approver_name || a.approver_email).trim();
+  }).filter(String);
+
+  var html = page(
+    '<h2>We have your order</h2>' +
+    '<p class="muted">' + esc(orderId) + ' has been received and sent for approval.</p>' +
+
+    '<div class="quiet">Your order is now with ' +
+    (approvers.length ? esc(approvers.join(', ')) : 'your approver') +
+    ' for approval. No action is needed from you. We will email you as soon as a ' +
+    'decision is recorded, and again when the order ships.</div>' +
+
+    '<h3>Order details</h3>' +
+    kv([
+      ['Order ID', orderId],
+      ['Placed on', fmtDate(o.created_at) || now()],
+      ['Requested by', o.requester_name + ' (' + o.requester_email + ')'],
+      ['Department (LOB)', o.lob],
+      ['Approver', o.lob_approver || 'Not stated'],
+      ['Event date', fmtDate(o.event_date)],
+      ['Purpose', o.purpose],
+      ['Status', 'Pending approval']
+    ]) +
+
+    '<h3>Items</h3>' + lineTable(lines) +
+    '<table style="margin-top:10px"><tbody>' +
+    '<tr><td class="num">Subtotal</td><td class="num" style="width:140px">' + inr(o.subtotal) + '</td></tr>' +
+    '<tr><td class="num">GST</td><td class="num">' + inr(o.tax_total) + '</td></tr>' +
+    '<tr><td class="num">Shipping &amp; handling</td><td class="num">' +
+      (Number(o.shipping_total) > 0 ? inr(o.shipping_total) : 'Quoted after approval') +
+      '</td></tr>' +
+    '<tr><td class="num"><b>Total</b></td><td class="num"><b>' + inr(o.grand_total) + '</b></td></tr>' +
+    '</tbody></table>' +
+
+    '<h3>Approval evidence</h3>' +
+    (files.length
+      ? files.map(function (f) {
+          return '<div style="padding:6px 0">' + esc(f.filename) + '</div>';
+        }).join('')
+      : '<p class="muted">None attached.</p>') +
+
+    '<h3>Addresses</h3>' + addressBlocks(o) +
+
+    statusButton(orderId) +
+    autoFooter()
+  );
+
+  send(o.requester_email, 'Order ' + orderId + ' received and sent for approval', html);
+}
+
+/* SITE_URL is the public storefront. Until the custom domain is cut over it
+   is the Pages host, so the button is only rendered when it is actually set. */
+function statusButton(orderId) {
+  var base = String(prop('SITE_URL', '') || '').replace(/\/+$/, '');
+  if (!base) return '';
+  return '<p style="margin-top:24px"><a class="btn ok" href="' + base +
+    '/status.html?id=' + encodeURIComponent(orderId) + '">View order status</a></p>';
+}
+
 /* ---------------------------------------------------------- decision mails */
 
 function sendDecisionEmail(o, status, reason) {
@@ -181,10 +266,11 @@ function sendDecisionEmail(o, status, reason) {
   var html = page(
     '<h2>Order ' + esc(o.order_id) + ' was ' + (approved ? 'approved' : 'rejected') + '</h2>' +
     (approved
-      ? '<div class="quiet">Your order has been approved and passed to the CompanyStore.IO ' +
-        'team. You will receive dispatch details once it ships.</div>'
-      : '<div class="note"><b>Reason:</b> ' + esc(reason || 'No reason recorded.') +
-        '<br><br>Rejected orders cannot be edited. Please raise a new order.</div>') +
+      ? '<div class="quiet">Your order has been approved and will be processed shortly. ' +
+        'You will receive another notification when your order ships.</div>'
+      : '<div class="note"><b>Reason for rejection:</b> ' + esc(reason || 'No reason recorded.') +
+        '<br><br>Rejected orders cannot be edited. Please raise a new order. ' +
+        'If you have any questions about this decision, please contact your account manager.</div>') +
     '<h3>Order details</h3>' +
     kv([
       ['Order ID', o.order_id], ['Department', o.lob],
@@ -194,12 +280,16 @@ function sendDecisionEmail(o, status, reason) {
       ['Order value', inr(o.grand_total)]
     ]) +
     '<h3>Items</h3>' + lineTable(lines) +
-    '<p style="margin-top:24px"><a class="btn ok" href="' +
-      prop('SITE_URL', '') + '/status.html?id=' + encodeURIComponent(o.order_id) +
-      '">View order status</a></p>'
+    statusButton(o.order_id) +
+    autoFooter()
   );
 
-  send(o.requester_email, 'Order ' + o.order_id + ' ' + status, html);
+  /* The approver who decided is copied, as the legacy system did, so the
+     decision and its reason sit in their mailbox too. decided_by holds the
+     address the signed link was issued to, so it is always a real one. */
+  var cc = String(o.decided_by || '').indexOf('@') > 0 ? String(o.decided_by).trim() : '';
+  send(o.requester_email, 'Order ' + o.order_id + ' has been ' + status.toLowerCase(),
+    html, cc);
 
   // Keep the CompanyStore.IO side informed without another manual step.
   send(prop('SENDER_ALIAS', 'rsm@companystore.io'),
@@ -218,7 +308,8 @@ function sendClosureEmail(o) {
     ]) +
     (o.tracking_url
       ? '<p><a class="btn ok" href="' + esc(o.tracking_url) + '">Track shipment</a></p>'
-      : '')
+      : '') +
+    autoFooter()
   );
   send(o.requester_email, 'Order ' + o.order_id + ' dispatched', html);
 }

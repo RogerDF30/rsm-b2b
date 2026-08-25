@@ -30,6 +30,7 @@ function routes() {
     adminToggle: fnAdminToggle,
     adminUsers: fnAdminUsers,
     adminAddUser: fnAdminAddUser,
+    adminBulkUsers: fnAdminBulkUsers,
     adminRenameSku: fnAdminRenameSku,
     adminArchiveOrders: fnAdminArchiveOrders,
     adminAutoRelate: fnAdminAutoRelate,

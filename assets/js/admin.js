@@ -636,7 +636,9 @@ function paintUsers(host) {
     el('div', { class: 'row-between', style: 'margin-bottom:12px' },
       el('span', { class: 'small muted' },
         'People who can sign in and raise orders. Deactivating one blocks the next sign-in.'),
-      el('button', { class: 'btn btn-sm', onclick: addUser }, 'Add user')),
+      el('div', { class: 'row' },
+        el('button', { class: 'btn btn-sm btn-ghost', onclick: importUsers }, 'Import list'),
+        el('button', { class: 'btn btn-sm', onclick: addUser }, 'Add user'))),
     el('div', { class: 'stack' }, USERS.map(u => el('div', { class: 'panel' },
       el('div', { class: 'row-between', style: 'align-items:flex-start' },
         el('div', {},
@@ -677,6 +679,88 @@ function addUser() {
           closeDrawer(); await loadAll();
         } catch (err) { toast(err.message, 'error'); }
       } }, 'Add user'),
+      el('button', { class: 'btn btn-ghost', onclick: closeDrawer }, 'Cancel'))));
+}
+
+/**
+ * Bulk import, for carrying a roster over from the old store.
+ *
+ * Paste either the Magento customer export or a plain "email, name" list. The
+ * password is typed here and posted straight to the backend; it is never put
+ * in a file and never leaves this form. Nothing is emailed to the people
+ * being added, and an address that already has an account is skipped rather
+ * than overwritten, so the same list can be pasted twice without resetting
+ * anybody's password.
+ */
+function importUsers() {
+  const state = { text: '', password: '', lob: '' };
+  const preview = el('div', { class: 'small muted' }, 'Nothing pasted yet.');
+
+  function parse(text) {
+    const rows = [], seen = {};
+    String(text || '').split(/\r?\n/).forEach((raw, i) => {
+      const line = raw.trim();
+      if (!line) return;
+      const cells = line.split(',').map(c => c.trim());
+      // Magento export: header row first, email in column 1, names in 9 and 12.
+      if (i === 0 && /^email\b/i.test(cells[0])) return;
+      const email = (cells[0] || '').toLowerCase();
+      if (email.indexOf('@') < 1) return;
+      if (seen[email]) return;
+      seen[email] = 1;
+      let name = '';
+      if (cells.length >= 12) name = [cells[8], cells[11]].filter(Boolean).join(' ').trim();
+      if (!name) name = cells.slice(1).filter(Boolean).join(' ').trim();
+      if (!name) name = email.split('@')[0].replace(/[._]+/g, ' ');
+      rows.push({ email: email, full_name: name, lob: state.lob });
+    });
+    return rows;
+  }
+
+  function refresh() {
+    const rows = parse(state.text);
+    preview.textContent = rows.length
+      ? rows.length + ' account' + (rows.length === 1 ? '' : 's') + ' found. First: ' +
+        rows[0].full_name + ' (' + rows[0].email + ')'
+      : 'Nothing recognised. Each line needs an email address.';
+  }
+
+  drawer(el('div', {},
+    drawerHead('Import users'),
+    el('div', { class: 'form-grid' },
+      field('Paste the list', el('textarea', { rows: 10, spellcheck: 'false',
+        placeholder: 'email,firstname,lastname  or  a Magento customer export',
+        oninput: e => { state.text = e.target.value; refresh(); } }), true),
+      field('Department for everyone in this list',
+        selectOf(DEPTS, '', v => { state.lob = v; refresh(); }, 'Not set')),
+      field('First password, at least 8 characters', el('input', {
+        type: 'text', autocomplete: 'off',
+        oninput: e => { state.password = e.target.value; } }))),
+    el('div', { style: 'margin-top:10px' }, preview),
+    el('div', { class: 'small muted', style: 'margin-top:10px' },
+      'Everyone gets the same first password and no email is sent. Give it to ' +
+      'them yourself, and ask them to change it from the sign-in page with ' +
+      'Forgot password. Addresses that already have an account are skipped.'),
+    el('div', { class: 'row', style: 'margin-top:20px' },
+      el('button', { class: 'btn', onclick: async ev => {
+        const rows = parse(state.text);
+        if (!rows.length) return toast('Nothing to import.', 'error');
+        if (state.password.length < 8) return toast('Password must be at least 8 characters.', 'error');
+        const btn = ev.target;
+        btn.disabled = true; btn.textContent = 'Importing…';
+        try {
+          const r = await api('adminBulkUsers',
+            { admin_pass: PASS, users: rows, password: state.password });
+          const bits = [r.added.length + ' added'];
+          if (r.skipped.length) bits.push(r.skipped.length + ' already existed');
+          if (r.failed.length) bits.push(r.failed.length + ' failed');
+          toast(bits.join(', ') + '.');
+          closeDrawer(); USERS_LOADED = false; await loadAll();
+        } catch (err) {
+          toast(err.message, 'error');
+          btn.disabled = false; btn.textContent = 'Import';
+        }
+      } }, 'Import'),
       el('button', { class: 'btn btn-ghost', onclick: closeDrawer }, 'Cancel'))));
 }
 

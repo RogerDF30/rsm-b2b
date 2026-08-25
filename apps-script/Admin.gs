@@ -836,6 +836,57 @@ function fnAdminAddUser(req) {
   return { ok: true };
 }
 
+/**
+ * Import a batch of requesters, one shared first password.
+ *
+ * This exists for the Magento migration: the accounts already existed on the
+ * old store and the staff were told a single starting password. It sends no
+ * mail, deliberately. Existing addresses are skipped rather than overwritten,
+ * so re-running the same list is safe and never resets a password somebody
+ * has already changed.
+ *
+ * The single-user path keeps its ten character floor. This one accepts eight,
+ * because the password being carried over is eight, and every row it writes is
+ * marked must_reset so the credential is on the record as a bootstrap one.
+ */
+function fnAdminBulkUsers(req) {
+  requireAdmin(req);
+  var rows = req.users || [];
+  var pw = String(req.password || '');
+  if (!rows.length) throw new Error('No users supplied.');
+  if (pw.length < 8) throw new Error('Choose a password of at least 8 characters.');
+
+  var added = [], skipped = [], failed = [];
+
+  rows.forEach(function (u) {
+    var email = String(u.email || '').trim().toLowerCase();
+    var name = String(u.full_name || '').trim();
+    try {
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw new Error('invalid email');
+      if (!name) throw new Error('full name is required');
+      if (findUser(email)) { skipped.push(email); return; }
+
+      var salt = randomToken(12);
+      withLock(function () {
+        appendRow(SHEETS.USERS, {
+          email: email, full_name: name, lob: String(u.lob || '').trim(),
+          password_hash: hashPassword(pw, salt), salt: salt,
+          must_reset: 'TRUE', failed_attempts: 0, locked_until: '',
+          active: 'TRUE', created_at: now(), last_login: ''
+        });
+      });
+      added.push(email);
+    } catch (err) {
+      failed.push({ email: email, error: err.message });
+    }
+  });
+
+  audit('admin', 'users_imported', 'user', '', null,
+    { added: added.length, skipped: skipped.length, failed: failed.length });
+
+  return { ok: true, added: added, skipped: skipped, failed: failed };
+}
+
 /* ------------------------------------------------------- sku reassignment */
 
 /**

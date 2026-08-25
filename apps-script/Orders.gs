@@ -179,7 +179,8 @@ function fnSubmitOrder(req) {
         qty: l.qty, group_qty: l.group_qty, tier_applied: l.tier_applied,
         unit_price: l.unit_price, line_total: l.line_total,
         gst_rate: l.gst_rate, tax_amount: l.tax_amount,
-        line_total_with_tax: l.line_total_with_tax
+        line_total_with_tax: l.line_total_with_tax,
+        below_moq: l.below_moq
       });
     });
   });
@@ -188,6 +189,15 @@ function fnSubmitOrder(req) {
     { total: priced.grand_total, lines: priced.lines.length });
 
   sendApprovalEmails(orderId, exp);
+
+  /* The requester's receipt must never be what stops an order being raised.
+     The approval mail above is the one that moves the order forward. */
+  try {
+    sendPlacedEmail(orderId);
+  } catch (err) {
+    console.error('placed mail failed for ' + orderId + ': ' + err.message);
+  }
+
   withLock(function () {
     var row = findOrderRow(orderId);
     updateRow(SHEETS.ORDERS, row._row, { notified_at: now() });
