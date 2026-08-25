@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-25 12:16:03",
+ "generated_at": "2026-08-25 12:23:04",
  "settings": {
   "logo_url": "assets/brand/rsm-logo.png",
   "logo_white_url": "assets/brand/rsm-logo-white.png",
@@ -15,15 +15,6 @@
    "image_url": "assets/brand/rsm-hero-banner.jpg",
    "link_url": "category.html?cat=Apparel",
    "sort_order": 0,
-   "active": true
-  },
-  {
-   "slug": "2",
-   "title": "Banner",
-   "subtitle": "",
-   "image_url": "",
-   "link_url": "",
-   "sort_order": 2,
    "active": true
   }
  ],
