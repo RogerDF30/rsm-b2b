@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-25 12:10:02",
+ "generated_at": "2026-08-25 12:13:25",
  "settings": {
   "logo_url": "assets/brand/rsm-logo.png",
   "logo_white_url": "assets/brand/rsm-logo-white.png",
@@ -25,6 +25,40 @@
    "link_url": "",
    "sort_order": 2,
    "active": true
+  }
+ ],
+ "departments": [
+  {
+   "lob": "Assurance",
+   "approver": "Kawalpreet Kaur"
+  },
+  {
+   "lob": "CMG",
+   "approver": ""
+  },
+  {
+   "lob": "Consulting",
+   "approver": "Balasundaram Nagarajan"
+  },
+  {
+   "lob": "Enterprises",
+   "approver": "Gowri Srinivas"
+  },
+  {
+   "lob": "ESS",
+   "approver": ""
+  },
+  {
+   "lob": "IT",
+   "approver": "Malleswara Reddy"
+  },
+  {
+   "lob": "Talent",
+   "approver": ""
+  },
+  {
+   "lob": "Tax",
+   "approver": ""
   }
  ]
 }
