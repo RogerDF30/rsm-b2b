@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-08-25 09:18:34",
+ "generated_at": "2026-08-25 09:45:54",
  "settings": {
-  "logo_url": "https://rogerdf30.github.io/rsm-b2b/assets/brand/rsm-logo.png",
-  "logo_white_url": "https://rogerdf30.github.io/rsm-b2b/assets/brand/rsm-logo-white.png",
+  "logo_url": "assets/brand/rsm-logo.png",
+  "logo_white_url": "assets/brand/rsm-logo-white.png",
   "hero_title": "RSM branded merchandise",
   "hero_subtitle": "Browse the approved catalogue. Sign in at checkout to raise an order for approval.",
   "footer_note": "RSM Business Store, operated by CompanyStore.IO"
@@ -12,7 +12,7 @@
    "slug": "welcome",
    "title": "RSM branded merchandise",
    "subtitle": "Browse the approved catalogue. Sign in at checkout to raise an order for approval.",
-   "image_url": "https://rogerdf30.github.io/rsm-b2b/assets/brand/rsm-hero-banner.jpg",
+   "image_url": "assets/brand/rsm-hero-banner.jpg",
    "link_url": "category.html?cat=Apparel",
    "sort_order": 0,
    "active": true
