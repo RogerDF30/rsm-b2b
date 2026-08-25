@@ -1,6 +1,6 @@
 {
  "generated_from": "admin console",
- "generated_at": "2026-08-25 12:28:55",
+ "generated_at": "2026-08-25 12:31:01",
  "pricing_status": "from the Sheet",
  "categories": [
   {
@@ -2400,171 +2400,6 @@
    ]
   },
   {
-   "sku": "B2BRSMON-0052",
-   "name": "Jack & Jones Round Neck Cotton T-Shirt Grey",
-   "url_key": "",
-   "category": "Apparel",
-   "subcategory": "T-Shirts",
-   "attribute_set": "",
-   "description": "This comfortable classic t-shirt is crafted with 100% cotton. The fabric has a soft feel and relaxed fit and is lightweight. Breathable and perfect for every day.\n \nMachine Wash\n \nGSM: 180\n \nColour: Grey",
-   "specs": [],
-   "moq": 25,
-   "gst_rate": 5,
-   "base_price": 650,
-   "tiers": [
-    {
-     "min_qty": 25,
-     "max_qty": 49,
-     "unit_price": 650
-    },
-    {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 605
-    },
-    {
-     "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 570
-    },
-    {
-     "min_qty": 250,
-     "max_qty": null,
-     "unit_price": 535
-    }
-   ],
-   "sizes": [
-    "XS",
-    "S",
-    "M",
-    "L",
-    "XL",
-    "2XL"
-   ],
-   "has_sizes": true,
-   "image": "assets/products/B2BRSMON-0052.webp",
-   "weight": "",
-   "active": true,
-   "related": [
-    "B2BRSMON-0007",
-    "B2BRSMON-0051",
-    "B2BRSMON-0063",
-    "B2BRSMON-0062",
-    "B2BRSMON-0064",
-    "B2BRSMON-0058"
-   ]
-  },
-  {
-   "sku": "B2BRSMON-0007",
-   "name": "Jack & Jones Round Neck Cotton T-Shirt Standard Navy Blue",
-   "url_key": "",
-   "category": "Apparel",
-   "subcategory": "T-Shirts",
-   "attribute_set": "",
-   "description": "This comfortable classic t-shirt is crafted with 100% cotton. The fabric has a soft feel and relaxed fit and is lightweight. Breathable and perfect for every day.\n \nMachine Wash\n \nGSM: 180\n \nColour: Navy Blue",
-   "specs": [],
-   "moq": 25,
-   "gst_rate": 5,
-   "base_price": 650,
-   "tiers": [
-    {
-     "min_qty": 25,
-     "max_qty": 49,
-     "unit_price": 650
-    },
-    {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 605
-    },
-    {
-     "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 570
-    },
-    {
-     "min_qty": 250,
-     "max_qty": null,
-     "unit_price": 535
-    }
-   ],
-   "sizes": [
-    "XS",
-    "S",
-    "M",
-    "L",
-    "XL",
-    "2XL"
-   ],
-   "has_sizes": true,
-   "image": "assets/products/B2BRSMON-0007.webp",
-   "weight": "",
-   "active": true,
-   "related": [
-    "B2BRSMON-0052",
-    "B2BRSMON-0051",
-    "B2BRSMON-0063",
-    "B2BRSMON-0062",
-    "B2BRSMON-0064",
-    "B2BRSMON-0058"
-   ]
-  },
-  {
-   "sku": "B2BRSMON-0051",
-   "name": "Jack & Jones Round Neck Cotton T-Shirt White",
-   "url_key": "",
-   "category": "Apparel",
-   "subcategory": "T-Shirts",
-   "attribute_set": "",
-   "description": "This comfortable classic t-shirt is crafted with 100% cotton. The fabric has a soft feel and relaxed fit and is lightweight. Breathable and perfect for every day.\n \nMachine Wash\n \nGSM: 180\n \nColour: White",
-   "specs": [],
-   "moq": 25,
-   "gst_rate": 5,
-   "base_price": 650,
-   "tiers": [
-    {
-     "min_qty": 25,
-     "max_qty": 49,
-     "unit_price": 650
-    },
-    {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 605
-    },
-    {
-     "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 570
-    },
-    {
-     "min_qty": 250,
-     "max_qty": null,
-     "unit_price": 535
-    }
-   ],
-   "sizes": [
-    "XS",
-    "S",
-    "M",
-    "L",
-    "XL",
-    "2XL"
-   ],
-   "has_sizes": true,
-   "image": "assets/products/B2BRSMON-0051.webp",
-   "weight": "",
-   "active": true,
-   "related": [
-    "B2BRSMON-0052",
-    "B2BRSMON-0007",
-    "B2BRSMON-0063",
-    "B2BRSMON-0062",
-    "B2BRSMON-0064",
-    "B2BRSMON-0058"
-   ]
-  },
-  {
    "sku": "B2BRSMON-0004",
    "name": "OMG Endurance Round Neck Cotton T-Shirt- Unisex- Standard Green",
    "url_key": "b2b-omg-endurance-roundneck-t-shirt-green",
@@ -3014,10 +2849,7 @@
    "related": [
     "B2BRSMON-0061",
     "B2BRSMON-0062",
-    "B2BRSMON-0064",
-    "B2BRSMON-0052",
-    "B2BRSMON-0007",
-    "B2BRSMON-0051"
+    "B2BRSMON-0064"
    ]
   },
   {
@@ -3078,10 +2910,7 @@
    "related": [
     "B2BRSMON-0061",
     "B2BRSMON-0063",
-    "B2BRSMON-0064",
-    "B2BRSMON-0052",
-    "B2BRSMON-0007",
-    "B2BRSMON-0051"
+    "B2BRSMON-0064"
    ]
   },
   {
@@ -3142,10 +2971,7 @@
    "related": [
     "B2BRSMON-0061",
     "B2BRSMON-0063",
-    "B2BRSMON-0062",
-    "B2BRSMON-0052",
-    "B2BRSMON-0007",
-    "B2BRSMON-0051"
+    "B2BRSMON-0062"
    ]
   },
   {
@@ -3206,9 +3032,6 @@
    "active": true,
    "related": [
     "B2BRSMON-0057",
-    "B2BRSMON-0052",
-    "B2BRSMON-0007",
-    "B2BRSMON-0051",
     "B2BRSMON-0182",
     "B2BRSMON-0059"
    ]
@@ -3662,104 +3485,6 @@
    ]
   },
   {
-   "sku": "B2BRSMON-0113",
-   "name": "Rubbl 500ml Bottle- Matt Black",
-   "url_key": "",
-   "category": "Drinkware",
-   "subcategory": "Bottles",
-   "attribute_set": "",
-   "description": "Stainless Steel Vacuum Bottle\nCapacity: 500 ml\nDimension: 7x7x23.5 cm\nWeight: 263 gms\nMaterial: Stainless Steel 304 Grade\nFinish: Rubber Finish on the Outside\nHot & Cold: Up to 6 to 8 hours\nColour: Black",
-   "specs": [],
-   "moq": 25,
-   "gst_rate": 18,
-   "base_price": 650,
-   "tiers": [
-    {
-     "min_qty": 25,
-     "max_qty": 49,
-     "unit_price": 650
-    },
-    {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 605
-    },
-    {
-     "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 570
-    },
-    {
-     "min_qty": 250,
-     "max_qty": null,
-     "unit_price": 535
-    }
-   ],
-   "sizes": [],
-   "has_sizes": false,
-   "image": "assets/products/B2BRSMON-0113.webp",
-   "weight": "",
-   "active": true,
-   "related": [
-    "B2BRSMON-0114",
-    "B2BRSMON-0032",
-    "B2BRSMON-0220",
-    "B2BRSMON-0221",
-    "B2BRSMON-0218",
-    "B2BRSMON-0217",
-    "B2BRSMON-0034"
-   ]
-  },
-  {
-   "sku": "B2BRSMON-0114",
-   "name": "Rubbl 500ml Bottle- Matt Blue",
-   "url_key": "",
-   "category": "Drinkware",
-   "subcategory": "Bottles",
-   "attribute_set": "",
-   "description": "Stainless Steel Vacuum Bottle\nCapacity: 500 ml\nDimension: 7x7x23.5 cm\nWeight: 263 gms\nMaterial: Stainless Steel 304 Grade\nFinish: Rubber Finish on the Outside\nHot & Cold: Up to 6 to 8 hours\nColour: Blue",
-   "specs": [],
-   "moq": 25,
-   "gst_rate": 18,
-   "base_price": 650,
-   "tiers": [
-    {
-     "min_qty": 25,
-     "max_qty": 49,
-     "unit_price": 650
-    },
-    {
-     "min_qty": 50,
-     "max_qty": 99,
-     "unit_price": 605
-    },
-    {
-     "min_qty": 100,
-     "max_qty": 249,
-     "unit_price": 570
-    },
-    {
-     "min_qty": 250,
-     "max_qty": null,
-     "unit_price": 535
-    }
-   ],
-   "sizes": [],
-   "has_sizes": false,
-   "image": "assets/products/B2BRSMON-0114.webp",
-   "weight": "",
-   "active": true,
-   "related": [
-    "B2BRSMON-0113",
-    "B2BRSMON-0032",
-    "B2BRSMON-0220",
-    "B2BRSMON-0221",
-    "B2BRSMON-0218",
-    "B2BRSMON-0217",
-    "B2BRSMON-0034"
-   ]
-  },
-  {
    "sku": "B2BRSMON-0117",
    "name": "SIGMA Sipper 500ml- Black",
    "url_key": "b2b-sigma-sipper-500ml-black",
@@ -3889,8 +3614,6 @@
    "weight": "1",
    "active": true,
    "related": [
-    "B2BRSMON-0113",
-    "B2BRSMON-0114",
     "B2BRSMON-0117",
     "B2BRSMON-0220",
     "B2BRSMON-0221",
@@ -4233,10 +3956,7 @@
    "image": "assets/products/B2BRSMON-0034.webp",
    "weight": "1",
    "active": true,
-   "related": [
-    "B2BRSMON-0113",
-    "B2BRSMON-0114"
-   ]
+   "related": []
   },
   {
    "sku": "B2BRSMON-0101",
@@ -10069,8 +9789,6 @@
    "active": true,
    "related": [
     "B2BRSMON-0120",
-    "B2BRSMON-0113",
-    "B2BRSMON-0114",
     "B2BRSMON-0117",
     "B2BRSMON-0178",
     "B2BRSMON-0216"
@@ -10121,8 +9839,6 @@
    "weight": "",
    "active": true,
    "related": [
-    "B2BRSMON-0113",
-    "B2BRSMON-0114",
     "B2BRSMON-0117",
     "B2BRSMON-0032",
     "B2BRSMON-0216",
@@ -10226,8 +9942,6 @@
    "weight": "",
    "active": true,
    "related": [
-    "B2BRSMON-0113",
-    "B2BRSMON-0114",
     "B2BRSMON-0117",
     "B2BRSMON-0032",
     "B2BRSMON-0216",
@@ -10279,8 +9993,6 @@
    "weight": "",
    "active": true,
    "related": [
-    "B2BRSMON-0113",
-    "B2BRSMON-0114",
     "B2BRSMON-0117",
     "B2BRSMON-0032",
     "B2BRSMON-0216"
@@ -11064,32 +10776,6 @@
    "sizes": [],
    "has_sizes": false,
    "image": "assets/products/crystal-trophy-003.webp",
-   "weight": "",
-   "active": true,
-   "related": []
-  },
-  {
-   "sku": "TEMP-0006",
-   "name": "VOID duplicate of TEMP-0005",
-   "url_key": "",
-   "category": "Trophies",
-   "subcategory": "Crystal",
-   "attribute_set": "",
-   "description": "Octagonal crystal disc with bevelled edges, on a black crystal base. Sand-etched or laser-engraved branding on the face.",
-   "specs": [],
-   "moq": 1,
-   "gst_rate": 18,
-   "base_price": 270,
-   "tiers": [
-    {
-     "min_qty": 1,
-     "max_qty": null,
-     "unit_price": 270
-    }
-   ],
-   "sizes": [],
-   "has_sizes": false,
-   "image": "https://drive.google.com/uc?export=view&id=1OfDGfeNoQIEigRVuUThmZIw7B1oopgMD",
    "weight": "",
    "active": true,
    "related": []
