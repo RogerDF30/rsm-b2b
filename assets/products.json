@@ -1,6 +1,6 @@
 {
  "generated_from": "admin console",
- "generated_at": "2026-08-25 13:59:11",
+ "generated_at": "2026-08-25 14:07:10",
  "pricing_status": "from the Sheet",
  "categories": [
   {
@@ -8964,29 +8964,39 @@
    "attribute_set": "",
    "description": "\"100% polyester. Center front reversed coil zipper with semi auto-lock pull tab. Self-fabric Banded cuffs and waistband. Doubles up as a drawstring bag. Style- Unisex\n\n\"",
    "specs": [],
-   "moq": 100,
+   "moq": 1,
    "gst_rate": 5,
-   "base_price": 1646,
+   "base_price": 1750,
    "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": 49,
+     "unit_price": 1750
+    },
+    {
+     "min_qty": 50,
+     "max_qty": 99,
+     "unit_price": 1715
+    },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1646
+     "unit_price": 1675
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1531
+     "unit_price": 1650.75
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1347
+     "unit_price": 1452.66
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1199
+     "unit_price": 1292.87
     }
    ],
    "sizes": [
