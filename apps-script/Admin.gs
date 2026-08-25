@@ -887,6 +887,74 @@ function fnAdminBulkUsers(req) {
   return { ok: true, added: added, skipped: skipped, failed: failed };
 }
 
+/* --------------------------------------------------------- bulk repricing */
+
+/**
+ * Replace the price ladder on many products in one call.
+ *
+ * A repricing arrives as a few hundred rows and the per-product endpoint reads
+ * the whole catalogue each time, which turns a five minute job into an hour.
+ * This touches three fields and nothing else: moq, base_price and the product's
+ * PriceTiers rows. Names, images, categories and related products are left
+ * exactly as they are.
+ *
+ * max_qty is derived, because the source sheets carry only break points: each
+ * band ends one unit below the next, and the last band is open.
+ */
+function fnAdminBulkTiers(req) {
+  requireAdmin(req);
+  var items = req.items || [];
+  if (!items.length) throw new Error('items is required.');
+
+  return withLock(function () {
+    var products = readTab(SHEETS.PRODUCTS);
+    var bySku = {};
+    products.forEach(function (p) { bySku[String(p.sku).trim().toUpperCase()] = p; });
+
+    var updated = [], skipped = [];
+
+    items.forEach(function (it) {
+      var sku = String(it.sku || '').trim().toUpperCase();
+      var row = bySku[sku];
+      if (!row) { skipped.push({ sku: sku, why: 'not in the catalogue' }); return; }
+
+      var tiers = (it.tiers || [])
+        .map(function (t) {
+          return { min_qty: Math.floor(Number(t.min_qty) || 0), unit_price: Number(t.unit_price) || 0 };
+        })
+        .filter(function (t) { return t.min_qty > 0 && t.unit_price > 0; })
+        .sort(function (x, y) { return x.min_qty - y.min_qty; });
+      if (!tiers.length) { skipped.push({ sku: sku, why: 'no usable tiers' }); return; }
+
+      var moq = it.moq === undefined || it.moq === null
+        ? Number(row.moq) || 1
+        : Math.floor(Number(it.moq));
+      if (moq < 1) moq = 1;
+      if (tiers[0].min_qty !== moq) {
+        skipped.push({ sku: sku, why: 'first tier starts at ' + tiers[0].min_qty + ', MOQ is ' + moq });
+        return;
+      }
+
+      var rows = tiers.map(function (t, i) {
+        return {
+          parent_sku: sku,
+          min_qty: t.min_qty,
+          max_qty: i + 1 < tiers.length ? tiers[i + 1].min_qty - 1 : '',
+          unit_price: t.unit_price
+        };
+      });
+
+      updateRow(SHEETS.PRODUCTS, row._row, { moq: moq, base_price: tiers[0].unit_price });
+      replaceRowsFor(SHEETS.TIERS, 'parent_sku', sku, rows);
+      updated.push({ sku: sku, moq: moq, tiers: rows.length, base_price: tiers[0].unit_price });
+    });
+
+    audit('admin', 'bulk_repriced', 'product', updated.length + ' products', null,
+      { updated: updated.length, skipped: skipped.length });
+    return { ok: true, updated: updated, skipped: skipped };
+  });
+}
+
 /* ------------------------------------------------------- sku reassignment */
 
 /**
