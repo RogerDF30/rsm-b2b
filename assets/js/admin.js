@@ -733,7 +733,7 @@ function importUsers() {
         oninput: e => { state.text = e.target.value; refresh(); } }), true),
       field('Department for everyone in this list',
         selectOf(DEPTS, '', v => { state.lob = v; refresh(); }, 'Not set')),
-      field('First password, at least 8 characters', el('input', {
+      field('First password, at least 7 characters', el('input', {
         type: 'text', autocomplete: 'off',
         oninput: e => { state.password = e.target.value; } }))),
     el('div', { style: 'margin-top:10px' }, preview),
@@ -745,7 +745,7 @@ function importUsers() {
       el('button', { class: 'btn', onclick: async ev => {
         const rows = parse(state.text);
         if (!rows.length) return toast('Nothing to import.', 'error');
-        if (state.password.length < 8) return toast('Password must be at least 8 characters.', 'error');
+        if (state.password.length < 7) return toast('Password must be at least 7 characters.', 'error');
         const btn = ev.target;
         btn.disabled = true; btn.textContent = 'Importing…';
         try {

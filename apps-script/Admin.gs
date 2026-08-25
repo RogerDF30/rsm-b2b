@@ -845,16 +845,17 @@ function fnAdminAddUser(req) {
  * so re-running the same list is safe and never resets a password somebody
  * has already changed.
  *
- * The single-user path keeps its ten character floor. This one accepts eight,
- * because the password being carried over is eight, and every row it writes is
- * marked must_reset so the credential is on the record as a bootstrap one.
+ * The single-user path keeps its ten character floor. This one accepts seven,
+ * the length of the password being carried over from Magento, and every row it
+ * writes is marked must_reset so the credential is on the record as a
+ * bootstrap one.
  */
 function fnAdminBulkUsers(req) {
   requireAdmin(req);
   var rows = req.users || [];
   var pw = String(req.password || '');
   if (!rows.length) throw new Error('No users supplied.');
-  if (pw.length < 8) throw new Error('Choose a password of at least 8 characters.');
+  if (pw.length < 7) throw new Error('Choose a password of at least 7 characters.');
 
   var added = [], skipped = [], failed = [];
 
