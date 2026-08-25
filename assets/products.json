@@ -1,6 +1,6 @@
 {
  "generated_from": "admin console",
- "generated_at": "2026-08-25 12:14:20",
+ "generated_at": "2026-08-25 12:14:58",
  "pricing_status": "from the Sheet",
  "categories": [
   {
@@ -10698,6 +10698,58 @@
    "sizes": [],
    "has_sizes": false,
    "image": "assets/products/crystal-trophy-001.webp",
+   "weight": "",
+   "active": true,
+   "related": []
+  },
+  {
+   "sku": "TEMP-0004",
+   "name": "Crystal Trophy 002 - 10\"",
+   "url_key": "",
+   "category": "Trophies",
+   "subcategory": "Crystal",
+   "attribute_set": "",
+   "description": "Crystal slab with an angled top edge and a blue-tinted spire inclusion, on a black crystal base. Sand-etched or laser-engraved branding on the clear panel.",
+   "specs": [],
+   "moq": 1,
+   "gst_rate": 18,
+   "base_price": 1000,
+   "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": null,
+     "unit_price": 1000
+    }
+   ],
+   "sizes": [],
+   "has_sizes": false,
+   "image": "assets/products/crystal-trophy-002.webp",
+   "weight": "",
+   "active": true,
+   "related": []
+  },
+  {
+   "sku": "TEMP-0006",
+   "name": "VOID duplicate of TEMP-0005",
+   "url_key": "",
+   "category": "Trophies",
+   "subcategory": "Crystal",
+   "attribute_set": "",
+   "description": "Octagonal crystal disc with bevelled edges, on a black crystal base. Sand-etched or laser-engraved branding on the face.",
+   "specs": [],
+   "moq": 1,
+   "gst_rate": 18,
+   "base_price": 270,
+   "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": null,
+     "unit_price": 270
+    }
+   ],
+   "sizes": [],
+   "has_sizes": false,
+   "image": "https://drive.google.com/uc?export=view&id=1OfDGfeNoQIEigRVuUThmZIw7B1oopgMD",
    "weight": "",
    "active": true,
    "related": []
