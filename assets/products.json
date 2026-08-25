@@ -1,6 +1,6 @@
 {
  "generated_from": "admin console",
- "generated_at": "2026-08-25 12:13:25",
+ "generated_at": "2026-08-25 12:14:20",
  "pricing_status": "from the Sheet",
  "categories": [
   {
@@ -4016,6 +4016,7 @@
    "active": true,
    "related": [
     "B2BRSMON-0100",
+    "B2BRSMON-0104",
     "B2BRSMON-0103",
     "B2BRSMON-0102",
     "B2BRSMON-0112",
@@ -4076,6 +4077,7 @@
    "active": true,
    "related": [
     "B2BRSMON-0101",
+    "B2BRSMON-0104",
     "B2BRSMON-0103",
     "B2BRSMON-0102",
     "B2BRSMON-0112",
@@ -4125,8 +4127,56 @@
     "B2BRSMON-0215",
     "B2BRSMON-0106",
     "B2BRSMON-0109",
-    "B2BRSMON-0108",
+    "B2BRSMON-0110",
     "B2BRSMON-0219"
+   ]
+  },
+  {
+   "sku": "B2BRSMON-0104",
+   "name": "Corky Mug 400ml",
+   "url_key": "",
+   "category": "Drinkware",
+   "subcategory": "Mugs & tumblers",
+   "attribute_set": "",
+   "description": "Dimension: 12x8.5x11 cm\nCapacity: 400 ml\nWeight: Around 398 gm\nMaterial: Ceramic with Cork Base\nColour: White with Cork Base",
+   "specs": [],
+   "moq": 25,
+   "gst_rate": 18,
+   "base_price": 450,
+   "tiers": [
+    {
+     "min_qty": 25,
+     "max_qty": 49,
+     "unit_price": 450
+    },
+    {
+     "min_qty": 50,
+     "max_qty": 99,
+     "unit_price": 420
+    },
+    {
+     "min_qty": 100,
+     "max_qty": 249,
+     "unit_price": 395
+    },
+    {
+     "min_qty": 250,
+     "max_qty": null,
+     "unit_price": 370
+    }
+   ],
+   "sizes": [],
+   "has_sizes": false,
+   "image": "assets/products/B2BRSMON-0104.webp",
+   "weight": "",
+   "active": true,
+   "related": [
+    "B2BRSMON-0101",
+    "B2BRSMON-0100",
+    "B2BRSMON-0103",
+    "B2BRSMON-0102",
+    "B2BRSMON-0112",
+    "B2BRSMON-0105"
    ]
   },
   {
@@ -4186,7 +4236,7 @@
    "weight": "1.5",
    "active": true,
    "related": [
-    "B2BRSMON-0108",
+    "B2BRSMON-0110",
     "B2BRSMON-0107",
     "B2BRSMON-0106",
     "B2BRSMON-0215",
@@ -4194,31 +4244,14 @@
    ]
   },
   {
-   "sku": "B2BRSMON-0108",
-   "name": "Hydra Mug 1200 ml with Lid and Straw- White",
-   "url_key": "b2b-hydra-mug-1200-ml-with-lid-and-straw-white",
+   "sku": "B2BRSMON-0110",
+   "name": "Hydra Mug 1200 ml with Lid and Straw- Standard Green",
+   "url_key": "",
    "category": "Drinkware",
    "subcategory": "Mugs & tumblers",
-   "attribute_set": "Mug",
-   "description": "Stainless Steel Mug with Grip\nDouble Wall 304 SS\n12x9.5x27 cm - 495 gms\nCapacity: 1200 ml\nHot & Cold: Up to 6 to 8 hours with latest vacuum technology\nStraw included\nBPA Free: Yes\nLeak Proof: Yes\nColour: White",
-   "specs": [
-    [
-     "Capacity",
-     "1200 ml"
-    ],
-    [
-     "BPA Free",
-     "Yes"
-    ],
-    [
-     "Leak Proof",
-     "Yes"
-    ],
-    [
-     "Colour",
-     "White"
-    ]
-   ],
+   "attribute_set": "",
+   "description": "Stainless Steel Mug with Grip\nDouble Wall 304 SS\n12x9.5x27 cm - 495 gms\nCapacity: 1200 ml\nHot & Cold: Up to 6 to 8 hours with latest vacuum technology\nStraw included\nBPA Free: Yes\nLeak Proof: Yes\nColour: Green",
+   "specs": [],
    "moq": 25,
    "gst_rate": 18,
    "base_price": 950,
@@ -4246,8 +4279,8 @@
    ],
    "sizes": [],
    "has_sizes": false,
-   "image": "assets/products/B2BRSMON-0108.webp",
-   "weight": "1.5",
+   "image": "assets/products/B2BRSMON-0110.webp",
+   "weight": "",
    "active": true,
    "related": [
     "B2BRSMON-0109",
@@ -4312,7 +4345,7 @@
    "related": [
     "B2BRSMON-0107",
     "B2BRSMON-0109",
-    "B2BRSMON-0108",
+    "B2BRSMON-0110",
     "B2BRSMON-0215",
     "B2BRSMON-0219"
    ]
@@ -4381,6 +4414,7 @@
     "B2BRSMON-0102",
     "B2BRSMON-0101",
     "B2BRSMON-0100",
+    "B2BRSMON-0104",
     "B2BRSMON-0112",
     "B2BRSMON-0105"
    ]
@@ -4449,6 +4483,7 @@
     "B2BRSMON-0103",
     "B2BRSMON-0101",
     "B2BRSMON-0100",
+    "B2BRSMON-0104",
     "B2BRSMON-0112",
     "B2BRSMON-0105"
    ]
@@ -4517,6 +4552,7 @@
     "B2BRSMON-0031",
     "B2BRSMON-0101",
     "B2BRSMON-0100",
+    "B2BRSMON-0104",
     "B2BRSMON-0103",
     "B2BRSMON-0102"
    ]
@@ -4651,6 +4687,7 @@
    "related": [
     "B2BRSMON-0101",
     "B2BRSMON-0100",
+    "B2BRSMON-0104",
     "B2BRSMON-0103",
     "B2BRSMON-0102",
     "B2BRSMON-0031"
@@ -9649,7 +9686,7 @@
    "related": [
     "B2BRSMON-0107",
     "B2BRSMON-0109",
-    "B2BRSMON-0108",
+    "B2BRSMON-0110",
     "B2BRSMON-0106",
     "B2BRSMON-0031"
    ]
@@ -9855,7 +9892,7 @@
    "related": [
     "B2BRSMON-0107",
     "B2BRSMON-0109",
-    "B2BRSMON-0108",
+    "B2BRSMON-0110",
     "B2BRSMON-0106",
     "B2BRSMON-0031"
    ]
@@ -10612,6 +10649,58 @@
     "B2BRSMON-0232",
     "B2BRSMON-0233"
    ]
+  },
+  {
+   "sku": "TEMP-0001",
+   "name": "Crystal Trophy 001 - 9.75\"",
+   "url_key": "",
+   "category": "Trophies",
+   "subcategory": "Crystal",
+   "attribute_set": "",
+   "description": "Tapered optical-crystal column with an angled cut top, on a stepped crystal base. Sand-etched or laser-engraved branding on the front face.",
+   "specs": [],
+   "moq": 1,
+   "gst_rate": 18,
+   "base_price": 850,
+   "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": null,
+     "unit_price": 850
+    }
+   ],
+   "sizes": [],
+   "has_sizes": false,
+   "image": "assets/products/crystal-trophy-001.webp",
+   "weight": "",
+   "active": true,
+   "related": []
+  },
+  {
+   "sku": "TEMP-0002",
+   "name": "Crystal Trophy 001 - 11\"",
+   "url_key": "",
+   "category": "Trophies",
+   "subcategory": "Crystal",
+   "attribute_set": "",
+   "description": "Tapered optical-crystal column with an angled cut top, on a stepped crystal base. Sand-etched or laser-engraved branding on the front face.",
+   "specs": [],
+   "moq": 1,
+   "gst_rate": 18,
+   "base_price": 900,
+   "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": null,
+     "unit_price": 900
+    }
+   ],
+   "sizes": [],
+   "has_sizes": false,
+   "image": "assets/products/crystal-trophy-001.webp",
+   "weight": "",
+   "active": true,
+   "related": []
   },
   {
    "sku": "TEMP-0007",
