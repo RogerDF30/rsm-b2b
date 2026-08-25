@@ -30,6 +30,7 @@ function routes() {
     adminToggle: fnAdminToggle,
     adminUsers: fnAdminUsers,
     adminAddUser: fnAdminAddUser,
+    adminRenameSku: fnAdminRenameSku,
     adminAutoRelate: fnAdminAutoRelate,
     adminSetAnalyticsPass: fnAdminSetAnalyticsPass,
     adminSetChatWebhook: fnAdminSetChatWebhook,

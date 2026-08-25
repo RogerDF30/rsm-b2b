@@ -528,7 +528,12 @@ const ICONS = {
    strip, logo and search, then the category rail. */
 function header(active) {
   const u = Auth.user();
-  const cats = ['Apparel', 'Drinkware', 'Travel', 'Utilities'];
+  /* The rail follows the catalogue, so a new heading appears the moment a
+     product is published under it. The four originals are the fallback for
+     pages that mount before the catalogue is loaded. */
+  const cats = Catalog.categories.length
+    ? Catalog.categories.map(c => c.slug)
+    : ['Apparel', 'Drinkware', 'Travel', 'Utilities'];
 
   return el('header', { class: 'site-head' },
     el('div', { class: 'util' },

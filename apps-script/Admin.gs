@@ -826,3 +826,77 @@ function fnAdminAddUser(req) {
     { full_name: name, lob: String(u.lob || '') });
   return { ok: true };
 }
+
+/* ------------------------------------------------------- sku reassignment */
+
+/**
+ * Move a product from a placeholder SKU to the one Catalogue issued.
+ *
+ * Products can be loaded before a SKU exists, so the row, its price tiers and
+ * its variants are all keyed on a temporary code. This carries all three over
+ * and repoints anything that referenced the old code. It refuses if the new
+ * SKU is taken, and it refuses if the old SKU appears on an order line, since
+ * an order must keep resolving to what was actually bought.
+ */
+function fnAdminRenameSku(req) {
+  requireAdmin(req);
+  var from = String(req.from || '').trim().toUpperCase();
+  var to = String(req.to || '').trim().toUpperCase();
+  if (!from || !to) throw new Error('Both from and to are required.');
+  if (from === to) throw new Error('The two SKUs are the same.');
+
+  return withLock(function () {
+    var products = readTab(SHEETS.PRODUCTS);
+    var row = null, clash = null;
+    products.forEach(function (p) {
+      var s = String(p.sku).trim().toUpperCase();
+      if (s === from) row = p;
+      if (s === to) clash = p;
+    });
+    if (!row) throw new Error('No product ' + from + '.');
+    if (clash) throw new Error(to + ' is already in use by "' + clash.name + '".');
+
+    var onOrder = readTab(SHEETS.LINES).some(function (l) {
+      return String(l.parent_sku).trim().toUpperCase() === from;
+    });
+    if (onOrder) {
+      throw new Error(from + ' appears on an order, so it cannot be renamed. ' +
+        'Create ' + to + ' as a new product instead.');
+    }
+
+    updateRow(SHEETS.PRODUCTS, row._row, { sku: to });
+
+    var tiers = readTab(SHEETS.TIERS).filter(function (t) {
+      return String(t.parent_sku).trim().toUpperCase() === from;
+    });
+    var idxT = headerIndex(SHEETS.TIERS);
+    tiers.forEach(function (t) {
+      sheet(SHEETS.TIERS).getRange(t._row, idxT.parent_sku).setValue(to);
+    });
+
+    var variants = readTab(SHEETS.VARIANTS).filter(function (v) {
+      return String(v.parent_sku).trim().toUpperCase() === from;
+    });
+    var idxV = headerIndex(SHEETS.VARIANTS);
+    variants.forEach(function (v) {
+      sheet(SHEETS.VARIANTS).getRange(v._row, idxV.parent_sku).setValue(to);
+      sheet(SHEETS.VARIANTS).getRange(v._row, idxV.variant_sku)
+        .setValue(to + '_' + String(v.size).trim().toUpperCase());
+    });
+
+    /* Anything that listed the old code as a related product. */
+    var idxP = headerIndex(SHEETS.PRODUCTS);
+    products.forEach(function (p) {
+      ['related_skus', 'auto_related_skus'].forEach(function (col) {
+        if (!idxP[col]) return;
+        var list = splitSkus(p[col]);
+        if (list.indexOf(from) < 0) return;
+        var next = list.map(function (s) { return s === from ? to : s; });
+        sheet(SHEETS.PRODUCTS).getRange(p._row, idxP[col]).setValue(next.join(','));
+      });
+    });
+
+    audit('admin', 'sku_renamed', 'product', to, { sku: from }, { sku: to });
+    return { ok: true, from: from, to: to, tiers: tiers.length, variants: variants.length };
+  });
+}
