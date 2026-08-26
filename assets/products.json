@@ -1,6 +1,6 @@
 {
  "generated_from": "admin console",
- "generated_at": "2026-08-26 17:21:07",
+ "generated_at": "2026-08-26 17:32:14",
  "pricing_status": "from the Sheet",
  "categories": [
   {
@@ -6192,27 +6192,27 @@
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 269
+     "unit_price": 385
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 258
+     "unit_price": 380
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 250
+     "unit_price": 372
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 240
+     "unit_price": 364
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 230
+     "unit_price": 355
     }
    ],
    "sizes": [],
