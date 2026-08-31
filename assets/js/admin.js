@@ -1281,7 +1281,7 @@ async function raiseOrder() {
       el('table', { class: 'totals' }, el('tbody', {},
         el('tr', {}, el('td', {}, 'Subtotal'), el('td', {}, money(q.net))),
         el('tr', {}, el('td', {}, 'GST'), el('td', {}, money(q.tax))),
-        el('tr', {}, el('td', {}, `Shipping & handling (${q.pct}%)`),
+        el('tr', {}, el('td', {}, 'Shipping & handling'),
           el('td', {}, money(q.shipping))),
         el('tr', {}, el('td', {}, 'Catalogue total'), el('td', {}, money(q.listTotal))),
         el('tr', {}, el('td', {},

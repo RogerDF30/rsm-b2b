@@ -163,7 +163,7 @@ function paint() {
       el('table', { class: 'totals' }, el('tbody', {},
         el('tr', {}, el('td', {}, 'Subtotal'), el('td', {}, money(r.subtotal))),
         el('tr', {}, el('td', {}, 'GST'), el('td', {}, money(r.taxTotal))),
-        el('tr', {}, el('td', {}, `Shipping & handling (${r.shippingPct}%)`),
+        el('tr', {}, el('td', {}, 'Shipping & handling'),
           el('td', {}, money(r.shippingTotal))),
         el('tr', { class: 'grand' }, el('td', {}, 'Total'), el('td', {}, money(r.grandTotal))))),
       el('div', { class: 'small muted', style: 'margin:10px 0 14px' },

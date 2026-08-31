@@ -279,7 +279,7 @@ function paintSummary() {
     el('table', { class: 'totals', style: 'margin-top:14px' }, el('tbody', {},
       el('tr', {}, el('td', {}, 'Subtotal'), el('td', {}, money(R.subtotal))),
       el('tr', {}, el('td', {}, 'GST'), el('td', {}, money(R.taxTotal))),
-      el('tr', {}, el('td', {}, `Shipping & handling (${R.shippingPct}%)`),
+      el('tr', {}, el('td', {}, 'Shipping & handling'),
         el('td', {}, money(R.shippingTotal))),
       el('tr', { class: 'grand' }, el('td', {}, 'Total'), el('td', {}, money(R.grandTotal))))),
     R.belowMoq.length
