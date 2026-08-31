@@ -123,17 +123,44 @@ function priceOrder(rawLines, overrides) {
 
   if (!lines.length) throw new Error('The order has no valid lines.');
 
+  var pct = shippingPct();
+  var shipping = round2(subtotal * pct / 100);
+  var listShipping = round2(listSubtotal * pct / 100);
+
   return {
     lines: lines,
     subtotal: round2(subtotal),
     tax_total: round2(taxTotal),
-    grand_total: round2(subtotal + taxTotal),
+    shipping_pct: pct,
+    shipping_total: shipping,
+    grand_total: round2(subtotal + taxTotal + shipping),
     list_subtotal: round2(listSubtotal),
-    list_grand_total: round2(listSubtotal + listTaxTotal)
+    list_grand_total: round2(listSubtotal + listTaxTotal + listShipping)
   };
 }
 
 function round2(n) { return Math.round(n * 100) / 100; }
+
+/**
+ * Shipping and handling, as a percentage of the goods value before GST.
+ *
+ * The rate lives in the Settings tab so it can be changed without a redeploy;
+ * SHIPPING_PCT_DEFAULT is what a store that has never had the row set gets.
+ * It is charged on the subtotal rather than on subtotal-plus-tax, so the fee
+ * does not move when a product's GST rate changes, and no GST is charged on
+ * the fee itself: it is added after tax, which is how the Magento store this
+ * replaces presented it.
+ */
+var SHIPPING_PCT_DEFAULT = 8;
+
+function shippingPct() {
+  var raw = readSettings().shipping_pct;
+  if (raw === undefined || raw === null || String(raw).trim() === '') {
+    return SHIPPING_PCT_DEFAULT;
+  }
+  var n = Number(raw);
+  return isFinite(n) && n >= 0 ? n : SHIPPING_PCT_DEFAULT;
+}
 
 /* ------------------------------------------------------------- submission */
 
@@ -150,10 +177,17 @@ function fnSubmitOrder(req) {
 
   var priced = priceOrder(req.lines || []);
 
-  // The browser's total is advisory. A mismatch means the tier table changed
-  // under the user, or the payload was tampered with. Either way, stop.
+  /* The browser's total is advisory. A mismatch means the tier table changed
+     under the user, or the payload was tampered with. Either way, stop.
+
+     It compares the GOODS, not the grand total: shipping is a single rate an
+     admin can change at any moment and the storefront only picks the new one
+     up at the next publish, so folding it in here would reject good orders
+     whenever the two drifted. Comparing goods is also what a browser still
+     holding the pre-shipping build sends, so nothing breaks mid-deploy. */
+  var goods = round2(priced.subtotal + priced.tax_total);
   if (req.client_total !== undefined && req.client_total !== null &&
-      Math.abs(Number(req.client_total) - priced.grand_total) > 1) {
+      Math.abs(Number(req.client_total) - goods) > 1) {
     throw new Error('Prices have changed since you loaded the catalogue. Please review your cart.');
   }
 
@@ -182,7 +216,7 @@ function fnSubmitOrder(req) {
       bill_pincode: o.bill_pincode || o.ship_pincode,
       bill_country: o.bill_country || 'India',
       subtotal: priced.subtotal, tax_total: priced.tax_total,
-      shipping_total: 0, grand_total: priced.grand_total,
+      shipping_total: priced.shipping_total, grand_total: priced.grand_total,
       status: 'Pending Approval',
       token_expires_at: exp,
       decided_by: '', decided_at: '', rejection_reason: '',
@@ -463,7 +497,7 @@ function fnAdminCreateOrder(req) {
       bill_pincode: o.bill_pincode || o.ship_pincode,
       bill_country: o.bill_country || 'India',
       subtotal: priced.subtotal, tax_total: priced.tax_total,
-      shipping_total: 0, grand_total: priced.grand_total,
+      shipping_total: priced.shipping_total, grand_total: priced.grand_total,
       status: approveNow ? 'Approved' : 'Pending Approval',
       token_expires_at: approveNow ? '' : exp,
       decided_by: approveNow ? 'admin' : '',
@@ -529,6 +563,8 @@ function fnAdminCreateOrder(req) {
     status: approveNow ? 'Approved' : 'Pending Approval',
     total: priced.grand_total,
     list_total: priced.list_grand_total,
+    shipping_total: priced.shipping_total,
+    shipping_pct: priced.shipping_pct,
     difference: round2(priced.grand_total - priced.list_grand_total),
     negotiated_lines: negotiatedCount,
     evidence_files: stored.length,

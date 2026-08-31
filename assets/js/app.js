@@ -333,9 +333,19 @@ function priceCart(items, lookup) {
      twenty-five. It is flagged everywhere it appears rather than blocked, and
      the approver sees the flag before deciding. */
   const belowMoq = Object.values(groupInfo).filter(g => !g.meetsMoq);
+
+  /* Shipping and handling, the same rule the backend applies in priceOrder():
+     a percentage of the goods value before GST, added after tax and not taxed
+     itself. The rate is published in site.json so this can be shown in the
+     cart; the backend recomputes it from the Sheet and stays the authority. */
+  const shippingPct = Number(Site.get('shipping_pct', 8));
+  const shippingTotal = Math.round(subtotal * (isFinite(shippingPct) ? shippingPct : 8)) / 100;
+
   return {
     lines, groups: groupInfo, subtotal, taxTotal,
-    grandTotal: subtotal + taxTotal,
+    shippingPct: isFinite(shippingPct) ? shippingPct : 8,
+    shippingTotal,
+    grandTotal: subtotal + taxTotal + shippingTotal,
     belowMoq,
     blocked: belowMoq,        // old name, kept so nothing breaks mid-deploy
     valid: lines.length > 0,

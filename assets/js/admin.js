@@ -776,6 +776,10 @@ function paintAppearance(host) {
     ['hero_title', 'Hero title', ''],
     ['hero_subtitle', 'Hero subtitle', ''],
     ['footer_note', 'Footer note', ''],
+    ['shipping_pct', 'Shipping & handling (%)',
+      'Charged on the order value before GST, on every order, admin-raised or not. ' +
+      'Blank falls back to 8%. Orders use the new rate at once; publish to show ' +
+      'it in the storefront cart.'],
   ];
 
   host.append(el('div', { class: 'panel', style: 'max-width:700px' },
@@ -995,7 +999,7 @@ async function raiseOrder() {
      authority: this only shows the admin what they are about to commit. */
   function quote() {
     const rows = [];
-    let net = 0, tax = 0, listTotal = 0;
+    let net = 0, tax = 0, listNet = 0, listTotal = 0;
     for (const pick of picks) {
       const p = products.find(x => x.sku === pick.sku);
       if (!p) continue;
@@ -1010,9 +1014,20 @@ async function raiseOrder() {
       if (!qty) continue;
       net += unit * qty;
       tax += unit * qty * gst / 100;
+      listNet += listUnit * qty;
       listTotal += listUnit * qty * (1 + gst / 100);
     }
-    return { rows, net, tax, total: net + tax, listTotal };
+    /* Same rule as priceOrder() on the backend: a percentage of the goods
+       value before GST, added after tax and not taxed itself. The catalogue
+       comparison carries its own shipping, worked out on the catalogue
+       subtotal, so the concession shown is the concession on the goods. */
+    const pctRaw = Number(CAT.settings.shipping_pct);
+    const pct = isFinite(pctRaw) && pctRaw >= 0 ? pctRaw : 8;
+    const shipping = Math.round(net * pct) / 100;
+    const listShipping = Math.round(listNet * pct) / 100;
+    return { rows, net, tax, pct, shipping,
+      total: net + tax + shipping,
+      listTotal: listTotal + listShipping };
   }
 
   const bind = k => el('input', { type: 'text', value: draft[k],
@@ -1251,6 +1266,8 @@ async function raiseOrder() {
       el('table', { class: 'totals' }, el('tbody', {},
         el('tr', {}, el('td', {}, 'Subtotal'), el('td', {}, money(q.net))),
         el('tr', {}, el('td', {}, 'GST'), el('td', {}, money(q.tax))),
+        el('tr', {}, el('td', {}, `Shipping & handling (${q.pct}%)`),
+          el('td', {}, money(q.shipping))),
         el('tr', {}, el('td', {}, 'Catalogue total'), el('td', {}, money(q.listTotal))),
         el('tr', {}, el('td', {},
           diff < 0 ? 'Concession' : diff > 0 ? 'Uplift' : 'Difference'),
@@ -1264,7 +1281,8 @@ async function raiseOrder() {
             '. The order can be raised, and this is shown to the approver.')
         : null,
       el('div', { class: 'small muted', style: 'margin-top:10px' },
-        'Shipping is quoted separately after approval.'));
+        `Shipping and handling is charged at ${q.pct}% of the order value ` +
+        'before GST. Change the rate in the Appearance tab.'));
   }
 
   /* Same drop zone as checkout, except nothing here requires a file: the

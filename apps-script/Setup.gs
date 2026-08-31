@@ -251,6 +251,21 @@ function upgradeSchema() {
     done.push('seeded site settings and a starter banner');
   }
 
+  /* 2b. Shipping and handling rate. Added after the store was live, so a
+         Settings tab that already exists will not have it. */
+  if (ss.getSheetByName(SHEETS.SETTINGS)) {
+    var hasPct = readTab(SHEETS.SETTINGS).some(function (r) {
+      return String(r.key).trim() === 'shipping_pct';
+    });
+    if (!hasPct) {
+      appendRow(SHEETS.SETTINGS, {
+        key: 'shipping_pct', value: String(SHIPPING_PCT_DEFAULT),
+        note: 'Shipping and handling, as a percentage of the subtotal before GST'
+      });
+      done.push('seeded shipping_pct at ' + SHIPPING_PCT_DEFAULT + '%');
+    }
+  }
+
   // 3. Products.related_skus, and the column the auto-mapper owns
   var pIdx = headerIndex(SHEETS.PRODUCTS);
   ['related_skus', 'auto_related_skus'].forEach(function (col) {

@@ -79,9 +79,21 @@ function priceOrder(raw, overrides) {
     }
   }
   if (!out.length) throw new Error('The order has no valid lines.');
+  const pct = shippingPct();
+  const shipping = r2(subtotal * pct / 100);
+  const listShipping = r2(listSubtotal * pct / 100);
   return { lines: out, subtotal: r2(subtotal), tax_total: r2(taxTotal),
-    grand_total: r2(subtotal + taxTotal),
-    list_subtotal: r2(listSubtotal), list_grand_total: r2(listSubtotal + listTaxTotal) };
+    shipping_pct: pct, shipping_total: shipping,
+    grand_total: r2(subtotal + taxTotal + shipping),
+    list_subtotal: r2(listSubtotal),
+    list_grand_total: r2(listSubtotal + listTaxTotal + listShipping) };
+}
+
+/* Mirrors shippingPct() in apps-script/Orders.gs. */
+function shippingPct() {
+  const raw = ADMIN_STATE.settings && ADMIN_STATE.settings.shipping_pct;
+  const n = Number(raw);
+  return raw !== undefined && raw !== '' && isFinite(n) && n >= 0 ? n : 8;
 }
 const r2 = n => Math.round(n * 100) / 100;
 const stamp = () => new Date().toISOString().slice(0, 19).replace('T', ' ');
@@ -102,6 +114,7 @@ const ADMIN_STATE = {
     hero_title: 'RSM branded merchandise',
     hero_subtitle: 'Browse the approved catalogue.',
     footer_note: 'RSM Business Store, operated by CompanyStore.IO',
+    shipping_pct: '8',
   },
   published_at: '',
 };
@@ -227,7 +240,7 @@ const ROUTES = {
     if (!req.files || !req.files.length) throw new Error('At least one evidence file is required.');
     const priced = priceOrder(req.lines || []);
     if (req.client_total !== undefined && req.client_total !== null &&
-        Math.abs(Number(req.client_total) - priced.grand_total) > 1) {
+        Math.abs(Number(req.client_total) - r2(priced.subtotal + priced.tax_total)) > 1) {
       throw new Error('Prices have changed since you loaded the catalogue.');
     }
     const id = 'RSMB' + String(seq++).padStart(6, '0');
@@ -239,6 +252,7 @@ const ROUTES = {
       ship_name: o.ship_name, ship_phone: o.ship_phone, ship_street: o.ship_street,
       ship_city: o.ship_city, ship_pincode: o.ship_pincode,
       subtotal: priced.subtotal, tax_total: priced.tax_total,
+      shipping_total: priced.shipping_total,
       grand_total: priced.grand_total, status: 'Pending Approval',
       decided_by: '', decided_at: '', rejection_reason: '',
       courier: '', tracking_no: '', tracking_url: '',
@@ -313,7 +327,7 @@ const ROUTES = {
       cost_centre: o.cost_centre || '', lob_approver: o.lob_approver || '',
       requester_phone: o.requester_phone || '',
       subtotal: priced.subtotal, tax_total: priced.tax_total,
-      grand_total: priced.grand_total,
+      shipping_total: priced.shipping_total, grand_total: priced.grand_total,
       status: approveNow ? 'Approved' : 'Pending Approval',
       decided_by: approveNow ? 'admin' : '', decided_at: approveNow ? stamp() : '',
       rejection_reason: '', courier: '', tracking_no: '', tracking_url: '',
@@ -325,6 +339,7 @@ const ROUTES = {
     return {
       ok: true, order_id: id, status: orders[id].status,
       total: priced.grand_total, list_total: priced.list_grand_total,
+      shipping_total: priced.shipping_total, shipping_pct: priced.shipping_pct,
       difference: r2(priced.grand_total - priced.list_grand_total),
       negotiated_lines: negotiated, evidence_files: files[id].length,
       approvers_notified: approveNow ? 0 : 1,

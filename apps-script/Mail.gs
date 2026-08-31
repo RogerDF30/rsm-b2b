@@ -164,7 +164,7 @@ function sendApprovalEmails(orderId, exp) {
       '<tr><td class="num">Subtotal</td><td class="num" style="width:140px">' + inr(o.subtotal) + '</td></tr>' +
       '<tr><td class="num">GST</td><td class="num">' + inr(o.tax_total) + '</td></tr>' +
       '<tr><td class="num">Shipping &amp; handling</td><td class="num">' +
-        (Number(o.shipping_total) > 0 ? inr(o.shipping_total) : 'Quoted after approval') +
+        (Number(o.shipping_total) > 0 ? inr(o.shipping_total) : inr(0)) +
         '</td></tr>' +
       '<tr><td class="num"><b>Total</b></td><td class="num"><b>' + inr(o.grand_total) + '</b></td></tr>' +
       '</tbody></table>' +
@@ -246,7 +246,7 @@ function sendPlacedEmail(orderId) {
     '<tr><td class="num">Subtotal</td><td class="num" style="width:140px">' + inr(o.subtotal) + '</td></tr>' +
     '<tr><td class="num">GST</td><td class="num">' + inr(o.tax_total) + '</td></tr>' +
     '<tr><td class="num">Shipping &amp; handling</td><td class="num">' +
-      (Number(o.shipping_total) > 0 ? inr(o.shipping_total) : 'Quoted after approval') +
+      (Number(o.shipping_total) > 0 ? inr(o.shipping_total) : inr(0)) +
       '</td></tr>' +
     '<tr><td class="num"><b>Total</b></td><td class="num"><b>' + inr(o.grand_total) + '</b></td></tr>' +
     '</tbody></table>' +

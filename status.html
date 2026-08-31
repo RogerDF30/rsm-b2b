@@ -151,6 +151,8 @@ function render(o, lines, files) {
         el('tbody', {},
           el('tr', {}, el('td', {}, 'Subtotal'), el('td', {}, money(o.subtotal))),
           el('tr', {}, el('td', {}, 'GST'), el('td', {}, money(o.tax_total))),
+          el('tr', {}, el('td', {}, 'Shipping & handling'),
+            el('td', {}, money(Number(o.shipping_total) || 0))),
           el('tr', { class: 'grand' }, el('td', {}, 'Total'), el('td', {}, money(o.grand_total)))))),
 
     el('div', { class: 'panel' },

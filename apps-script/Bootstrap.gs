@@ -126,7 +126,8 @@ function seedSiteContent() {
      ['logo_white_url', SITE + '/assets/brand/rsm-logo-white.png', 'Hero logo, white on midnight'],
      ['hero_title', 'RSM branded merchandise', ''],
      ['hero_subtitle', 'Browse the approved catalogue. Sign in at checkout to raise an order for approval.', ''],
-     ['footer_note', 'RSM Business Store, operated by CompanyStore.IO', '']
+     ['footer_note', 'RSM Business Store, operated by CompanyStore.IO', ''],
+     ['shipping_pct', '8', 'Shipping and handling, as a percentage of the subtotal before GST']
     ].forEach(function (r) {
       appendRow(SHEETS.SETTINGS, { key: r[0], value: r[1], note: r[2] });
     });

@@ -279,6 +279,8 @@ function paintSummary() {
     el('table', { class: 'totals', style: 'margin-top:14px' }, el('tbody', {},
       el('tr', {}, el('td', {}, 'Subtotal'), el('td', {}, money(R.subtotal))),
       el('tr', {}, el('td', {}, 'GST'), el('td', {}, money(R.taxTotal))),
+      el('tr', {}, el('td', {}, `Shipping & handling (${R.shippingPct}%)`),
+        el('td', {}, money(R.shippingTotal))),
       el('tr', { class: 'grand' }, el('td', {}, 'Total'), el('td', {}, money(R.grandTotal))))),
     R.belowMoq.length
       ? el('div', { class: 'warn', style: 'margin:12px 0' },
@@ -287,7 +289,8 @@ function paintSummary() {
           '. The order can be raised, and this is shown to the approver.')
       : null,
     el('div', { class: 'small muted', style: 'margin:12px 0' },
-      'Shipping is quoted separately after approval.'),
+      'Shipping and handling is charged at ' + R.shippingPct +
+      '% of the order value before GST.'),
     el('button', {
       class: 'btn btn-block', id: 'submitBtn', type: 'button', onclick: submit,
     }, 'Submit for approval'),
@@ -385,12 +388,14 @@ async function submit() {
       order: data,
       files: uploads,
       /* Prices are recomputed server-side from the Sheet. These are sent so the
-         script can reject a mismatch rather than trust the browser. */
+         script can reject a mismatch rather than trust the browser. Goods
+         only: shipping is a rate the backend owns and this file may be a
+         publish behind it. */
       lines: R.lines.map(l => ({
         parent_sku: l.sku, variant_sku: l.key, size: l.size, qty: l.qty,
         unit_price: l.unit, group_qty: l.groupQty, tier: l.tierLabel,
       })),
-      client_total: R.grandTotal,
+      client_total: R.subtotal + R.taxTotal,
     });
     Cart.clear();
     location.href = 'status.html?id=' + encodeURIComponent(r.order_id) + '&new=1';
