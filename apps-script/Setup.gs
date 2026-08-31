@@ -42,7 +42,11 @@ var TAB_HEADERS = {
 
   Variants: ['variant_sku', 'parent_sku', 'size', 'stock_qty', 'active'],
 
-  PriceTiers: ['parent_sku', 'min_qty', 'max_qty', 'unit_price'],
+  /* gst_rate is per TIER, not just per product: apparel sits in a slab that
+     turns on the per-unit price, so the same shirt is 18% at one unit and 5%
+     at five hundred. Blank inherits the product's rate, which is the case for
+     everything that does not straddle a slab boundary. */
+  PriceTiers: ['parent_sku', 'min_qty', 'max_qty', 'unit_price', 'gst_rate'],
 
   Categories: ['slug', 'parent_slug', 'label', 'sort_order', 'active'],
 
@@ -249,6 +253,19 @@ function upgradeSchema() {
   if (!readTab(SHEETS.SETTINGS).length || !readTab(SHEETS.BANNERS).length) {
     seedSiteContent();
     done.push('seeded site settings and a starter banner');
+  }
+
+  /* 2a. Per-tier GST. Added after the store was live; blank means the tier
+         inherits the product's rate, so no backfill is needed. */
+  var tiersSh0 = ss.getSheetByName(SHEETS.TIERS);
+  if (tiersSh0) {
+    var tHead0 = tiersSh0.getRange(1, 1, 1, tiersSh0.getLastColumn()).getValues()[0]
+      .map(function (x) { return String(x).trim(); });
+    if (tHead0.indexOf('gst_rate') < 0) {
+      tiersSh0.getRange(1, tHead0.length + 1).setValue('gst_rate')
+        .setFontWeight('bold').setBackground('#F4F8FB');
+      done.push('added gst_rate to PriceTiers');
+    }
   }
 
   /* 2b. Shipping and handling rate. Added after the store was live, so a

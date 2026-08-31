@@ -29,7 +29,8 @@ function fnAdminCatalog(req) {
     (tiers[k] = tiers[k] || []).push({
       min_qty: Number(t.min_qty),
       max_qty: t.max_qty === '' ? null : Number(t.max_qty),
-      unit_price: Number(t.unit_price)
+      unit_price: Number(t.unit_price),
+      gst_rate: String(t.gst_rate).trim() === '' ? null : Number(t.gst_rate)
     });
   });
 
@@ -172,7 +173,11 @@ function fnAdminSaveProduct(req) {
       return {
         min_qty: Math.floor(Number(t.min_qty) || 0),
         max_qty: t.max_qty === '' || t.max_qty === null ? '' : Math.floor(Number(t.max_qty)),
-        unit_price: Number(t.unit_price) || 0
+        unit_price: Number(t.unit_price) || 0,
+        /* Left blank the tier inherits the product's rate. Only tiers that
+           straddle a slab boundary need one of their own. */
+        gst_rate: t.gst_rate === '' || t.gst_rate === null || t.gst_rate === undefined
+          ? '' : Number(t.gst_rate)
       };
     })
     .filter(function (t) { return t.min_qty > 0 && t.unit_price > 0; })
@@ -216,7 +221,8 @@ function fnAdminSaveProduct(req) {
     syncReciprocal(sku, related);
 
     replaceRowsFor(SHEETS.TIERS, 'parent_sku', sku, tiers.map(function (t) {
-      return { parent_sku: sku, min_qty: t.min_qty, max_qty: t.max_qty, unit_price: t.unit_price };
+      return { parent_sku: sku, min_qty: t.min_qty, max_qty: t.max_qty,
+        unit_price: t.unit_price, gst_rate: t.gst_rate };
     }));
     replaceRowsFor(SHEETS.VARIANTS, 'parent_sku', sku, sizes.map(function (s) {
       return { variant_sku: sku + '_' + s, parent_sku: sku, size: s, stock_qty: '', active: 'TRUE' };
@@ -937,7 +943,9 @@ function fnAdminBulkTiers(req) {
 
       var tiers = (it.tiers || [])
         .map(function (t) {
-          return { min_qty: Math.floor(Number(t.min_qty) || 0), unit_price: Number(t.unit_price) || 0 };
+          return { min_qty: Math.floor(Number(t.min_qty) || 0), unit_price: Number(t.unit_price) || 0,
+            gst_rate: t.gst_rate === '' || t.gst_rate === null || t.gst_rate === undefined
+              ? '' : Number(t.gst_rate) };
         })
         .filter(function (t) { return t.min_qty > 0 && t.unit_price > 0; })
         .sort(function (x, y) { return x.min_qty - y.min_qty; });
@@ -957,7 +965,8 @@ function fnAdminBulkTiers(req) {
           parent_sku: sku,
           min_qty: t.min_qty,
           max_qty: i + 1 < tiers.length ? tiers[i + 1].min_qty - 1 : '',
-          unit_price: t.unit_price
+          unit_price: t.unit_price,
+          gst_rate: t.gst_rate
         };
       });
 

@@ -39,6 +39,13 @@ const API_TOKEN = 'rsm-demo-token';
 let seq = 13682;
 const orders = {}, lines = {}, files = {};
 
+/* Mirrors tierGst() in apps-script/Orders.gs and assets/js/app.js. */
+function tierGst(tier, product) {
+  const t = tier && tier.gst_rate;
+  if (t !== null && t !== undefined && t !== '' && isFinite(Number(t))) return Number(t);
+  return Number((product && product.gst_rate) || 0);
+}
+
 /* Same rule as apps-script/Orders.gs priceOrder(). */
 function priceOrder(raw, overrides) {
   const groups = {};
@@ -57,6 +64,7 @@ function priceOrder(raw, overrides) {
     let tier = null;
     for (const t of p.tiers) if (groupQty >= t.min_qty && (!tier || t.min_qty > tier.min_qty)) tier = t;
     const listUnit = tier ? tier.unit_price : p.base_price;
+    const gst = tierGst(tier, p);
     const ov = overrides ? overrides[sku] : undefined;
     const negotiated = ov !== undefined && ov !== null && ov !== '' && isFinite(Number(ov));
     const unit = negotiated ? Number(ov) : listUnit;
@@ -64,15 +72,15 @@ function priceOrder(raw, overrides) {
                       : `below MOQ ${p.moq}`;
     for (const i of items) {
       const lineTotal = unit * i.qty;
-      const tax = lineTotal * p.gst_rate / 100;
+      const tax = lineTotal * gst / 100;
       subtotal += lineTotal; taxTotal += tax;
       listSubtotal += listUnit * i.qty;
-      listTaxTotal += listUnit * i.qty * p.gst_rate / 100;
+      listTaxTotal += listUnit * i.qty * gst / 100;
       out.push({
         parent_sku: sku, variant_sku: i.variant_sku, product_name: p.name,
         size: i.size || '', qty: i.qty, group_qty: groupQty, tier_applied: band,
         below_moq: short ? 'YES' : '',
-        unit_price: unit, line_total: lineTotal, gst_rate: p.gst_rate,
+        unit_price: unit, line_total: lineTotal, gst_rate: gst,
         tax_amount: r2(tax), line_total_with_tax: r2(lineTotal + tax),
         list_unit_price: r2(listUnit), negotiated: negotiated ? 'YES' : '',
       });

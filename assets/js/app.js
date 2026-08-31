@@ -310,19 +310,22 @@ function priceCart(items, lookup) {
       tier,
       unit,
       next,
+      gst: tierGst(tier, p),
       needForNext: next ? next.min_qty - groupQty : 0,
       meetsMoq: groupQty >= p.moq,
       shortBy: Math.max(0, p.moq - groupQty),
     };
 
+    const gst = tierGst(tier, p);
+
     for (const it of gitems) {
       const lineTotal = unit * it.qty;
-      const tax = lineTotal * (p.gst_rate / 100);
+      const tax = lineTotal * (gst / 100);
       subtotal += lineTotal;
       taxTotal += tax;
       lines.push({
         ...it, product: p, groupQty, unit, lineTotal,
-        gst_rate: p.gst_rate, tax, lineTotalWithTax: lineTotal + tax,
+        gst_rate: gst, tax, lineTotalWithTax: lineTotal + tax,
         tierLabel: tier ? tierLabel(tier) : '',
       });
     }
@@ -350,6 +353,19 @@ function priceCart(items, lookup) {
     blocked: belowMoq,        // old name, kept so nothing breaks mid-deploy
     valid: lines.length > 0,
   };
+}
+
+/**
+ * The GST rate for a tier: its own if it states one, otherwise the product's.
+ *
+ * Apparel sits in a slab that turns on the per-unit price, so the same shirt
+ * is 18% at one unit and 5% at five hundred. Mirrors tierGst() in
+ * apps-script/Orders.gs, which is the authority — change both together.
+ */
+function tierGst(tier, product) {
+  const t = tier && tier.gst_rate;
+  if (t !== null && t !== undefined && t !== '' && isFinite(Number(t))) return Number(t);
+  return Number((product && product.gst_rate) || 0);
 }
 
 /* Highest tier whose min_qty is still <= the group quantity. */

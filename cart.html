@@ -115,7 +115,7 @@ function paint() {
               `${qty(g.groupQty)} units total · ${g.tier ? tierLabel(g.tier) + ' band' : 'below minimum'} · MOQ ${qty(g.product.moq)}`))),
         el('div', { class: 'right' },
           el('div', { class: 'mono', style: 'font-weight:800;font-size:1.1rem' }, money(g.unit)),
-          el('div', { class: 'small muted' }, 'per unit · GST ' + g.product.gst_rate + '%'))),
+          el('div', { class: 'small muted' }, 'per unit · GST ' + g.gst + '%'))),
 
       el('table', { class: 'tbl', style: 'margin-top:14px' },
         el('thead', {}, el('tr', {},

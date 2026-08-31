@@ -86,7 +86,7 @@ function buyPanel() {
         el('tbody', {}, P.tiers.map(t => el('tr', { 'data-min': t.min_qty },
           el('td', {}, tierLabel(t)),
           el('td', { class: 'mono' }, money(t.unit_price)),
-          el('td', { class: 'muted' }, P.gst_rate + '%')))))),
+          el('td', { class: 'muted' }, tierGst(t, P) + '%')))))),
 
     el('div', { class: 'note' },
       el('strong', {}, 'Minimum order quantity: ' + qty(P.moq)),

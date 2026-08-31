@@ -250,7 +250,7 @@ function editProduct(p) {
   p = p || {
     sku: '', name: '', category: 'Apparel', subcategory: '', description: '',
     moq: 25, gst_rate: 18, image: '', sizes: [], related_skus: [], active: true,
-    tiers: [{ min_qty: 25, max_qty: 49, unit_price: 0 }],
+    tiers: [{ min_qty: 25, max_qty: 49, unit_price: 0, gst_rate: '' }],
   };
   const draft = JSON.parse(JSON.stringify(p));
 
@@ -269,6 +269,14 @@ function editProduct(p) {
         el('input', { type: 'number', min: '0', step: '0.01', value: t.unit_price,
           style: 'width:110px',
           oninput: e => { t.unit_price = Number(e.target.value); } }),
+        /* Blank inherits the product's rate. Only a tier that crosses a slab
+           boundary — apparel either side of ₹2,500 — needs its own. */
+        el('span', { class: 'small muted' }, 'GST'),
+        el('input', { type: 'number', min: '0', step: '0.01', style: 'width:80px',
+          value: t.gst_rate ?? '', placeholder: String(draft.gst_rate ?? ''),
+          title: 'Leave blank to use the product rate',
+          oninput: e => { t.gst_rate = e.target.value === '' ? '' : Number(e.target.value); } }),
+        el('span', { class: 'small muted' }, '%'),
         el('button', { type: 'button', class: 'btn btn-ghost btn-sm',
           onclick: () => { draft.tiers.splice(i, 1); paintTiers(); } }, 'Remove'))));
     tierBox.append(el('button', {
@@ -276,7 +284,8 @@ function editProduct(p) {
       onclick: () => {
         const last = draft.tiers[draft.tiers.length - 1];
         draft.tiers.push({ min_qty: last ? (last.max_qty || last.min_qty) + 1 : draft.moq,
-                           max_qty: '', unit_price: last ? last.unit_price : 0 });
+                           max_qty: '', unit_price: last ? last.unit_price : 0,
+                           gst_rate: last ? last.gst_rate ?? '' : '' });
         paintTiers();
       },
     }, 'Add tier'));
@@ -304,7 +313,8 @@ function editProduct(p) {
       field('MOQ', el('input', { type: 'number', min: '1', value: draft.moq,
         oninput: e => { draft.moq = Number(e.target.value); } })),
       field('GST %', el('input', { type: 'number', min: '0', step: '0.01', value: draft.gst_rate,
-        oninput: e => { draft.gst_rate = Number(e.target.value); } })),
+        oninput: e => { draft.gst_rate = Number(e.target.value); paintTiers(); } }),
+        false),
       field('Description', el('textarea', {
         oninput: e => { draft.description = e.target.value; },
       }, draft.description || ''), true),
@@ -1008,7 +1018,9 @@ async function raiseOrder() {
       const listUnit = tier ? tier.unit_price : p.base_price;
       const set = pick.price !== '' && isFinite(Number(pick.price)) && Number(pick.price) >= 0;
       const unit = set ? Number(pick.price) : listUnit;
-      const gst = Number(p.gst_rate || 0);
+      /* The tier's rate, not the product's: apparel changes slab with volume.
+         A negotiated price does not re-pick the slab, matching the backend. */
+      const gst = tierGst(tier, p);
       rows.push({ p, qty, listUnit, unit, gst, negotiated: set,
         belowMoq: qty > 0 && qty < Number(p.moq || 1) });
       if (!qty) continue;
@@ -1235,7 +1247,10 @@ async function raiseOrder() {
           el('div', {},
             el('strong', {}, p.name),
             el('div', { class: 'small muted' },
-              [p.sku, 'MOQ ' + (p.moq || 1), 'GST ' + (p.gst_rate || 0) + '%'].join(' · '))),
+              [p.sku, 'MOQ ' + (p.moq || 1),
+               'GST ' + (row.qty ? row.gst : (p.gst_rate || 0)) + '%' +
+                 (row.qty && row.gst !== Number(p.gst_rate || 0) ? ' at this quantity' : '')
+              ].join(' · '))),
           el('button', { class: 'btn btn-ghost btn-sm', type: 'button',
             onclick: () => { picks.splice(idx, 1); paintLines(); paintResults(); } }, 'Remove')),
         qtyHost,

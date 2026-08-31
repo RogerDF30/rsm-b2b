@@ -115,7 +115,10 @@ function paintKits() {
 function kitCard(k, i) {
   const per = k.items.reduce((s, p) => s + unitAt(p, EMP), 0);
   k.per = per;
-  const gst = k.items.reduce((s, p) => s + unitAt(p, EMP) * (p.gst_rate / 100), 0);
+  /* The rate follows the tier this quantity lands on, not the product, since
+     apparel changes slab as the volume price drops. */
+  const gst = k.items.reduce(
+    (s, p) => s + unitAt(p, EMP) * (tierGst(pickTier(p.tiers, EMP), p) / 100), 0);
   const left = BUDGET - per;
 
   return el('div', { class: 'kit' },

@@ -20,10 +20,25 @@ function catalogMaps() {
     (tiers[k] = tiers[k] || []).push({
       min_qty: Number(t.min_qty),
       max_qty: t.max_qty === '' ? null : Number(t.max_qty),
-      unit_price: Number(t.unit_price)
+      unit_price: Number(t.unit_price),
+      /* null, not 0: a blank cell inherits the product's rate, and 0% is a
+         rate somebody could legitimately mean. */
+      gst_rate: String(t.gst_rate).trim() === '' ? null : Number(t.gst_rate)
     });
   });
   return { products: products, tiers: tiers };
+}
+
+/**
+ * The GST rate for a tier: its own if it states one, otherwise the product's.
+ * Mirrors tierGst() in app.js — change both together.
+ */
+function tierGst(tier, product) {
+  if (tier && tier.gst_rate !== null && tier.gst_rate !== undefined &&
+      tier.gst_rate !== '' && isFinite(Number(tier.gst_rate))) {
+    return Number(tier.gst_rate);
+  }
+  return Number((product && product.gst_rate) || 0);
 }
 
 /** Highest tier whose min_qty is still <= n. Mirrors pickTier() in app.js. */
@@ -97,7 +112,15 @@ function priceOrder(rawLines, overrides) {
     var ov = overrides ? overrides[sku] : undefined;
     var negotiated = ov !== undefined && ov !== null && ov !== '' && isFinite(Number(ov));
     var unit = negotiated ? Number(ov) : listUnit;
-    var gst = Number(p.gst_rate || 0);
+
+    /* The rate follows the TIER the order landed on, because the apparel slab
+       turns on the per-unit price: the same jacket is 18% at one and 5% at a
+       thousand. A tier with no rate of its own inherits the product's.
+
+       A negotiated price does NOT re-pick the slab. The rate is the one the
+       catalogue publishes for that quantity, so a discount cannot quietly
+       move an order into a cheaper tax band. */
+    var gst = tierGst(tier, p); 
     var band = tier ? (tier.max_qty ? tier.min_qty + '-' + tier.max_qty : tier.min_qty + '+')
                     : 'below MOQ ' + moq;
 
