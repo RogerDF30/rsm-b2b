@@ -802,10 +802,19 @@ function fnAdminUsers(req) {
       default_ship_pincode: str(u.default_ship_pincode)
     };
   });
-  var departments = readTab(SHEETS.DEPARTMENTS)
-    .filter(function (d) { return String(d.active).toUpperCase() !== 'FALSE'; })
-    .map(function (d) { return String(d.lob).trim(); });
-  return { ok: true, users: users, departments: departments };
+  var rows = readTab(SHEETS.DEPARTMENTS)
+    .filter(function (d) { return String(d.active).toUpperCase() !== 'FALSE'; });
+  return {
+    ok: true, users: users,
+    departments: rows.map(function (d) { return String(d.lob).trim(); }),
+    /* The same pairs buildSiteJson() gives checkout, so the admin order form
+       can offer a department's sanctioning partner the way checkout does.
+       Kept beside the plain list rather than replacing it, because the Users
+       tab and the bulk import both bind to the strings. */
+    department_details: rows.map(function (d) {
+      return { lob: String(d.lob).trim(), approver: String(d.approver_name || '').trim() };
+    })
+  };
 }
 
 /**

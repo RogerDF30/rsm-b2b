@@ -303,7 +303,15 @@ const ROUTES = {
       requester_email: email, requester_name: o.requester_name || u.full_name || email,
       lob: o.lob, event_date: o.event_date, purpose: o.purpose,
       ship_name: o.ship_name, ship_phone: o.ship_phone, ship_street: o.ship_street,
-      ship_city: o.ship_city, ship_pincode: o.ship_pincode,
+      ship_city: o.ship_city, ship_state: o.ship_state || '',
+      ship_pincode: o.ship_pincode, ship_country: o.ship_country || 'India',
+      bill_name: o.bill_name || o.ship_name, bill_phone: o.bill_phone || o.ship_phone,
+      bill_street: o.bill_street || o.ship_street, bill_city: o.bill_city || o.ship_city,
+      bill_state: o.bill_state || o.ship_state || '',
+      bill_pincode: o.bill_pincode || o.ship_pincode,
+      bill_country: o.bill_country || 'India',
+      cost_centre: o.cost_centre || '', lob_approver: o.lob_approver || '',
+      requester_phone: o.requester_phone || '',
       subtotal: priced.subtotal, tax_total: priced.tax_total,
       grand_total: priced.grand_total,
       status: approveNow ? 'Approved' : 'Pending Approval',
@@ -418,6 +426,9 @@ const ROUTES = {
         default_ship_pincode: u.default_ship_pincode || '',
       })),
       departments: ROUTES.meta().departments.map(d => d.lob),
+      department_details: ROUTES.meta().departments.map(d => ({
+        lob: d.lob, approver: d.approver || '',
+      })),
     };
   },
   adminAddUser(req) {
