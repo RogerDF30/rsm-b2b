@@ -23,6 +23,7 @@ function routes() {
     adminList: fnAdminList,
     adminOrder: fnAdminOrder,
     adminResend: fnAdminResend,
+    adminCreateOrder: fnAdminCreateOrder,
     adminUpgrade: fnAdminUpgrade,
     adminCatalog: fnAdminCatalog,
     adminSaveProduct: fnAdminSaveProduct,

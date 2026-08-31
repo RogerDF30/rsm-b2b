@@ -40,14 +40,14 @@ let seq = 13682;
 const orders = {}, lines = {}, files = {};
 
 /* Same rule as apps-script/Orders.gs priceOrder(). */
-function priceOrder(raw) {
+function priceOrder(raw, overrides) {
   const groups = {};
   for (const l of raw) {
     const n = Math.floor(Number(l.qty) || 0);
     if (n > 0) (groups[l.parent_sku] = groups[l.parent_sku] || []).push({ ...l, qty: n });
   }
   const out = [];
-  let subtotal = 0, taxTotal = 0;
+  let subtotal = 0, taxTotal = 0, listSubtotal = 0, listTaxTotal = 0;
   for (const [sku, items] of Object.entries(groups)) {
     const p = BY_SKU[sku];
     if (!p) throw new Error(`Product ${sku} is no longer available.`);
@@ -56,24 +56,32 @@ function priceOrder(raw) {
     const short = groupQty < p.moq;
     let tier = null;
     for (const t of p.tiers) if (groupQty >= t.min_qty && (!tier || t.min_qty > tier.min_qty)) tier = t;
-    const unit = tier ? tier.unit_price : p.base_price;
+    const listUnit = tier ? tier.unit_price : p.base_price;
+    const ov = overrides ? overrides[sku] : undefined;
+    const negotiated = ov !== undefined && ov !== null && ov !== '' && isFinite(Number(ov));
+    const unit = negotiated ? Number(ov) : listUnit;
     const band = tier ? (tier.max_qty ? `${tier.min_qty}-${tier.max_qty}` : `${tier.min_qty}+`)
                       : `below MOQ ${p.moq}`;
     for (const i of items) {
       const lineTotal = unit * i.qty;
       const tax = lineTotal * p.gst_rate / 100;
       subtotal += lineTotal; taxTotal += tax;
+      listSubtotal += listUnit * i.qty;
+      listTaxTotal += listUnit * i.qty * p.gst_rate / 100;
       out.push({
         parent_sku: sku, variant_sku: i.variant_sku, product_name: p.name,
         size: i.size || '', qty: i.qty, group_qty: groupQty, tier_applied: band,
         below_moq: short ? 'YES' : '',
         unit_price: unit, line_total: lineTotal, gst_rate: p.gst_rate,
         tax_amount: r2(tax), line_total_with_tax: r2(lineTotal + tax),
+        list_unit_price: r2(listUnit), negotiated: negotiated ? 'YES' : '',
       });
     }
   }
   if (!out.length) throw new Error('The order has no valid lines.');
-  return { lines: out, subtotal: r2(subtotal), tax_total: r2(taxTotal), grand_total: r2(subtotal + taxTotal) };
+  return { lines: out, subtotal: r2(subtotal), tax_total: r2(taxTotal),
+    grand_total: r2(subtotal + taxTotal),
+    list_subtotal: r2(listSubtotal), list_grand_total: r2(listSubtotal + listTaxTotal) };
 }
 const r2 = n => Math.round(n * 100) / 100;
 const stamp = () => new Date().toISOString().slice(0, 19).replace('T', ' ');
@@ -264,6 +272,56 @@ const ROUTES = {
     if (req.admin_pass !== ADMIN_PASS) throw new Error('Admin password is incorrect.');
     return { ok: true };
   },
+
+  /* Mirrors fnAdminCreateOrder in apps-script/Orders.gs. */
+  adminCreateOrder(req) {
+    if (req.admin_pass !== ADMIN_PASS) throw new Error('Admin password is incorrect.');
+    const o = req.order || {};
+    const email = String(o.requester_email || '').trim().toLowerCase();
+    const u = USERS[email];
+    if (!u) throw new Error(`No store account for ${email}. Add the user first.`);
+    if (u.active === false) throw new Error(`${email} is deactivated.`);
+
+    for (const k of ['lob', 'event_date', 'purpose', 'ship_name', 'ship_phone',
+                     'ship_street', 'ship_city', 'ship_pincode']) {
+      if (!String(o[k] || '').trim()) throw new Error('Missing required field: ' + k);
+    }
+
+    const prices = {};
+    for (const [sku, v] of Object.entries(req.prices || {})) {
+      if (v === '' || v === null || v === undefined) continue;
+      const n = Number(v);
+      if (!isFinite(n) || n < 0) throw new Error(`Negotiated price for ${sku} is not a valid amount.`);
+      prices[sku] = r2(n);
+    }
+
+    const priced = priceOrder(req.lines || [], prices);
+    const approveNow = req.approve_now === true;
+    const id = 'RSMB' + String(seq++).padStart(6, '0');
+    orders[id] = {
+      order_id: id, created_at: stamp(),
+      requester_email: email, requester_name: o.requester_name || u.full_name || email,
+      lob: o.lob, event_date: o.event_date, purpose: o.purpose,
+      ship_name: o.ship_name, ship_phone: o.ship_phone, ship_street: o.ship_street,
+      ship_city: o.ship_city, ship_pincode: o.ship_pincode,
+      subtotal: priced.subtotal, tax_total: priced.tax_total,
+      grand_total: priced.grand_total,
+      status: approveNow ? 'Approved' : 'Pending Approval',
+      decided_by: approveNow ? 'admin' : '', decided_at: approveNow ? stamp() : '',
+      rejection_reason: '', courier: '', tracking_no: '', tracking_url: '',
+      raised_by: 'admin',
+    };
+    lines[id] = priced.lines;
+    files[id] = (req.files || []).map(f => ({ filename: f.name, bytes: 0, drive_url: '#' }));
+    const negotiated = priced.lines.filter(l => l.negotiated === 'YES').length;
+    return {
+      ok: true, order_id: id, status: orders[id].status,
+      total: priced.grand_total, list_total: priced.list_grand_total,
+      difference: r2(priced.grand_total - priced.list_grand_total),
+      negotiated_lines: negotiated, evidence_files: files[id].length,
+      approvers_notified: approveNow ? 0 : 1,
+    };
+  },
   closeOrder(req) {
     if (req.admin_pass !== ADMIN_PASS) throw new Error('Admin password is incorrect.');
     const o = orders[req.order_id];
@@ -353,6 +411,11 @@ const ROUTES = {
         email: u.email, full_name: u.full_name, lob: u.lob,
         active: u.active !== false, locked_until: '', created_at: '',
         last_login: u.last_login || '',
+        default_ship_name: u.default_ship_name || '',
+        default_ship_phone: u.default_ship_phone || '',
+        default_ship_street: u.default_ship_street || '',
+        default_ship_city: u.default_ship_city || '',
+        default_ship_pincode: u.default_ship_pincode || '',
       })),
       departments: ROUTES.meta().departments.map(d => d.lob),
     };

@@ -55,11 +55,12 @@ var TAB_HEADERS = {
     'subtotal', 'tax_total', 'shipping_total', 'grand_total', 'status',
     'token_expires_at', 'decided_by', 'decided_at', 'rejection_reason',
     'notified_at', 'closed_by', 'closed_at', 'courier', 'tracking_no',
-    'tracking_url', 'zoho_so_id'],
+    'tracking_url', 'zoho_so_id', 'raised_by'],
 
   OrderLines: ['order_id', 'line_no', 'parent_sku', 'variant_sku',
     'product_name', 'size', 'qty', 'group_qty', 'tier_applied', 'unit_price',
-    'line_total', 'gst_rate', 'tax_amount', 'line_total_with_tax', 'below_moq'],
+    'line_total', 'gst_rate', 'tax_amount', 'line_total_with_tax', 'below_moq',
+    'list_unit_price', 'negotiated'],
 
   Files: ['file_id', 'order_id', 'filename', 'mime', 'bytes', 'drive_url',
     'uploaded_by', 'uploaded_at'],
@@ -190,6 +191,34 @@ function upgradeSchema() {
       linesSh.getRange(1, lineHead.length + 1).setValue('below_moq')
         .setFontWeight('bold').setBackground('#F4F8FB');
       done.push('added below_moq to OrderLines');
+    }
+  }
+
+  /* 0b. Negotiated pricing. An admin can raise an order for a client at a
+         price that was agreed off the catalogue. list_unit_price keeps the
+         tier price the line would otherwise have carried, so the size of the
+         concession stays on the record instead of vanishing into the total. */
+  if (linesSh) {
+    ['list_unit_price', 'negotiated'].forEach(function (col) {
+      var h = linesSh.getRange(1, 1, 1, linesSh.getLastColumn()).getValues()[0]
+        .map(function (x) { return String(x).trim(); });
+      if (h.indexOf(col) < 0) {
+        linesSh.getRange(1, h.length + 1).setValue(col)
+          .setFontWeight('bold').setBackground('#F4F8FB');
+        done.push('added ' + col + ' to OrderLines');
+      }
+    });
+  }
+
+  // 0c. raised_by on Orders, so an admin-raised order is visible as one.
+  var ordersSh0 = ss.getSheetByName(SHEETS.ORDERS);
+  if (ordersSh0) {
+    var oHead0 = ordersSh0.getRange(1, 1, 1, ordersSh0.getLastColumn()).getValues()[0]
+      .map(function (x) { return String(x).trim(); });
+    if (oHead0.indexOf('raised_by') < 0) {
+      ordersSh0.getRange(1, oHead0.length + 1).setValue('raised_by')
+        .setFontWeight('bold').setBackground('#F4F8FB');
+      done.push('added raised_by to Orders');
     }
   }
 

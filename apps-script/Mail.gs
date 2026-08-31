@@ -85,9 +85,17 @@ function lineTable(lines) {
       (String(l.below_moq).toUpperCase() === 'YES'
         ? '<div style="color:#8A6A00;font-weight:700">Below the usual minimum order quantity</div>'
         : '') +
+      (String(l.negotiated).toUpperCase() === 'YES'
+        ? '<div style="color:#8A6A00;font-weight:700">Negotiated price, agreed off the catalogue</div>'
+        : '') +
       '</td><td>' + esc(l.variant_sku) + '</td>' +
       '<td class="num">' + l.qty + '</td>' +
-      '<td class="num">' + inr(l.unit_price) + '</td>' +
+      '<td class="num">' + inr(l.unit_price) +
+        (String(l.negotiated).toUpperCase() === 'YES' && Number(l.list_unit_price)
+          ? '<div class="muted" style="text-decoration:line-through">' +
+            inr(l.list_unit_price) + '</div>'
+          : '') +
+        '</td>' +
       '<td class="num">' + inr(l.line_total_with_tax) + '</td></tr>';
   }).join('');
   return '<table><thead><tr><th>Product</th><th>SKU</th><th class="num">Qty</th>' +
@@ -201,14 +209,25 @@ function sendPlacedEmail(orderId) {
     return String(a.approver_name || a.approver_email).trim();
   }).filter(String);
 
-  var html = page(
-    '<h2>We have your order</h2>' +
-    '<p class="muted">' + esc(orderId) + ' has been received and sent for approval.</p>' +
+  /* An order raised by the team on a client's behalf can already be approved
+     when this runs, so the wording follows the record rather than assuming. */
+  var settled = String(o.status).trim() === 'Approved';
 
-    '<div class="quiet">Your order is now with ' +
-    (approvers.length ? esc(approvers.join(', ')) : 'your approver') +
-    ' for approval. No action is needed from you. We will email you as soon as a ' +
-    'decision is recorded, and again when the order ships.</div>' +
+  var html = page(
+    '<h2>' + (settled ? 'Your order is confirmed' : 'We have your order') + '</h2>' +
+    '<p class="muted">' + esc(orderId) +
+      (settled ? ' has been received and approved.' : ' has been received and sent for approval.') +
+      '</p>' +
+
+    '<div class="quiet">' +
+    (settled
+      ? 'This order has been raised for you and is already approved. No action is ' +
+        'needed from you. We will email you again when it ships.'
+      : 'Your order is now with ' +
+        (approvers.length ? esc(approvers.join(', ')) : 'your approver') +
+        ' for approval. No action is needed from you. We will email you as soon as a ' +
+        'decision is recorded, and again when the order ships.') +
+    '</div>' +
 
     '<h3>Order details</h3>' +
     kv([
@@ -219,7 +238,7 @@ function sendPlacedEmail(orderId) {
       ['Approver', o.lob_approver || 'Not stated'],
       ['Event date', fmtDate(o.event_date)],
       ['Purpose', o.purpose],
-      ['Status', 'Pending approval']
+      ['Status', settled ? 'Approved' : 'Pending approval']
     ]) +
 
     '<h3>Items</h3>' + lineTable(lines) +
@@ -245,7 +264,8 @@ function sendPlacedEmail(orderId) {
     autoFooter()
   );
 
-  send(o.requester_email, 'Order ' + orderId + ' received and sent for approval', html);
+  send(o.requester_email, 'Order ' + orderId +
+    (settled ? ' received and approved' : ' received and sent for approval'), html);
 }
 
 /* SITE_URL is the public storefront. Until the custom domain is cut over it

@@ -96,7 +96,9 @@ function paintOrders(host) {
   host.append(filters,
     el('div', { class: 'row-between', style: 'margin-bottom:12px' },
       el('span', { class: 'small muted' }, `${list.length} shown`),
-      el('button', { class: 'btn btn-ghost btn-sm', onclick: exportCsv }, 'Export CSV')),
+      el('div', { class: 'row' },
+        el('button', { class: 'btn btn-ghost btn-sm', onclick: exportCsv }, 'Export CSV'),
+        el('button', { class: 'btn btn-sm', onclick: raiseOrder }, 'Raise order'))),
     el('div', { class: 'panel', style: 'padding:0;overflow-x:auto' },
       el('table', { class: 'tbl' },
         el('thead', {}, el('tr', {},
@@ -918,5 +920,268 @@ function exportCsv() {
   a.click();
   URL.revokeObjectURL(a.href);
 }
+
+
+/* ------------------------------------------------------- raise an order */
+
+/**
+ * Raise an order for a client at a price agreed off the catalogue.
+ *
+ * A requester's own order is priced entirely by the tier table, with no way
+ * past it, by design. This form is the exception. Leaving the price box empty
+ * falls a line back to exactly what the client would have paid, so the box is
+ * an override rather than a required field, and the console shows what the
+ * catalogue would have charged beside every figure that was changed.
+ *
+ * Price is per product, not per size, because every size of a product shares
+ * one price everywhere else in the system.
+ */
+async function raiseOrder() {
+  if (!USERS_LOADED) {
+    toast('Loading the user list...');
+    try {
+      const u = await api('adminUsers', { admin_pass: PASS });
+      USERS = u.users; DEPTS = u.departments; USERS_LOADED = true;
+    } catch (err) { return toast(err.message, 'error'); }
+  }
+
+  const people = USERS.filter(u => u.active);
+  if (!people.length) return toast('No active accounts to raise an order for.', 'error');
+
+  const products = CAT.products.filter(p => p.active)
+    .slice().sort((a, b) => a.name.localeCompare(b.name));
+
+  const draft = {
+    requester_email: '', requester_name: '', requester_phone: '',
+    lob: '', lob_approver: '', event_date: '', purpose: '', cost_centre: '',
+    ship_name: '', ship_phone: '', ship_street: '', ship_city: '',
+    ship_state: '', ship_pincode: '',
+  };
+  let picks = [];
+  let approveNow = false, notifyRequester = false, files = [];
+
+  const whoHost = el('div', { class: 'form-grid' });
+  const shipHost = el('div', { class: 'form-grid' });
+  const linesHost = el('div', { class: 'stack' });
+  const summaryHost = el('div', {});
+
+  /* Pricing preview. Mirrors priceOrder() on the backend, which stays the
+     authority: this only tells the admin what they are about to commit. */
+  function quote() {
+    const rows = [];
+    let net = 0, tax = 0, listTotal = 0;
+    for (const pick of picks) {
+      const p = products.find(x => x.sku === pick.sku);
+      if (!p) continue;
+      const qty = Object.values(pick.qty).reduce((a, n) => a + (Number(n) || 0), 0);
+      const tier = pickTier(p.tiers, qty);
+      const listUnit = tier ? tier.unit_price : p.base_price;
+      const set = pick.price !== '' && isFinite(Number(pick.price)) && Number(pick.price) >= 0;
+      const unit = set ? Number(pick.price) : listUnit;
+      const gst = Number(p.gst_rate || 0);
+      rows.push({ p, qty, listUnit, unit, gst, lineNet: unit * qty,
+        negotiated: set, belowMoq: qty > 0 && qty < Number(p.moq || 1) });
+      if (!qty) continue;
+      net += unit * qty;
+      tax += unit * qty * gst / 100;
+      listTotal += listUnit * qty * (1 + gst / 100);
+    }
+    return { rows, net, tax, total: net + tax, listTotal };
+  }
+
+  function paintWho() {
+    whoHost.textContent = '';
+    whoHost.append(
+      field('Client', selectOf(people.map(u => u.email), draft.requester_email, email => {
+        const u = people.find(x => x.email === email);
+        draft.requester_email = email;
+        if (u) {
+          draft.requester_name = u.full_name || '';
+          draft.lob = u.lob || draft.lob;
+          draft.ship_name = u.default_ship_name || u.full_name || '';
+          draft.ship_phone = u.default_ship_phone || '';
+          draft.ship_street = u.default_ship_street || '';
+          draft.ship_city = u.default_ship_city || '';
+          draft.ship_pincode = u.default_ship_pincode || '';
+        }
+        paintWho(); paintShip();
+      }, 'Choose an account')),
+      field('Name on the order', el('input', { type: 'text', value: draft.requester_name,
+        oninput: e => { draft.requester_name = e.target.value; } })),
+      field('Department (LOB)', selectOf(DEPTS, draft.lob, v => { draft.lob = v; }, 'Not set')),
+      field('Approver named on the order', el('input', { type: 'text', value: draft.lob_approver,
+        oninput: e => { draft.lob_approver = e.target.value; } })),
+      field('Event date', el('input', { type: 'date', value: draft.event_date,
+        oninput: e => { draft.event_date = e.target.value; } })),
+      field('Cost centre', el('input', { type: 'text', value: draft.cost_centre,
+        oninput: e => { draft.cost_centre = e.target.value; } })),
+      field('Purpose', el('input', { type: 'text', value: draft.purpose,
+        oninput: e => { draft.purpose = e.target.value; } }), true));
+  }
+
+  function paintShip() {
+    shipHost.textContent = '';
+    const bind = k => el('input', { type: 'text', value: draft[k],
+      oninput: e => { draft[k] = e.target.value; } });
+    shipHost.append(
+      field('Ship to', bind('ship_name')),
+      field('Phone', bind('ship_phone')),
+      field('Street', bind('ship_street'), true),
+      field('City', bind('ship_city')),
+      field('State', bind('ship_state')),
+      field('PIN code', bind('ship_pincode')));
+  }
+
+  function paintLines() {
+    linesHost.textContent = '';
+    const q = quote();
+
+    picks.forEach((pick, idx) => {
+      const p = products.find(x => x.sku === pick.sku);
+      if (!p) return;
+      const row = q.rows.find(r => r.p.sku === pick.sku) || {};
+
+      const qtyHost = el('div', { class: 'row', style: 'flex-wrap:wrap;gap:8px' });
+      if (p.has_sizes && p.sizes.length) {
+        p.sizes.forEach(size => qtyHost.append(
+          el('label', { class: 'field', style: 'width:84px' },
+            el('span', {}, size),
+            el('input', { type: 'number', min: '0', step: '1', value: pick.qty[size] || '',
+              oninput: e => { pick.qty[size] = Number(e.target.value) || 0; paintLines(); } }))));
+      } else {
+        qtyHost.append(el('label', { class: 'field', style: 'width:120px' },
+          el('span', {}, 'Quantity'),
+          el('input', { type: 'number', min: '0', step: '1', value: pick.qty[''] || '',
+            oninput: e => { pick.qty[''] = Number(e.target.value) || 0; paintLines(); } })));
+      }
+
+      linesHost.append(el('div', { class: 'panel' },
+        el('div', { class: 'row-between', style: 'align-items:flex-start' },
+          el('div', {},
+            el('strong', {}, p.name),
+            el('div', { class: 'small muted' },
+              [p.sku, 'MOQ ' + (p.moq || 1), 'GST ' + (p.gst_rate || 0) + '%'].join(' · '))),
+          el('button', { class: 'btn btn-ghost btn-sm',
+            onclick: () => { picks.splice(idx, 1); paintLines(); } }, 'Remove')),
+        qtyHost,
+        el('div', { class: 'row', style: 'margin-top:8px;align-items:flex-end;gap:14px' },
+          el('label', { class: 'field', style: 'width:190px' },
+            el('span', {}, 'Negotiated unit price'),
+            el('input', { type: 'number', min: '0', step: '0.01', value: pick.price,
+              placeholder: row.listUnit != null ? String(row.listUnit) : 'Catalogue price',
+              oninput: e => { pick.price = e.target.value.trim(); paintLines(); } })),
+          el('div', { class: 'small muted' },
+            !row.qty
+              ? 'Enter a quantity to see the tier price.'
+              : row.negotiated
+                ? `Catalogue price at ${row.qty} units is ${money(row.listUnit)}. Charging ${money(row.unit)}.`
+                : `Catalogue price at ${row.qty} units is ${money(row.listUnit)}.`)),
+        row.belowMoq
+          ? el('div', { class: 'small', style: 'color:#8A6A00;margin-top:6px' },
+              'Below the usual minimum order quantity. Allowed, and flagged to the approver.')
+          : null));
+    });
+
+    const remaining = products.filter(p => !picks.some(k => k.sku === p.sku));
+    linesHost.append(el('div', { class: 'row', style: 'margin-top:4px' },
+      selectOf(remaining.map(p => `${p.sku} · ${p.name}`), '', label => {
+        const sku = label.split(' · ')[0];
+        if (sku && !picks.some(k => k.sku === sku)) picks.push({ sku, price: '', qty: {} });
+        paintLines();
+      }, 'Add a product...')));
+
+    paintSummary(q);
+  }
+
+  function paintSummary(q) {
+    summaryHost.textContent = '';
+    const diff = q.total - q.listTotal;
+    const changed = q.rows.filter(r => r.negotiated && r.qty).length;
+    summaryHost.append(el('div', { class: 'panel' },
+      kvTable([
+        ['Subtotal', money(q.net)],
+        ['GST', money(q.tax)],
+        ['Total', money(q.total)],
+        ['Catalogue total', money(q.listTotal)],
+        [diff < 0 ? 'Concession' : diff > 0 ? 'Uplift' : 'Difference',
+          money(Math.abs(diff)) + (changed ? ` across ${changed} product(s)` : '')],
+      ])));
+  }
+
+  function collect() {
+    const lines = [], prices = {};
+    for (const pick of picks) {
+      const p = products.find(x => x.sku === pick.sku);
+      if (!p) continue;
+      for (const [size, n] of Object.entries(pick.qty)) {
+        const qty = Number(n) || 0;
+        if (qty <= 0) continue;
+        lines.push({ parent_sku: p.sku, size: size || '', qty,
+          variant_sku: size ? `${p.sku}_${size}` : p.sku });
+      }
+      if (pick.price !== '' && isFinite(Number(pick.price))) prices[p.sku] = Number(pick.price);
+    }
+    return { lines, prices };
+  }
+
+  paintWho(); paintShip(); paintLines();
+
+  drawer(el('div', {},
+    drawerHead('Raise an order'),
+    el('p', { class: 'small muted' },
+      'The order is recorded against the client’s own account, so it appears ' +
+      'under their login and stays attributable. Leave a price empty to charge ' +
+      'the catalogue price.'),
+
+    el('h3', {}, 'Order'), whoHost,
+    el('h3', {}, 'Delivery address'), shipHost,
+    el('h3', {}, 'Items'), linesHost,
+    el('h3', {}, 'Total'), summaryHost,
+
+    el('h3', {}, 'Approval'),
+    el('div', { class: 'stack' },
+      el('label', { class: 'row', style: 'gap:8px' },
+        el('input', { type: 'checkbox',
+          onchange: e => { approveNow = e.target.checked; } }),
+        el('span', {}, 'Mark approved now, without routing it to the approvers')),
+      el('label', { class: 'row', style: 'gap:8px' },
+        el('input', { type: 'checkbox',
+          onchange: e => { notifyRequester = e.target.checked; } }),
+        el('span', {}, 'Email the client a confirmation')),
+      el('label', { class: 'field full' },
+        el('span', {}, 'Attach a quote or written approval (optional)'),
+        el('input', { type: 'file', multiple: 'multiple',
+          onchange: async e => {
+            files = [];
+            for (const f of e.target.files) {
+              files.push({ name: f.name, mime: f.type, data: await toBase64(f) });
+            }
+          } }))),
+
+    el('div', { class: 'row', style: 'margin-top:20px' },
+      el('button', { class: 'btn', onclick: async ev => {
+        const btn = ev.target;
+        const { lines, prices } = collect();
+        if (!draft.requester_email) return toast('Choose the client first.', 'error');
+        if (!lines.length) return toast('Add at least one product with a quantity.', 'error');
+
+        btn.disabled = true;
+        try {
+          const r = await api('adminCreateOrder', {
+            admin_pass: PASS, order: draft, lines, prices, files,
+            approve_now: approveNow, notify_requester: notifyRequester,
+          });
+          toast(`${r.order_id} raised · ${r.status} · ${money(r.total)}`);
+          closeDrawer();
+          await loadAll();
+        } catch (err) {
+          toast(err.message, 'error');
+        } finally {
+          btn.disabled = false;
+        }
+      } }, 'Raise order'),
+      el('button', { class: 'btn btn-ghost', onclick: closeDrawer }, 'Cancel'))));
+}
+
 
 bootAdmin();

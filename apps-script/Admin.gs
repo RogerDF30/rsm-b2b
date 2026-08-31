@@ -792,7 +792,14 @@ function fnAdminUsers(req) {
       email: str(u.email), full_name: str(u.full_name), lob: str(u.lob),
       active: String(u.active).toUpperCase() !== 'FALSE',
       locked_until: str(u.locked_until),
-      created_at: str(u.created_at), last_login: str(u.last_login)
+      created_at: str(u.created_at), last_login: str(u.last_login),
+      /* Carried so the admin order form can prefill a client's saved
+         delivery address instead of retyping it. */
+      default_ship_name: str(u.default_ship_name),
+      default_ship_phone: str(u.default_ship_phone),
+      default_ship_street: str(u.default_ship_street),
+      default_ship_city: str(u.default_ship_city),
+      default_ship_pincode: str(u.default_ship_pincode)
     };
   });
   var departments = readTab(SHEETS.DEPARTMENTS)

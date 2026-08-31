@@ -39,8 +39,14 @@ function serverPickTier(list, n) {
  * Authoritative pricing. Quantity rolls up by parent SKU across sizes, the
  * matching tier applies to every line in that group, and the group total must
  * meet the product MOQ.
+ *
+ * `overrides` is an optional map of parent SKU to a negotiated unit price. It
+ * is only ever populated by fnAdminCreateOrder; a requester's own submission
+ * passes nothing and is priced exactly as it always was. The override is per
+ * parent SKU rather than per line because every size of a product shares one
+ * price, which is the same rule the tier table follows.
  */
-function priceOrder(rawLines) {
+function priceOrder(rawLines, overrides) {
   var cat = catalogMaps();
   var groups = {};
 
@@ -69,6 +75,7 @@ function priceOrder(rawLines) {
   });
 
   var lines = [], subtotal = 0, taxTotal = 0;
+  var listSubtotal = 0, listTaxTotal = 0;
 
   Object.keys(groups).forEach(function (sku) {
     var p = cat.products[sku];
@@ -83,7 +90,13 @@ function priceOrder(rawLines) {
     var short = groupQty < moq;
 
     var tier = serverPickTier(cat.tiers[sku], groupQty);
-    var unit = tier ? tier.unit_price : Number(p.base_price);
+    var listUnit = tier ? tier.unit_price : Number(p.base_price);
+
+    /* A negotiated price of zero is meaningful, so test for a supplied value
+       rather than for truthiness. */
+    var ov = overrides ? overrides[sku] : undefined;
+    var negotiated = ov !== undefined && ov !== null && ov !== '' && isFinite(Number(ov));
+    var unit = negotiated ? Number(ov) : listUnit;
     var gst = Number(p.gst_rate || 0);
     var band = tier ? (tier.max_qty ? tier.min_qty + '-' + tier.max_qty : tier.min_qty + '+')
                     : 'below MOQ ' + moq;
@@ -93,6 +106,8 @@ function priceOrder(rawLines) {
       var tax = lineTotal * gst / 100;
       subtotal += lineTotal;
       taxTotal += tax;
+      listSubtotal += listUnit * i.qty;
+      listTaxTotal += listUnit * i.qty * gst / 100;
       lines.push({
         parent_sku: sku, variant_sku: i.variant_sku, product_name: p.name,
         /* A leading apostrophe keeps Sheets from reading a band like "10-19"
@@ -100,7 +115,8 @@ function priceOrder(rawLines) {
         size: i.size, qty: i.qty, group_qty: groupQty, tier_applied: "'" + band,
         below_moq: short ? 'YES' : '',
         unit_price: unit, line_total: lineTotal, gst_rate: gst,
-        tax_amount: round2(tax), line_total_with_tax: round2(lineTotal + tax)
+        tax_amount: round2(tax), line_total_with_tax: round2(lineTotal + tax),
+        list_unit_price: round2(listUnit), negotiated: negotiated ? 'YES' : ''
       });
     });
   });
@@ -111,7 +127,9 @@ function priceOrder(rawLines) {
     lines: lines,
     subtotal: round2(subtotal),
     tax_total: round2(taxTotal),
-    grand_total: round2(subtotal + taxTotal)
+    grand_total: round2(subtotal + taxTotal),
+    list_subtotal: round2(listSubtotal),
+    list_grand_total: round2(listSubtotal + listTaxTotal)
   };
 }
 
@@ -180,7 +198,8 @@ function fnSubmitOrder(req) {
         unit_price: l.unit_price, line_total: l.line_total,
         gst_rate: l.gst_rate, tax_amount: l.tax_amount,
         line_total_with_tax: l.line_total_with_tax,
-        below_moq: l.below_moq
+        below_moq: l.below_moq,
+        list_unit_price: l.list_unit_price, negotiated: l.negotiated
       });
     });
   });
@@ -361,4 +380,158 @@ function fnAdminResend(req) {
   sendApprovalEmails(o.order_id, exp);
   audit('admin', 'approval_resent', 'order', o.order_id, null, null);
   return { ok: true };
+}
+
+/* ------------------------------------------------- admin-raised orders */
+
+/**
+ * Raise an order for a client, at a price agreed off the catalogue.
+ *
+ * This is the one path that may price a line from a supplied figure rather
+ * than the tier table. Three things follow from that, and each is deliberate:
+ * the negotiated figure is stored beside the catalogue price it replaced, so
+ * the concession stays legible on the line, in the approver's mail and in the
+ * audit log; evidence is optional, because the person raising the order is
+ * already the one who would have vetted it; and the order can be booked as
+ * approved when the deal was signed off elsewhere, which is the case this
+ * exists for.
+ *
+ * The requester must be an existing active account. An admin cannot type a
+ * free-text name: the order has to belong to somebody who can see it under
+ * their own login, or it is not attributable to anyone.
+ */
+function fnAdminCreateOrder(req) {
+  requireAdmin(req);
+
+  var o = req.order || {};
+  var files = req.files || [];
+  var rawPrices = req.prices || {};
+
+  var email = String(o.requester_email || '').trim().toLowerCase();
+  var u = findUser(email);
+  if (!u) throw new Error('No store account for ' + email + '. Add the user first.');
+  if (String(u.active).toUpperCase() === 'FALSE') {
+    throw new Error(email + ' is deactivated. Reactivate the account first.');
+  }
+
+  ['lob', 'event_date', 'purpose', 'ship_name', 'ship_phone', 'ship_street',
+   'ship_city', 'ship_pincode'].forEach(function (k) {
+    if (!String(o[k] || '').trim()) throw new Error('Missing required field: ' + k);
+  });
+
+  /* Zero is a legitimate negotiated price. Negative and non-numeric are not,
+     and a typo here writes a wrong figure straight into an order. */
+  var prices = {};
+  Object.keys(rawPrices).forEach(function (sku) {
+    var v = rawPrices[sku];
+    if (v === '' || v === null || v === undefined) return;
+    var n = Number(v);
+    if (!isFinite(n) || n < 0) {
+      throw new Error('Negotiated price for ' + sku + ' is not a valid amount.');
+    }
+    prices[String(sku).trim()] = round2(n);
+  });
+
+  var priced = priceOrder(req.lines || [], prices);
+  var approveNow = req.approve_now === true;
+  var approvers = activeApprovers();
+  if (!approveNow && !approvers.length) {
+    throw new Error('No approvers are configured, so this order cannot be routed. ' +
+      'Mark it approved instead, or add an approver first.');
+  }
+
+  var orderId = nextOrderId();
+  var stored = files.length ? saveEvidence(orderId, files, 'admin') : [];
+  var exp = Date.now() + APPROVAL_DAYS * 86400000;
+
+  withLock(function () {
+    appendRow(SHEETS.ORDERS, {
+      order_id: orderId, created_at: now(),
+      requester_email: email,
+      requester_name: o.requester_name || u.full_name || email,
+      requester_phone: o.requester_phone || '', lob: o.lob,
+      lob_approver: o.lob_approver || '',
+      event_date: o.event_date, purpose: o.purpose,
+      cost_centre: o.cost_centre || '',
+      ship_name: o.ship_name, ship_phone: o.ship_phone, ship_email: email,
+      ship_street: o.ship_street, ship_city: o.ship_city,
+      ship_state: o.ship_state || '', ship_pincode: o.ship_pincode,
+      ship_country: o.ship_country || 'India',
+      bill_name: o.bill_name || o.ship_name, bill_phone: o.bill_phone || o.ship_phone,
+      bill_street: o.bill_street || o.ship_street, bill_city: o.bill_city || o.ship_city,
+      bill_state: o.bill_state || o.ship_state || '',
+      bill_pincode: o.bill_pincode || o.ship_pincode,
+      bill_country: o.bill_country || 'India',
+      subtotal: priced.subtotal, tax_total: priced.tax_total,
+      shipping_total: 0, grand_total: priced.grand_total,
+      status: approveNow ? 'Approved' : 'Pending Approval',
+      token_expires_at: approveNow ? '' : exp,
+      decided_by: approveNow ? 'admin' : '',
+      decided_at: approveNow ? now() : '',
+      rejection_reason: '',
+      notified_at: '', closed_by: '', closed_at: '',
+      courier: '', tracking_no: '', tracking_url: '', zoho_so_id: '',
+      raised_by: 'admin'
+    });
+
+    priced.lines.forEach(function (l, i) {
+      appendRow(SHEETS.LINES, {
+        order_id: orderId, line_no: i + 1, parent_sku: l.parent_sku,
+        variant_sku: l.variant_sku, product_name: l.product_name, size: l.size,
+        qty: l.qty, group_qty: l.group_qty, tier_applied: l.tier_applied,
+        unit_price: l.unit_price, line_total: l.line_total,
+        gst_rate: l.gst_rate, tax_amount: l.tax_amount,
+        line_total_with_tax: l.line_total_with_tax,
+        below_moq: l.below_moq,
+        list_unit_price: l.list_unit_price, negotiated: l.negotiated
+      });
+    });
+  });
+
+  var negotiatedCount = priced.lines.filter(function (l) {
+    return l.negotiated === 'YES';
+  }).length;
+
+  audit('admin',
+    approveNow ? 'order_raised_and_approved' : 'order_raised_for_approval',
+    'order', orderId, null, {
+      requester: email,
+      total: priced.grand_total,
+      list_total: priced.list_grand_total,
+      lines: priced.lines.length,
+      negotiated_lines: negotiatedCount,
+      evidence_files: stored.length
+    });
+
+  if (!approveNow) {
+    sendApprovalEmails(orderId, exp);
+    withLock(function () {
+      var row = findOrderRow(orderId);
+      updateRow(SHEETS.ORDERS, row._row, { notified_at: now() });
+    });
+  }
+
+  /* The client is only told about their own order when the admin says so.
+     Raising one quietly, to be discussed on a call, is a real case. */
+  if (req.notify_requester === true) {
+    try {
+      sendPlacedEmail(orderId);
+    } catch (err) {
+      console.error('placed mail failed for ' + orderId + ': ' + err.message);
+    }
+  }
+
+  notifyChat(approveNow ? 'approved' : 'submitted', findOrderRow(orderId));
+
+  return {
+    ok: true,
+    order_id: orderId,
+    status: approveNow ? 'Approved' : 'Pending Approval',
+    total: priced.grand_total,
+    list_total: priced.list_grand_total,
+    difference: round2(priced.grand_total - priced.list_grand_total),
+    negotiated_lines: negotiatedCount,
+    evidence_files: stored.length,
+    approvers_notified: approveNow ? 0 : approvers.length
+  };
 }
