@@ -1,6 +1,6 @@
 {
  "generated_from": "admin console",
- "generated_at": "2026-08-26 17:32:14",
+ "generated_at": "2026-09-03 13:25:51",
  "pricing_status": "from the Sheet",
  "categories": [
   {
@@ -27,7 +27,7 @@
    "slug": "Travel",
    "label": "Travel",
    "subcategories": [
-    "Bag pack",
+    "Backpack",
     "Duffle bag",
     "Laptop handbag",
     "Tote bags",
@@ -86,32 +86,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 220
+     "unit_price": 220,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 191
+     "unit_price": 191,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 180
+     "unit_price": 180,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 174
+     "unit_price": 174,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 167
+     "unit_price": 167,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 160
+     "unit_price": 160,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -160,32 +166,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 220
+     "unit_price": 220,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 191
+     "unit_price": 191,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 180
+     "unit_price": 180,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 174
+     "unit_price": 174,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 167
+     "unit_price": 167,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 160
+     "unit_price": 160,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -238,32 +250,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 230
+     "unit_price": 230,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 205
+     "unit_price": 205,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 196
+     "unit_price": 196,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 189
+     "unit_price": 189,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 174
+     "unit_price": 174,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 155
+     "unit_price": 155,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -317,32 +335,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 230
+     "unit_price": 230,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 205
+     "unit_price": 205,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 196
+     "unit_price": 196,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 189
+     "unit_price": 189,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 174
+     "unit_price": 174,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 155
+     "unit_price": 155,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -388,32 +412,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 215
+     "unit_price": 215,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 191
+     "unit_price": 191,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 180
+     "unit_price": 180,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 174
+     "unit_price": 174,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 160
+     "unit_price": 160,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 135
+     "unit_price": 135,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -458,32 +488,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 215
+     "unit_price": 215,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 191
+     "unit_price": 191,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 180
+     "unit_price": 180,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 174
+     "unit_price": 174,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 160
+     "unit_price": 160,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 135
+     "unit_price": 135,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -528,32 +564,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 215
+     "unit_price": 215,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 191
+     "unit_price": 191,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 180
+     "unit_price": 180,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 174
+     "unit_price": 174,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 160
+     "unit_price": 160,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 135
+     "unit_price": 135,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -598,32 +640,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 215
+     "unit_price": 215,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 191
+     "unit_price": 191,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 180
+     "unit_price": 180,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 174
+     "unit_price": 174,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 160
+     "unit_price": 160,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 135
+     "unit_price": 135,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -668,32 +716,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 2430
+     "unit_price": 2430,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2205
+     "unit_price": 2205,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2115
+     "unit_price": 2115,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2050
+     "unit_price": 2050,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1940
+     "unit_price": 1940,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1890
+     "unit_price": 1890,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -754,32 +808,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 2150
+     "unit_price": 2150,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2009
+     "unit_price": 2009,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1925
+     "unit_price": 1925,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1899
+     "unit_price": 1899,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1823
+     "unit_price": 1823,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1788
+     "unit_price": 1788,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -818,38 +878,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 3080,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 3080
+     "unit_price": 3080,
+     "gst_rate": 18
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2793
+     "unit_price": 2793,
+     "gst_rate": 18
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2681
+     "unit_price": 2681,
+     "gst_rate": 18
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2615
+     "unit_price": 2615,
+     "gst_rate": 18
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 2510
+     "unit_price": 2510,
+     "gst_rate": 18
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 2350
+     "unit_price": 2350,
+     "gst_rate": 5
     }
    ],
    "sizes": [
@@ -910,32 +976,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 2430
+     "unit_price": 2430,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2205
+     "unit_price": 2205,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2116
+     "unit_price": 2116,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2080
+     "unit_price": 2080,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1975
+     "unit_price": 1975,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1890
+     "unit_price": 1890,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -975,38 +1047,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 3250,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 3250
+     "unit_price": 3250,
+     "gst_rate": 18
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2950
+     "unit_price": 2950,
+     "gst_rate": 18
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2800
+     "unit_price": 2800,
+     "gst_rate": 18
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2700
+     "unit_price": 2700,
+     "gst_rate": 18
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 2400
+     "unit_price": 2400,
+     "gst_rate": 5
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 2190
+     "unit_price": 2190,
+     "gst_rate": 5
     }
    ],
    "sizes": [
@@ -1073,38 +1151,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 2550,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 2550
+     "unit_price": 2550,
+     "gst_rate": 18
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2248
+     "unit_price": 2248,
+     "gst_rate": 5
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2239
+     "unit_price": 2239,
+     "gst_rate": 5
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2229
+     "unit_price": 2229,
+     "gst_rate": 5
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 2225
+     "unit_price": 2225,
+     "gst_rate": 5
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 2220
+     "unit_price": 2220,
+     "gst_rate": 5
     }
    ],
    "sizes": [
@@ -1171,38 +1255,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 2550,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 2550
+     "unit_price": 2550,
+     "gst_rate": 18
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2248
+     "unit_price": 2248,
+     "gst_rate": 5
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2239
+     "unit_price": 2239,
+     "gst_rate": 5
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2229
+     "unit_price": 2229,
+     "gst_rate": 5
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 2225
+     "unit_price": 2225,
+     "gst_rate": 5
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 2220
+     "unit_price": 2220,
+     "gst_rate": 5
     }
    ],
    "sizes": [
@@ -1269,38 +1359,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 2550,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 2550
+     "unit_price": 2550,
+     "gst_rate": 18
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2248
+     "unit_price": 2248,
+     "gst_rate": 5
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2239
+     "unit_price": 2239,
+     "gst_rate": 5
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2229
+     "unit_price": 2229,
+     "gst_rate": 5
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 2225
+     "unit_price": 2225,
+     "gst_rate": 5
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 2220
+     "unit_price": 2220,
+     "gst_rate": 5
     }
    ],
    "sizes": [
@@ -1349,32 +1445,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 2430
+     "unit_price": 2430,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2205
+     "unit_price": 2205,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2117
+     "unit_price": 2117,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2066
+     "unit_price": 2066,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1980
+     "unit_price": 1980,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1890
+     "unit_price": 1890,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -1410,38 +1512,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 2970,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 2970
+     "unit_price": 2970,
+     "gst_rate": 18
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2600
+     "unit_price": 2600,
+     "gst_rate": 18
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2400
+     "unit_price": 2400,
+     "gst_rate": 5
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2375
+     "unit_price": 2375,
+     "gst_rate": 5
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 2350
+     "unit_price": 2350,
+     "gst_rate": 5
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 2100
+     "unit_price": 2100,
+     "gst_rate": 5
     }
    ],
    "sizes": [
@@ -1485,32 +1593,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 2420
+     "unit_price": 2420,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2200
+     "unit_price": 2200,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2050
+     "unit_price": 2050,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1950
+     "unit_price": 1950,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1870
+     "unit_price": 1870,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1790
+     "unit_price": 1790,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -1555,32 +1669,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1780
+     "unit_price": 1780,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1617
+     "unit_price": 1617,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1552
+     "unit_price": 1552,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1505
+     "unit_price": 1505,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1350
+     "unit_price": 1350,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1280
+     "unit_price": 1280,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -1625,32 +1745,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1780
+     "unit_price": 1780,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1617
+     "unit_price": 1617,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1552
+     "unit_price": 1552,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1505
+     "unit_price": 1505,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1350
+     "unit_price": 1350,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1280
+     "unit_price": 1280,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -1699,32 +1825,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1780
+     "unit_price": 1780,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1617
+     "unit_price": 1617,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1552
+     "unit_price": 1552,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1505
+     "unit_price": 1505,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1350
+     "unit_price": 1350,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1250
+     "unit_price": 1250,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -1774,32 +1906,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1780
+     "unit_price": 1780,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1617
+     "unit_price": 1617,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1552
+     "unit_price": 1552,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1505
+     "unit_price": 1505,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1350
+     "unit_price": 1350,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1250
+     "unit_price": 1250,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -1845,32 +1983,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 2375
+     "unit_price": 2375,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2105
+     "unit_price": 2105,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2050
+     "unit_price": 2050,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1900
+     "unit_price": 1900,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1690
+     "unit_price": 1690,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1490
+     "unit_price": 1490,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -1909,38 +2053,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 3250,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 3250
+     "unit_price": 3250,
+     "gst_rate": 18
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 3000
+     "unit_price": 3000,
+     "gst_rate": 18
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2800
+     "unit_price": 2800,
+     "gst_rate": 18
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2750
+     "unit_price": 2750,
+     "gst_rate": 18
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 2450
+     "unit_price": 2450,
+     "gst_rate": 5
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 2250
+     "unit_price": 2250,
+     "gst_rate": 5
     }
    ],
    "sizes": [
@@ -1979,38 +2129,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 3250,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 3250
+     "unit_price": 3250,
+     "gst_rate": 18
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 3000
+     "unit_price": 3000,
+     "gst_rate": 18
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2800
+     "unit_price": 2800,
+     "gst_rate": 18
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2750
+     "unit_price": 2750,
+     "gst_rate": 18
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 2450
+     "unit_price": 2450,
+     "gst_rate": 5
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 2250
+     "unit_price": 2250,
+     "gst_rate": 5
     }
    ],
    "sizes": [
@@ -2048,38 +2204,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 3250,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 3250
+     "unit_price": 3250,
+     "gst_rate": 18
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 3000
+     "unit_price": 3000,
+     "gst_rate": 18
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2800
+     "unit_price": 2800,
+     "gst_rate": 18
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2750
+     "unit_price": 2750,
+     "gst_rate": 18
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 2450
+     "unit_price": 2450,
+     "gst_rate": 5
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 2250
+     "unit_price": 2250,
+     "gst_rate": 5
     }
    ],
    "sizes": [
@@ -2117,38 +2279,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 3250,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 3250
+     "unit_price": 3250,
+     "gst_rate": 18
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 3000
+     "unit_price": 3000,
+     "gst_rate": 18
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2800
+     "unit_price": 2800,
+     "gst_rate": 18
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2750
+     "unit_price": 2750,
+     "gst_rate": 18
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 2450
+     "unit_price": 2450,
+     "gst_rate": 5
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 2250
+     "unit_price": 2250,
+     "gst_rate": 5
     }
    ],
    "sizes": [
@@ -2196,32 +2364,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1650
+     "unit_price": 1650,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1519
+     "unit_price": 1519,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1458
+     "unit_price": 1458,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1430
+     "unit_price": 1430,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1390
+     "unit_price": 1390,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1335
+     "unit_price": 1335,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -2271,32 +2445,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1650
+     "unit_price": 1650,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1519
+     "unit_price": 1519,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1458
+     "unit_price": 1458,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1430
+     "unit_price": 1430,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1390
+     "unit_price": 1390,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1335
+     "unit_price": 1335,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -2346,32 +2526,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1140
+     "unit_price": 1140,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1029
+     "unit_price": 1029,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 987
+     "unit_price": 987,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 958
+     "unit_price": 958,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 919
+     "unit_price": 919,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 810
+     "unit_price": 810,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -2421,32 +2607,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1140
+     "unit_price": 1140,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1029
+     "unit_price": 1029,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 987
+     "unit_price": 987,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 958
+     "unit_price": 958,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 919
+     "unit_price": 919,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 810
+     "unit_price": 810,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -2496,32 +2688,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1140
+     "unit_price": 1140,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1029
+     "unit_price": 1029,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 987
+     "unit_price": 987,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 958
+     "unit_price": 958,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 919
+     "unit_price": 919,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 810
+     "unit_price": 810,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -2562,32 +2760,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 915
+     "unit_price": 915,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 833
+     "unit_price": 833,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 800
+     "unit_price": 800,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 780
+     "unit_price": 780,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 745
+     "unit_price": 745,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 715
+     "unit_price": 715,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -2636,32 +2840,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 915
+     "unit_price": 915,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 833
+     "unit_price": 833,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 800
+     "unit_price": 800,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 780
+     "unit_price": 780,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 745
+     "unit_price": 745,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 715
+     "unit_price": 715,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -2710,32 +2920,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 915
+     "unit_price": 915,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 833
+     "unit_price": 833,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 800
+     "unit_price": 800,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 780
+     "unit_price": 780,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 745
+     "unit_price": 745,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 715
+     "unit_price": 715,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -2784,32 +3000,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 400
+     "unit_price": 400,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 343
+     "unit_price": 343,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 330
+     "unit_price": 330,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 320
+     "unit_price": 320,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 310
+     "unit_price": 310,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 300
+     "unit_price": 300,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -2858,32 +3080,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 400
+     "unit_price": 400,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 343
+     "unit_price": 343,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 330
+     "unit_price": 330,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 320
+     "unit_price": 320,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 310
+     "unit_price": 310,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 300
+     "unit_price": 300,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -2936,32 +3164,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 400
+     "unit_price": 400,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 343
+     "unit_price": 343,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 330
+     "unit_price": 330,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 320
+     "unit_price": 320,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 310
+     "unit_price": 310,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 300
+     "unit_price": 300,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -3014,32 +3248,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 400
+     "unit_price": 400,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 343
+     "unit_price": 343,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 330
+     "unit_price": 330,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 320
+     "unit_price": 320,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 310
+     "unit_price": 310,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 300
+     "unit_price": 300,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -3088,32 +3328,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 400
+     "unit_price": 400,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 343
+     "unit_price": 343,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 330
+     "unit_price": 330,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 320
+     "unit_price": 320,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 310
+     "unit_price": 310,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 300
+     "unit_price": 300,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -3162,32 +3408,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 810
+     "unit_price": 810,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 735
+     "unit_price": 735,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 705
+     "unit_price": 705,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 685
+     "unit_price": 685,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 550
+     "unit_price": 550,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 500
+     "unit_price": 500,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -3236,32 +3488,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 810
+     "unit_price": 810,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 735
+     "unit_price": 735,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 705
+     "unit_price": 705,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 685
+     "unit_price": 685,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 550
+     "unit_price": 550,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 500
+     "unit_price": 500,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -3307,32 +3565,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 810
+     "unit_price": 810,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 735
+     "unit_price": 735,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 705
+     "unit_price": 705,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 685
+     "unit_price": 685,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 550
+     "unit_price": 550,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 500
+     "unit_price": 500,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -3378,32 +3642,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 810
+     "unit_price": 810,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 735
+     "unit_price": 735,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 705
+     "unit_price": 705,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 685
+     "unit_price": 685,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 550
+     "unit_price": 550,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 500
+     "unit_price": 500,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -3449,32 +3719,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 815
+     "unit_price": 815,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 735
+     "unit_price": 735,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 705
+     "unit_price": 705,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 680
+     "unit_price": 680,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 620
+     "unit_price": 620,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 610
+     "unit_price": 610,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -3521,32 +3797,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 815
+     "unit_price": 815,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 735
+     "unit_price": 735,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 705
+     "unit_price": 705,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 680
+     "unit_price": 680,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 620
+     "unit_price": 620,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 610
+     "unit_price": 610,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -3599,32 +3881,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1100
+     "unit_price": 1100,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1029
+     "unit_price": 1029,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 987
+     "unit_price": 987,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 960
+     "unit_price": 960,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 870
+     "unit_price": 870,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 810
+     "unit_price": 810,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -3677,32 +3965,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1100
+     "unit_price": 1100,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1029
+     "unit_price": 1029,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 987
+     "unit_price": 987,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 960
+     "unit_price": 960,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 870
+     "unit_price": 870,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 810
+     "unit_price": 810,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -3752,32 +4046,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1100
+     "unit_price": 1100,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1029
+     "unit_price": 1029,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 987
+     "unit_price": 987,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 960
+     "unit_price": 960,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 870
+     "unit_price": 870,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 810
+     "unit_price": 810,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -3838,32 +4138,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1300
+     "unit_price": 1300,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1225
+     "unit_price": 1225,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1176
+     "unit_price": 1176,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1140
+     "unit_price": 1140,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1080
+     "unit_price": 1080,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1000
+     "unit_price": 1000,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -3901,32 +4207,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1410
+     "unit_price": 1410,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1323
+     "unit_price": 1323,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1270
+     "unit_price": 1270,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1231
+     "unit_price": 1231,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1170
+     "unit_price": 1170,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 999
+     "unit_price": 999,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -3972,32 +4284,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1020
+     "unit_price": 1020,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 931
+     "unit_price": 931,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 893
+     "unit_price": 893,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 850
+     "unit_price": 850,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 790
+     "unit_price": 790,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 730
+     "unit_price": 730,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -4063,32 +4381,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 480
+     "unit_price": 480,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 441
+     "unit_price": 441,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 423
+     "unit_price": 423,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 405
+     "unit_price": 405,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 385
+     "unit_price": 385,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 310
+     "unit_price": 310,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -4130,32 +4454,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 700
+     "unit_price": 700,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 637
+     "unit_price": 637,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 611
+     "unit_price": 611,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 592
+     "unit_price": 592,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 570
+     "unit_price": 570,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 525
+     "unit_price": 525,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -4207,32 +4537,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1535
+     "unit_price": 1535,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1421
+     "unit_price": 1421,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1364
+     "unit_price": 1364,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1323
+     "unit_price": 1323,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1275
+     "unit_price": 1275,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1210
+     "unit_price": 1210,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -4286,32 +4622,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1180
+     "unit_price": 1180,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1078
+     "unit_price": 1078,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1034
+     "unit_price": 1034,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1002
+     "unit_price": 1002,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 965
+     "unit_price": 965,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 915
+     "unit_price": 915,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -4365,32 +4707,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1180
+     "unit_price": 1180,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1078
+     "unit_price": 1078,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1034
+     "unit_price": 1034,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1002
+     "unit_price": 1002,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 965
+     "unit_price": 965,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 915
+     "unit_price": 915,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -4444,32 +4792,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1535
+     "unit_price": 1535,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1421
+     "unit_price": 1421,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1364
+     "unit_price": 1364,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1323
+     "unit_price": 1323,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1275
+     "unit_price": 1275,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1210
+     "unit_price": 1210,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -4523,32 +4877,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 700
+     "unit_price": 700,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 637
+     "unit_price": 637,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 612
+     "unit_price": 612,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 593
+     "unit_price": 593,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 569
+     "unit_price": 569,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 545
+     "unit_price": 545,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -4591,32 +4951,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 270
+     "unit_price": 270,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 245
+     "unit_price": 245,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 230
+     "unit_price": 230,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 223
+     "unit_price": 223,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 190
+     "unit_price": 190,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 170
+     "unit_price": 170,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -4662,32 +5028,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 230
+     "unit_price": 230,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 210
+     "unit_price": 210,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 200
+     "unit_price": 200,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 190
+     "unit_price": 190,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 165
+     "unit_price": 165,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 145
+     "unit_price": 145,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -4720,32 +5092,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1500
+     "unit_price": 1500,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1421
+     "unit_price": 1421,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1364
+     "unit_price": 1364,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1315
+     "unit_price": 1315,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1160
+     "unit_price": 1160,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1000
+     "unit_price": 1000,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -4777,32 +5155,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 485
+     "unit_price": 485,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 441
+     "unit_price": 441,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 420
+     "unit_price": 420,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 407
+     "unit_price": 407,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 380
+     "unit_price": 380,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 310
+     "unit_price": 310,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -4852,32 +5236,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1010
+     "unit_price": 1010,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 931
+     "unit_price": 931,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 893
+     "unit_price": 893,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 866
+     "unit_price": 866,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 820
+     "unit_price": 820,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 765
+     "unit_price": 765,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -4909,32 +5299,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1010
+     "unit_price": 1010,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 931
+     "unit_price": 931,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 893
+     "unit_price": 893,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 866
+     "unit_price": 866,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 820
+     "unit_price": 820,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 765
+     "unit_price": 765,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -4979,32 +5375,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1188
+     "unit_price": 1188,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1078
+     "unit_price": 1078,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1034
+     "unit_price": 1034,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1002
+     "unit_price": 1002,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 950
+     "unit_price": 950,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 930
+     "unit_price": 930,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -5057,32 +5459,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 485
+     "unit_price": 485,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 441
+     "unit_price": 441,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 420
+     "unit_price": 420,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 407
+     "unit_price": 407,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 350
+     "unit_price": 350,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 300
+     "unit_price": 300,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -5136,32 +5544,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 485
+     "unit_price": 485,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 441
+     "unit_price": 441,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 420
+     "unit_price": 420,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 407
+     "unit_price": 407,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 350
+     "unit_price": 350,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 300
+     "unit_price": 300,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -5215,32 +5629,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 702
+     "unit_price": 702,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 637
+     "unit_price": 637,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 610
+     "unit_price": 610,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 591
+     "unit_price": 591,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 510
+     "unit_price": 510,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 455
+     "unit_price": 455,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -5294,32 +5714,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 702
+     "unit_price": 702,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 637
+     "unit_price": 637,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 610
+     "unit_price": 610,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 591
+     "unit_price": 591,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 510
+     "unit_price": 510,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 455
+     "unit_price": 455,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -5371,32 +5797,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 590
+     "unit_price": 590,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 539
+     "unit_price": 539,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 517
+     "unit_price": 517,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 490
+     "unit_price": 490,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 480
+     "unit_price": 480,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 470
+     "unit_price": 470,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -5418,7 +5850,7 @@
    "name": "Flamingo Backpack",
    "url_key": "b2b-flamingo-backpack-black",
    "category": "Travel",
-   "subcategory": "Bag pack",
+   "subcategory": "Backpack",
    "attribute_set": "Bags",
    "description": "Versatile Design: Converts easily between a backpack and a messenger bag to suit your needs.\nSpacious Storage: Large main compartment with multiple pockets for organizing your essentials.\nLaptop Compartment: The padded section fits laptops up to 15.6 inches, keeping your device safe.\nComfortable Straps: Adjustable, padded shoulder straps and detachable crossbody strap for comfort.\nStylish Appearance: Sleek, modern design suitable for professional and casual settings.\n Note:  Suject to stock availability",
    "specs": [
@@ -5448,38 +5880,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 3078,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 3078
+     "unit_price": 3078,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2793
+     "unit_price": 2793,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2681
+     "unit_price": 2681,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2600
+     "unit_price": 2600,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 2490
+     "unit_price": 2490,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 2150
+     "unit_price": 2150,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -5501,7 +5939,7 @@
    "name": "Targus Geolite Advanced 15.6\" Backpack",
    "url_key": "b2b-targus-geolite-advanced-15.6\"-backpack",
    "category": "Travel",
-   "subcategory": "Bag pack",
+   "subcategory": "Backpack",
    "attribute_set": "Bags",
    "description": "Dedicated Laptop Compartment: With multi-fit cradle, fits up to 15.6 \nAmple Space: For convenient storage.\nPadded Back Panel: Provides support and comfort.\nAdjustable Shoulder Straps: Ergonomic and padded for added comfort.\nEasy Access: Front zippered pocket for quick access to essentials.\n Note:  Suject to stock availability",
    "specs": [
@@ -5523,38 +5961,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 3510,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 3510
+     "unit_price": 3510,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 3185
+     "unit_price": 3185,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 3057
+     "unit_price": 3057,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 3000
+     "unit_price": 3000,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 2880
+     "unit_price": 2880,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 2770
+     "unit_price": 2770,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -5578,7 +6022,7 @@
    "name": "TravelXOXO Fit Pack Backpack",
    "url_key": "b2b-travelxoxo-anti-theft-backpack-black",
    "category": "Travel",
-   "subcategory": "Bag pack",
+   "subcategory": "Backpack",
    "attribute_set": "Bags",
    "description": "Trendy Backpack: A backpack that no one can enter while wearing it, safe for all your stuff. Made of polyester material with numerous hidden zippers and handy secret pockets.\nSize: 20 x 42 x 34 cm",
    "specs": [
@@ -5592,38 +6036,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 3348,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 3348
+     "unit_price": 3348,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 3038
+     "unit_price": 3038,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2916
+     "unit_price": 2916,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2790
+     "unit_price": 2790,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 2550
+     "unit_price": 2550,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1990
+     "unit_price": 1990,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -5645,7 +6095,7 @@
    "name": "TravelXOXO Fit Pack Backpack- Black",
    "url_key": "b2b-travelxoxo-fit-pack-backpack-black",
    "category": "Travel",
-   "subcategory": "Bag pack",
+   "subcategory": "Backpack",
    "attribute_set": "Bags",
    "description": "YKK zippers, interior liner treated with antimicrobial coating to control bacterial odors and growth, front load main compartment for spacious storage, ventilated shoe compartment with stowaway design (fits up to men's size 13 shoes), padded and suspended laptop pocket with soft lining (fits up to 16\" laptop), quick-access top pocket with soft lining, interior pockets for your everyday essentials, exterior water bottle pockets, padded mesh back panel for enhanced comfort and breathability, ballistic nylon exterior.\nMain Compartment: Spacious Storage\nDimensions: 18.5\" L x 12.5\" W x 8\" D",
    "specs": [
@@ -5659,38 +6109,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 1890,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1890
+     "unit_price": 1890,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1715
+     "unit_price": 1715,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1646
+     "unit_price": 1646,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1596
+     "unit_price": 1596,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1500
+     "unit_price": 1500,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1350
+     "unit_price": 1350,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -5738,38 +6194,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 2145,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 2145
+     "unit_price": 2145,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1950
+     "unit_price": 1950,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1875
+     "unit_price": 1875,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1850
+     "unit_price": 1850,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1785
+     "unit_price": 1785,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1750
+     "unit_price": 1750,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -5807,38 +6269,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 702,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 702
+     "unit_price": 702,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 637
+     "unit_price": 637,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 611
+     "unit_price": 611,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 590
+     "unit_price": 590,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 560
+     "unit_price": 560,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 500
+     "unit_price": 500,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -5863,38 +6331,44 @@
    "description": "Vegan Fabric Small Duffel Bag: Functional yet minimal, perfect for gym or travel. Designed with broad handles, spacious pockets, and structured to retain its shape, making it an ideal eco-friendly companion.",
    "specs": [],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 2270,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 2270
+     "unit_price": 2270,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2058
+     "unit_price": 2058,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1975
+     "unit_price": 1975,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1915
+     "unit_price": 1915,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1800
+     "unit_price": 1800,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1735
+     "unit_price": 1735,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -5948,38 +6422,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 2540,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 2540
+     "unit_price": 2540,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2401
+     "unit_price": 2401,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2304
+     "unit_price": 2304,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2234
+     "unit_price": 2234,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 2145
+     "unit_price": 2145,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1999
+     "unit_price": 1999,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -6031,38 +6511,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 2540,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 2540
+     "unit_price": 2540,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 2401
+     "unit_price": 2401,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 2304
+     "unit_price": 2304,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 2234
+     "unit_price": 2234,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 2145
+     "unit_price": 2145,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1999
+     "unit_price": 1999,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -6118,38 +6604,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 1850,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 1850
+     "unit_price": 1850,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 1744
+     "unit_price": 1744,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 1674
+     "unit_price": 1674,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 1623
+     "unit_price": 1623,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 1560
+     "unit_price": 1560,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 1490
+     "unit_price": 1490,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -6187,32 +6679,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 405
+     "unit_price": 405,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 385
+     "unit_price": 385,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 380
+     "unit_price": 380,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 372
+     "unit_price": 372,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 364
+     "unit_price": 364,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 355
+     "unit_price": 355,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -6250,32 +6748,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 300
+     "unit_price": 300,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 269
+     "unit_price": 269,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 258
+     "unit_price": 258,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 249
+     "unit_price": 249,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 235
+     "unit_price": 235,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 220
+     "unit_price": 220,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -6324,32 +6828,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 305
+     "unit_price": 305,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 275
+     "unit_price": 275,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 265
+     "unit_price": 265,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 255
+     "unit_price": 255,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 245
+     "unit_price": 245,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 235
+     "unit_price": 235,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -6398,32 +6908,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 305
+     "unit_price": 305,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 275
+     "unit_price": 275,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 265
+     "unit_price": 265,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 255
+     "unit_price": 255,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 245
+     "unit_price": 245,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 235
+     "unit_price": 235,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -6472,32 +6988,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 305
+     "unit_price": 305,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 275
+     "unit_price": 275,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 265
+     "unit_price": 265,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 255
+     "unit_price": 255,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 245
+     "unit_price": 245,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 235
+     "unit_price": 235,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -6552,38 +7074,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 8390,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 8390
+     "unit_price": 8390,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 8036
+     "unit_price": 8036,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 7714
+     "unit_price": 7714,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 7590
+     "unit_price": 7590,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 7286
+     "unit_price": 7286,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 7000
+     "unit_price": 7000,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -6619,38 +7147,44 @@
     ]
    ],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 8250,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 8250
+     "unit_price": 8250,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 7938
+     "unit_price": 7938,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 7260
+     "unit_price": 7260,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 7024
+     "unit_price": 7024,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 6743
+     "unit_price": 6743,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 6700
+     "unit_price": 6700,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -6692,32 +7226,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 804
+     "unit_price": 804,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 715
+     "unit_price": 715,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 700
+     "unit_price": 700,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 690
+     "unit_price": 690,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 660
+     "unit_price": 660,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 659
+     "unit_price": 659,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -6763,32 +7303,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 804
+     "unit_price": 804,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 715
+     "unit_price": 715,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 700
+     "unit_price": 700,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 690
+     "unit_price": 690,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 660
+     "unit_price": 660,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 659
+     "unit_price": 659,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -6834,32 +7380,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 804
+     "unit_price": 804,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 715
+     "unit_price": 715,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 700
+     "unit_price": 700,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 690
+     "unit_price": 690,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 660
+     "unit_price": 660,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 659
+     "unit_price": 659,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -6897,32 +7449,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 702
+     "unit_price": 702,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 640
+     "unit_price": 640,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 625
+     "unit_price": 625,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 610
+     "unit_price": 610,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 600
+     "unit_price": 600,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 590
+     "unit_price": 590,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -6960,32 +7518,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 702
+     "unit_price": 702,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 640
+     "unit_price": 640,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 625
+     "unit_price": 625,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 610
+     "unit_price": 610,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 600
+     "unit_price": 600,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 590
+     "unit_price": 590,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7023,32 +7587,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 702
+     "unit_price": 702,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 640
+     "unit_price": 640,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 625
+     "unit_price": 625,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 610
+     "unit_price": 610,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 600
+     "unit_price": 600,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 590
+     "unit_price": 590,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7090,32 +7660,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 195
+     "unit_price": 195,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 176
+     "unit_price": 176,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 158
+     "unit_price": 158,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 150
+     "unit_price": 150,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 135
+     "unit_price": 135,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 120
+     "unit_price": 120,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7148,32 +7724,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 35
+     "unit_price": 35,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 29
+     "unit_price": 29,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 27
+     "unit_price": 27,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 25
+     "unit_price": 25,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 24
+     "unit_price": 24,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 20
+     "unit_price": 20,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7206,32 +7788,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 300
+     "unit_price": 300,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 269
+     "unit_price": 269,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 258
+     "unit_price": 258,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 235
+     "unit_price": 235,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 225
+     "unit_price": 225,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 215
+     "unit_price": 215,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7281,32 +7869,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 907
+     "unit_price": 907,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 800
+     "unit_price": 800,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 760
+     "unit_price": 760,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 755
+     "unit_price": 755,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 730
+     "unit_price": 730,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 710
+     "unit_price": 710,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7356,32 +7950,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 907
+     "unit_price": 907,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 800
+     "unit_price": 800,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 760
+     "unit_price": 760,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 755
+     "unit_price": 755,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 730
+     "unit_price": 730,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 710
+     "unit_price": 710,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7431,32 +8031,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 907
+     "unit_price": 907,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 800
+     "unit_price": 800,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 760
+     "unit_price": 760,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 755
+     "unit_price": 755,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 730
+     "unit_price": 730,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 710
+     "unit_price": 710,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7494,32 +8100,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 40
+     "unit_price": 40,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 34
+     "unit_price": 34,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 32
+     "unit_price": 32,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 28
+     "unit_price": 28,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 25
+     "unit_price": 25,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 20
+     "unit_price": 20,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7557,32 +8169,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 40
+     "unit_price": 40,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 34
+     "unit_price": 34,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 32
+     "unit_price": 32,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 28
+     "unit_price": 28,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 25
+     "unit_price": 25,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 20
+     "unit_price": 20,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7620,32 +8238,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 40
+     "unit_price": 40,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 34
+     "unit_price": 34,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 32
+     "unit_price": 32,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 28
+     "unit_price": 28,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 25
+     "unit_price": 25,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 20
+     "unit_price": 20,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7683,32 +8307,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 140
+     "unit_price": 140,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 128
+     "unit_price": 128,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 122
+     "unit_price": 122,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 115
+     "unit_price": 115,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 110
+     "unit_price": 110,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 105
+     "unit_price": 105,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7746,32 +8376,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 140
+     "unit_price": 140,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 128
+     "unit_price": 128,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 122
+     "unit_price": 122,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 115
+     "unit_price": 115,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 110
+     "unit_price": 110,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 105
+     "unit_price": 105,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7809,32 +8445,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 140
+     "unit_price": 140,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 128
+     "unit_price": 128,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 122
+     "unit_price": 122,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 115
+     "unit_price": 115,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 110
+     "unit_price": 110,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 105
+     "unit_price": 105,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7872,32 +8514,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 140
+     "unit_price": 140,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 128
+     "unit_price": 128,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 122
+     "unit_price": 122,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 115
+     "unit_price": 115,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 110
+     "unit_price": 110,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 105
+     "unit_price": 105,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7935,32 +8583,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 140
+     "unit_price": 140,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 128
+     "unit_price": 128,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 122
+     "unit_price": 122,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 115
+     "unit_price": 115,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 110
+     "unit_price": 110,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 105
+     "unit_price": 105,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -7993,32 +8647,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 151
+     "unit_price": 151,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 137
+     "unit_price": 137,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 131
+     "unit_price": 131,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 125
+     "unit_price": 125,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 119
+     "unit_price": 119,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 110
+     "unit_price": 110,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -8056,32 +8716,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 280
+     "unit_price": 280,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 245
+     "unit_price": 245,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 237
+     "unit_price": 237,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 219
+     "unit_price": 219,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 210
+     "unit_price": 210,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 190
+     "unit_price": 190,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -8119,32 +8785,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 280
+     "unit_price": 280,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 245
+     "unit_price": 245,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 237
+     "unit_price": 237,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 219
+     "unit_price": 219,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 210
+     "unit_price": 210,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 190
+     "unit_price": 190,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -8182,32 +8854,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 280
+     "unit_price": 280,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 245
+     "unit_price": 245,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 237
+     "unit_price": 237,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 219
+     "unit_price": 219,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 210
+     "unit_price": 210,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 190
+     "unit_price": 190,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -8245,32 +8923,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 280
+     "unit_price": 280,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 245
+     "unit_price": 245,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 237
+     "unit_price": 237,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 219
+     "unit_price": 219,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 210
+     "unit_price": 210,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 190
+     "unit_price": 190,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -8306,32 +8990,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 280
+     "unit_price": 280,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 245
+     "unit_price": 245,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 237
+     "unit_price": 237,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 219
+     "unit_price": 219,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 210
+     "unit_price": 210,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 190
+     "unit_price": 190,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -8371,32 +9061,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 595
+     "unit_price": 595,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 500
+     "unit_price": 500,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 480
+     "unit_price": 480,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 455
+     "unit_price": 455,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 435
+     "unit_price": 435,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 420
+     "unit_price": 420,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -8442,32 +9138,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 690
+     "unit_price": 690,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 615
+     "unit_price": 615,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 585
+     "unit_price": 585,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 550
+     "unit_price": 550,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 510
+     "unit_price": 510,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 485
+     "unit_price": 485,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -8500,32 +9202,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 525
+     "unit_price": 525,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 475
+     "unit_price": 475,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 456
+     "unit_price": 456,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 442
+     "unit_price": 442,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 420
+     "unit_price": 420,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 400
+     "unit_price": 400,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -8571,32 +9279,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 81
+     "unit_price": 81,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 73
+     "unit_price": 73,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 70
+     "unit_price": 70,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 67
+     "unit_price": 67,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 65
+     "unit_price": 65,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 62
+     "unit_price": 62,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -8642,32 +9356,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 81
+     "unit_price": 81,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 73
+     "unit_price": 73,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 70
+     "unit_price": 70,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 67
+     "unit_price": 67,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 65
+     "unit_price": 65,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 62
+     "unit_price": 62,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -8713,32 +9433,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 81
+     "unit_price": 81,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 73
+     "unit_price": 73,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 70
+     "unit_price": 70,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 67
+     "unit_price": 67,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 65
+     "unit_price": 65,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 62
+     "unit_price": 62,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -8784,32 +9510,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 81
+     "unit_price": 81,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 73
+     "unit_price": 73,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 70
+     "unit_price": 70,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 67
+     "unit_price": 67,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 65
+     "unit_price": 65,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 62
+     "unit_price": 62,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -8847,32 +9579,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 125
+     "unit_price": 125,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 112
+     "unit_price": 112,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 107
+     "unit_price": 107,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 100
+     "unit_price": 100,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 95
+     "unit_price": 95,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 80
+     "unit_price": 80,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -8907,32 +9645,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 81
+     "unit_price": 81,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 73
+     "unit_price": 73,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 70
+     "unit_price": 70,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 65
+     "unit_price": 65,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 62
+     "unit_price": 62,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 59
+     "unit_price": 59,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -8971,32 +9715,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 105
+     "unit_price": 105,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 90
+     "unit_price": 90,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 84
+     "unit_price": 84,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 82
+     "unit_price": 82,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 78
+     "unit_price": 78,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 70
+     "unit_price": 70,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -9035,32 +9785,38 @@
     {
      "min_qty": 1,
      "max_qty": 50,
-     "unit_price": 105
+     "unit_price": 105,
+     "gst_rate": null
     },
     {
      "min_qty": 51,
      "max_qty": 100,
-     "unit_price": 90
+     "unit_price": 90,
+     "gst_rate": null
     },
     {
      "min_qty": 101,
      "max_qty": 200,
-     "unit_price": 84
+     "unit_price": 84,
+     "gst_rate": null
     },
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 82
+     "unit_price": 82,
+     "gst_rate": null
     },
     {
      "min_qty": 501,
      "max_qty": 1000,
-     "unit_price": 78
+     "unit_price": 78,
+     "gst_rate": null
     },
     {
      "min_qty": 1001,
      "max_qty": null,
-     "unit_price": 70
+     "unit_price": 70,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -9090,22 +9846,26 @@
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 466
+     "unit_price": 466,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 433
+     "unit_price": 433,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 381
+     "unit_price": 381,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 332
+     "unit_price": 332,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -9146,32 +9906,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 525
+     "unit_price": 525,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 514.5
+     "unit_price": 514.5,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 493.92
+     "unit_price": 493.92,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 459.35
+     "unit_price": 459.35,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 404.22
+     "unit_price": 404.22,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 351.67
+     "unit_price": 351.67,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -9212,32 +9978,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 575
+     "unit_price": 575,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 563.5
+     "unit_price": 563.5,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 540.96
+     "unit_price": 540.96,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 503.09
+     "unit_price": 503.09,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 442.72
+     "unit_price": 442.72,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 385.17
+     "unit_price": 385.17,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -9275,32 +10047,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1805
+     "unit_price": 1805,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1768.9
+     "unit_price": 1768.9,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1650
+     "unit_price": 1650,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1534.5
+     "unit_price": 1534.5,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1350.36
+     "unit_price": 1350.36,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1174.81
+     "unit_price": 1174.81,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -9341,32 +10119,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1650
+     "unit_price": 1650,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1617
+     "unit_price": 1617,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1510
+     "unit_price": 1510,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1404.3
+     "unit_price": 1404.3,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1235.78
+     "unit_price": 1235.78,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1075.13
+     "unit_price": 1075.13,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -9407,32 +10191,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 990
+     "unit_price": 990,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 970.2
+     "unit_price": 970.2,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 931.39
+     "unit_price": 931.39,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 838.25
+     "unit_price": 838.25,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 712.51
+     "unit_price": 712.51,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 570.01
+     "unit_price": 570.01,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -9473,32 +10263,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1250
+     "unit_price": 1250,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1225
+     "unit_price": 1225,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1176
+     "unit_price": 1176,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1093.68
+     "unit_price": 1093.68,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 962.44
+     "unit_price": 962.44,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 837.32
+     "unit_price": 837.32,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -9539,32 +10335,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1375
+     "unit_price": 1375,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1347.5
+     "unit_price": 1347.5,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1266.65
+     "unit_price": 1266.65,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1127.32
+     "unit_price": 1127.32,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 901.85
+     "unit_price": 901.85,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 802.65
+     "unit_price": 802.65,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -9601,32 +10403,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1750
+     "unit_price": 1750,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1715
+     "unit_price": 1715,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1675
+     "unit_price": 1675,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1650.75
+     "unit_price": 1650.75,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1452.66
+     "unit_price": 1452.66,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1292.87
+     "unit_price": 1292.87,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -9667,32 +10475,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 2100
+     "unit_price": 2100,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 2037
+     "unit_price": 2037,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1915
+     "unit_price": 1915,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1780.95
+     "unit_price": 1780.95,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1567.24
+     "unit_price": 1567.24,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1363.5
+     "unit_price": 1363.5,
+     "gst_rate": null
     }
    ],
    "sizes": [
@@ -9733,32 +10547,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 210
+     "unit_price": 210,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 195.3
+     "unit_price": 195.3,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 187.49
+     "unit_price": 187.49,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 174.36
+     "unit_price": 174.36,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 165.65
+     "unit_price": 165.65,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 140.8
+     "unit_price": 140.8,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -9791,32 +10611,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 385
+     "unit_price": 385,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 377.3
+     "unit_price": 377.3,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 362.21
+     "unit_price": 362.21,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 325.99
+     "unit_price": 325.99,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 286.87
+     "unit_price": 286.87,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 249.58
+     "unit_price": 249.58,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -9849,32 +10675,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 260
+     "unit_price": 260,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 254.8
+     "unit_price": 254.8,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 244.61
+     "unit_price": 244.61,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 220.15
+     "unit_price": 220.15,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 193.73
+     "unit_price": 193.73,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 168.54
+     "unit_price": 168.54,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -9907,32 +10739,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 350
+     "unit_price": 350,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 336
+     "unit_price": 336,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 322.56
+     "unit_price": 322.56,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 290.3
+     "unit_price": 290.3,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 232.24
+     "unit_price": 232.24,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 199.73
+     "unit_price": 199.73,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -9965,32 +10803,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 195
+     "unit_price": 195,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 191.1
+     "unit_price": 191.1,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 183.46
+     "unit_price": 183.46,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 170.61
+     "unit_price": 170.61,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 150.14
+     "unit_price": 150.14,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 130.62
+     "unit_price": 130.62,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10023,32 +10867,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 175
+     "unit_price": 175,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 166.25
+     "unit_price": 166.25,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 154.61
+     "unit_price": 154.61,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 143.79
+     "unit_price": 143.79,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 126.53
+     "unit_price": 126.53,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 112.62
+     "unit_price": 112.62,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10082,32 +10932,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 395
+     "unit_price": 395,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 387.1
+     "unit_price": 387.1,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 371.62
+     "unit_price": 371.62,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 345.6
+     "unit_price": 345.6,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 304.13
+     "unit_price": 304.13,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 264.59
+     "unit_price": 264.59,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10137,32 +10993,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 220
+     "unit_price": 220,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 213.4
+     "unit_price": 213.4,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 204.86
+     "unit_price": 204.86,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 190.52
+     "unit_price": 190.52,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 167.66
+     "unit_price": 167.66,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 145.86
+     "unit_price": 145.86,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10195,32 +11057,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 180
+     "unit_price": 180,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 169.2
+     "unit_price": 169.2,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 162.43
+     "unit_price": 162.43,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 151.06
+     "unit_price": 151.06,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 132.93
+     "unit_price": 132.93,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 115.65
+     "unit_price": 115.65,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10249,32 +11117,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 835
+     "unit_price": 835,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 818.3
+     "unit_price": 818.3,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 785.57
+     "unit_price": 785.57,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 714.87
+     "unit_price": 714.87,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 629.08
+     "unit_price": 629.08,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 547.3
+     "unit_price": 547.3,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10292,7 +11166,7 @@
    "name": "Cera travel laptop backpack",
    "url_key": "",
    "category": "Travel",
-   "subcategory": "Bag pack",
+   "subcategory": "Backpack",
    "attribute_set": "",
    "description": "Fastening: zipper\nRucksack travel bag with laptop compartment with100% 600d polyester, highly durable\nLarge main compartment and front vertical zipper pocket with internal slip and zipper mesh pockets and top lid pocket\nSeparate laptop compartment with access from back panel\nPadded shoulder straps with easy access metro card pocket\nDimensions: 30.5 cm x 51 cm x 25.4 cm , capacity: 26 ltr ,weight: 0.84 kg , no. of compartments: 5",
    "specs": [],
@@ -10303,32 +11177,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1590
+     "unit_price": 1590,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1558.2
+     "unit_price": 1558.2,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1495.87
+     "unit_price": 1495.87,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1391.16
+     "unit_price": 1391.16,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1224.22
+     "unit_price": 1224.22,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1065.07
+     "unit_price": 1065.07,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10350,7 +11230,7 @@
    "name": "TRAVEL XOXO Overnight travel backpack",
    "url_key": "",
    "category": "Travel",
-   "subcategory": "Bag pack",
+   "subcategory": "Backpack",
    "attribute_set": "",
    "description": "MULTI UTILITY Backpack for daily use including or weekend travelling,\nhiking and trekking for both men and women. Waist Pads, shoulder\nstraps and chest strap aid in load adjustment. Detachable Waist\nBelt, Shoulder and Chest Straps along with multiple compression\nstraps aid in load adjustment.",
    "specs": [],
@@ -10361,32 +11241,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1540
+     "unit_price": 1540,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1509.2
+     "unit_price": 1509.2,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1448.83
+     "unit_price": 1448.83,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1347.41
+     "unit_price": 1347.41,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1212.67
+     "unit_price": 1212.67,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1152.04
+     "unit_price": 1152.04,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10407,7 +11293,7 @@
    "name": "PIivot lunar backpack",
    "url_key": "",
    "category": "Travel",
-   "subcategory": "Bag pack",
+   "subcategory": "Backpack",
    "attribute_set": "",
    "description": "Spacious zippered main compartment with a secure laptop compartment\nPadded 14 inch laptop sleeve. External zippered compartment with 2\ndeep slip-in pockets and a keyring holder. Capacity : 11 Litres\nMaterial : Recycled Nylon Ripstop, Nylon lining\nDimensions : 42 (H) x 32 (W) x 12(D) cms",
    "specs": [],
@@ -10418,32 +11304,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1025
+     "unit_price": 1025,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1004.5
+     "unit_price": 1004.5,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 944.23
+     "unit_price": 944.23,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 878.13
+     "unit_price": 878.13,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 728.85
+     "unit_price": 728.85,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 619.52
+     "unit_price": 619.52,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10462,7 +11354,7 @@
    "name": "TRAVEL XOXO Transit backpack",
    "url_key": "",
    "category": "Travel",
-   "subcategory": "Bag pack",
+   "subcategory": "Backpack",
    "attribute_set": "",
    "description": "Padded laptop compartment that fits up to a 15 inch laptop with a strap\nlock & a 180 ° flat opening for easy access. Has a silicon grab handle &\nergonomic shoulder straps designed for extra comfort. Straps feature easy\nlength adjustment buckles. Crafted with durable and premium zippers.\nSplendidly sized: 42 x 26 x 15.5 cms.",
    "specs": [],
@@ -10473,32 +11365,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 2025
+     "unit_price": 2025,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1984.5
+     "unit_price": 1984.5,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1905.12
+     "unit_price": 1905.12,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1771.76
+     "unit_price": 1771.76,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1559.15
+     "unit_price": 1559.15,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1356.46
+     "unit_price": 1356.46,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10520,7 +11418,7 @@
    "name": "Weekender duffle backpack",
    "url_key": "",
    "category": "Travel",
-   "subcategory": "Bag pack",
+   "subcategory": "Backpack",
    "attribute_set": "",
    "description": "This essential overnight bag combines a clean, contemporary design with\npractical functionality. Featuring a spacious main compartment, it provides\nample room for clothing, tech, and other essentials—perfect for a work\ntrip or weekend getaway. while the coated zip closure ensures water\nresistance to keep your items dry. Dimensions: H27 x D26 x W52 cm",
    "specs": [],
@@ -10531,32 +11429,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1455
+     "unit_price": 1455,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1396.8
+     "unit_price": 1396.8,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1340.93
+     "unit_price": 1340.93,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1247.06
+     "unit_price": 1247.06,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1097.42
+     "unit_price": 1097.42,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 954.75
+     "unit_price": 954.75,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10589,32 +11493,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 499
+     "unit_price": 499,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 489.02
+     "unit_price": 489.02,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 469.46
+     "unit_price": 469.46,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 436.6
+     "unit_price": 436.6,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 384.21
+     "unit_price": 384.21,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 326.57
+     "unit_price": 326.57,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10648,32 +11558,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 725
+     "unit_price": 725,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 710.5
+     "unit_price": 710.5,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 682.08
+     "unit_price": 682.08,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 634.33
+     "unit_price": 634.33,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 570.9
+     "unit_price": 570.9,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 513.81
+     "unit_price": 513.81,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10696,7 +11612,7 @@
    "name": "TRAVEL XOXO tech accesory backpack",
    "url_key": "",
    "category": "Travel",
-   "subcategory": "Bag pack",
+   "subcategory": "Backpack",
    "attribute_set": "",
    "description": "Express your love for the innovation company that inspires us all\nto fuel progress and make the world work better.\n210-denier polyester ripstop. Travel Product\nThree zip front pockets. Large zip back pocket. Hanging loop\nDimensions: 9\"x7\"Inches",
    "specs": [],
@@ -10707,32 +11623,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 265
+     "unit_price": 265,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 259.7
+     "unit_price": 259.7,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 249.31
+     "unit_price": 249.31,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 231.86
+     "unit_price": 231.86,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 199.4
+     "unit_price": 199.4,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 173.48
+     "unit_price": 173.48,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10761,32 +11683,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1099
+     "unit_price": 1099,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1077.02
+     "unit_price": 1077.02,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1033.94
+     "unit_price": 1033.94,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 961.56
+     "unit_price": 961.56,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 846.18
+     "unit_price": 846.18,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 736.17
+     "unit_price": 736.17,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10817,32 +11745,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1665
+     "unit_price": 1665,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1631.7
+     "unit_price": 1631.7,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1566.43
+     "unit_price": 1566.43,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1503.77
+     "unit_price": 1503.77,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1428.59
+     "unit_price": 1428.59,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1421.44
+     "unit_price": 1421.44,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10873,32 +11807,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1010
+     "unit_price": 1010,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 989.8
+     "unit_price": 989.8,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 950.21
+     "unit_price": 950.21,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 883.69
+     "unit_price": 883.69,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 777.65
+     "unit_price": 777.65,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 676.56
+     "unit_price": 676.56,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10931,32 +11871,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 910
+     "unit_price": 910,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 891.8
+     "unit_price": 891.8,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 856.13
+     "unit_price": 856.13,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 796.2
+     "unit_price": 796.2,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 700.66
+     "unit_price": 700.66,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 609.57
+     "unit_price": 609.57,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -10989,32 +11935,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 575
+     "unit_price": 575,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 563.5
+     "unit_price": 563.5,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 540.96
+     "unit_price": 540.96,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 503.09
+     "unit_price": 503.09,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 442.72
+     "unit_price": 442.72,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 385.17
+     "unit_price": 385.17,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11047,32 +11999,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 485
+     "unit_price": 485,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 465.6
+     "unit_price": 465.6,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 446.98
+     "unit_price": 446.98,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 415.69
+     "unit_price": 415.69,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 365.81
+     "unit_price": 365.81,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 350
+     "unit_price": 350,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11105,32 +12063,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1025
+     "unit_price": 1025,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1004.5
+     "unit_price": 1004.5,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 964.32
+     "unit_price": 964.32,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 925.75
+     "unit_price": 925.75,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 833.17
+     "unit_price": 833.17,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 724.86
+     "unit_price": 724.86,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11162,32 +12126,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 345
+     "unit_price": 345,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 331.2
+     "unit_price": 331.2,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 317.95
+     "unit_price": 317.95,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 295.7
+     "unit_price": 295.7,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 260.21
+     "unit_price": 260.21,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 226.38
+     "unit_price": 226.38,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11219,32 +12189,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 815
+     "unit_price": 815,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 798.7
+     "unit_price": 798.7,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 766.75
+     "unit_price": 766.75,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 713.08
+     "unit_price": 713.08,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 627.51
+     "unit_price": 627.51,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 545.93
+     "unit_price": 545.93,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11275,32 +12251,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 710
+     "unit_price": 710,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 695.8
+     "unit_price": 695.8,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 667.97
+     "unit_price": 667.97,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 634.57
+     "unit_price": 634.57,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 539.38
+     "unit_price": 539.38,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 431.51
+     "unit_price": 431.51,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11331,32 +12313,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 699
+     "unit_price": 699,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 685.02
+     "unit_price": 685.02,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 657.62
+     "unit_price": 657.62,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 611.59
+     "unit_price": 611.59,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 538.2
+     "unit_price": 538.2,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 457.47
+     "unit_price": 457.47,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11388,32 +12376,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 685
+     "unit_price": 685,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 671.3
+     "unit_price": 671.3,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 644.45
+     "unit_price": 644.45,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 599.34
+     "unit_price": 599.34,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 527.42
+     "unit_price": 527.42,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 458.85
+     "unit_price": 458.85,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11444,32 +12438,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 685
+     "unit_price": 685,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 671.3
+     "unit_price": 671.3,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 644.45
+     "unit_price": 644.45,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 599.34
+     "unit_price": 599.34,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 527.42
+     "unit_price": 527.42,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 458.85
+     "unit_price": 458.85,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11499,32 +12499,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 450
+     "unit_price": 450,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 385
+     "unit_price": 385,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 369.6
+     "unit_price": 369.6,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 343.73
+     "unit_price": 343.73,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 302.48
+     "unit_price": 302.48,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 263.16
+     "unit_price": 263.16,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11557,32 +12563,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 175
+     "unit_price": 175,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 171.5
+     "unit_price": 171.5,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 164.64
+     "unit_price": 164.64,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 153.12
+     "unit_price": 153.12,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 134.74
+     "unit_price": 134.74,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 117.22
+     "unit_price": 117.22,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11609,38 +12621,44 @@
    "description": "Stylish natural canvas pouch with a secure zipper.\nCompact and chic design for everyday essentials.\nPerfect for organizing makeup, tools, and travel items.\nNeutral-toned with a convenient top zipper.\nSize: 7.5\" H x 5.9\" W.",
    "specs": [],
    "moq": 1,
-   "gst_rate": 5,
+   "gst_rate": 18,
    "base_price": 165,
    "tiers": [
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 165
+     "unit_price": 165,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 161.7
+     "unit_price": 161.7,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 155.23
+     "unit_price": 155.23,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 144.37
+     "unit_price": 144.37,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 127.04
+     "unit_price": 127.04,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 114.34
+     "unit_price": 114.34,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11669,32 +12687,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 285
+     "unit_price": 285,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 279.3
+     "unit_price": 279.3,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 268.13
+     "unit_price": 268.13,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 249.36
+     "unit_price": 249.36,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 219.44
+     "unit_price": 219.44,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 190.91
+     "unit_price": 190.91,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11727,32 +12751,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 220
+     "unit_price": 220,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 217.8
+     "unit_price": 217.8,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 209.09
+     "unit_price": 209.09,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 198.63
+     "unit_price": 198.63,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 178.77
+     "unit_price": 178.77,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 164.47
+     "unit_price": 164.47,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11785,32 +12815,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1100
+     "unit_price": 1100,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1078
+     "unit_price": 1078,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1056.44
+     "unit_price": 1056.44,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1035.31
+     "unit_price": 1035.31,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1014.6
+     "unit_price": 1014.6,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 963.87
+     "unit_price": 963.87,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11842,32 +12878,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 185
+     "unit_price": 185,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 181.3
+     "unit_price": 181.3,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 177.67
+     "unit_price": 177.67,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 172.34
+     "unit_price": 172.34,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 155.11
+     "unit_price": 155.11,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 134.95
+     "unit_price": 134.95,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11900,32 +12942,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 145
+     "unit_price": 145,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 142.1
+     "unit_price": 142.1,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 136.42
+     "unit_price": 136.42,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 126.87
+     "unit_price": 126.87,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 114.18
+     "unit_price": 114.18,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 103.9
+     "unit_price": 103.9,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -11958,32 +13006,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 465
+     "unit_price": 465,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 455.7
+     "unit_price": 455.7,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 437.47
+     "unit_price": 437.47,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 406.85
+     "unit_price": 406.85,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 358.03
+     "unit_price": 358.03,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 311.48
+     "unit_price": 311.48,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -12016,32 +13070,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 845
+     "unit_price": 845,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 836.55
+     "unit_price": 836.55,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 828.18
+     "unit_price": 828.18,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 819.9
+     "unit_price": 819.9,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 811.7
+     "unit_price": 811.7,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 803.59
+     "unit_price": 803.59,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -12074,32 +13134,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1350
+     "unit_price": 1350,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1309.5
+     "unit_price": 1309.5,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1283.31
+     "unit_price": 1283.31,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1231.98
+     "unit_price": 1231.98,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1170.38
+     "unit_price": 1170.38,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1111.86
+     "unit_price": 1111.86,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -12129,32 +13195,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 1845
+     "unit_price": 1845,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 1826.55
+     "unit_price": 1826.55,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 1790.02
+     "unit_price": 1790.02,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 1754.22
+     "unit_price": 1754.22,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 1736.68
+     "unit_price": 1736.68,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 1563.01
+     "unit_price": 1563.01,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -12184,32 +13256,38 @@
     {
      "min_qty": 1,
      "max_qty": 49,
-     "unit_price": 925
+     "unit_price": 925,
+     "gst_rate": null
     },
     {
      "min_qty": 50,
      "max_qty": 99,
-     "unit_price": 906.5
+     "unit_price": 906.5,
+     "gst_rate": null
     },
     {
      "min_qty": 100,
      "max_qty": 199,
-     "unit_price": 888.37
+     "unit_price": 888.37,
+     "gst_rate": null
     },
     {
      "min_qty": 200,
      "max_qty": 499,
-     "unit_price": 852.84
+     "unit_price": 852.84,
+     "gst_rate": null
     },
     {
      "min_qty": 500,
      "max_qty": 999,
-     "unit_price": 750.49
+     "unit_price": 750.49,
+     "gst_rate": null
     },
     {
      "min_qty": 1000,
      "max_qty": null,
-     "unit_price": 742.99
+     "unit_price": 742.99,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -12241,7 +13319,8 @@
     {
      "min_qty": 1,
      "max_qty": null,
-     "unit_price": 850
+     "unit_price": 850,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -12267,7 +13346,8 @@
     {
      "min_qty": 1,
      "max_qty": null,
-     "unit_price": 900
+     "unit_price": 900,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -12293,7 +13373,8 @@
     {
      "min_qty": 1,
      "max_qty": null,
-     "unit_price": 920
+     "unit_price": 920,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -12319,7 +13400,8 @@
     {
      "min_qty": 1,
      "max_qty": null,
-     "unit_price": 1000
+     "unit_price": 1000,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -12345,7 +13427,8 @@
     {
      "min_qty": 1,
      "max_qty": null,
-     "unit_price": 270
+     "unit_price": 270,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -12371,7 +13454,8 @@
     {
      "min_qty": 1,
      "max_qty": null,
-     "unit_price": 700
+     "unit_price": 700,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -12397,7 +13481,8 @@
     {
      "min_qty": 1,
      "max_qty": null,
-     "unit_price": 750
+     "unit_price": 750,
+     "gst_rate": null
     }
    ],
    "sizes": [],
@@ -12423,7 +13508,8 @@
     {
      "min_qty": 1,
      "max_qty": null,
-     "unit_price": 300
+     "unit_price": 300,
+     "gst_rate": null
     }
    ],
    "sizes": [],
