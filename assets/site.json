@@ -1,11 +1,12 @@
 {
- "generated_at": "2026-08-26 17:32:15",
+ "generated_at": "2026-09-03 13:25:51",
  "settings": {
   "logo_url": "assets/brand/rsm-logo.png",
   "logo_white_url": "assets/brand/rsm-logo-white.png",
   "hero_title": "RSM branded merchandise",
   "hero_subtitle": "Browse the approved catalogue. Sign in at checkout to raise an order for approval.",
-  "footer_note": "RSM Business Store, operated by CompanyStore.IO"
+  "footer_note": "RSM Business Store, operated by CompanyStore.IO",
+  "shipping_pct": "8"
  },
  "banners": [
   {
