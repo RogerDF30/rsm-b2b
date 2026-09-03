@@ -281,6 +281,10 @@ function paintSummary() {
       el('tr', {}, el('td', {}, 'GST'), el('td', {}, money(R.taxTotal))),
       el('tr', {}, el('td', {}, 'Shipping & handling'),
         el('td', {}, money(R.shippingTotal))),
+      R.shippingTax
+        ? el('tr', {}, el('td', {}, `GST on shipping & handling (${R.shippingGst}%)`),
+            el('td', {}, money(R.shippingTax)))
+        : null,
       el('tr', { class: 'grand' }, el('td', {}, 'Total'), el('td', {}, money(R.grandTotal))))),
     R.belowMoq.length
       ? el('div', { class: 'warn', style: 'margin:12px 0' },
@@ -290,7 +294,8 @@ function paintSummary() {
       : null,
     el('div', { class: 'small muted', style: 'margin:12px 0' },
       'Shipping and handling is charged at ' + R.shippingPct +
-      '% of the order value before GST.'),
+      '% of the order value before GST, and carries GST at the highest rate ' +
+      'on the order.'),
     el('button', {
       class: 'btn btn-block', id: 'submitBtn', type: 'button', onclick: submit,
     }, 'Submit for approval'),

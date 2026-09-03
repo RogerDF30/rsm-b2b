@@ -90,11 +90,15 @@ function priceOrder(raw, overrides) {
   const pct = shippingPct();
   const shipping = r2(subtotal * pct / 100);
   const listShipping = r2(listSubtotal * pct / 100);
+  const shipGst = out.reduce((m, l) => Math.max(m, Number(l.gst_rate) || 0), 0);
+  const shippingTax = r2(shipping * shipGst / 100);
+  const listShippingTax = r2(listShipping * shipGst / 100);
   return { lines: out, subtotal: r2(subtotal), tax_total: r2(taxTotal),
     shipping_pct: pct, shipping_total: shipping,
-    grand_total: r2(subtotal + taxTotal + shipping),
+    shipping_gst_rate: shipGst, shipping_tax: shippingTax,
+    grand_total: r2(subtotal + taxTotal + shipping + shippingTax),
     list_subtotal: r2(listSubtotal),
-    list_grand_total: r2(listSubtotal + listTaxTotal + listShipping) };
+    list_grand_total: r2(listSubtotal + listTaxTotal + listShipping + listShippingTax) };
 }
 
 /* Mirrors shippingPct() in apps-script/Orders.gs. */
@@ -261,6 +265,7 @@ const ROUTES = {
       ship_city: o.ship_city, ship_pincode: o.ship_pincode,
       subtotal: priced.subtotal, tax_total: priced.tax_total,
       shipping_total: priced.shipping_total,
+      shipping_gst_rate: priced.shipping_gst_rate, shipping_tax: priced.shipping_tax,
       grand_total: priced.grand_total, status: 'Pending Approval',
       decided_by: '', decided_at: '', rejection_reason: '',
       courier: '', tracking_no: '', tracking_url: '',
@@ -335,7 +340,9 @@ const ROUTES = {
       cost_centre: o.cost_centre || '', lob_approver: o.lob_approver || '',
       requester_phone: o.requester_phone || '',
       subtotal: priced.subtotal, tax_total: priced.tax_total,
-      shipping_total: priced.shipping_total, grand_total: priced.grand_total,
+      shipping_total: priced.shipping_total,
+      shipping_gst_rate: priced.shipping_gst_rate, shipping_tax: priced.shipping_tax,
+      grand_total: priced.grand_total,
       status: approveNow ? 'Approved' : 'Pending Approval',
       decided_by: approveNow ? 'admin' : '', decided_at: approveNow ? stamp() : '',
       rejection_reason: '', courier: '', tracking_no: '', tracking_url: '',
@@ -348,6 +355,7 @@ const ROUTES = {
       ok: true, order_id: id, status: orders[id].status,
       total: priced.grand_total, list_total: priced.list_grand_total,
       shipping_total: priced.shipping_total, shipping_pct: priced.shipping_pct,
+      shipping_gst_rate: priced.shipping_gst_rate, shipping_tax: priced.shipping_tax,
       difference: r2(priced.grand_total - priced.list_grand_total),
       negotiated_lines: negotiated, evidence_files: files[id].length,
       approvers_notified: approveNow ? 0 : 1,

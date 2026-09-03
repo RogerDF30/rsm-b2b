@@ -165,10 +165,15 @@ function paint() {
         el('tr', {}, el('td', {}, 'GST'), el('td', {}, money(r.taxTotal))),
         el('tr', {}, el('td', {}, 'Shipping & handling'),
           el('td', {}, money(r.shippingTotal))),
+        r.shippingTax
+          ? el('tr', {}, el('td', {}, `GST on shipping & handling (${r.shippingGst}%)`),
+              el('td', {}, money(r.shippingTax)))
+          : null,
         el('tr', { class: 'grand' }, el('td', {}, 'Total'), el('td', {}, money(r.grandTotal))))),
       el('div', { class: 'small muted', style: 'margin:10px 0 14px' },
         'Shipping and handling is charged at ' + r.shippingPct +
-        '% of the order value before GST.'),
+        '% of the order value before GST, and carries GST at the highest rate ' +
+        'on the order.'),
       r.belowMoq.length
         ? el('div', { class: 'warn', style: 'margin-bottom:12px' },
             r.belowMoq.length === 1

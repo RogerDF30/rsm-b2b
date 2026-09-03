@@ -78,6 +78,16 @@ function page(inner) {
     '</div></body></html>';
 }
 
+/* GST on the shipping fee, as its own row. Blank on orders raised before the
+   fee became taxable, which is how those orders were actually charged. */
+function shippingTaxRow(o) {
+  var t = Number(o.shipping_tax || 0);
+  if (!t) return '';
+  var rate = Number(o.shipping_gst_rate || 0);
+  return '<tr><td class="num">GST on shipping &amp; handling' +
+    (rate ? ' (' + rate + '%)' : '') + '</td><td class="num">' + inr(t) + '</td></tr>';
+}
+
 function lineTable(lines) {
   var rows = lines.map(function (l) {
     return '<tr><td>' + esc(l.product_name) +
@@ -166,6 +176,7 @@ function sendApprovalEmails(orderId, exp) {
       '<tr><td class="num">Shipping &amp; handling</td><td class="num">' +
         (Number(o.shipping_total) > 0 ? inr(o.shipping_total) : inr(0)) +
         '</td></tr>' +
+      shippingTaxRow(o) +
       '<tr><td class="num"><b>Total</b></td><td class="num"><b>' + inr(o.grand_total) + '</b></td></tr>' +
       '</tbody></table>' +
 
@@ -248,6 +259,7 @@ function sendPlacedEmail(orderId) {
     '<tr><td class="num">Shipping &amp; handling</td><td class="num">' +
       (Number(o.shipping_total) > 0 ? inr(o.shipping_total) : inr(0)) +
       '</td></tr>' +
+    shippingTaxRow(o) +
     '<tr><td class="num"><b>Total</b></td><td class="num"><b>' + inr(o.grand_total) + '</b></td></tr>' +
     '</tbody></table>' +
 

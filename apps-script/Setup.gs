@@ -59,7 +59,11 @@ var TAB_HEADERS = {
     'subtotal', 'tax_total', 'shipping_total', 'grand_total', 'status',
     'token_expires_at', 'decided_by', 'decided_at', 'rejection_reason',
     'notified_at', 'closed_by', 'closed_at', 'courier', 'tracking_no',
-    'tracking_url', 'zoho_so_id', 'raised_by'],
+    'tracking_url', 'zoho_so_id', 'raised_by',
+    /* Shipping is a service and carries GST of its own, at the highest rate
+       actually charged on the order. Kept apart from tax_total so the fee's
+       tax can still be separated out for invoicing. */
+    'shipping_gst_rate', 'shipping_tax'],
 
   OrderLines: ['order_id', 'line_no', 'parent_sku', 'variant_sku',
     'product_name', 'size', 'qty', 'group_qty', 'tier_applied', 'unit_price',
@@ -210,6 +214,22 @@ function upgradeSchema() {
         linesSh.getRange(1, h.length + 1).setValue(col)
           .setFontWeight('bold').setBackground('#F4F8FB');
         done.push('added ' + col + ' to OrderLines');
+      }
+    });
+  }
+
+  /* 0b2. GST on the shipping fee. Added after the store was live; an order
+          written before this has both cells blank, which reads as no tax on
+          the fee, exactly as those orders were charged. */
+  var ordersShip = ss.getSheetByName(SHEETS.ORDERS);
+  if (ordersShip) {
+    ['shipping_gst_rate', 'shipping_tax'].forEach(function (col) {
+      var h = ordersShip.getRange(1, 1, 1, ordersShip.getLastColumn()).getValues()[0]
+        .map(function (x) { return String(x).trim(); });
+      if (h.indexOf(col) < 0) {
+        ordersShip.getRange(1, h.length + 1).setValue(col)
+          .setFontWeight('bold').setBackground('#F4F8FB');
+        done.push('added ' + col + ' to Orders');
       }
     });
   }

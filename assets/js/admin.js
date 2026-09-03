@@ -787,9 +787,9 @@ function paintAppearance(host) {
     ['hero_subtitle', 'Hero subtitle', ''],
     ['footer_note', 'Footer note', ''],
     ['shipping_pct', 'Shipping & handling (%)',
-      'Charged on the order value before GST, on every order, admin-raised or not. ' +
-      'Blank falls back to 8%. Orders use the new rate at once; publish to show ' +
-      'it in the storefront cart.'],
+      'Charged on the order value before GST, on every order, admin-raised or not, ' +
+      'and itself taxed at the highest GST rate on that order. Blank falls back to 8%. ' +
+      'Orders use the new rate at once; publish to show it in the storefront cart.'],
   ];
 
   host.append(el('div', { class: 'panel', style: 'max-width:700px' },
@@ -1037,9 +1037,15 @@ async function raiseOrder() {
     const pct = isFinite(pctRaw) && pctRaw >= 0 ? pctRaw : 8;
     const shipping = Math.round(net * pct) / 100;
     const listShipping = Math.round(listNet * pct) / 100;
-    return { rows, net, tax, pct, shipping,
-      total: net + tax + shipping,
-      listTotal: listTotal + listShipping };
+
+    /* The fee carries GST at the highest rate actually charged on the order. */
+    const shipGst = rows.reduce((m, r) => r.qty ? Math.max(m, r.gst) : m, 0);
+    const shipTax = Math.round(shipping * shipGst) / 100;
+    const listShipTax = Math.round(listShipping * shipGst) / 100;
+
+    return { rows, net, tax, pct, shipping, shipGst, shipTax,
+      total: net + tax + shipping + shipTax,
+      listTotal: listTotal + listShipping + listShipTax };
   }
 
   const bind = k => el('input', { type: 'text', value: draft[k],
@@ -1283,6 +1289,10 @@ async function raiseOrder() {
         el('tr', {}, el('td', {}, 'GST'), el('td', {}, money(q.tax))),
         el('tr', {}, el('td', {}, 'Shipping & handling'),
           el('td', {}, money(q.shipping))),
+        q.shipTax
+          ? el('tr', {}, el('td', {}, `GST on shipping & handling (${q.shipGst}%)`),
+              el('td', {}, money(q.shipTax)))
+          : null,
         el('tr', {}, el('td', {}, 'Catalogue total'), el('td', {}, money(q.listTotal))),
         el('tr', {}, el('td', {},
           diff < 0 ? 'Concession' : diff > 0 ? 'Uplift' : 'Difference'),
@@ -1297,7 +1307,8 @@ async function raiseOrder() {
         : null,
       el('div', { class: 'small muted', style: 'margin-top:10px' },
         `Shipping and handling is charged at ${q.pct}% of the order value ` +
-        'before GST. Change the rate in the Appearance tab.'));
+        'before GST, and carries GST at the highest rate on the order. ' +
+        'Change the percentage in the Appearance tab.'));
   }
 
   /* Same drop zone as checkout, except nothing here requires a file: the

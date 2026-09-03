@@ -150,15 +150,28 @@ function priceOrder(rawLines, overrides) {
   var shipping = round2(subtotal * pct / 100);
   var listShipping = round2(listSubtotal * pct / 100);
 
+  /* Shipping and handling is a service, so it carries GST of its own. The rate
+     is the highest ACTUALLY CHARGED on this order, not the highest a product
+     could attract: an apparel line sitting in its 5% tier counts as 5%, so an
+     order that is 5% throughout taxes the fee at 5% too. */
+  var shipGst = 0;
+  lines.forEach(function (l) {
+    if (Number(l.gst_rate) > shipGst) shipGst = Number(l.gst_rate);
+  });
+  var shippingTax = round2(shipping * shipGst / 100);
+  var listShippingTax = round2(listShipping * shipGst / 100);
+
   return {
     lines: lines,
     subtotal: round2(subtotal),
     tax_total: round2(taxTotal),
     shipping_pct: pct,
     shipping_total: shipping,
-    grand_total: round2(subtotal + taxTotal + shipping),
+    shipping_gst_rate: shipGst,
+    shipping_tax: shippingTax,
+    grand_total: round2(subtotal + taxTotal + shipping + shippingTax),
     list_subtotal: round2(listSubtotal),
-    list_grand_total: round2(listSubtotal + listTaxTotal + listShipping)
+    list_grand_total: round2(listSubtotal + listTaxTotal + listShipping + listShippingTax)
   };
 }
 
@@ -239,7 +252,10 @@ function fnSubmitOrder(req) {
       bill_pincode: o.bill_pincode || o.ship_pincode,
       bill_country: o.bill_country || 'India',
       subtotal: priced.subtotal, tax_total: priced.tax_total,
-      shipping_total: priced.shipping_total, grand_total: priced.grand_total,
+      shipping_total: priced.shipping_total,
+      shipping_gst_rate: priced.shipping_gst_rate,
+      shipping_tax: priced.shipping_tax,
+      grand_total: priced.grand_total,
       status: 'Pending Approval',
       token_expires_at: exp,
       decided_by: '', decided_at: '', rejection_reason: '',
@@ -520,7 +536,10 @@ function fnAdminCreateOrder(req) {
       bill_pincode: o.bill_pincode || o.ship_pincode,
       bill_country: o.bill_country || 'India',
       subtotal: priced.subtotal, tax_total: priced.tax_total,
-      shipping_total: priced.shipping_total, grand_total: priced.grand_total,
+      shipping_total: priced.shipping_total,
+      shipping_gst_rate: priced.shipping_gst_rate,
+      shipping_tax: priced.shipping_tax,
+      grand_total: priced.grand_total,
       status: approveNow ? 'Approved' : 'Pending Approval',
       token_expires_at: approveNow ? '' : exp,
       decided_by: approveNow ? 'admin' : '',
@@ -588,6 +607,8 @@ function fnAdminCreateOrder(req) {
     list_total: priced.list_grand_total,
     shipping_total: priced.shipping_total,
     shipping_pct: priced.shipping_pct,
+    shipping_gst_rate: priced.shipping_gst_rate,
+    shipping_tax: priced.shipping_tax,
     difference: round2(priced.grand_total - priced.list_grand_total),
     negotiated_lines: negotiatedCount,
     evidence_files: stored.length,

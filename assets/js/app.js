@@ -341,14 +341,23 @@ function priceCart(items, lookup) {
      a percentage of the goods value before GST, added after tax and not taxed
      itself. The rate is published in site.json so this can be shown in the
      cart; the backend recomputes it from the Sheet and stays the authority. */
-  const shippingPct = Number(Site.get('shipping_pct', 8));
-  const shippingTotal = Math.round(subtotal * (isFinite(shippingPct) ? shippingPct : 8)) / 100;
+  const rawPct = Number(Site.get('shipping_pct', 8));
+  const shippingPct = isFinite(rawPct) ? rawPct : 8;
+  const shippingTotal = Math.round(subtotal * shippingPct) / 100;
+
+  /* The fee is a service and carries GST of its own, at the highest rate
+     ACTUALLY CHARGED on this cart — a cart that is 5% throughout taxes the fee
+     at 5%. Mirrors priceOrder() on the backend, which stays the authority. */
+  const shippingGst = lines.reduce((m, l) => Math.max(m, Number(l.gst_rate) || 0), 0);
+  const shippingTax = Math.round(shippingTotal * shippingGst) / 100;
 
   return {
     lines, groups: groupInfo, subtotal, taxTotal,
-    shippingPct: isFinite(shippingPct) ? shippingPct : 8,
+    shippingPct,
     shippingTotal,
-    grandTotal: subtotal + taxTotal + shippingTotal,
+    shippingGst,
+    shippingTax,
+    grandTotal: subtotal + taxTotal + shippingTotal + shippingTax,
     belowMoq,
     blocked: belowMoq,        // old name, kept so nothing breaks mid-deploy
     valid: lines.length > 0,
