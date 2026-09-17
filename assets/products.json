@@ -1,6 +1,6 @@
 {
  "generated_from": "admin console",
- "generated_at": "2026-09-03 13:25:51",
+ "generated_at": "2026-09-17 15:43:22",
  "pricing_status": "from the Sheet",
  "categories": [
   {
@@ -5254,7 +5254,7 @@
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 866,
+     "unit_price": 850,
      "gst_rate": null
     },
     {
@@ -5317,7 +5317,7 @@
     {
      "min_qty": 201,
      "max_qty": 500,
-     "unit_price": 866,
+     "unit_price": 850,
      "gst_rate": null
     },
     {
