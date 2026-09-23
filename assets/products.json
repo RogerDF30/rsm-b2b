@@ -1,6 +1,6 @@
 {
  "generated_from": "admin console",
- "generated_at": "2026-09-17 15:43:22",
+ "generated_at": "2026-09-23 13:22:18",
  "pricing_status": "from the Sheet",
  "categories": [
   {
@@ -13515,6 +13515,120 @@
    "sizes": [],
    "has_sizes": false,
    "image": "assets/products/crystal-trophy-005.webp",
+   "weight": "",
+   "active": true,
+   "related": []
+  },
+  {
+   "sku": "B2BRSMON-0245",
+   "name": "Eco Wheat husk mug",
+   "url_key": "",
+   "category": "Drinkware",
+   "subcategory": "Mugs & tumblers",
+   "attribute_set": "",
+   "description": "A stylish, 300 ml ceramic mug designed to bring a clean, minimalist touch to your daily beverage routine. Featuring a warm, textured off-white finish and an ergonomically curved handle, it offers both comfort and timeless aesthetic appeal for your favorite tea or coffee.",
+   "specs": [],
+   "moq": 1,
+   "gst_rate": 18,
+   "base_price": 180,
+   "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": null,
+     "unit_price": 180,
+     "gst_rate": null
+    },
+    {
+     "min_qty": 51,
+     "max_qty": null,
+     "unit_price": 160,
+     "gst_rate": null
+    },
+    {
+     "min_qty": 101,
+     "max_qty": null,
+     "unit_price": 155,
+     "gst_rate": null
+    },
+    {
+     "min_qty": 201,
+     "max_qty": null,
+     "unit_price": 150,
+     "gst_rate": null
+    },
+    {
+     "min_qty": 501,
+     "max_qty": null,
+     "unit_price": 145,
+     "gst_rate": null
+    },
+    {
+     "min_qty": 1001,
+     "max_qty": null,
+     "unit_price": 144,
+     "gst_rate": null
+    }
+   ],
+   "sizes": [],
+   "has_sizes": false,
+   "image": "https://drive.google.com/uc?export=view&id=1tyq3gF_3hghPsWXYIbf31WfcBg3jjib6",
+   "weight": "",
+   "active": true,
+   "related": []
+  },
+  {
+   "sku": "B2BRSMON-0246",
+   "name": "Lid",
+   "url_key": "",
+   "category": "Drinkware",
+   "subcategory": "Mugs & tumblers",
+   "attribute_set": "",
+   "description": "A minimalist round tray featuring a natural speckled finish in a soft off-white tone. Its raised, smooth rim and shallow profile make it ideal for serving, organizing small essentials, or use as a decorative tabletop accessory.",
+   "specs": [],
+   "moq": 1,
+   "gst_rate": 18,
+   "base_price": 70,
+   "tiers": [
+    {
+     "min_qty": 1,
+     "max_qty": null,
+     "unit_price": 70,
+     "gst_rate": null
+    },
+    {
+     "min_qty": 51,
+     "max_qty": null,
+     "unit_price": 65,
+     "gst_rate": null
+    },
+    {
+     "min_qty": 101,
+     "max_qty": null,
+     "unit_price": 60,
+     "gst_rate": null
+    },
+    {
+     "min_qty": 201,
+     "max_qty": null,
+     "unit_price": 50,
+     "gst_rate": null
+    },
+    {
+     "min_qty": 501,
+     "max_qty": null,
+     "unit_price": 48,
+     "gst_rate": null
+    },
+    {
+     "min_qty": 1001,
+     "max_qty": null,
+     "unit_price": 45,
+     "gst_rate": null
+    }
+   ],
+   "sizes": [],
+   "has_sizes": false,
+   "image": "https://drive.google.com/uc?export=view&id=1ItZ6tfWDVD5XVmkgm5bY-QwCByKdZvny",
    "weight": "",
    "active": true,
    "related": []
